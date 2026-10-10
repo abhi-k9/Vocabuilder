@@ -183,7 +183,8 @@ A Leitner-style schedule: simple, predictable and easy to explain in the UI.
   every definition and example sentence is written fresh for this app.
 - Each word: stable ID (`gre:abate`), headword, senses (part of speech, definition, example), synonyms,
   antonyms, level, optional note on usage or tone.
-- Source files live in `content/` as one JSON file per deck, reviewed like code. A JVM test validates
+- Source files live in `core/content/src/main/assets/content/` as one JSON file per deck, reviewed
+  like code (see [the content guide](CONTENT.md)). A JVM test validates
   them: unique IDs, every field present, the example uses the word, synonyms that are themselves in the
   pack link to each other, no duplicate words across decks.
 - On first launch and whenever the bundled content version changes, it is seeded into Room. Progress

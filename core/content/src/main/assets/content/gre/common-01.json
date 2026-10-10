@@ -1,0 +1,673 @@
+{
+  "level": "common",
+  "number": 1,
+  "words": [
+    {
+      "word": "abate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to become less intense or widespread",
+          "example": "By evening the storm had abated, and the ferries started running again."
+        },
+        {
+          "pos": "verb",
+          "definition": "to reduce or lessen something",
+          "example": "Nothing the doctor tried could abate the patient's fever."
+        }
+      ],
+      "synonyms": ["subside", "wane", "ebb", "lessen"],
+      "antonyms": ["intensify", "escalate"]
+    },
+    {
+      "word": "adamant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "refusing to change one's mind, however hard one is pressed",
+          "example": "He was adamant that he had locked the door, though it stood wide open."
+        }
+      ],
+      "synonyms": ["unyielding", "firm", "inflexible", "resolute"],
+      "antonyms": ["flexible", "irresolute"]
+    },
+    {
+      "word": "advocate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to publicly support or recommend a cause or policy",
+          "example": "The report advocates a gradual shift to renewable energy."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person who publicly supports a cause or argues on behalf of someone",
+          "example": "She was a lifelong advocate for children's literacy."
+        }
+      ],
+      "synonyms": ["champion", "support", "promote", "endorse"],
+      "antonyms": ["oppose", "criticize"]
+    },
+    {
+      "word": "alleviate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make pain, suffering or a problem less severe",
+          "example": "The new bus line should alleviate traffic on the main road."
+        }
+      ],
+      "synonyms": ["ease", "relieve", "mitigate", "allay"],
+      "antonyms": ["aggravate", "exacerbate", "worsen"]
+    },
+    {
+      "word": "antipathy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a deep-seated feeling of dislike",
+          "example": "Her antipathy toward long meetings was well known."
+        }
+      ],
+      "synonyms": ["aversion", "hostility", "animosity", "dislike"],
+      "antonyms": ["affinity", "liking", "sympathy"]
+    },
+    {
+      "word": "ascetic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "practicing severe self-discipline and avoiding all forms of indulgence",
+          "example": "The monks lived an ascetic life of prayer, work and silence."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person who lives with severe self-discipline, often for religious reasons",
+          "example": "The ascetic owned nothing but a blanket and a bowl."
+        }
+      ],
+      "synonyms": ["austere", "abstemious", "self-denying", "spartan"],
+      "antonyms": ["hedonistic", "indulgent", "sybaritic"]
+    },
+    {
+      "word": "burgeon",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to grow or increase rapidly; to flourish",
+          "example": "The town burgeoned after the railway arrived."
+        }
+      ],
+      "synonyms": ["flourish", "boom", "mushroom", "proliferate"],
+      "antonyms": ["dwindle", "decline", "wither"]
+    },
+    {
+      "word": "cacophony",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a harsh, discordant mixture of sounds",
+          "example": "The cacophony of car horns woke him at dawn."
+        }
+      ],
+      "synonyms": ["din", "racket", "discord", "clamor"],
+      "antonyms": ["harmony", "euphony", "silence"]
+    },
+    {
+      "word": "capricious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "given to sudden and unaccountable changes of mood or behavior",
+          "example": "The capricious spring weather swung from sun to sleet in an hour."
+        }
+      ],
+      "synonyms": ["fickle", "mercurial", "whimsical", "erratic"],
+      "antonyms": ["steady", "constant", "predictable"]
+    },
+    {
+      "word": "castigate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reprimand someone severely",
+          "example": "The judge castigated the lawyers for wasting the court's time."
+        }
+      ],
+      "synonyms": ["reprimand", "berate", "chastise", "rebuke"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "caustic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sarcastic in a scathing and bitter way",
+          "example": "His caustic reviews made him feared by young playwrights."
+        },
+        {
+          "pos": "adjective",
+          "definition": "able to burn or corrode living tissue",
+          "example": "Wear gloves when handling caustic cleaning products."
+        }
+      ],
+      "synonyms": ["scathing", "cutting", "acerbic", "mordant"],
+      "antonyms": ["mild", "kind", "gentle"]
+    },
+    {
+      "word": "copious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "abundant in supply or quantity",
+          "example": "She took copious notes during the lecture."
+        }
+      ],
+      "synonyms": ["abundant", "plentiful", "ample", "profuse"],
+      "antonyms": ["scarce", "sparse", "meager"]
+    },
+    {
+      "word": "digress",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to leave the main subject temporarily in speech or writing",
+          "example": "The professor often digressed into stories about his travels."
+        }
+      ],
+      "synonyms": ["deviate", "wander", "stray", "ramble"]
+    },
+    {
+      "word": "discrepancy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a lack of agreement between facts or figures that should match",
+          "example": "Auditors found a discrepancy between the two sets of accounts."
+        }
+      ],
+      "synonyms": ["inconsistency", "disparity", "mismatch", "divergence"],
+      "antonyms": ["consistency", "agreement", "correspondence"]
+    },
+    {
+      "word": "efficacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "successful in producing a desired or intended result; effective",
+          "example": "Rest and fluids proved the most efficacious remedy."
+        }
+      ],
+      "synonyms": ["effective", "potent", "successful", "productive"],
+      "antonyms": ["ineffective", "useless", "futile"]
+    },
+    {
+      "word": "eloquent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "fluent or persuasive in speaking or writing",
+          "example": "Her eloquent speech moved many in the audience to tears."
+        }
+      ],
+      "synonyms": ["articulate", "expressive", "persuasive", "fluent"],
+      "antonyms": ["inarticulate", "halting"]
+    },
+    {
+      "word": "emulate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to match or surpass a person or achievement, typically by imitation",
+          "example": "Young players try to emulate their heroes."
+        }
+      ],
+      "synonyms": ["imitate", "copy", "mirror", "follow"]
+    },
+    {
+      "word": "erratic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not even or regular in pattern or movement; unpredictable",
+          "example": "The car's erratic swerving alarmed the other drivers."
+        }
+      ],
+      "synonyms": ["unpredictable", "irregular", "inconsistent", "capricious"],
+      "antonyms": ["steady", "consistent", "regular"]
+    },
+    {
+      "word": "expedient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "convenient and practical, although possibly improper or immoral",
+          "example": "It was expedient to blame the intern rather than admit the mistake."
+        },
+        {
+          "pos": "noun",
+          "definition": "a means of attaining an end, especially one that is convenient but possibly improper",
+          "example": "Closing the library was a short-term expedient to save money."
+        }
+      ],
+      "synonyms": ["convenient", "advantageous", "opportune", "politic"],
+      "antonyms": ["inexpedient", "impractical"]
+    },
+    {
+      "word": "extol",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to praise enthusiastically",
+          "example": "The guidebook extols the beauty of the coastal walk."
+        }
+      ],
+      "synonyms": ["praise", "laud", "acclaim", "eulogize"],
+      "antonyms": ["criticize", "disparage", "denigrate"]
+    },
+    {
+      "word": "facetious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "treating serious issues with deliberately inappropriate humor",
+          "example": "His facetious remarks during the safety briefing annoyed the captain."
+        }
+      ],
+      "synonyms": ["flippant", "glib", "frivolous", "joking"],
+      "antonyms": ["serious", "earnest", "solemn"]
+    },
+    {
+      "word": "fallacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "based on a mistaken belief or unsound reasoning",
+          "example": "The argument rests on the fallacious assumption that prices never fall."
+        }
+      ],
+      "synonyms": ["erroneous", "false", "mistaken", "spurious"],
+      "antonyms": ["valid", "sound", "true"]
+    },
+    {
+      "word": "flagrant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of something bad) conspicuously or obviously offensive",
+          "example": "The decision was a flagrant violation of the treaty."
+        }
+      ],
+      "synonyms": ["blatant", "glaring", "egregious", "brazen"],
+      "antonyms": ["subtle", "minor", "hidden"]
+    },
+    {
+      "word": "futile",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "incapable of producing any useful result; pointless",
+          "example": "It was futile to argue with the referee."
+        }
+      ],
+      "synonyms": ["pointless", "useless", "vain", "fruitless"],
+      "antonyms": ["effective", "productive", "worthwhile"]
+    },
+    {
+      "word": "impede",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to delay or prevent someone or something by obstructing them",
+          "example": "Fallen trees impeded the ambulance."
+        }
+      ],
+      "synonyms": ["hinder", "hamper", "obstruct", "block"],
+      "antonyms": ["facilitate", "assist", "expedite"]
+    },
+    {
+      "word": "indigenous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "originating or occurring naturally in a particular place; native",
+          "example": "The kangaroo is indigenous to Australia."
+        }
+      ],
+      "synonyms": ["native", "aboriginal", "endemic", "original"],
+      "antonyms": ["foreign", "alien", "introduced"]
+    },
+    {
+      "word": "ineffable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "too great or extreme to be expressed in words",
+          "example": "They stood in ineffable awe at the edge of the canyon."
+        }
+      ],
+      "synonyms": ["indescribable", "inexpressible", "unspeakable", "beyond words"]
+    },
+    {
+      "word": "ingenuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "innocent and unsuspecting; naive",
+          "example": "Her ingenuous question about the price made the dealer smile."
+        }
+      ],
+      "synonyms": ["naive", "innocent", "artless", "guileless"],
+      "antonyms": ["disingenuous", "artful", "cunning"],
+      "note": "Ingenuous means innocent and candid; ingenious means clever and inventive."
+    },
+    {
+      "word": "innocuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not harmful or offensive",
+          "example": "The question seemed innocuous, but it upset him."
+        }
+      ],
+      "synonyms": ["harmless", "inoffensive", "benign", "safe"],
+      "antonyms": ["harmful", "offensive", "noxious"]
+    },
+    {
+      "word": "inundate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to overwhelm someone with things or people to be dealt with",
+          "example": "After the article ran, the shop was inundated with orders."
+        },
+        {
+          "pos": "verb",
+          "definition": "to flood an area with water",
+          "example": "The river inundated the valley every spring."
+        }
+      ],
+      "synonyms": ["overwhelm", "swamp", "flood", "deluge"]
+    },
+    {
+      "word": "irreverent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a lack of respect for people or things that are generally taken seriously",
+          "example": "The comedian's irreverent take on the royal family drew complaints."
+        }
+      ],
+      "synonyms": ["disrespectful", "impious", "flippant", "cheeky"],
+      "antonyms": ["reverent", "respectful", "deferential"]
+    },
+    {
+      "word": "laud",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to praise someone or something highly",
+          "example": "The mayor lauded the firefighters for their courage."
+        }
+      ],
+      "synonyms": ["praise", "extol", "acclaim", "applaud"],
+      "antonyms": ["criticize", "censure", "denigrate"]
+    },
+    {
+      "word": "lethargic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sluggish and apathetic",
+          "example": "The heat made everyone lethargic."
+        }
+      ],
+      "synonyms": ["sluggish", "listless", "languid", "torpid"],
+      "antonyms": ["energetic", "lively", "vigorous"]
+    },
+    {
+      "word": "levity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "humor or frivolity, especially the treatment of a serious matter with humor",
+          "example": "A little levity eased the tension in the waiting room."
+        }
+      ],
+      "synonyms": ["humor", "frivolity", "lightheartedness", "jocularity"],
+      "antonyms": ["seriousness", "gravity", "solemnity"]
+    },
+    {
+      "word": "myriad",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "countless or extremely great in number",
+          "example": "The reef is home to myriad species of fish."
+        },
+        {
+          "pos": "noun",
+          "definition": "a countless or extremely great number",
+          "example": "A myriad of stars filled the desert sky."
+        }
+      ],
+      "synonyms": ["countless", "innumerable", "numerous", "untold"],
+      "antonyms": ["few", "limited"]
+    },
+    {
+      "word": "obsequious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "obedient or attentive to an excessive or servile degree",
+          "example": "The obsequious assistant agreed with everything the boss said."
+        }
+      ],
+      "synonyms": ["servile", "sycophantic", "fawning", "ingratiating"],
+      "antonyms": ["assertive", "domineering", "independent"]
+    },
+    {
+      "word": "onerous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "involving an amount of effort and difficulty that is oppressively burdensome",
+          "example": "Caring for three young children alone was an onerous task."
+        }
+      ],
+      "synonyms": ["burdensome", "arduous", "taxing", "demanding"],
+      "antonyms": ["easy", "effortless", "light"]
+    },
+    {
+      "word": "placate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make someone less angry or hostile",
+          "example": "The airline placated passengers with meal vouchers."
+        }
+      ],
+      "synonyms": ["appease", "mollify", "pacify", "soothe"],
+      "antonyms": ["enrage", "provoke", "antagonize"]
+    },
+    {
+      "word": "profound",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a state, quality or emotion) very great or intense",
+          "example": "The discovery had a profound effect on medicine."
+        },
+        {
+          "pos": "adjective",
+          "definition": "having or showing great knowledge or insight",
+          "example": "Her essays are short but profound."
+        }
+      ],
+      "synonyms": ["deep", "intense", "great", "far-reaching"],
+      "antonyms": ["superficial", "slight", "mild"]
+    },
+    {
+      "word": "rebuke",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express sharp disapproval or criticism of someone because of their behavior or actions",
+          "example": "The coach rebuked the players for arriving late."
+        },
+        {
+          "pos": "noun",
+          "definition": "an expression of sharp disapproval or criticism",
+          "example": "The election result was a rebuke to the ruling party."
+        }
+      ],
+      "synonyms": ["reprimand", "scold", "reproach", "castigate"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "renounce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to formally declare one's abandonment of a claim, right or possession",
+          "example": "The prince renounced his claim to the throne."
+        },
+        {
+          "pos": "verb",
+          "definition": "to refuse to continue to recognize or abide by",
+          "example": "She renounced the violent methods of her youth."
+        }
+      ],
+      "synonyms": ["relinquish", "give up", "abandon", "forgo"],
+      "antonyms": ["claim", "assert", "retain"]
+    },
+    {
+      "word": "reticent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not revealing one's thoughts or feelings readily",
+          "example": "She was reticent about her past."
+        }
+      ],
+      "synonyms": ["reserved", "taciturn", "uncommunicative", "restrained"],
+      "antonyms": ["forthcoming", "open", "talkative"]
+    },
+    {
+      "word": "sanction",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "official permission or approval for an action",
+          "example": "The trip went ahead with the sanction of the school board."
+        },
+        {
+          "pos": "noun",
+          "definition": "a threatened penalty for disobeying a law or rule",
+          "example": "The country faced trade sanctions after the invasion."
+        },
+        {
+          "pos": "verb",
+          "definition": "to give official permission or approval for",
+          "example": "The league refused to sanction the match."
+        }
+      ],
+      "synonyms": ["approval", "authorization", "permission", "endorsement"],
+      "antonyms": ["prohibition", "ban", "veto"],
+      "note": "Sanction can mean both approval and a penalty, so read the context closely."
+    },
+    {
+      "word": "sparse",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "thinly dispersed or scattered",
+          "example": "The desert has sparse vegetation."
+        }
+      ],
+      "synonyms": ["scant", "scattered", "meager", "scarce"],
+      "antonyms": ["dense", "abundant", "thick"]
+    },
+    {
+      "word": "sycophant",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who acts obsequiously toward someone important in order to gain advantage",
+          "example": "The king surrounded himself with sycophants who told him only good news."
+        }
+      ],
+      "synonyms": ["flatterer", "toady", "yes-man", "bootlicker"]
+    },
+    {
+      "word": "tacit",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "understood or implied without being stated",
+          "example": "They had a tacit agreement not to discuss politics."
+        }
+      ],
+      "synonyms": ["implicit", "unspoken", "implied", "understood"],
+      "antonyms": ["explicit", "stated", "express"]
+    },
+    {
+      "word": "tedious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "too long, slow or dull; tiresome or monotonous",
+          "example": "Copying the records by hand was a tedious job."
+        }
+      ],
+      "synonyms": ["boring", "monotonous", "dull", "wearisome"],
+      "antonyms": ["interesting", "exciting", "engaging"]
+    },
+    {
+      "word": "temperance",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "moderation or self-restraint, especially in eating and drinking",
+          "example": "The doctor recommended temperance in all things."
+        }
+      ],
+      "synonyms": ["moderation", "restraint", "self-control", "abstinence"],
+      "antonyms": ["excess", "overindulgence", "intemperance"]
+    },
+    {
+      "word": "vindicate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to clear someone of blame or suspicion",
+          "example": "The report vindicated the pilot, blaming the crash on a mechanical fault."
+        },
+        {
+          "pos": "verb",
+          "definition": "to show to be right or reasonable; to justify",
+          "example": "Her decision to sell early was vindicated when prices fell."
+        }
+      ],
+      "synonyms": ["exonerate", "absolve", "clear", "acquit"],
+      "antonyms": ["blame", "convict", "incriminate"]
+    },
+    {
+      "word": "virulent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a disease or poison) extremely severe or harmful in its effects",
+          "example": "A virulent strain of flu swept the country."
+        },
+        {
+          "pos": "adjective",
+          "definition": "bitterly hostile",
+          "example": "The proposal drew virulent criticism from local residents."
+        }
+      ],
+      "synonyms": ["deadly", "lethal", "toxic", "malignant"],
+      "antonyms": ["harmless", "mild", "benign"]
+    }
+  ]
+}
