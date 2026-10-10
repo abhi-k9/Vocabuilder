@@ -33,6 +33,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 
+include(":core:designsystem")
+
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     """
     Vocabuilder requires JDK 17+ but it is currently using JDK ${JavaVersion.current()}.

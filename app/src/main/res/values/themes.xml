@@ -2,4 +2,11 @@
 <resources>
     <!-- The window theme; Compose draws everything else. -->
     <style name="Theme.Vocabuilder" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Shown while the app starts, then replaced by Theme.Vocabuilder. -->
+    <style name="Theme.Vocabuilder.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.Vocabuilder</item>
+    </style>
 </resources>
