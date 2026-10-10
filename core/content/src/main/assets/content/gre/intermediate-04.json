@@ -1,0 +1,651 @@
+{
+  "level": "intermediate",
+  "number": 4,
+  "words": [
+    {
+      "word": "arduous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "involving or requiring strenuous effort; difficult and tiring",
+          "example": "The arduous climb took nine hours."
+        }
+      ],
+      "synonyms": ["strenuous", "grueling", "laborious", "onerous"],
+      "antonyms": ["easy", "effortless", "light"]
+    },
+    {
+      "word": "belligerent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "hostile and aggressive",
+          "example": "The belligerent drunk picked a fight with the bouncer."
+        },
+        {
+          "pos": "adjective",
+          "definition": "engaged in a war or conflict",
+          "example": "The belligerent nations agreed to a ceasefire."
+        }
+      ],
+      "synonyms": ["hostile", "aggressive", "combative", "pugnacious"],
+      "antonyms": ["peaceable", "conciliatory", "friendly"]
+    },
+    {
+      "word": "capitulate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cease to resist an opponent or an unwelcome demand; to surrender",
+          "example": "After a long siege, the city capitulated."
+        }
+      ],
+      "synonyms": ["surrender", "yield", "give in", "submit"],
+      "antonyms": ["resist", "hold out", "defy"]
+    },
+    {
+      "word": "chicanery",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the use of trickery to achieve a political, financial or legal purpose",
+          "example": "The election was marred by chicanery and vote buying."
+        }
+      ],
+      "synonyms": ["trickery", "deception", "deceit", "subterfuge"],
+      "antonyms": ["honesty", "probity"]
+    },
+    {
+      "word": "cloying",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "disgusting or distasteful because of excessive sweetness or sentiment",
+          "example": "The film's cloying ending ruined it for me."
+        }
+      ],
+      "synonyms": ["sickly", "saccharine", "sentimental", "mawkish"],
+      "antonyms": ["refreshing", "subtle"]
+    },
+    {
+      "word": "construe",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to interpret a word or action in a particular way",
+          "example": "His silence was construed as consent."
+        }
+      ],
+      "synonyms": ["interpret", "read", "understand", "take"]
+    },
+    {
+      "word": "culminate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reach a climax or point of highest development",
+          "example": "The festival culminates in a fireworks display."
+        }
+      ],
+      "synonyms": ["climax", "peak", "end", "conclude"],
+      "antonyms": ["begin", "start"]
+    },
+    {
+      "word": "cynical",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "believing that people are motivated purely by self-interest; distrustful of human sincerity",
+          "example": "She was cynical about the politician's sudden interest in the poor."
+        }
+      ],
+      "synonyms": ["skeptical", "distrustful", "suspicious", "jaded"],
+      "antonyms": ["trusting", "idealistic", "naive"]
+    },
+    {
+      "word": "daunt",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make someone feel intimidated or apprehensive",
+          "example": "The size of the task did not daunt her."
+        }
+      ],
+      "synonyms": ["intimidate", "discourage", "dismay", "deter"],
+      "antonyms": ["encourage", "hearten", "embolden"]
+    },
+    {
+      "word": "decry",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to publicly denounce",
+          "example": "Critics decried the decision as reckless."
+        }
+      ],
+      "synonyms": ["denounce", "condemn", "criticize", "deplore"],
+      "antonyms": ["praise", "extol", "laud"]
+    },
+    {
+      "word": "dither",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to be indecisive",
+          "example": "Stop dithering and choose a dish!"
+        }
+      ],
+      "synonyms": ["hesitate", "waver", "vacillate", "dally"],
+      "antonyms": ["decide"]
+    },
+    {
+      "word": "docile",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ready to accept control or instruction; submissive",
+          "example": "The docile pony let the children ride him."
+        }
+      ],
+      "synonyms": ["compliant", "tractable", "submissive", "obedient"],
+      "antonyms": ["unruly", "recalcitrant", "wild"]
+    },
+    {
+      "word": "dupe",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to deceive; to trick",
+          "example": "They were duped into buying fake concert tickets."
+        },
+        {
+          "pos": "noun",
+          "definition": "a victim of deception",
+          "example": "He was the dupe in an elaborate scam."
+        }
+      ],
+      "synonyms": ["deceive", "trick", "fool", "hoodwink"]
+    },
+    {
+      "word": "elegy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a poem of serious reflection, typically a lament for the dead",
+          "example": "He wrote an elegy for his teacher."
+        }
+      ],
+      "synonyms": ["lament", "dirge", "requiem"]
+    },
+    {
+      "word": "euphoric",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "characterized by or feeling intense excitement and happiness",
+          "example": "The team was euphoric after the win."
+        }
+      ],
+      "synonyms": ["elated", "ecstatic", "jubilant", "exhilarated"],
+      "antonyms": ["depressed", "miserable", "despondent"]
+    },
+    {
+      "word": "excoriate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to criticize someone or something severely",
+          "example": "The review excoriated the novel's lazy plotting."
+        }
+      ],
+      "synonyms": ["condemn", "censure", "lambaste", "denounce"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "facile",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ignoring the true complexities of an issue; superficial",
+          "example": "The book offers facile answers to difficult questions."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of success) easily achieved; effortless",
+          "example": "The champion won a facile victory."
+        }
+      ],
+      "synonyms": ["simplistic", "superficial", "glib", "shallow"],
+      "antonyms": ["profound", "thoughtful", "complex"]
+    },
+    {
+      "word": "fallow",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of farmland) plowed and harrowed but left for a period without being sown to restore its fertility",
+          "example": "The farmers leave a field fallow every third year."
+        },
+        {
+          "pos": "adjective",
+          "definition": "inactive or unproductive",
+          "example": "After a fallow decade, the composer wrote three symphonies in two years."
+        }
+      ],
+      "synonyms": ["uncultivated", "unplanted", "unsown", "dormant"],
+      "antonyms": ["cultivated", "planted"]
+    },
+    {
+      "word": "feign",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to pretend to be affected by a feeling, state or injury",
+          "example": "He feigned illness to avoid the exam."
+        }
+      ],
+      "synonyms": ["pretend", "fake", "simulate", "sham"]
+    },
+    {
+      "word": "florid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "elaborately or excessively intricate or complicated",
+          "example": "The novel's florid prose is hard going."
+        },
+        {
+          "pos": "adjective",
+          "definition": "having a red or flushed complexion",
+          "example": "His florid face grew even redder in the heat."
+        }
+      ],
+      "synonyms": ["ornate", "flowery", "elaborate", "overwrought"],
+      "antonyms": ["plain", "simple", "austere"]
+    },
+    {
+      "word": "forestall",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to prevent or obstruct an anticipated event or action by taking action ahead of time",
+          "example": "The government cut taxes to forestall a recession."
+        }
+      ],
+      "synonyms": ["prevent", "avert", "preempt", "thwart"],
+      "antonyms": ["allow", "permit"]
+    },
+    {
+      "word": "forthright",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "direct and outspoken; straightforward and honest",
+          "example": "She was forthright about the risks of the treatment."
+        }
+      ],
+      "synonyms": ["frank", "candid", "direct", "blunt"],
+      "antonyms": ["evasive", "guarded", "devious"]
+    },
+    {
+      "word": "fortitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "courage in pain or adversity",
+          "example": "She faced her long illness with fortitude."
+        }
+      ],
+      "synonyms": ["courage", "resilience", "endurance", "grit"],
+      "antonyms": ["cowardice", "weakness"]
+    },
+    {
+      "word": "grandiloquent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "pompous or extravagant in language, style or manner, especially in a way that is intended to impress",
+          "example": "The mayor's grandiloquent speech was full of empty promises."
+        }
+      ],
+      "synonyms": ["pompous", "bombastic", "pretentious", "high-flown"],
+      "antonyms": ["plain", "simple", "unpretentious"]
+    },
+    {
+      "word": "heinous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or wrongful act, especially a crime) utterly odious or wicked",
+          "example": "The jury was shocked by the heinous nature of the crime."
+        }
+      ],
+      "synonyms": ["atrocious", "monstrous", "abominable", "wicked"],
+      "antonyms": ["admirable", "virtuous", "good"]
+    },
+    {
+      "word": "hypocrisy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the practice of claiming to have higher standards or more noble beliefs than is the case",
+          "example": "Critics pointed out the hypocrisy of preaching thrift while flying first class."
+        }
+      ],
+      "synonyms": ["insincerity", "duplicity", "sanctimony", "pretense"],
+      "antonyms": ["sincerity", "honesty"]
+    },
+    {
+      "word": "indignant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or showing anger or annoyance at what is perceived as unfair treatment",
+          "example": "She was indignant at the suggestion that she had cheated."
+        }
+      ],
+      "synonyms": ["resentful", "offended", "aggrieved", "outraged"],
+      "antonyms": ["pleased", "content"]
+    },
+    {
+      "word": "ingenious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) clever, original and inventive",
+          "example": "An ingenious engineer, she rebuilt the pump from bicycle parts."
+        }
+      ],
+      "synonyms": ["inventive", "clever", "creative", "resourceful"],
+      "antonyms": ["unimaginative", "dull"],
+      "note": "Ingenious means clever; ingenuous means innocent and candid."
+    },
+    {
+      "word": "modicum",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a small quantity of a particular thing, especially something considered desirable or valuable",
+          "example": "Anyone with a modicum of sense would have left."
+        }
+      ],
+      "synonyms": ["small amount", "bit", "iota", "shred"],
+      "antonyms": ["abundance", "wealth"]
+    },
+    {
+      "word": "oblique",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not explicit or done in a direct way",
+          "example": "She made an oblique reference to his past failures."
+        },
+        {
+          "pos": "adjective",
+          "definition": "neither parallel nor at a right angle; slanting",
+          "example": "The road meets the river at an oblique angle."
+        }
+      ],
+      "synonyms": ["indirect", "roundabout", "implicit", "sidelong"],
+      "antonyms": ["direct", "explicit", "straightforward"]
+    },
+    {
+      "word": "opulent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ostentatiously rich and luxurious or lavish",
+          "example": "They stayed in an opulent hotel with marble floors."
+        }
+      ],
+      "synonyms": ["luxurious", "lavish", "sumptuous", "plush"],
+      "antonyms": ["spartan", "austere", "modest"]
+    },
+    {
+      "word": "panacea",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a solution or remedy for all difficulties or diseases",
+          "example": "Technology is not a panacea for poor schools."
+        }
+      ],
+      "synonyms": ["cure-all", "universal remedy", "elixir"]
+    },
+    {
+      "word": "poignant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "evoking a keen sense of sadness or regret",
+          "example": "The letter was a poignant reminder of their friendship."
+        }
+      ],
+      "synonyms": ["touching", "moving", "affecting", "heart-rending"]
+    },
+    {
+      "word": "polemic",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a strong verbal or written attack on someone or something",
+          "example": "The book is a polemic against the modern diet."
+        }
+      ],
+      "synonyms": ["diatribe", "critique", "attack", "invective"],
+      "antonyms": ["eulogy", "defense"]
+    },
+    {
+      "word": "preponderance",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the quality or fact of being greater in number, quantity or importance",
+          "example": "The preponderance of evidence points to his guilt."
+        }
+      ],
+      "synonyms": ["majority", "predominance", "bulk", "prevalence"],
+      "antonyms": ["minority"]
+    },
+    {
+      "word": "pretentious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "attempting to impress by affecting greater importance, talent or culture than is actually possessed",
+          "example": "The restaurant's pretentious menu described the toast as \"artisanal bread, flame-kissed.\""
+        }
+      ],
+      "synonyms": ["affected", "ostentatious", "showy", "pompous"],
+      "antonyms": ["unpretentious", "modest", "natural"]
+    },
+    {
+      "word": "pungent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having a sharply strong taste or smell",
+          "example": "The pungent smell of garlic filled the kitchen."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of remarks or humor) having a sharp and caustic quality",
+          "example": "The play is a pungent satire of office life."
+        }
+      ],
+      "synonyms": ["strong", "sharp", "acrid", "piquant"],
+      "antonyms": ["mild", "bland", "faint"]
+    },
+    {
+      "word": "quixotic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "exceedingly idealistic; unrealistic and impractical",
+          "example": "His quixotic plan to end world hunger by Christmas failed."
+        }
+      ],
+      "synonyms": ["idealistic", "romantic", "unrealistic", "impractical"],
+      "antonyms": ["practical", "realistic", "pragmatic"]
+    },
+    {
+      "word": "raze",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to completely destroy a building, town or other site",
+          "example": "The old factory was razed to make way for housing."
+        }
+      ],
+      "synonyms": ["demolish", "destroy", "flatten", "level"],
+      "antonyms": ["build", "construct", "erect"]
+    },
+    {
+      "word": "retract",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to withdraw a statement or accusation as untrue or unjustified",
+          "example": "The newspaper retracted the story and apologized."
+        },
+        {
+          "pos": "verb",
+          "definition": "to draw or be drawn back or back in",
+          "example": "A cat can retract its claws."
+        }
+      ],
+      "synonyms": ["withdraw", "take back", "recant", "revoke"],
+      "antonyms": ["maintain", "reaffirm"]
+    },
+    {
+      "word": "satiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to satisfy a desire or an appetite to the full",
+          "example": "The huge lunch satiated even the hungriest hikers."
+        }
+      ],
+      "synonyms": ["satisfy", "sate", "fill", "quench"],
+      "antonyms": ["starve", "deprive"]
+    },
+    {
+      "word": "staid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sedate, respectable and unadventurous",
+          "example": "The staid old bank surprised everyone with its bold new ads."
+        }
+      ],
+      "synonyms": ["sedate", "conservative", "dull", "prim"],
+      "antonyms": ["adventurous", "daring", "flamboyant"]
+    },
+    {
+      "word": "stolid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) calm, dependable and showing little emotion or animation",
+          "example": "The stolid farmer didn't flinch at the news."
+        }
+      ],
+      "synonyms": ["impassive", "phlegmatic", "unemotional", "stoical"],
+      "antonyms": ["excitable", "emotional", "animated"]
+    },
+    {
+      "word": "subjugate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to bring under domination or control, especially by conquest",
+          "example": "The empire subjugated its neighbors one by one."
+        }
+      ],
+      "synonyms": ["conquer", "subdue", "vanquish", "enslave"],
+      "antonyms": ["free", "liberate", "emancipate"]
+    },
+    {
+      "word": "subsume",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to include or absorb something in something else",
+          "example": "The small charity was subsumed into a national organization."
+        }
+      ],
+      "synonyms": ["include", "incorporate", "absorb", "encompass"],
+      "antonyms": ["exclude", "separate"]
+    },
+    {
+      "word": "surmise",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to suppose that something is true without having evidence to confirm it",
+          "example": "From his tan, I surmised that he had been on holiday."
+        },
+        {
+          "pos": "noun",
+          "definition": "a supposition or idea based on evidence that is not conclusive",
+          "example": "My surmise turned out to be correct."
+        }
+      ],
+      "synonyms": ["guess", "conjecture", "infer", "deduce"]
+    },
+    {
+      "word": "tortuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "full of twists and turns",
+          "example": "A tortuous mountain road led to the village."
+        },
+        {
+          "pos": "adjective",
+          "definition": "excessively lengthy and complex",
+          "example": "The bill went through a tortuous approval process."
+        }
+      ],
+      "synonyms": ["twisting", "winding", "serpentine", "meandering"],
+      "antonyms": ["straight", "direct"],
+      "note": "Tortuous means twisting; torturous means causing torture."
+    },
+    {
+      "word": "transgress",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to infringe or go beyond the bounds of a moral principle or other established standard of behavior",
+          "example": "Those who transgress the rules will be expelled."
+        }
+      ],
+      "synonyms": ["violate", "infringe", "breach", "break"],
+      "antonyms": ["obey", "observe"]
+    },
+    {
+      "word": "vehement",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing strong feeling; forceful, passionate or intense",
+          "example": "She was vehement in her denial."
+        }
+      ],
+      "synonyms": ["passionate", "forceful", "fervent", "intense"],
+      "antonyms": ["mild", "half-hearted", "indifferent"]
+    },
+    {
+      "word": "vindictive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing a strong or unreasoning desire for revenge",
+          "example": "The vindictive ex-partner spread rumors about her."
+        }
+      ],
+      "synonyms": ["vengeful", "spiteful", "malicious", "rancorous"],
+      "antonyms": ["forgiving", "magnanimous"]
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "level": "intermediate",
+  "number": 1,
+  "words": [
+    {
+      "word": "abscond",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to leave hurriedly and secretly, typically to avoid arrest or to escape with stolen money",
+          "example": "The treasurer absconded with the club's funds."
+        }
+      ],
+      "synonyms": ["flee", "bolt", "decamp", "run off"]
+    },
+    {
+      "word": "adroit",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "clever or skillful in using the hands or mind",
+          "example": "The adroit negotiator found a deal that suited both sides."
+        }
+      ],
+      "synonyms": ["skillful", "deft", "dexterous", "adept"],
+      "antonyms": ["clumsy", "maladroit", "inept"]
+    },
+    {
+      "word": "amorphous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "without a clearly defined shape or form",
+          "example": "The plan was still an amorphous set of ideas."
+        }
+      ],
+      "synonyms": ["shapeless", "formless", "vague", "nebulous"],
+      "antonyms": ["defined", "distinct", "shaped"]
+    },
+    {
+      "word": "approbation",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "approval or praise",
+          "example": "The proposal met with the approbation of the whole committee."
+        }
+      ],
+      "synonyms": ["approval", "praise", "acclaim", "endorsement"],
+      "antonyms": ["disapproval", "censure", "condemnation"]
+    },
+    {
+      "word": "belie",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "(of an appearance) to fail to give a true impression of something",
+          "example": "His cheerful smile belied his nervousness."
+        },
+        {
+          "pos": "verb",
+          "definition": "to show something to be false",
+          "example": "The strong sales figures belie claims that the brand is dying."
+        }
+      ],
+      "synonyms": ["disguise", "misrepresent", "conceal", "contradict"],
+      "antonyms": ["reveal", "betray"]
+    },
+    {
+      "word": "blithe",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a casual and cheerful indifference considered to be callous or improper",
+          "example": "He showed a blithe disregard for the rules."
+        },
+        {
+          "pos": "adjective",
+          "definition": "happy or carefree",
+          "example": "The children ran down the beach in blithe high spirits."
+        }
+      ],
+      "synonyms": ["casual", "careless", "heedless", "unconcerned"],
+      "antonyms": ["careful", "concerned", "thoughtful"]
+    },
+    {
+      "word": "brazen",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "bold and without shame",
+          "example": "It was a brazen lie, told to their faces."
+        }
+      ],
+      "synonyms": ["shameless", "barefaced", "bold", "audacious"],
+      "antonyms": ["shy", "modest", "timid"]
+    },
+    {
+      "word": "burnish",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to polish something, especially metal, by rubbing",
+          "example": "The craftsman burnished the brass handles until they shone."
+        },
+        {
+          "pos": "verb",
+          "definition": "to enhance or improve a reputation or image",
+          "example": "The charity work helped burnish the company's image."
+        }
+      ],
+      "synonyms": ["polish", "buff", "shine", "rub"],
+      "antonyms": ["tarnish", "dull"]
+    },
+    {
+      "word": "concede",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to admit that something is true or valid after first denying or resisting it",
+          "example": "She conceded that her plan had flaws."
+        },
+        {
+          "pos": "verb",
+          "definition": "to surrender or yield something that one possesses",
+          "example": "The champion conceded the game after only twenty moves."
+        }
+      ],
+      "synonyms": ["admit", "acknowledge", "grant", "allow"],
+      "antonyms": ["deny", "dispute", "reject"]
+    },
+    {
+      "word": "covet",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to yearn to possess or have something, especially something belonging to another",
+          "example": "He coveted his neighbor's sports car."
+        }
+      ],
+      "synonyms": ["desire", "crave", "envy", "hanker after"]
+    },
+    {
+      "word": "deft",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "neatly skillful and quick in one's movements",
+          "example": "With a few deft strokes, the artist sketched a face."
+        }
+      ],
+      "synonyms": ["skillful", "adroit", "dexterous", "nimble"],
+      "antonyms": ["clumsy", "awkward", "inept"]
+    },
+    {
+      "word": "denounce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to publicly declare to be wrong or evil",
+          "example": "The government denounced the attack."
+        }
+      ],
+      "synonyms": ["condemn", "criticize", "decry", "censure"],
+      "antonyms": ["praise", "defend", "endorse"]
+    },
+    {
+      "word": "desiccated",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having had all moisture removed; dried out",
+          "example": "Desiccated leaves crunched underfoot."
+        },
+        {
+          "pos": "adjective",
+          "definition": "lacking interest, passion or energy",
+          "example": "The book is a desiccated account of what was a thrilling war."
+        }
+      ],
+      "synonyms": ["dried", "dehydrated", "parched", "arid"],
+      "antonyms": ["wet", "moist", "damp"]
+    },
+    {
+      "word": "disingenuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not candid or sincere, typically by pretending that one knows less about something than one really does",
+          "example": "It was disingenuous of him to claim he'd never seen the email."
+        }
+      ],
+      "synonyms": ["insincere", "dishonest", "deceitful", "duplicitous"],
+      "antonyms": ["ingenuous", "candid", "sincere"]
+    },
+    {
+      "word": "dissemble",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to conceal one's true motives, feelings or beliefs",
+          "example": "He dissembled, pretending to be pleased with the gift."
+        }
+      ],
+      "synonyms": ["dissimulate", "pretend", "feign", "mask"]
+    },
+    {
+      "word": "dissident",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who opposes official policy, especially that of an authoritarian state",
+          "example": "The dissident spent years in prison for his writing."
+        }
+      ],
+      "synonyms": ["dissenter", "protester", "rebel", "nonconformist"],
+      "antonyms": ["conformist", "loyalist"]
+    },
+    {
+      "word": "embroil",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to involve someone deeply in an argument, conflict or difficult situation",
+          "example": "The company became embroiled in a long legal battle."
+        }
+      ],
+      "synonyms": ["involve", "entangle", "implicate", "mire"],
+      "antonyms": ["extricate", "disentangle"]
+    },
+    {
+      "word": "epitome",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that is a perfect example of a particular quality or type",
+          "example": "The hotel is the epitome of luxury."
+        }
+      ],
+      "synonyms": ["embodiment", "essence", "paragon", "quintessence"]
+    },
+    {
+      "word": "estrange",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cause someone to be no longer close or affectionate to someone; to alienate",
+          "example": "Their quarrel estranged the two brothers for years."
+        }
+      ],
+      "synonyms": ["alienate", "drive apart", "separate", "divide"],
+      "antonyms": ["reconcile", "unite"]
+    },
+    {
+      "word": "exalt",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to hold someone or something in very high regard; to think or speak very highly of",
+          "example": "Poets have exalted the beauty of the region for centuries."
+        },
+        {
+          "pos": "verb",
+          "definition": "to raise to a higher rank or a position of greater power",
+          "example": "The general was exalted to the rank of marshal."
+        }
+      ],
+      "synonyms": ["extol", "glorify", "praise", "laud"],
+      "antonyms": ["disparage", "belittle"]
+    },
+    {
+      "word": "extant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "still in existence; surviving",
+          "example": "Only two copies of the manuscript are extant."
+        }
+      ],
+      "synonyms": ["surviving", "existing", "remaining"],
+      "antonyms": ["extinct", "lost", "defunct"]
+    },
+    {
+      "word": "extemporaneous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "spoken or done without preparation",
+          "example": "She gave an extemporaneous speech when the guest of honor was delayed."
+        }
+      ],
+      "synonyms": ["impromptu", "improvised", "unrehearsed", "ad-lib"],
+      "antonyms": ["rehearsed", "prepared", "planned"]
+    },
+    {
+      "word": "flout",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to openly disregard a rule, law or convention",
+          "example": "The company flouted safety regulations for years."
+        }
+      ],
+      "synonyms": ["defy", "disobey", "disregard", "contravene"],
+      "antonyms": ["obey", "observe", "respect"],
+      "note": "Flout means to openly disregard a rule; flaunt means to show off."
+    },
+    {
+      "word": "foment",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to instigate or stir up an undesirable or violent sentiment or course of action",
+          "example": "Agents were accused of fomenting unrest in the region."
+        }
+      ],
+      "synonyms": ["incite", "instigate", "provoke", "stir up"],
+      "antonyms": ["quell", "suppress", "calm"]
+    },
+    {
+      "word": "forbearance",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "patient self-control; restraint and tolerance",
+          "example": "The teacher showed great forbearance with the unruly class."
+        }
+      ],
+      "synonyms": ["patience", "tolerance", "restraint", "self-control"],
+      "antonyms": ["impatience", "intolerance"]
+    },
+    {
+      "word": "genial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "friendly and cheerful",
+          "example": "Our genial host showed us around the farm."
+        }
+      ],
+      "synonyms": ["friendly", "affable", "amiable", "cordial"],
+      "antonyms": ["unfriendly", "surly", "cold"]
+    },
+    {
+      "word": "harbinger",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that announces or signals the approach of another",
+          "example": "The first crocuses are harbingers of spring."
+        }
+      ],
+      "synonyms": ["herald", "sign", "forerunner", "omen"]
+    },
+    {
+      "word": "immutable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unchanging over time or unable to be changed",
+          "example": "Some believe human nature is immutable."
+        }
+      ],
+      "synonyms": ["unchangeable", "fixed", "permanent", "invariable"],
+      "antonyms": ["mutable", "changeable", "variable"]
+    },
+    {
+      "word": "incorrigible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or their tendencies) not able to be corrected, improved or reformed",
+          "example": "He is an incorrigible flirt."
+        }
+      ],
+      "synonyms": ["inveterate", "hardened", "hopeless", "incurable"],
+      "antonyms": ["reformable", "curable"]
+    },
+    {
+      "word": "infallible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "incapable of making mistakes or being wrong",
+          "example": "Even the best doctors are not infallible."
+        }
+      ],
+      "synonyms": ["unerring", "flawless", "perfect", "faultless"],
+      "antonyms": ["fallible", "imperfect"]
+    },
+    {
+      "word": "invective",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "insulting, abusive or highly critical language",
+          "example": "The debate descended into a stream of invective."
+        }
+      ],
+      "synonyms": ["abuse", "vituperation", "vilification", "insults"],
+      "antonyms": ["praise", "flattery"]
+    },
+    {
+      "word": "jocular",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "fond of or characterized by joking; humorous or playful",
+          "example": "He made a jocular remark to ease the tension."
+        }
+      ],
+      "synonyms": ["humorous", "playful", "jokey", "facetious"],
+      "antonyms": ["serious", "solemn", "earnest"]
+    },
+    {
+      "word": "languid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "displaying or having a disinclination for physical exertion or effort; slow and relaxed",
+          "example": "They spent a languid afternoon by the pool."
+        }
+      ],
+      "synonyms": ["relaxed", "unhurried", "lethargic", "listless"],
+      "antonyms": ["energetic", "vigorous", "lively"]
+    },
+    {
+      "word": "luminous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "full of or shedding light; bright or shining, especially in the dark",
+          "example": "The watch has luminous hands."
+        },
+        {
+          "pos": "adjective",
+          "definition": "very intelligent or enlightening",
+          "example": "Her luminous essays changed how critics saw the poet."
+        }
+      ],
+      "synonyms": ["glowing", "radiant", "bright", "shining"],
+      "antonyms": ["dark", "dull", "dim"]
+    },
+    {
+      "word": "malign",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to speak about someone in a spitefully critical manner",
+          "example": "He felt he had been unfairly maligned by the press."
+        },
+        {
+          "pos": "adjective",
+          "definition": "evil in nature or effect; harmful",
+          "example": "The film explores the malign influence of a cult leader."
+        }
+      ],
+      "synonyms": ["defame", "slander", "disparage", "vilify"],
+      "antonyms": ["praise", "defend", "extol"]
+    },
+    {
+      "word": "odious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely unpleasant; repulsive",
+          "example": "He found the task of firing staff odious."
+        }
+      ],
+      "synonyms": ["revolting", "repugnant", "abhorrent", "hateful"],
+      "antonyms": ["pleasant", "delightful"]
+    },
+    {
+      "word": "pariah",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an outcast",
+          "example": "After the scandal, he became a pariah in political circles."
+        }
+      ],
+      "synonyms": ["outcast", "leper", "persona non grata", "untouchable"],
+      "antonyms": ["idol", "hero"]
+    },
+    {
+      "word": "pejorative",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "expressing contempt or disapproval",
+          "example": "\"Bureaucrat\" is often used in a pejorative sense."
+        }
+      ],
+      "synonyms": ["derogatory", "disparaging", "belittling", "deprecatory"],
+      "antonyms": ["complimentary", "laudatory", "approving"]
+    },
+    {
+      "word": "plethora",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a large or excessive amount of something",
+          "example": "The report contains a plethora of statistics."
+        }
+      ],
+      "synonyms": ["excess", "glut", "surplus", "abundance"],
+      "antonyms": ["dearth", "lack", "scarcity"]
+    },
+    {
+      "word": "profligate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "recklessly extravagant or wasteful in the use of resources",
+          "example": "The government was accused of profligate spending."
+        },
+        {
+          "pos": "adjective",
+          "definition": "licentious; dissolute",
+          "example": "He regretted the profligate years of his youth."
+        }
+      ],
+      "synonyms": ["wasteful", "extravagant", "prodigal", "spendthrift"],
+      "antonyms": ["frugal", "thrifty", "economical"]
+    },
+    {
+      "word": "proscribe",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to forbid, especially by law",
+          "example": "The rules proscribe the use of phones during exams."
+        }
+      ],
+      "synonyms": ["forbid", "prohibit", "ban", "outlaw"],
+      "antonyms": ["allow", "permit", "sanction"],
+      "note": "Proscribe means to forbid; prescribe means to recommend or order."
+    },
+    {
+      "word": "respite",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a short period of rest or relief from something difficult or unpleasant",
+          "example": "The rain brought a brief respite from the heat."
+        }
+      ],
+      "synonyms": ["rest", "break", "relief", "lull"]
+    },
+    {
+      "word": "salient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "most noticeable or important",
+          "example": "The salient points of the report fit on one slide."
+        }
+      ],
+      "synonyms": ["prominent", "notable", "conspicuous", "key"],
+      "antonyms": ["minor", "inconspicuous", "unimportant"]
+    },
+    {
+      "word": "sporadic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "occurring at irregular intervals or only in a few places; scattered or isolated",
+          "example": "Sporadic gunfire could be heard through the night."
+        }
+      ],
+      "synonyms": ["occasional", "intermittent", "irregular", "scattered"],
+      "antonyms": ["frequent", "regular", "constant"]
+    },
+    {
+      "word": "stipulate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to demand or specify a requirement, typically as part of an agreement",
+          "example": "The contract stipulates that payment be made within thirty days."
+        }
+      ],
+      "synonyms": ["specify", "require", "demand", "set out"]
+    },
+    {
+      "word": "succinct",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of something written or spoken) briefly and clearly expressed",
+          "example": "Her answer was succinct and to the point."
+        }
+      ],
+      "synonyms": ["concise", "brief", "pithy", "terse"],
+      "antonyms": ["verbose", "wordy", "long-winded"]
+    },
+    {
+      "word": "sullen",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "bad-tempered and sulky; gloomy",
+          "example": "The sullen teenager refused to come to dinner."
+        }
+      ],
+      "synonyms": ["sulky", "morose", "surly", "moody"],
+      "antonyms": ["cheerful", "cheery", "sunny"]
+    },
+    {
+      "word": "supercilious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "behaving or looking as though one thinks one is superior to others",
+          "example": "The supercilious clerk looked us up and down."
+        }
+      ],
+      "synonyms": ["arrogant", "haughty", "condescending", "disdainful"],
+      "antonyms": ["humble", "modest", "respectful"]
+    },
+    {
+      "word": "venal",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing or motivated by susceptibility to bribery",
+          "example": "The venal official sold permits to the highest bidder."
+        }
+      ],
+      "synonyms": ["corrupt", "bribable", "mercenary", "crooked"],
+      "antonyms": ["honest", "incorruptible", "upright"],
+      "note": "Venal means corrupt; venial means minor and forgivable."
+    },
+    {
+      "word": "viscous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having a thick, sticky consistency between solid and liquid",
+          "example": "Honey is a viscous liquid."
+        }
+      ],
+      "synonyms": ["thick", "sticky", "syrupy", "gummy"],
+      "antonyms": ["thin", "runny", "watery"]
+    }
+  ]
+}

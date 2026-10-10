@@ -1,0 +1,655 @@
+{
+  "level": "intermediate",
+  "number": 6,
+  "words": [
+    {
+      "word": "adulterate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something poorer in quality by adding another substance",
+          "example": "The milk had been adulterated with water."
+        }
+      ],
+      "synonyms": ["contaminate", "dilute", "debase", "taint"],
+      "antonyms": ["purify", "refine"]
+    },
+    {
+      "word": "aggrandize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to increase the power, status or wealth of",
+          "example": "The dictator used the war to aggrandize himself."
+        }
+      ],
+      "synonyms": ["enlarge", "exalt", "magnify", "inflate"],
+      "antonyms": ["diminish", "belittle"]
+    },
+    {
+      "word": "alacrity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "brisk and cheerful readiness",
+          "example": "She accepted the invitation with alacrity."
+        }
+      ],
+      "synonyms": ["eagerness", "readiness", "willingness", "enthusiasm"],
+      "antonyms": ["reluctance", "apathy", "sluggishness"]
+    },
+    {
+      "word": "artless",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "without guile or deception; natural and simple",
+          "example": "The child's artless questions made the adults laugh."
+        }
+      ],
+      "synonyms": ["ingenuous", "innocent", "guileless", "naive"],
+      "antonyms": ["artful", "cunning", "scheming"]
+    },
+    {
+      "word": "assiduous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing great care and perseverance",
+          "example": "Thanks to her assiduous research, the book is full of new detail."
+        }
+      ],
+      "synonyms": ["diligent", "meticulous", "sedulous", "industrious"],
+      "antonyms": ["careless", "negligent", "lazy"]
+    },
+    {
+      "word": "cajole",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to persuade someone to do something by sustained coaxing or flattery",
+          "example": "He cajoled his sister into lending him her car."
+        }
+      ],
+      "synonyms": ["coax", "wheedle", "inveigle", "persuade"],
+      "antonyms": ["force", "coerce", "bully"]
+    },
+    {
+      "word": "candor",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the quality of being open and honest; frankness",
+          "example": "The minister spoke with unusual candor about her mistakes."
+        }
+      ],
+      "synonyms": ["frankness", "openness", "honesty", "directness"],
+      "antonyms": ["evasiveness", "deceit", "guile"]
+    },
+    {
+      "word": "confound",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cause surprise or confusion in someone, especially by acting against their expectations",
+          "example": "The results confounded the experts."
+        },
+        {
+          "pos": "verb",
+          "definition": "to prove a theory or expectation wrong",
+          "example": "The underdogs confounded their critics by winning the league."
+        }
+      ],
+      "synonyms": ["baffle", "bewilder", "perplex", "puzzle"],
+      "antonyms": ["enlighten", "clarify"]
+    },
+    {
+      "word": "convivial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of an atmosphere or event) friendly, lively and enjoyable",
+          "example": "The dinner was a convivial affair with plenty of laughter."
+        }
+      ],
+      "synonyms": ["friendly", "genial", "cheerful", "sociable"],
+      "antonyms": ["unfriendly", "gloomy", "somber"]
+    },
+    {
+      "word": "curtail",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reduce in extent or quantity; to impose a restriction on",
+          "example": "The budget cuts curtailed the museum's opening hours."
+        }
+      ],
+      "synonyms": ["reduce", "restrict", "limit", "cut back"],
+      "antonyms": ["extend", "increase", "expand"]
+    },
+    {
+      "word": "disinterested",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not influenced by considerations of personal advantage; impartial",
+          "example": "A disinterested referee settled the dispute."
+        }
+      ],
+      "synonyms": ["impartial", "unbiased", "neutral", "objective"],
+      "antonyms": ["biased", "partial", "interested"],
+      "note": "Disinterested means impartial, not uninterested."
+    },
+    {
+      "word": "divulge",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make known private or sensitive information",
+          "example": "The journalist refused to divulge her sources."
+        }
+      ],
+      "synonyms": ["reveal", "disclose", "tell", "leak"],
+      "antonyms": ["conceal", "hide", "withhold"]
+    },
+    {
+      "word": "effusive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "expressing feelings of gratitude, pleasure or approval in an unrestrained or heartfelt manner",
+          "example": "The critics were effusive in their praise."
+        }
+      ],
+      "synonyms": ["gushing", "unrestrained", "lavish", "demonstrative"],
+      "antonyms": ["restrained", "reserved", "undemonstrative"]
+    },
+    {
+      "word": "elucidate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something clear; to explain",
+          "example": "The appendix elucidates the methods used in the study."
+        }
+      ],
+      "synonyms": ["explain", "clarify", "illuminate", "explicate"],
+      "antonyms": ["obscure", "confuse", "obfuscate"]
+    },
+    {
+      "word": "enumerate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to mention a number of things one by one",
+          "example": "The letter enumerates the reasons for the decision."
+        }
+      ],
+      "synonyms": ["list", "itemize", "specify", "catalog"]
+    },
+    {
+      "word": "equitable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "fair and impartial",
+          "example": "We want an equitable division of the profits."
+        }
+      ],
+      "synonyms": ["fair", "just", "impartial", "even-handed"],
+      "antonyms": ["unfair", "unjust", "biased"]
+    },
+    {
+      "word": "espouse",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to adopt or support a cause, belief or way of life",
+          "example": "In later life he espoused the cause of animal rights."
+        }
+      ],
+      "synonyms": ["adopt", "embrace", "champion", "support"],
+      "antonyms": ["reject", "abandon", "oppose"]
+    },
+    {
+      "word": "exuberant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "filled with or characterized by a lively energy and excitement",
+          "example": "The exuberant crowd danced in the streets."
+        },
+        {
+          "pos": "adjective",
+          "definition": "growing profusely; lush",
+          "example": "The garden's exuberant growth needed weekly trimming."
+        }
+      ],
+      "synonyms": ["ebullient", "buoyant", "effervescent", "high-spirited"],
+      "antonyms": ["gloomy", "subdued", "apathetic"]
+    },
+    {
+      "word": "felicitous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "well chosen or suited to the circumstances",
+          "example": "The book's title was a felicitous choice."
+        },
+        {
+          "pos": "adjective",
+          "definition": "pleasing and fortunate",
+          "example": "The garden had a felicitous position by the river."
+        }
+      ],
+      "synonyms": ["apt", "appropriate", "fitting", "well-chosen"],
+      "antonyms": ["inappropriate", "inapt", "infelicitous"]
+    },
+    {
+      "word": "flippant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not showing a serious or respectful attitude",
+          "example": "His flippant reply to the judge earned him a fine."
+        }
+      ],
+      "synonyms": ["frivolous", "facetious", "glib", "offhand"],
+      "antonyms": ["serious", "earnest", "respectful"]
+    },
+    {
+      "word": "glib",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of words or a speaker) fluent and voluble but insincere and shallow",
+          "example": "The salesman had a glib answer for every objection."
+        }
+      ],
+      "synonyms": ["slick", "smooth-talking", "facile", "superficial"],
+      "antonyms": ["sincere", "thoughtful", "earnest"]
+    },
+    {
+      "word": "gullible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "easily persuaded to believe something; credulous",
+          "example": "Gullible investors lost millions in the scheme."
+        }
+      ],
+      "synonyms": ["credulous", "naive", "trusting", "unsuspecting"],
+      "antonyms": ["skeptical", "suspicious", "wary"]
+    },
+    {
+      "word": "illicit",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "forbidden by law, rules or custom",
+          "example": "Police seized a shipment of illicit drugs."
+        }
+      ],
+      "synonyms": ["illegal", "unlawful", "forbidden", "prohibited"],
+      "antonyms": ["legal", "lawful", "permitted"]
+    },
+    {
+      "word": "imbue",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to inspire or permeate with a feeling or quality",
+          "example": "Her speeches were imbued with a sense of urgency."
+        }
+      ],
+      "synonyms": ["infuse", "permeate", "instill", "suffuse"]
+    },
+    {
+      "word": "impasse",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a situation in which no progress is possible, especially because of disagreement",
+          "example": "Talks reached an impasse over pay."
+        }
+      ],
+      "synonyms": ["deadlock", "stalemate", "standoff", "dead end"],
+      "antonyms": ["breakthrough"]
+    },
+    {
+      "word": "instigate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to bring about or initiate an action or event",
+          "example": "The new manager instigated a review of all spending."
+        }
+      ],
+      "synonyms": ["initiate", "start", "launch", "provoke"],
+      "antonyms": ["halt", "stop", "end"]
+    },
+    {
+      "word": "juxtapose",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to place or deal with close together for contrasting effect",
+          "example": "The exhibition juxtaposes old photographs with new ones of the same streets."
+        }
+      ],
+      "synonyms": ["place side by side", "contrast", "compare"]
+    },
+    {
+      "word": "lavish",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sumptuously rich, elaborate or luxurious",
+          "example": "They threw a lavish party for her fiftieth birthday."
+        },
+        {
+          "pos": "verb",
+          "definition": "to bestow something in generous or extravagant quantities upon",
+          "example": "The critics lavished praise on the young director."
+        }
+      ],
+      "synonyms": ["sumptuous", "luxurious", "opulent", "extravagant"],
+      "antonyms": ["meager", "frugal", "plain"]
+    },
+    {
+      "word": "pathos",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a quality that evokes pity or sadness",
+          "example": "The play's final scene is full of pathos."
+        }
+      ],
+      "synonyms": ["poignancy", "sadness", "tragedy", "plaintiveness"]
+    },
+    {
+      "word": "peripheral",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "of secondary or minor importance; marginal",
+          "example": "The issue is peripheral to our main argument."
+        },
+        {
+          "pos": "adjective",
+          "definition": "relating to or situated on the edge or periphery of something",
+          "example": "Peripheral vision helps us notice movement to the side."
+        }
+      ],
+      "synonyms": ["marginal", "secondary", "minor", "tangential"],
+      "antonyms": ["central", "essential", "core"]
+    },
+    {
+      "word": "protract",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to prolong",
+          "example": "The defense tried to protract the trial."
+        }
+      ],
+      "synonyms": ["prolong", "extend", "draw out", "lengthen"],
+      "antonyms": ["shorten", "curtail", "abbreviate"]
+    },
+    {
+      "word": "prowess",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "skill or expertise in a particular activity or field",
+          "example": "The boxer was famous for his prowess in the ring."
+        }
+      ],
+      "synonyms": ["skill", "expertise", "mastery", "ability"],
+      "antonyms": ["ineptitude", "incompetence"]
+    },
+    {
+      "word": "quandary",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a state of perplexity or uncertainty over what to do in a difficult situation",
+          "example": "I'm in a quandary about which job to take."
+        }
+      ],
+      "synonyms": ["dilemma", "predicament", "plight", "bind"]
+    },
+    {
+      "word": "renege",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to go back on a promise, undertaking or contract",
+          "example": "The buyer reneged on the deal at the last minute."
+        }
+      ],
+      "synonyms": ["default", "back out", "break one's word", "welsh"],
+      "antonyms": ["honor", "keep", "fulfill"]
+    },
+    {
+      "word": "reproach",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express to someone one's disapproval of or disappointment in their actions",
+          "example": "She reproached him for forgetting her birthday."
+        },
+        {
+          "pos": "noun",
+          "definition": "the expression of disapproval or disappointment",
+          "example": "His conduct was beyond reproach."
+        }
+      ],
+      "synonyms": ["rebuke", "reprimand", "scold", "criticize"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "rudimentary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "involving or limited to basic principles",
+          "example": "He had only a rudimentary knowledge of French."
+        }
+      ],
+      "synonyms": ["basic", "elementary", "fundamental", "primitive"],
+      "antonyms": ["advanced", "sophisticated", "developed"]
+    },
+    {
+      "word": "ruminate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to think deeply about something",
+          "example": "She ruminated on the meaning of the dream."
+        }
+      ],
+      "synonyms": ["ponder", "contemplate", "mull over", "reflect"]
+    },
+    {
+      "word": "sagacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing keen mental discernment and good judgment; wise",
+          "example": "The sagacious old judge had seen it all before."
+        }
+      ],
+      "synonyms": ["wise", "shrewd", "astute", "judicious"],
+      "antonyms": ["foolish", "unwise", "injudicious"]
+    },
+    {
+      "word": "scrupulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or process) diligent, thorough and extremely attentive to details",
+          "example": "The museum keeps scrupulous records of every loan."
+        },
+        {
+          "pos": "adjective",
+          "definition": "very concerned to avoid doing wrong",
+          "example": "He was scrupulous about paying every debt."
+        }
+      ],
+      "synonyms": ["meticulous", "careful", "painstaking", "rigorous"],
+      "antonyms": ["careless", "sloppy", "negligent"]
+    },
+    {
+      "word": "sedentary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) tending to spend much time seated; somewhat inactive",
+          "example": "A sedentary lifestyle increases the risk of heart disease."
+        }
+      ],
+      "synonyms": ["inactive", "seated", "desk-bound", "stationary"],
+      "antonyms": ["active", "mobile"]
+    },
+    {
+      "word": "slander",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the action or crime of making a false spoken statement damaging to a person's reputation",
+          "example": "He sued his neighbor for slander."
+        },
+        {
+          "pos": "verb",
+          "definition": "to make false and damaging statements about someone",
+          "example": "She claimed that the paper had slandered her family."
+        }
+      ],
+      "synonyms": ["defamation", "calumny", "libel", "smear"],
+      "antonyms": ["praise"]
+    },
+    {
+      "word": "sobriety",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the state of being sober",
+          "example": "He celebrated ten years of sobriety."
+        },
+        {
+          "pos": "noun",
+          "definition": "the quality of being staid or solemn",
+          "example": "The sobriety of the occasion called for dark suits."
+        }
+      ],
+      "synonyms": ["soberness", "abstinence", "temperance"],
+      "antonyms": ["drunkenness", "intoxication"]
+    },
+    {
+      "word": "spurn",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reject with disdain or contempt",
+          "example": "She spurned all offers of help."
+        }
+      ],
+      "synonyms": ["reject", "rebuff", "scorn", "snub"],
+      "antonyms": ["accept", "welcome", "embrace"]
+    },
+    {
+      "word": "tenuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "very weak or slight",
+          "example": "The link between the two events is tenuous at best."
+        }
+      ],
+      "synonyms": ["weak", "flimsy", "slight", "insubstantial"],
+      "antonyms": ["strong", "substantial", "solid"]
+    },
+    {
+      "word": "torpid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "mentally or physically inactive; lethargic",
+          "example": "The heat made us torpid and sleepy."
+        }
+      ],
+      "synonyms": ["lethargic", "sluggish", "inert", "languid"],
+      "antonyms": ["energetic", "active", "lively"]
+    },
+    {
+      "word": "trepidation",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a feeling of fear or agitation about something that may happen",
+          "example": "We approached the old bridge with trepidation."
+        }
+      ],
+      "synonyms": ["fear", "apprehension", "anxiety", "dread"],
+      "antonyms": ["confidence", "calm", "equanimity"]
+    },
+    {
+      "word": "vestige",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a trace of something that is disappearing or no longer exists",
+          "example": "Not a vestige of the old castle remains."
+        }
+      ],
+      "synonyms": ["trace", "remnant", "relic", "hint"]
+    },
+    {
+      "word": "vociferous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of a person or speech) vehement or clamorous",
+          "example": "The plan faced vociferous opposition from residents."
+        }
+      ],
+      "synonyms": ["vehement", "clamorous", "loud", "outspoken"],
+      "antonyms": ["quiet", "silent", "muted"]
+    },
+    {
+      "word": "voracious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "wanting or devouring great quantities of food",
+          "example": "Voracious caterpillars stripped the trees bare."
+        },
+        {
+          "pos": "adjective",
+          "definition": "engaging in an activity with great eagerness or enthusiasm",
+          "example": "She was a voracious reader as a child."
+        }
+      ],
+      "synonyms": ["ravenous", "insatiable", "gluttonous", "greedy"],
+      "antonyms": ["sated", "full"]
+    },
+    {
+      "word": "zenith",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the time at which something is most powerful or successful",
+          "example": "The empire reached its zenith in the second century."
+        },
+        {
+          "pos": "noun",
+          "definition": "the point in the sky directly above an observer",
+          "example": "At noon the sun stood near its zenith."
+        }
+      ],
+      "synonyms": ["peak", "pinnacle", "height", "apex"],
+      "antonyms": ["nadir", "low point"]
+    }
+  ]
+}

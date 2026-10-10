@@ -1,0 +1,637 @@
+{
+  "level": "intermediate",
+  "number": 3,
+  "words": [
+    {
+      "word": "abstruse",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "difficult to understand; obscure",
+          "example": "The lecture on string theory was too abstruse for most of the audience."
+        }
+      ],
+      "synonyms": ["obscure", "esoteric", "recondite", "arcane"],
+      "antonyms": ["clear", "simple", "accessible"]
+    },
+    {
+      "word": "accolade",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an award or privilege granted as a special honor or in acknowledgment of merit",
+          "example": "The film won every major accolade of the year."
+        }
+      ],
+      "synonyms": ["honor", "award", "tribute", "praise"],
+      "antonyms": ["criticism", "censure"]
+    },
+    {
+      "word": "ameliorate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something bad or unsatisfactory better",
+          "example": "The new policy aims to ameliorate conditions in the prisons."
+        }
+      ],
+      "synonyms": ["improve", "better", "enhance", "alleviate"],
+      "antonyms": ["worsen", "exacerbate", "aggravate"]
+    },
+    {
+      "word": "antithesis",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that is the direct opposite of someone or something else",
+          "example": "Her calm was the antithesis of her brother's panic."
+        }
+      ],
+      "synonyms": ["opposite", "reverse", "contrary", "converse"]
+    },
+    {
+      "word": "avarice",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "extreme greed for wealth or material gain",
+          "example": "His avarice drove him to cheat his own family."
+        }
+      ],
+      "synonyms": ["greed", "cupidity", "covetousness", "acquisitiveness"],
+      "antonyms": ["generosity", "liberality"]
+    },
+    {
+      "word": "axiom",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a statement or proposition regarded as being established, accepted or self-evidently true",
+          "example": "It is an axiom of business that cash is king."
+        }
+      ],
+      "synonyms": ["principle", "truism", "maxim", "precept"]
+    },
+    {
+      "word": "boorish",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "rough and bad-mannered; coarse",
+          "example": "His boorish behavior at dinner embarrassed his hosts."
+        }
+      ],
+      "synonyms": ["coarse", "uncouth", "rude", "crude"],
+      "antonyms": ["refined", "polite", "cultured"]
+    },
+    {
+      "word": "coerce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to persuade an unwilling person to do something by using force or threats",
+          "example": "The suspect claimed he had been coerced into confessing."
+        }
+      ],
+      "synonyms": ["force", "compel", "pressure", "intimidate"],
+      "antonyms": ["persuade", "coax"]
+    },
+    {
+      "word": "commiserate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express or feel sympathy or pity",
+          "example": "Friends called to commiserate with her after the loss."
+        }
+      ],
+      "synonyms": ["sympathize", "console", "condole", "comfort"]
+    },
+    {
+      "word": "conflagration",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an extensive fire which destroys a great deal of land or property",
+          "example": "The conflagration destroyed half of the old town."
+        }
+      ],
+      "synonyms": ["blaze", "inferno", "fire", "firestorm"]
+    },
+    {
+      "word": "deign",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to do something that one considers to be below one's dignity",
+          "example": "She didn't even deign to reply to my letter."
+        }
+      ],
+      "synonyms": ["condescend", "stoop", "lower oneself"]
+    },
+    {
+      "word": "demur",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to raise doubts or objections or show reluctance",
+          "example": "When asked to sign, she demurred."
+        }
+      ],
+      "synonyms": ["object", "protest", "balk", "hesitate"],
+      "antonyms": ["agree", "accept", "consent"]
+    },
+    {
+      "word": "diffuse",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "spread out over a large area; not concentrated",
+          "example": "The diffuse light of the overcast sky cast no shadows."
+        },
+        {
+          "pos": "adjective",
+          "definition": "lacking clarity or conciseness",
+          "example": "The essay was so diffuse that its argument got lost."
+        },
+        {
+          "pos": "verb",
+          "definition": "to spread over a wide area or among a large number of people",
+          "example": "The idea diffused quickly through the scientific community."
+        }
+      ],
+      "synonyms": ["scattered", "spread out", "dispersed"],
+      "antonyms": ["concentrated", "focused"]
+    },
+    {
+      "word": "dilettante",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who cultivates an area of interest without real commitment or knowledge",
+          "example": "He was a dilettante who dabbled in painting, poetry and music."
+        }
+      ],
+      "synonyms": ["dabbler", "amateur", "trifler"],
+      "antonyms": ["professional", "expert"]
+    },
+    {
+      "word": "discredit",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to harm the good reputation of someone",
+          "example": "The scandal discredited the entire administration."
+        },
+        {
+          "pos": "verb",
+          "definition": "to cause an idea or evidence to seem false or unreliable",
+          "example": "New findings discredited the old theory."
+        }
+      ],
+      "synonyms": ["disgrace", "dishonor", "shame", "disparage"],
+      "antonyms": ["honor", "credit"]
+    },
+    {
+      "word": "distend",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to swell or cause to swell because of pressure from inside",
+          "example": "The starving child's belly was distended."
+        }
+      ],
+      "synonyms": ["swell", "bloat", "inflate", "dilate"],
+      "antonyms": ["contract", "shrink"]
+    },
+    {
+      "word": "ebullient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "cheerful and full of energy",
+          "example": "The ebullient host greeted every guest by name."
+        }
+      ],
+      "synonyms": ["exuberant", "buoyant", "effervescent", "high-spirited"],
+      "antonyms": ["depressed", "gloomy", "subdued"]
+    },
+    {
+      "word": "edify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to instruct or improve someone morally or intellectually",
+          "example": "The museum aims to edify as well as entertain."
+        }
+      ],
+      "synonyms": ["educate", "enlighten", "instruct", "improve"]
+    },
+    {
+      "word": "egalitarian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "believing in or based on the principle that all people are equal and deserve equal rights and opportunities",
+          "example": "The cooperative was run on egalitarian lines."
+        }
+      ],
+      "synonyms": ["equal", "fair", "democratic", "classless"],
+      "antonyms": ["elitist", "hierarchical"]
+    },
+    {
+      "word": "emancipate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to set free, especially from legal, social or political restrictions",
+          "example": "The law emancipated thousands of enslaved people."
+        }
+      ],
+      "synonyms": ["free", "liberate", "release", "unshackle"],
+      "antonyms": ["enslave", "subjugate", "oppress"]
+    },
+    {
+      "word": "exasperate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to irritate intensely; to infuriate",
+          "example": "The endless delays exasperated the passengers."
+        }
+      ],
+      "synonyms": ["infuriate", "annoy", "irritate", "vex"],
+      "antonyms": ["soothe", "placate", "please"]
+    },
+    {
+      "word": "exhort",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to strongly encourage or urge someone to do something",
+          "example": "The general exhorted his troops to hold the line."
+        }
+      ],
+      "synonyms": ["urge", "encourage", "press", "implore"],
+      "antonyms": ["discourage", "dissuade"]
+    },
+    {
+      "word": "explicate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to analyze and develop an idea or principle in detail",
+          "example": "The professor spent an hour explicating a single poem."
+        }
+      ],
+      "synonyms": ["explain", "elucidate", "interpret", "clarify"],
+      "antonyms": ["obscure", "confuse"]
+    },
+    {
+      "word": "fawn",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to display exaggerated flattery or affection, especially to gain favor",
+          "example": "The courtiers fawned over the young king."
+        }
+      ],
+      "synonyms": ["flatter", "toady", "grovel", "kowtow"]
+    },
+    {
+      "word": "feckless",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking initiative or strength of character; irresponsible",
+          "example": "Her feckless brother never held a job for more than a month."
+        }
+      ],
+      "synonyms": ["irresponsible", "useless", "worthless", "incompetent"],
+      "antonyms": ["responsible", "competent", "efficient"]
+    },
+    {
+      "word": "fractious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "irritable and quarrelsome",
+          "example": "The tired children grew fractious."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of an organization) difficult to control; unruly",
+          "example": "The fractious coalition collapsed within a year."
+        }
+      ],
+      "synonyms": ["irritable", "quarrelsome", "unruly", "petulant"],
+      "antonyms": ["amiable", "docile", "good-natured"]
+    },
+    {
+      "word": "galvanize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to shock or excite someone into taking action",
+          "example": "The disaster galvanized volunteers across the country."
+        },
+        {
+          "pos": "verb",
+          "definition": "to coat iron or steel with a protective layer of zinc",
+          "example": "The bucket was galvanized to stop it from rusting."
+        }
+      ],
+      "synonyms": ["stimulate", "spur", "rouse", "energize"],
+      "antonyms": ["discourage", "deter"]
+    },
+    {
+      "word": "inane",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "silly; stupid",
+          "example": "The show was full of inane chatter."
+        }
+      ],
+      "synonyms": ["silly", "foolish", "vacuous", "fatuous"],
+      "antonyms": ["sensible", "intelligent", "meaningful"]
+    },
+    {
+      "word": "insinuate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to suggest or hint something bad in an indirect and unpleasant way",
+          "example": "Are you insinuating that I lied?"
+        },
+        {
+          "pos": "verb",
+          "definition": "to maneuver oneself into a favorable position by subtle manipulation",
+          "example": "He insinuated himself into the director's inner circle."
+        }
+      ],
+      "synonyms": ["imply", "hint", "suggest", "intimate"]
+    },
+    {
+      "word": "mendacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not telling the truth; lying",
+          "example": "The report was full of mendacious claims."
+        }
+      ],
+      "synonyms": ["lying", "untruthful", "dishonest", "deceitful"],
+      "antonyms": ["truthful", "honest", "veracious"]
+    },
+    {
+      "word": "misnomer",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a wrong or inaccurate name or designation",
+          "example": "\"Koala bear\" is a misnomer, since koalas are not bears."
+        }
+      ],
+      "synonyms": ["wrong name", "inaccuracy", "misdesignation"]
+    },
+    {
+      "word": "obviate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to remove a need or difficulty",
+          "example": "The new bridge obviates the need for a ferry."
+        }
+      ],
+      "synonyms": ["preclude", "prevent", "avoid", "eliminate"],
+      "antonyms": ["require", "necessitate"]
+    },
+    {
+      "word": "officious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "assertive of authority in an annoyingly domineering way, especially with regard to trivial matters",
+          "example": "An officious guard insisted on searching every bag twice."
+        }
+      ],
+      "synonyms": ["self-important", "meddlesome", "interfering", "bossy"],
+      "antonyms": ["unassuming", "retiring"]
+    },
+    {
+      "word": "perspicacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having a ready insight into and understanding of things",
+          "example": "A perspicacious editor saw the novel's potential at once."
+        }
+      ],
+      "synonyms": ["perceptive", "astute", "shrewd", "discerning"],
+      "antonyms": ["obtuse", "imperceptive", "dull"]
+    },
+    {
+      "word": "ponderous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "slow and clumsy because of great weight",
+          "example": "The elephant moved with ponderous steps."
+        },
+        {
+          "pos": "adjective",
+          "definition": "dull, laborious or excessively solemn",
+          "example": "The lecture was ponderous and hard to follow."
+        }
+      ],
+      "synonyms": ["heavy", "cumbersome", "lumbering", "unwieldy"],
+      "antonyms": ["light", "nimble", "agile"]
+    },
+    {
+      "word": "proliferate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to increase rapidly in numbers; to multiply",
+          "example": "Coffee shops have proliferated in the city center."
+        }
+      ],
+      "synonyms": ["multiply", "increase", "mushroom", "burgeon"],
+      "antonyms": ["decrease", "dwindle", "decline"]
+    },
+    {
+      "word": "propriety",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the state or quality of conforming to conventionally accepted standards of behavior or morals",
+          "example": "She was a stickler for propriety."
+        }
+      ],
+      "synonyms": ["decorum", "etiquette", "correctness", "decency"],
+      "antonyms": ["impropriety", "indecorum"]
+    },
+    {
+      "word": "puerile",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "childishly silly and immature",
+          "example": "The jokes were puerile and offensive."
+        }
+      ],
+      "synonyms": ["childish", "immature", "juvenile", "infantile"],
+      "antonyms": ["mature", "adult", "sophisticated"]
+    },
+    {
+      "word": "rectify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to put something right; to correct",
+          "example": "The company promised to rectify the error."
+        }
+      ],
+      "synonyms": ["correct", "fix", "remedy", "amend"],
+      "antonyms": ["worsen", "aggravate"]
+    },
+    {
+      "word": "sanguine",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "optimistic or positive, especially in an apparently bad or difficult situation",
+          "example": "She remained sanguine about her chances of recovery."
+        }
+      ],
+      "synonyms": ["optimistic", "hopeful", "confident", "buoyant"],
+      "antonyms": ["pessimistic", "gloomy", "despondent"],
+      "note": "Sanguine comes from the Latin for blood but means cheerfully optimistic."
+    },
+    {
+      "word": "sardonic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "grimly mocking or cynical",
+          "example": "He gave a sardonic laugh when he heard the news."
+        }
+      ],
+      "synonyms": ["mocking", "scornful", "sarcastic", "cynical"],
+      "antonyms": ["sincere", "earnest"]
+    },
+    {
+      "word": "scathing",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "witheringly scornful; severely critical",
+          "example": "The report was a scathing indictment of the management."
+        }
+      ],
+      "synonyms": ["withering", "caustic", "scornful", "blistering"],
+      "antonyms": ["mild", "gentle", "complimentary"]
+    },
+    {
+      "word": "servile",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing an excessive willingness to serve or please others",
+          "example": "The waiter's servile manner made the guests uncomfortable."
+        }
+      ],
+      "synonyms": ["obsequious", "sycophantic", "fawning", "subservient"],
+      "antonyms": ["assertive", "independent", "domineering"]
+    },
+    {
+      "word": "solace",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "comfort or consolation in a time of distress or sadness",
+          "example": "She found solace in music after her mother's death."
+        }
+      ],
+      "synonyms": ["comfort", "consolation", "relief", "succor"],
+      "antonyms": ["distress", "misery"]
+    },
+    {
+      "word": "stigma",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a mark of disgrace associated with a particular circumstance, quality or person",
+          "example": "The campaign aims to reduce the stigma of mental illness."
+        }
+      ],
+      "synonyms": ["shame", "disgrace", "dishonor", "taint"],
+      "antonyms": ["honor", "credit"]
+    },
+    {
+      "word": "stymie",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to prevent or hinder the progress of",
+          "example": "The investigation was stymied by a lack of witnesses."
+        }
+      ],
+      "synonyms": ["hinder", "impede", "thwart", "obstruct"],
+      "antonyms": ["help", "assist", "facilitate"]
+    },
+    {
+      "word": "tout",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to attempt to sell something, typically by pestering people in an aggressive or bold manner",
+          "example": "Street vendors touted cheap watches to tourists."
+        },
+        {
+          "pos": "verb",
+          "definition": "to promote or praise something insistently",
+          "example": "The diet was touted as a miracle cure."
+        }
+      ],
+      "synonyms": ["peddle", "hawk", "sell"]
+    },
+    {
+      "word": "undermine",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to lessen the effectiveness, power or ability of, especially gradually or insidiously",
+          "example": "The scandal undermined public trust in the agency."
+        }
+      ],
+      "synonyms": ["weaken", "subvert", "sap", "erode"],
+      "antonyms": ["strengthen", "support", "bolster"]
+    },
+    {
+      "word": "vitriolic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "filled with bitter criticism or malice",
+          "example": "The film received vitriolic reviews."
+        }
+      ],
+      "synonyms": ["caustic", "acerbic", "scathing", "venomous"],
+      "antonyms": ["kind", "complimentary", "gentle"]
+    },
+    {
+      "word": "whimsical",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "playfully quaint or fanciful, especially in an appealing and amusing way",
+          "example": "The children's book has whimsical illustrations."
+        }
+      ],
+      "synonyms": ["fanciful", "playful", "quirky", "capricious"],
+      "antonyms": ["serious", "sober", "practical"]
+    }
+  ]
+}

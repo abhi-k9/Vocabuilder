@@ -1,0 +1,627 @@
+{
+  "level": "intermediate",
+  "number": 2,
+  "words": [
+    {
+      "word": "acquiesce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to accept something reluctantly but without protest",
+          "example": "After a long argument, he acquiesced to their demands."
+        }
+      ],
+      "synonyms": ["consent", "accede", "submit", "comply"],
+      "antonyms": ["resist", "protest", "refuse"]
+    },
+    {
+      "word": "admonish",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to warn or reprimand someone firmly",
+          "example": "The librarian admonished the boys for talking."
+        }
+      ],
+      "synonyms": ["reprimand", "rebuke", "scold", "caution"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "auspicious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "conducive to success; favorable",
+          "example": "The sunny morning was an auspicious start to the festival."
+        }
+      ],
+      "synonyms": ["favorable", "promising", "propitious", "encouraging"],
+      "antonyms": ["inauspicious", "ominous", "unfavorable"]
+    },
+    {
+      "word": "charlatan",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person falsely claiming to have a special knowledge or skill",
+          "example": "The so-called healer turned out to be a charlatan."
+        }
+      ],
+      "synonyms": ["fraud", "quack", "impostor", "swindler"]
+    },
+    {
+      "word": "cognizant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having knowledge or being aware of",
+          "example": "We are cognizant of the risks involved."
+        }
+      ],
+      "synonyms": ["aware", "conscious", "mindful", "informed"],
+      "antonyms": ["unaware", "ignorant", "oblivious"]
+    },
+    {
+      "word": "consternation",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "feelings of anxiety or dismay, typically at something unexpected",
+          "example": "To the consternation of his parents, he quit college."
+        }
+      ],
+      "synonyms": ["dismay", "alarm", "anxiety", "distress"],
+      "antonyms": ["calm", "composure", "equanimity"]
+    },
+    {
+      "word": "debase",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reduce something in quality or value",
+          "example": "The coins were debased with cheaper metals."
+        }
+      ],
+      "synonyms": ["degrade", "devalue", "corrupt", "cheapen"],
+      "antonyms": ["enhance", "improve", "elevate"]
+    },
+    {
+      "word": "dichotomy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a division or contrast between two things that are represented as being opposed or entirely different",
+          "example": "The novel explores the dichotomy between duty and desire."
+        }
+      ],
+      "synonyms": ["division", "split", "contrast", "polarity"]
+    },
+    {
+      "word": "engender",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cause or give rise to a feeling, situation or condition",
+          "example": "The policy engendered resentment among farmers."
+        }
+      ],
+      "synonyms": ["cause", "produce", "generate", "provoke"]
+    },
+    {
+      "word": "eradicate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to destroy completely; to put an end to",
+          "example": "The vaccine helped eradicate smallpox."
+        }
+      ],
+      "synonyms": ["eliminate", "wipe out", "abolish", "exterminate"],
+      "antonyms": ["foster", "nurture", "establish"]
+    },
+    {
+      "word": "frenetic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "fast and energetic in a rather wild and uncontrolled way",
+          "example": "The kitchen was a scene of frenetic activity before dinner."
+        }
+      ],
+      "synonyms": ["frantic", "hectic", "frenzied", "feverish"],
+      "antonyms": ["calm", "leisurely", "relaxed"]
+    },
+    {
+      "word": "goad",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to provoke or annoy someone so as to stimulate an action or reaction",
+          "example": "His friends goaded him into jumping off the pier."
+        }
+      ],
+      "synonyms": ["provoke", "spur", "prod", "incite"],
+      "antonyms": ["discourage", "restrain"]
+    },
+    {
+      "word": "hedonist",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who believes that the pursuit of pleasure is the most important thing in life",
+          "example": "The hedonist spent his days at parties and his nights at the casino."
+        }
+      ],
+      "synonyms": ["pleasure-seeker", "sybarite", "epicure", "sensualist"],
+      "antonyms": ["ascetic", "puritan"]
+    },
+    {
+      "word": "impetuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "acting or done quickly and without thought or care",
+          "example": "In an impetuous moment, he quit his job."
+        }
+      ],
+      "synonyms": ["impulsive", "rash", "hasty", "reckless"],
+      "antonyms": ["cautious", "careful", "considered"]
+    },
+    {
+      "word": "incipient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in an initial stage; beginning to happen or develop",
+          "example": "The doctor spotted signs of incipient arthritis."
+        }
+      ],
+      "synonyms": ["beginning", "nascent", "inchoate", "emerging"],
+      "antonyms": ["developed", "mature", "full-blown"]
+    },
+    {
+      "word": "incredulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unwilling or unable to believe something",
+          "example": "She gave him an incredulous look when he claimed he'd cleaned the house."
+        }
+      ],
+      "synonyms": ["disbelieving", "skeptical", "doubtful", "dubious"],
+      "antonyms": ["credulous", "believing", "trusting"]
+    },
+    {
+      "word": "indefatigable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "persisting tirelessly",
+          "example": "The indefatigable campaigner visited every town in the state."
+        }
+      ],
+      "synonyms": ["tireless", "untiring", "persistent", "unflagging"],
+      "antonyms": ["lazy", "weary", "flagging"]
+    },
+    {
+      "word": "indiscriminate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "done at random or without careful judgment",
+          "example": "The indiscriminate use of antibiotics breeds resistant bacteria."
+        }
+      ],
+      "synonyms": ["unselective", "random", "haphazard", "careless"],
+      "antonyms": ["selective", "discriminating", "careful"]
+    },
+    {
+      "word": "inimical",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "tending to obstruct or harm",
+          "example": "High taxes are inimical to growth."
+        }
+      ],
+      "synonyms": ["harmful", "detrimental", "hostile", "adverse"],
+      "antonyms": ["favorable", "helpful", "beneficial"]
+    },
+    {
+      "word": "insolent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a rude and arrogant lack of respect",
+          "example": "The insolent pupil was sent to the principal."
+        }
+      ],
+      "synonyms": ["impertinent", "impudent", "rude", "disrespectful"],
+      "antonyms": ["respectful", "polite", "deferential"]
+    },
+    {
+      "word": "judicious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having, showing or done with good judgment or sense",
+          "example": "A judicious use of color brightens the room."
+        }
+      ],
+      "synonyms": ["wise", "prudent", "sensible", "shrewd"],
+      "antonyms": ["injudicious", "foolish", "rash"]
+    },
+    {
+      "word": "latent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "existing but not yet developed or manifest; hidden or concealed",
+          "example": "The tests revealed a latent talent for languages."
+        }
+      ],
+      "synonyms": ["dormant", "hidden", "potential", "undeveloped"],
+      "antonyms": ["manifest", "apparent", "active"]
+    },
+    {
+      "word": "lax",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not sufficiently strict, severe or careful",
+          "example": "Security at the depot was lax."
+        }
+      ],
+      "synonyms": ["slack", "careless", "negligent", "lenient"],
+      "antonyms": ["strict", "rigorous", "stringent"]
+    },
+    {
+      "word": "listless",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking energy or enthusiasm",
+          "example": "The heat left everyone listless."
+        }
+      ],
+      "synonyms": ["lethargic", "languid", "sluggish", "apathetic"],
+      "antonyms": ["energetic", "lively", "vigorous"]
+    },
+    {
+      "word": "lull",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a temporary interval of quiet or lack of activity",
+          "example": "There was a lull in the fighting over the holiday."
+        },
+        {
+          "pos": "verb",
+          "definition": "to calm or send to sleep, typically with soothing sounds or movements",
+          "example": "The rocking of the train lulled her to sleep."
+        },
+        {
+          "pos": "verb",
+          "definition": "to cause someone to feel deceptively secure or confident",
+          "example": "The quiet streets lulled them into a false sense of safety."
+        }
+      ],
+      "synonyms": ["pause", "respite", "break", "hiatus"],
+      "antonyms": ["surge", "flurry"]
+    },
+    {
+      "word": "maudlin",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "self-pityingly or tearfully sentimental",
+          "example": "After a few drinks he grew maudlin about his lost youth."
+        }
+      ],
+      "synonyms": ["sentimental", "mawkish", "tearful", "weepy"],
+      "antonyms": ["unsentimental", "restrained"]
+    },
+    {
+      "word": "mercurial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) subject to sudden or unpredictable changes of mood or mind",
+          "example": "The mercurial chef could be charming one minute and furious the next."
+        }
+      ],
+      "synonyms": ["volatile", "capricious", "fickle", "temperamental"],
+      "antonyms": ["stable", "steady", "constant"]
+    },
+    {
+      "word": "mettle",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person's ability to cope well with difficulties or to face a demanding situation in a spirited and resilient way",
+          "example": "The long march tested the soldiers' mettle."
+        }
+      ],
+      "synonyms": ["spirit", "courage", "fortitude", "resolve"],
+      "antonyms": ["cowardice", "timidity"]
+    },
+    {
+      "word": "mirth",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "amusement, especially as expressed in laughter",
+          "example": "His impression of the principal caused great mirth."
+        }
+      ],
+      "synonyms": ["merriment", "laughter", "hilarity", "glee"],
+      "antonyms": ["gloom", "sadness", "melancholy"]
+    },
+    {
+      "word": "mutable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "liable to change",
+          "example": "Fashion is a mutable thing."
+        }
+      ],
+      "synonyms": ["changeable", "variable", "fluid", "fickle"],
+      "antonyms": ["immutable", "fixed", "constant"]
+    },
+    {
+      "word": "nefarious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(typically of an action or activity) wicked or criminal",
+          "example": "The gang's nefarious activities included smuggling and extortion."
+        }
+      ],
+      "synonyms": ["wicked", "evil", "villainous", "criminal"],
+      "antonyms": ["good", "virtuous", "honorable"]
+    },
+    {
+      "word": "nonplussed",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "so surprised and confused that one is unsure how to react",
+          "example": "The question left the candidate nonplussed."
+        }
+      ],
+      "synonyms": ["bewildered", "baffled", "perplexed", "confounded"],
+      "antonyms": ["composed", "unfazed"],
+      "note": "Nonplussed traditionally means bewildered, not calm or unfazed."
+    },
+    {
+      "word": "nuance",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a subtle difference in or shade of meaning, expression or sound",
+          "example": "The translation misses the nuances of the original."
+        }
+      ],
+      "synonyms": ["subtlety", "shade", "distinction", "nicety"]
+    },
+    {
+      "word": "orthodox",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or their views) conforming to what is generally or traditionally accepted as right or true",
+          "example": "Her methods were far from orthodox, but they worked."
+        }
+      ],
+      "synonyms": ["conventional", "traditional", "mainstream", "accepted"],
+      "antonyms": ["unorthodox", "heterodox", "unconventional"]
+    },
+    {
+      "word": "ostracize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to exclude from a society or group",
+          "example": "She was ostracized by her colleagues for reporting the fraud."
+        }
+      ],
+      "synonyms": ["exclude", "shun", "cold-shoulder", "blackball"],
+      "antonyms": ["include", "welcome", "embrace"]
+    },
+    {
+      "word": "pallid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person's face) pale, typically because of poor health",
+          "example": "He looked pallid after weeks in the hospital."
+        },
+        {
+          "pos": "adjective",
+          "definition": "feeble or insipid",
+          "example": "The sequel was a pallid imitation of the original."
+        }
+      ],
+      "synonyms": ["pale", "wan", "ashen", "pasty"],
+      "antonyms": ["rosy", "ruddy", "flushed"]
+    },
+    {
+      "word": "pugnacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "eager or quick to argue, quarrel or fight",
+          "example": "The pugnacious senator loved a good fight."
+        }
+      ],
+      "synonyms": ["combative", "belligerent", "aggressive", "truculent"],
+      "antonyms": ["peaceable", "conciliatory", "docile"]
+    },
+    {
+      "word": "recant",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to say that one no longer holds an opinion or belief, especially one considered heretical",
+          "example": "Under pressure, the scientist recanted his theory."
+        }
+      ],
+      "synonyms": ["retract", "renounce", "repudiate", "disavow"],
+      "antonyms": ["maintain", "reaffirm"]
+    },
+    {
+      "word": "reclusive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "avoiding the company of other people; solitary",
+          "example": "The reclusive author never gave interviews."
+        }
+      ],
+      "synonyms": ["solitary", "withdrawn", "hermitic", "unsociable"],
+      "antonyms": ["gregarious", "sociable", "outgoing"]
+    },
+    {
+      "word": "replete",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "filled or well supplied with something",
+          "example": "The book is replete with fascinating detail."
+        },
+        {
+          "pos": "adjective",
+          "definition": "very full of food; sated",
+          "example": "Replete after the feast, the guests dozed by the fire."
+        }
+      ],
+      "synonyms": ["full", "filled", "abounding", "packed"],
+      "antonyms": ["empty", "lacking", "devoid"]
+    },
+    {
+      "word": "repugnant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely distasteful; unacceptable",
+          "example": "The idea of eating insects was repugnant to him."
+        }
+      ],
+      "synonyms": ["abhorrent", "revolting", "repulsive", "odious"],
+      "antonyms": ["pleasant", "attractive", "appealing"]
+    },
+    {
+      "word": "rife",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of something undesirable) of common occurrence; widespread",
+          "example": "Rumors were rife in the office."
+        },
+        {
+          "pos": "adjective",
+          "definition": "full of",
+          "example": "The essay was rife with errors."
+        }
+      ],
+      "synonyms": ["widespread", "rampant", "prevalent", "common"],
+      "antonyms": ["rare", "scarce"]
+    },
+    {
+      "word": "taciturn",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) reserved or uncommunicative in speech; saying little",
+          "example": "The taciturn fisherman spoke only to his dog."
+        }
+      ],
+      "synonyms": ["reticent", "reserved", "uncommunicative", "laconic"],
+      "antonyms": ["talkative", "loquacious", "garrulous"]
+    },
+    {
+      "word": "tenable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "able to be maintained or defended against attack or objection",
+          "example": "The theory is no longer tenable in light of new evidence."
+        }
+      ],
+      "synonyms": ["defensible", "justifiable", "reasonable", "sound"],
+      "antonyms": ["untenable", "indefensible", "unsound"]
+    },
+    {
+      "word": "thwart",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to prevent someone from accomplishing something",
+          "example": "The guard thwarted the robbery."
+        }
+      ],
+      "synonyms": ["foil", "frustrate", "stymie", "block"],
+      "antonyms": ["help", "assist", "facilitate"]
+    },
+    {
+      "word": "travesty",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a false, absurd or distorted representation of something",
+          "example": "The trial was a travesty of justice."
+        }
+      ],
+      "synonyms": ["mockery", "parody", "distortion", "perversion"]
+    },
+    {
+      "word": "vapid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "offering nothing that is stimulating or challenging; bland",
+          "example": "The pop song had vapid lyrics."
+        }
+      ],
+      "synonyms": ["insipid", "bland", "dull", "vacuous"],
+      "antonyms": ["stimulating", "interesting", "lively"]
+    },
+    {
+      "word": "vigilant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "keeping careful watch for possible danger or difficulties",
+          "example": "Be vigilant about strangers near the school."
+        }
+      ],
+      "synonyms": ["watchful", "alert", "attentive", "wary"],
+      "antonyms": ["careless", "inattentive", "negligent"]
+    },
+    {
+      "word": "virtuoso",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person highly skilled in music or another artistic pursuit",
+          "example": "The violin virtuoso played without a score."
+        }
+      ],
+      "synonyms": ["master", "maestro", "genius", "expert"],
+      "antonyms": ["amateur", "novice"]
+    },
+    {
+      "word": "wistful",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing a feeling of vague or regretful longing",
+          "example": "She cast a wistful glance at the old house."
+        }
+      ],
+      "synonyms": ["nostalgic", "yearning", "longing", "melancholy"],
+      "antonyms": ["content", "satisfied"]
+    }
+  ]
+}

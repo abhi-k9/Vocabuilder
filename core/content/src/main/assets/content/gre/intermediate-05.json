@@ -1,0 +1,656 @@
+{
+  "level": "intermediate",
+  "number": 5,
+  "words": [
+    {
+      "word": "anathema",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "something or someone that one vehemently dislikes",
+          "example": "Raising taxes was anathema to the party."
+        }
+      ],
+      "synonyms": ["abomination", "bane", "bugbear", "pet hate"]
+    },
+    {
+      "word": "atrophy",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to waste away, especially as a result of lack of use",
+          "example": "Without exercise, the muscles in his leg atrophied."
+        },
+        {
+          "pos": "noun",
+          "definition": "the gradual decline of effectiveness or vigor due to underuse or neglect",
+          "example": "The atrophy of local newspapers left many towns without coverage."
+        }
+      ],
+      "synonyms": ["waste away", "wither", "deteriorate", "weaken"],
+      "antonyms": ["flourish", "strengthen", "grow"]
+    },
+    {
+      "word": "augment",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something greater by adding to it; to increase",
+          "example": "She took a second job to augment her income."
+        }
+      ],
+      "synonyms": ["increase", "supplement", "enlarge", "boost"],
+      "antonyms": ["reduce", "decrease", "diminish"]
+    },
+    {
+      "word": "bucolic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relating to the pleasant aspects of the countryside and country life",
+          "example": "The painting shows a bucolic scene of cows by a stream."
+        }
+      ],
+      "synonyms": ["pastoral", "rustic", "rural", "idyllic"],
+      "antonyms": ["urban", "metropolitan"]
+    },
+    {
+      "word": "chagrin",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "distress or embarrassment at having failed or been humiliated",
+          "example": "Much to his chagrin, he forgot his lines on opening night."
+        }
+      ],
+      "synonyms": ["embarrassment", "humiliation", "mortification", "annoyance"],
+      "antonyms": ["delight", "pleasure"]
+    },
+    {
+      "word": "compunction",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a feeling of guilt or moral scruple that prevents or follows the doing of something bad",
+          "example": "He felt no compunction about lying to the press."
+        }
+      ],
+      "synonyms": ["scruple", "qualm", "misgiving", "remorse"]
+    },
+    {
+      "word": "congenial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) pleasant because of a personality, qualities or interests that are similar to one's own",
+          "example": "She found her new colleagues congenial."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a thing) pleasant or agreeable because suited to one's taste or inclination",
+          "example": "The quiet village was a congenial place to write."
+        }
+      ],
+      "synonyms": ["friendly", "agreeable", "likable", "genial"],
+      "antonyms": ["disagreeable", "unfriendly"]
+    },
+    {
+      "word": "connoisseur",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an expert judge in matters of taste",
+          "example": "A connoisseur of cheese, he could name any variety by its smell."
+        }
+      ],
+      "synonyms": ["expert", "authority", "aficionado", "judge"],
+      "antonyms": ["novice", "amateur", "philistine"]
+    },
+    {
+      "word": "contravene",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to violate the prohibition or order of a law, treaty or code of conduct",
+          "example": "The factory's waste contravened environmental rules."
+        }
+      ],
+      "synonyms": ["violate", "breach", "infringe", "flout"],
+      "antonyms": ["obey", "observe", "comply with"]
+    },
+    {
+      "word": "covert",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not openly acknowledged or displayed",
+          "example": "The agency ran covert operations abroad."
+        }
+      ],
+      "synonyms": ["secret", "clandestine", "hidden", "surreptitious"],
+      "antonyms": ["overt", "open", "public"]
+    },
+    {
+      "word": "defunct",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "no longer existing or functioning",
+          "example": "The building once housed a defunct newspaper."
+        }
+      ],
+      "synonyms": ["extinct", "obsolete", "dead", "inoperative"],
+      "antonyms": ["active", "existing", "functioning"]
+    },
+    {
+      "word": "deprecate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express disapproval of",
+          "example": "The author deprecates the habit of judging books by their covers."
+        },
+        {
+          "pos": "verb",
+          "definition": "to play down; to belittle",
+          "example": "She tends to deprecate her own achievements."
+        }
+      ],
+      "synonyms": ["disapprove of", "criticize", "condemn", "deplore"],
+      "antonyms": ["approve", "praise"]
+    },
+    {
+      "word": "eminent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "famous and respected within a particular sphere",
+          "example": "An eminent surgeon led the inquiry."
+        }
+      ],
+      "synonyms": ["distinguished", "illustrious", "prominent", "renowned"],
+      "antonyms": ["obscure", "unknown", "undistinguished"],
+      "note": "Eminent means distinguished; imminent means about to happen."
+    },
+    {
+      "word": "evanescent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "soon passing out of sight, memory or existence; quickly fading or disappearing",
+          "example": "The evanescent glow of the sunset lasted only minutes."
+        }
+      ],
+      "synonyms": ["fleeting", "ephemeral", "transient", "vanishing"],
+      "antonyms": ["permanent", "lasting", "enduring"]
+    },
+    {
+      "word": "exacting",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "making great demands on one's skill, attention or other resources",
+          "example": "The work is exacting and requires great patience."
+        }
+      ],
+      "synonyms": ["demanding", "rigorous", "stringent", "taxing"],
+      "antonyms": ["easy", "undemanding"]
+    },
+    {
+      "word": "expedite",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make an action or process happen sooner or be accomplished more quickly",
+          "example": "Paying the extra fee will expedite your application."
+        }
+      ],
+      "synonyms": ["speed up", "accelerate", "hasten", "facilitate"],
+      "antonyms": ["delay", "hinder", "impede"]
+    },
+    {
+      "word": "fecund",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "producing or capable of producing an abundance of offspring or new growth; fertile",
+          "example": "The fecund soil of the delta feeds millions."
+        },
+        {
+          "pos": "adjective",
+          "definition": "intellectually productive or inventive",
+          "example": "Her fecund imagination produced a new story every week."
+        }
+      ],
+      "synonyms": ["fertile", "fruitful", "productive", "prolific"],
+      "antonyms": ["barren", "sterile", "infertile"]
+    },
+    {
+      "word": "foible",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a minor weakness or eccentricity in someone's character",
+          "example": "We learned to accept each other's foibles."
+        }
+      ],
+      "synonyms": ["weakness", "quirk", "idiosyncrasy", "failing"],
+      "antonyms": ["strength", "virtue"]
+    },
+    {
+      "word": "frivolous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not having any serious purpose or value",
+          "example": "The court dismissed the case as frivolous."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a person) carefree and not serious",
+          "example": "His frivolous attitude to money worried his parents."
+        }
+      ],
+      "synonyms": ["trivial", "trifling", "petty", "unimportant"],
+      "antonyms": ["serious", "important", "significant"]
+    },
+    {
+      "word": "furtive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "attempting to avoid notice or attention, typically because of guilt or a belief that discovery would lead to trouble",
+          "example": "He cast a furtive glance at the exam paper next to him."
+        }
+      ],
+      "synonyms": ["secretive", "surreptitious", "stealthy", "sly"],
+      "antonyms": ["open", "overt", "brazen"]
+    },
+    {
+      "word": "harangue",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a lengthy and aggressive speech",
+          "example": "The manager delivered a harangue about lateness."
+        },
+        {
+          "pos": "verb",
+          "definition": "to lecture someone at length in an aggressive and critical manner",
+          "example": "She harangued the council about the potholes for twenty minutes."
+        }
+      ],
+      "synonyms": ["tirade", "diatribe", "lecture", "rant"]
+    },
+    {
+      "word": "hubris",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "excessive pride or self-confidence",
+          "example": "In the tragedy, the king's hubris leads to his downfall."
+        }
+      ],
+      "synonyms": ["arrogance", "conceit", "pride", "overconfidence"],
+      "antonyms": ["humility", "modesty"]
+    },
+    {
+      "word": "ignominious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "deserving or causing public disgrace or shame",
+          "example": "The champions suffered an ignominious defeat in the first round."
+        }
+      ],
+      "synonyms": ["humiliating", "shameful", "disgraceful", "mortifying"],
+      "antonyms": ["honorable", "glorious", "dignified"]
+    },
+    {
+      "word": "impeccable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in accordance with the highest standards; faultless",
+          "example": "He has impeccable manners."
+        }
+      ],
+      "synonyms": ["flawless", "faultless", "perfect", "immaculate"],
+      "antonyms": ["flawed", "imperfect", "faulty"]
+    },
+    {
+      "word": "impecunious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having little or no money",
+          "example": "The impecunious student lived on rice and beans."
+        }
+      ],
+      "synonyms": ["poor", "penniless", "destitute", "indigent"],
+      "antonyms": ["rich", "wealthy", "affluent"]
+    },
+    {
+      "word": "indict",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to formally accuse or charge someone with a serious crime",
+          "example": "The mayor was indicted for fraud."
+        }
+      ],
+      "synonyms": ["charge", "accuse", "arraign", "prosecute"],
+      "antonyms": ["acquit", "exonerate"]
+    },
+    {
+      "word": "inexorable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "impossible to stop or prevent",
+          "example": "The inexorable rise of sea levels threatens the coast."
+        }
+      ],
+      "synonyms": ["relentless", "unstoppable", "inevitable", "unrelenting"],
+      "antonyms": ["avoidable", "stoppable"]
+    },
+    {
+      "word": "insurgent",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person fighting against a government or invading force; a rebel",
+          "example": "Insurgents seized control of the northern province."
+        },
+        {
+          "pos": "adjective",
+          "definition": "rising in active revolt",
+          "example": "The insurgent forces captured the airport."
+        }
+      ],
+      "synonyms": ["rebel", "revolutionary", "mutineer", "guerrilla"],
+      "antonyms": ["loyalist"]
+    },
+    {
+      "word": "intemperate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing a lack of self-control; immoderate",
+          "example": "The minister apologized for his intemperate remarks."
+        }
+      ],
+      "synonyms": ["immoderate", "excessive", "unrestrained", "wild"],
+      "antonyms": ["temperate", "moderate", "restrained"]
+    },
+    {
+      "word": "maverick",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an unorthodox or independent-minded person",
+          "example": "A maverick in her party, she often voted with the opposition."
+        }
+      ],
+      "synonyms": ["nonconformist", "individualist", "rebel", "free spirit"],
+      "antonyms": ["conformist"]
+    },
+    {
+      "word": "morose",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sullen and ill-tempered",
+          "example": "He became morose after losing his job."
+        }
+      ],
+      "synonyms": ["sullen", "gloomy", "glum", "sulky"],
+      "antonyms": ["cheerful", "cheery", "buoyant"]
+    },
+    {
+      "word": "oscillate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to move or swing back and forth at a regular speed",
+          "example": "The pendulum oscillated slowly."
+        },
+        {
+          "pos": "verb",
+          "definition": "to waver between extremes of opinion, action or quality",
+          "example": "He oscillated between hope and despair."
+        }
+      ],
+      "synonyms": ["swing", "sway", "fluctuate", "vibrate"]
+    },
+    {
+      "word": "overt",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "done or shown openly; plainly apparent",
+          "example": "There was overt hostility between the two camps."
+        }
+      ],
+      "synonyms": ["open", "undisguised", "blatant", "manifest"],
+      "antonyms": ["covert", "hidden", "secret"]
+    },
+    {
+      "word": "paradigm",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a typical example or pattern of something; a model",
+          "example": "The company is a paradigm of good management."
+        },
+        {
+          "pos": "noun",
+          "definition": "a framework of ideas and assumptions within a field",
+          "example": "The discovery forced a paradigm shift in physics."
+        }
+      ],
+      "synonyms": ["model", "pattern", "example", "archetype"]
+    },
+    {
+      "word": "peruse",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to read something, typically in a thorough or careful way",
+          "example": "She perused the contract before signing."
+        }
+      ],
+      "synonyms": ["study", "scrutinize", "examine", "read closely"],
+      "antonyms": ["skim", "glance at"],
+      "note": "Peruse traditionally means to read carefully, though it is often used to mean skim."
+    },
+    {
+      "word": "philanthropy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the desire to promote the welfare of others, expressed especially by the generous donation of money to good causes",
+          "example": "Her philanthropy funded three new hospitals."
+        }
+      ],
+      "synonyms": ["charity", "benevolence", "generosity", "altruism"],
+      "antonyms": ["misanthropy", "selfishness"]
+    },
+    {
+      "word": "pithy",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of language or style) concise and forcefully expressive",
+          "example": "The book is full of pithy advice."
+        }
+      ],
+      "synonyms": ["succinct", "terse", "concise", "laconic"],
+      "antonyms": ["verbose", "wordy", "rambling"]
+    },
+    {
+      "word": "portent",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a sign or warning that something, especially something momentous or calamitous, is likely to happen",
+          "example": "The storm was seen as a portent of disaster."
+        }
+      ],
+      "synonyms": ["omen", "sign", "harbinger", "warning"]
+    },
+    {
+      "word": "precipitous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "dangerously high or steep",
+          "example": "A precipitous path led down to the beach."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a change to a worse situation) sudden and dramatic",
+          "example": "The company's shares suffered a precipitous fall."
+        }
+      ],
+      "synonyms": ["steep", "sheer", "abrupt", "vertical"],
+      "antonyms": ["gentle", "gradual"]
+    },
+    {
+      "word": "presumptuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or their behavior) failing to observe the limits of what is permitted or appropriate",
+          "example": "It would be presumptuous to book the venue before she says yes."
+        }
+      ],
+      "synonyms": ["forward", "bold", "overconfident", "impertinent"],
+      "antonyms": ["modest", "diffident", "humble"]
+    },
+    {
+      "word": "provincial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unsophisticated or narrow-minded",
+          "example": "His provincial attitudes surprised his city friends."
+        },
+        {
+          "pos": "adjective",
+          "definition": "of or concerning a province of a country",
+          "example": "Provincial elections will be held in May."
+        }
+      ],
+      "synonyms": ["parochial", "insular", "narrow-minded", "small-town"],
+      "antonyms": ["cosmopolitan", "sophisticated", "worldly"]
+    },
+    {
+      "word": "pundit",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an expert in a particular subject or field who is frequently called upon to give opinions about it to the public",
+          "example": "Political pundits predicted a landslide."
+        }
+      ],
+      "synonyms": ["expert", "commentator", "authority", "analyst"]
+    },
+    {
+      "word": "qualm",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an uneasy feeling of doubt, worry or fear, especially about one's own conduct",
+          "example": "She had no qualms about asking for a raise."
+        }
+      ],
+      "synonyms": ["misgiving", "scruple", "compunction", "doubt"]
+    },
+    {
+      "word": "ratify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to sign or give formal consent to a treaty, contract or agreement, making it officially valid",
+          "example": "Both countries ratified the treaty."
+        }
+      ],
+      "synonyms": ["confirm", "approve", "endorse", "sanction"],
+      "antonyms": ["reject", "veto", "revoke"]
+    },
+    {
+      "word": "rebut",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to claim or prove that evidence or an accusation is false",
+          "example": "The minister rebutted the charges point by point."
+        }
+      ],
+      "synonyms": ["refute", "disprove", "counter", "contradict"],
+      "antonyms": ["confirm", "support"]
+    },
+    {
+      "word": "restive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unable to keep still or silent and becoming increasingly difficult to control, especially because of impatience or dissatisfaction",
+          "example": "The crowd grew restive as the delay dragged on."
+        }
+      ],
+      "synonyms": ["restless", "fidgety", "unruly", "impatient"],
+      "antonyms": ["calm", "patient", "relaxed"],
+      "note": "Restive means restless or unruly, not restful."
+    },
+    {
+      "word": "urbane",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person, especially a man) courteous and refined in manner",
+          "example": "The urbane diplomat charmed everyone at the dinner."
+        }
+      ],
+      "synonyms": ["suave", "sophisticated", "polished", "debonair"],
+      "antonyms": ["boorish", "uncouth", "crude"]
+    },
+    {
+      "word": "vex",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make someone feel annoyed, frustrated or worried, especially with trivial matters",
+          "example": "The constant noise vexed the neighbors."
+        }
+      ],
+      "synonyms": ["annoy", "irritate", "exasperate", "irk"],
+      "antonyms": ["please", "soothe"]
+    },
+    {
+      "word": "vicarious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "experienced in the imagination through the feelings or actions of another person",
+          "example": "She took vicarious pleasure in her son's success."
+        }
+      ],
+      "synonyms": ["indirect", "secondhand", "surrogate", "substitute"],
+      "antonyms": ["direct", "firsthand"]
+    },
+    {
+      "word": "vivacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of a woman) attractively lively and animated",
+          "example": "The vivacious host kept the party going."
+        }
+      ],
+      "synonyms": ["lively", "animated", "bubbly", "spirited"],
+      "antonyms": ["dull", "listless", "lifeless"]
+    }
+  ]
+}
