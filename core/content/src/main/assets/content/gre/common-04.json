@@ -1,0 +1,663 @@
+{
+  "level": "common",
+  "number": 4,
+  "words": [
+    {
+      "word": "adverse",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "harmful or unfavorable",
+          "example": "The drug was withdrawn after reports of adverse side effects."
+        }
+      ],
+      "synonyms": ["harmful", "unfavorable", "detrimental", "hostile"],
+      "antonyms": ["favorable", "beneficial"],
+      "note": "Adverse describes conditions or effects; averse describes a person's reluctance, as in \"averse to risk.\""
+    },
+    {
+      "word": "affable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "friendly, good-natured and easy to talk to",
+          "example": "The affable librarian knew every regular by name."
+        }
+      ],
+      "synonyms": ["genial", "amiable", "cordial", "approachable"],
+      "antonyms": ["unfriendly", "surly", "aloof"]
+    },
+    {
+      "word": "aloof",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "distant and uninvolved, not friendly",
+          "example": "New colleagues found him aloof until they learned he was simply shy."
+        }
+      ],
+      "synonyms": ["distant", "detached", "standoffish", "reserved"],
+      "antonyms": ["friendly", "sociable", "warm"]
+    },
+    {
+      "word": "amiable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having a friendly and pleasant manner",
+          "example": "The talks stayed amiable even when the two sides disagreed."
+        }
+      ],
+      "synonyms": ["friendly", "affable", "genial", "cordial"],
+      "antonyms": ["hostile", "unfriendly"]
+    },
+    {
+      "word": "anomaly",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "something that deviates from what is standard or expected",
+          "example": "A warm week in January is an anomaly, not proof of a trend."
+        }
+      ],
+      "synonyms": ["aberration", "deviation", "irregularity", "oddity"],
+      "antonyms": ["norm", "rule"]
+    },
+    {
+      "word": "apprehensive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "anxious or fearful that something bad will happen",
+          "example": "She was apprehensive about driving in the snow."
+        }
+      ],
+      "synonyms": ["anxious", "uneasy", "nervous", "fearful"],
+      "antonyms": ["confident", "calm", "untroubled"]
+    },
+    {
+      "word": "ardent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "very enthusiastic or passionate",
+          "example": "An ardent fan, he hadn't missed a home game in ten years."
+        }
+      ],
+      "synonyms": ["passionate", "fervent", "zealous", "avid"],
+      "antonyms": ["apathetic", "indifferent", "lukewarm"]
+    },
+    {
+      "word": "assuage",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make an unpleasant feeling less intense",
+          "example": "A long talk with her sister assuaged her fears about the surgery."
+        },
+        {
+          "pos": "verb",
+          "definition": "to satisfy an appetite or desire",
+          "example": "Nothing could assuage his curiosity about the locked room."
+        }
+      ],
+      "synonyms": ["ease", "relieve", "soothe", "allay"],
+      "antonyms": ["aggravate", "intensify"]
+    },
+    {
+      "word": "astute",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having the ability to assess situations accurately and turn them to one's advantage",
+          "example": "An astute investor, she sold her shares just before the crash."
+        }
+      ],
+      "synonyms": ["shrewd", "perceptive", "sharp", "sagacious"],
+      "antonyms": ["foolish", "obtuse", "naive"]
+    },
+    {
+      "word": "audacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a willingness to take bold risks",
+          "example": "The climbers made an audacious attempt on the north face in winter."
+        },
+        {
+          "pos": "adjective",
+          "definition": "showing impudent lack of respect",
+          "example": "It was audacious of him to ask for a raise on his first day."
+        }
+      ],
+      "synonyms": ["bold", "daring", "intrepid", "fearless"],
+      "antonyms": ["timid", "cautious"]
+    },
+    {
+      "word": "autonomy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the right or condition of self-government; independence",
+          "example": "The region was granted autonomy over its schools and courts."
+        }
+      ],
+      "synonyms": ["independence", "self-government", "sovereignty", "freedom"],
+      "antonyms": ["dependence", "subjection"]
+    },
+    {
+      "word": "banal",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "so lacking in originality as to be obvious and boring",
+          "example": "The speech was a string of banal remarks about teamwork."
+        }
+      ],
+      "synonyms": ["trite", "hackneyed", "commonplace", "unoriginal"],
+      "antonyms": ["original", "novel", "striking"]
+    },
+    {
+      "word": "benevolent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "well-meaning and kindly",
+          "example": "A benevolent neighbor paid for the repairs without being asked."
+        }
+      ],
+      "synonyms": ["kind", "charitable", "generous", "altruistic"],
+      "antonyms": ["malevolent", "unkind", "hostile"]
+    },
+    {
+      "word": "censure",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express severe, often formal, disapproval of",
+          "example": "The senator was censured for misusing campaign funds."
+        },
+        {
+          "pos": "noun",
+          "definition": "the formal expression of severe disapproval",
+          "example": "The minister faced censure from her own party."
+        }
+      ],
+      "synonyms": ["condemn", "denounce", "rebuke", "reprimand"],
+      "antonyms": ["praise", "commend", "endorse"]
+    },
+    {
+      "word": "circumspect",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "wary and unwilling to take risks; cautious",
+          "example": "Investors became circumspect after the bank's collapse."
+        }
+      ],
+      "synonyms": ["cautious", "wary", "prudent", "careful"],
+      "antonyms": ["rash", "reckless", "imprudent"]
+    },
+    {
+      "word": "corroborate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to confirm or give support to a statement or theory",
+          "example": "Two witnesses corroborated the driver's account of the accident."
+        }
+      ],
+      "synonyms": ["confirm", "substantiate", "verify", "support"],
+      "antonyms": ["contradict", "refute", "undermine"]
+    },
+    {
+      "word": "debunk",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to expose the falseness of an idea or belief",
+          "example": "The article debunks the myth that we use only ten percent of our brains."
+        }
+      ],
+      "synonyms": ["disprove", "refute", "discredit", "explode"],
+      "antonyms": ["confirm", "support"]
+    },
+    {
+      "word": "didactic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "intended to teach, particularly in having moral instruction as an ulterior motive",
+          "example": "The children's book was charming but a little too didactic."
+        }
+      ],
+      "synonyms": ["instructive", "educational", "moralizing", "preachy"]
+    },
+    {
+      "word": "discern",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to perceive or recognize something, often with difficulty",
+          "example": "In the fog we could barely discern the outline of the hills."
+        },
+        {
+          "pos": "verb",
+          "definition": "to distinguish one thing from another; to judge well",
+          "example": "It takes experience to discern good advice from bad."
+        }
+      ],
+      "synonyms": ["perceive", "detect", "distinguish", "make out"]
+    },
+    {
+      "word": "egregious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "outstandingly bad; shocking",
+          "example": "The referee's call was an egregious error."
+        }
+      ],
+      "synonyms": ["flagrant", "glaring", "outrageous", "shocking"],
+      "antonyms": ["minor", "trivial", "slight"]
+    },
+    {
+      "word": "enigma",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that is mysterious or difficult to understand",
+          "example": "Despite years of research, the stone circle remains an enigma."
+        }
+      ],
+      "synonyms": ["mystery", "puzzle", "riddle", "conundrum"]
+    },
+    {
+      "word": "enmity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the state or feeling of being actively opposed or hostile to someone",
+          "example": "The old enmity between the families flared up again at the wedding."
+        }
+      ],
+      "synonyms": ["hostility", "animosity", "antagonism", "rancor"],
+      "antonyms": ["friendship", "amity", "goodwill"]
+    },
+    {
+      "word": "erudite",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing great knowledge or learning",
+          "example": "The erudite lecture covered three thousand years of history."
+        }
+      ],
+      "synonyms": ["learned", "scholarly", "knowledgeable", "well-read"],
+      "antonyms": ["ignorant", "uneducated", "unlettered"]
+    },
+    {
+      "word": "exacerbate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make a problem, bad situation or negative feeling worse",
+          "example": "Cutting the bus service only exacerbated the traffic problem."
+        }
+      ],
+      "synonyms": ["aggravate", "worsen", "intensify", "compound"],
+      "antonyms": ["alleviate", "mitigate", "ease"]
+    },
+    {
+      "word": "exonerate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to absolve someone from blame for a fault or wrongdoing",
+          "example": "DNA evidence exonerated the man after ten years in prison."
+        }
+      ],
+      "synonyms": ["absolve", "acquit", "vindicate", "clear"],
+      "antonyms": ["incriminate", "convict", "blame"]
+    },
+    {
+      "word": "garrulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "excessively talkative, especially on trivial matters",
+          "example": "The garrulous passenger talked for the entire flight."
+        }
+      ],
+      "synonyms": ["talkative", "loquacious", "voluble", "chatty"],
+      "antonyms": ["taciturn", "reticent", "laconic"]
+    },
+    {
+      "word": "gregarious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "fond of company; sociable",
+          "example": "Gregarious by nature, she knew everyone in the building."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of animals) living in flocks or colonies",
+          "example": "Starlings are gregarious birds that roost by the thousands."
+        }
+      ],
+      "synonyms": ["sociable", "outgoing", "convivial", "extroverted"],
+      "antonyms": ["reclusive", "solitary", "introverted"]
+    },
+    {
+      "word": "guile",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "sly or cunning intelligence",
+          "example": "The fox in the fable uses guile rather than strength."
+        }
+      ],
+      "synonyms": ["cunning", "craftiness", "deceit", "wiliness"],
+      "antonyms": ["honesty", "candor", "ingenuousness"]
+    },
+    {
+      "word": "impervious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unable to be affected by",
+          "example": "She seemed impervious to criticism."
+        },
+        {
+          "pos": "adjective",
+          "definition": "not allowing fluid to pass through",
+          "example": "The jacket is made of an impervious fabric."
+        }
+      ],
+      "synonyms": ["immune", "unaffected", "insensitive", "resistant"],
+      "antonyms": ["susceptible", "vulnerable", "sensitive"]
+    },
+    {
+      "word": "inadvertent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not resulting from or achieved through deliberate planning",
+          "example": "An inadvertent click deleted the whole folder."
+        }
+      ],
+      "synonyms": ["accidental", "unintentional", "unwitting", "involuntary"],
+      "antonyms": ["deliberate", "intentional", "calculated"]
+    },
+    {
+      "word": "indolent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "wanting to avoid activity or exertion; lazy",
+          "example": "The indolent cat slept in the sun all afternoon."
+        }
+      ],
+      "synonyms": ["lazy", "idle", "slothful", "lethargic"],
+      "antonyms": ["industrious", "energetic", "diligent"]
+    },
+    {
+      "word": "negligent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "failing to take proper care in doing something",
+          "example": "The landlord was found negligent for ignoring the broken stairs."
+        }
+      ],
+      "synonyms": ["careless", "neglectful", "remiss", "lax"],
+      "antonyms": ["careful", "diligent", "attentive"]
+    },
+    {
+      "word": "nonchalant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or appearing casually calm and relaxed; not displaying anxiety or interest",
+          "example": "He gave a nonchalant shrug, as if the prize meant nothing."
+        }
+      ],
+      "synonyms": ["casual", "unconcerned", "blasé", "cool"],
+      "antonyms": ["anxious", "concerned", "agitated"]
+    },
+    {
+      "word": "partisan",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "prejudiced in favor of a particular cause",
+          "example": "The debate turned into a partisan shouting match."
+        },
+        {
+          "pos": "noun",
+          "definition": "a strong supporter of a party, cause or person",
+          "example": "Partisans of both candidates filled the hall."
+        }
+      ],
+      "synonyms": ["biased", "one-sided", "partial", "factional"],
+      "antonyms": ["impartial", "neutral", "nonpartisan"]
+    },
+    {
+      "word": "paucity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the presence of something in only small or insufficient quantities",
+          "example": "The paucity of evidence made a conviction unlikely."
+        }
+      ],
+      "synonyms": ["scarcity", "dearth", "lack", "shortage"],
+      "antonyms": ["abundance", "plenty", "profusion"]
+    },
+    {
+      "word": "pedantic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "excessively concerned with minor details or rules",
+          "example": "His pedantic corrections of everyone's grammar annoyed his friends."
+        }
+      ],
+      "synonyms": ["nitpicking", "fussy", "punctilious", "hair-splitting"],
+      "antonyms": ["casual", "imprecise"]
+    },
+    {
+      "word": "penchant",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a strong or habitual liking for something or tendency to do something",
+          "example": "She has a penchant for old maps."
+        }
+      ],
+      "synonyms": ["liking", "fondness", "predilection", "proclivity"],
+      "antonyms": ["dislike", "aversion"]
+    },
+    {
+      "word": "preclude",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to prevent from happening; to make impossible",
+          "example": "His injury precluded him from playing in the final."
+        }
+      ],
+      "synonyms": ["prevent", "rule out", "prohibit", "forestall"],
+      "antonyms": ["allow", "permit", "enable"]
+    },
+    {
+      "word": "prevaricate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to speak or act in an evasive way",
+          "example": "When asked about the missing funds, the treasurer prevaricated."
+        }
+      ],
+      "synonyms": ["equivocate", "hedge", "evade", "dodge"]
+    },
+    {
+      "word": "reconcile",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to restore friendly relations between",
+          "example": "The brothers were finally reconciled after years apart."
+        },
+        {
+          "pos": "verb",
+          "definition": "to make two apparently conflicting things compatible",
+          "example": "It is hard to reconcile his words with his actions."
+        }
+      ],
+      "synonyms": ["reunite", "make peace", "conciliate"],
+      "antonyms": ["estrange", "alienate"]
+    },
+    {
+      "word": "reprehensible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "deserving censure or condemnation",
+          "example": "Bullying a younger child is reprehensible."
+        }
+      ],
+      "synonyms": ["blameworthy", "deplorable", "disgraceful", "shameful"],
+      "antonyms": ["commendable", "praiseworthy", "admirable"]
+    },
+    {
+      "word": "repudiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to refuse to accept or be associated with",
+          "example": "The party repudiated the candidate's remarks."
+        }
+      ],
+      "synonyms": ["reject", "disown", "renounce", "disavow"],
+      "antonyms": ["accept", "embrace", "acknowledge"]
+    },
+    {
+      "word": "rescind",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to revoke, cancel or repeal a law, order or agreement",
+          "example": "The council rescinded the ban after a public outcry."
+        }
+      ],
+      "synonyms": ["revoke", "repeal", "annul", "cancel"],
+      "antonyms": ["enact", "uphold", "ratify"]
+    },
+    {
+      "word": "solicitous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "characterized by showing interest or concern",
+          "example": "The nurse was solicitous of her patients' comfort."
+        }
+      ],
+      "synonyms": ["attentive", "concerned", "caring", "considerate"],
+      "antonyms": ["neglectful", "indifferent", "uncaring"]
+    },
+    {
+      "word": "stagnant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of water or air) having no current or flow and often having an unpleasant smell as a consequence",
+          "example": "Mosquitoes breed in stagnant pools."
+        },
+        {
+          "pos": "adjective",
+          "definition": "showing no activity; dull and sluggish",
+          "example": "Wages have been stagnant for a decade."
+        }
+      ],
+      "synonyms": ["still", "motionless", "standing", "foul"],
+      "antonyms": ["flowing", "fresh", "running"]
+    },
+    {
+      "word": "stoic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "enduring pain and hardship without showing feelings or complaining",
+          "example": "She remained stoic throughout the long recovery."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person who can endure pain or hardship without complaining",
+          "example": "A true stoic, he never mentioned the pain."
+        }
+      ],
+      "synonyms": ["impassive", "patient", "uncomplaining", "long-suffering"],
+      "antonyms": ["emotional", "complaining"]
+    },
+    {
+      "word": "strident",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "loud and harsh; grating",
+          "example": "The strident sound of the alarm woke the whole street."
+        },
+        {
+          "pos": "adjective",
+          "definition": "presenting a point of view, especially a controversial one, in an excessively forceful way",
+          "example": "Her strident criticism of the plan alienated potential allies."
+        }
+      ],
+      "synonyms": ["harsh", "grating", "shrill", "raucous"],
+      "antonyms": ["soft", "mellow", "soothing"]
+    },
+    {
+      "word": "superficial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "existing or occurring at or on the surface",
+          "example": "The cut was only superficial."
+        },
+        {
+          "pos": "adjective",
+          "definition": "not thorough, deep or complete; cursory",
+          "example": "The report gave only a superficial account of the problem."
+        }
+      ],
+      "synonyms": ["surface", "shallow", "slight", "external"],
+      "antonyms": ["deep", "profound"]
+    },
+    {
+      "word": "torpor",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a state of physical or mental inactivity; lethargy",
+          "example": "The summer heat left the town in a kind of torpor."
+        }
+      ],
+      "synonyms": ["lethargy", "sluggishness", "inertia", "listlessness"],
+      "antonyms": ["energy", "vigor", "alertness"]
+    },
+    {
+      "word": "ubiquitous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "present, appearing or found everywhere",
+          "example": "Smartphones have become ubiquitous."
+        }
+      ],
+      "synonyms": ["omnipresent", "pervasive", "universal", "everywhere"],
+      "antonyms": ["rare", "scarce"]
+    }
+  ]
+}

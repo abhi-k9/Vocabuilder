@@ -1,0 +1,656 @@
+{
+  "level": "common",
+  "number": 3,
+  "words": [
+    {
+      "word": "aberrant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "departing from what is normal or expected",
+          "example": "The researchers threw out one aberrant reading caused by a faulty sensor."
+        }
+      ],
+      "synonyms": ["abnormal", "deviant", "anomalous", "atypical"],
+      "antonyms": ["normal", "typical"]
+    },
+    {
+      "word": "abstain",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to choose not to do or have something, especially something enjoyable",
+          "example": "She abstained from sweets for the whole month of training."
+        },
+        {
+          "pos": "verb",
+          "definition": "to formally decline to vote",
+          "example": "Three members abstained, so the motion passed by a single vote."
+        }
+      ],
+      "synonyms": ["refrain", "forgo", "eschew"],
+      "antonyms": ["indulge"]
+    },
+    {
+      "word": "acclaim",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "enthusiastic public praise",
+          "example": "Her first novel won wide acclaim from critics and readers alike."
+        },
+        {
+          "pos": "verb",
+          "definition": "to praise publicly and enthusiastically",
+          "example": "The bridge was acclaimed as a triumph of engineering."
+        }
+      ],
+      "synonyms": ["praise", "applause", "plaudits"],
+      "antonyms": ["criticism", "censure"]
+    },
+    {
+      "word": "ambiguous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "open to more than one interpretation; not clear",
+          "example": "The contract's ambiguous wording led to a long dispute."
+        }
+      ],
+      "synonyms": ["unclear", "equivocal", "vague", "cryptic"],
+      "antonyms": ["clear", "unambiguous", "explicit"]
+    },
+    {
+      "word": "ambivalent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having mixed or contradictory feelings about something",
+          "example": "He felt ambivalent about the move: excited by the job, sad to leave his friends."
+        }
+      ],
+      "synonyms": ["conflicted", "torn", "uncertain", "undecided"],
+      "antonyms": ["certain", "decided", "resolute"]
+    },
+    {
+      "word": "apathy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "lack of interest, enthusiasm or concern",
+          "example": "Low turnout was blamed on voter apathy."
+        }
+      ],
+      "synonyms": ["indifference", "unconcern", "listlessness"],
+      "antonyms": ["enthusiasm", "passion", "interest"]
+    },
+    {
+      "word": "arcane",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "understood by few; mysterious or secret",
+          "example": "The tax code is full of arcane rules that only specialists follow."
+        }
+      ],
+      "synonyms": ["obscure", "esoteric", "abstruse", "recondite"],
+      "antonyms": ["common", "familiar", "simple"]
+    },
+    {
+      "word": "callous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing an insensitive and cruel disregard for others",
+          "example": "The callous remark about the victims caused an outcry."
+        }
+      ],
+      "synonyms": ["heartless", "unfeeling", "insensitive", "cold"],
+      "antonyms": ["compassionate", "caring", "sensitive"]
+    },
+    {
+      "word": "catalyst",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that precipitates an event or change",
+          "example": "The letter was the catalyst for a wave of protests."
+        },
+        {
+          "pos": "noun",
+          "definition": "a substance that speeds up a chemical reaction without itself changing",
+          "example": "Platinum acts as a catalyst in the car's exhaust system."
+        }
+      ],
+      "synonyms": ["spur", "stimulus", "impetus", "trigger"]
+    },
+    {
+      "word": "coalesce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to come together to form one mass or whole",
+          "example": "The scattered protest groups coalesced into a single movement."
+        }
+      ],
+      "synonyms": ["merge", "unite", "combine", "fuse"],
+      "antonyms": ["separate", "divide", "disperse"]
+    },
+    {
+      "word": "commensurate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "corresponding in size or degree; in proportion",
+          "example": "The salary will be commensurate with experience."
+        }
+      ],
+      "synonyms": ["proportionate", "corresponding", "equivalent", "comparable"],
+      "antonyms": ["disproportionate"]
+    },
+    {
+      "word": "complacent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing smug or uncritical satisfaction with oneself or one's achievements",
+          "example": "After three easy wins, the team grew complacent and lost the final."
+        }
+      ],
+      "synonyms": ["smug", "self-satisfied", "unconcerned", "lax"],
+      "antonyms": ["vigilant", "concerned", "diligent"]
+    },
+    {
+      "word": "conciliatory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "intended to placate or pacify",
+          "example": "After the argument he sent a conciliatory note and a bunch of flowers."
+        }
+      ],
+      "synonyms": ["placatory", "appeasing", "peacemaking", "pacifying"],
+      "antonyms": ["antagonistic", "provocative", "hostile"]
+    },
+    {
+      "word": "concise",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "giving a lot of information clearly and in few words",
+          "example": "Write a concise summary of no more than a page."
+        }
+      ],
+      "synonyms": ["succinct", "brief", "terse", "pithy"],
+      "antonyms": ["verbose", "wordy", "rambling"]
+    },
+    {
+      "word": "conundrum",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a confusing and difficult problem or question",
+          "example": "How to fund the new library without raising taxes was a real conundrum."
+        }
+      ],
+      "synonyms": ["puzzle", "problem", "quandary", "dilemma"]
+    },
+    {
+      "word": "culpable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "deserving blame",
+          "example": "The inquiry found the builder culpable for the collapse."
+        }
+      ],
+      "synonyms": ["blameworthy", "guilty", "responsible", "at fault"],
+      "antonyms": ["blameless", "innocent"]
+    },
+    {
+      "word": "cursory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "hasty and therefore not thorough or detailed",
+          "example": "A cursory glance at the report missed the main error."
+        }
+      ],
+      "synonyms": ["hasty", "perfunctory", "superficial", "brief"],
+      "antonyms": ["thorough", "careful", "detailed"]
+    },
+    {
+      "word": "delineate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to describe or portray something precisely",
+          "example": "The plan clearly delineates who is responsible for each task."
+        },
+        {
+          "pos": "verb",
+          "definition": "to indicate the exact position of a border or boundary",
+          "example": "Stones delineate the edge of the old churchyard."
+        }
+      ],
+      "synonyms": ["describe", "outline", "define", "depict"]
+    },
+    {
+      "word": "denigrate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to criticize unfairly; to disparage",
+          "example": "He denigrated his rival's work to make his own look better."
+        }
+      ],
+      "synonyms": ["disparage", "belittle", "decry", "malign"],
+      "antonyms": ["praise", "extol", "laud"]
+    },
+    {
+      "word": "deride",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express contempt for; to ridicule",
+          "example": "Critics derided the film as a waste of a fine cast."
+        }
+      ],
+      "synonyms": ["ridicule", "mock", "scoff at", "scorn"],
+      "antonyms": ["praise", "admire", "respect"]
+    },
+    {
+      "word": "disparage",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to regard or represent as being of little worth",
+          "example": "It is easy to disparage an idea you haven't tried."
+        }
+      ],
+      "synonyms": ["belittle", "denigrate", "deprecate", "decry"],
+      "antonyms": ["praise", "extol", "laud"]
+    },
+    {
+      "word": "disparate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "essentially different in kind; not able to be compared",
+          "example": "The anthology brings together disparate voices from across the century."
+        }
+      ],
+      "synonyms": ["different", "dissimilar", "distinct", "divergent"],
+      "antonyms": ["similar", "alike", "homogeneous"]
+    },
+    {
+      "word": "dormant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "temporarily inactive or asleep",
+          "example": "The volcano has been dormant for two hundred years."
+        }
+      ],
+      "synonyms": ["inactive", "latent", "quiescent", "sleeping"],
+      "antonyms": ["active", "awake", "erupting"]
+    },
+    {
+      "word": "endemic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "regularly found among particular people or in a certain area",
+          "example": "Malaria is endemic in parts of the region."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a plant or animal) native and restricted to a certain place",
+          "example": "The lemur is endemic to Madagascar."
+        }
+      ],
+      "synonyms": ["native", "indigenous", "local", "prevalent"],
+      "antonyms": ["foreign", "introduced", "exotic"]
+    },
+    {
+      "word": "esoteric",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "intended for or understood by only a small number of people with specialized knowledge",
+          "example": "The novel is full of esoteric references to medieval theology."
+        }
+      ],
+      "synonyms": ["obscure", "arcane", "abstruse", "recondite"],
+      "antonyms": ["common", "familiar", "accessible"]
+    },
+    {
+      "word": "euphemism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a mild or indirect word or expression used in place of one thought too harsh or blunt",
+          "example": "\"Passed away\" is a common euphemism for \"died.\""
+        }
+      ],
+      "synonyms": ["understatement", "polite term"]
+    },
+    {
+      "word": "exorbitant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a price or amount) unreasonably high",
+          "example": "The hotel charged an exorbitant fee for a bottle of water."
+        }
+      ],
+      "synonyms": ["excessive", "extortionate", "outrageous", "inflated"],
+      "antonyms": ["reasonable", "moderate", "cheap"]
+    },
+    {
+      "word": "facilitate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make an action or process easier",
+          "example": "The new software facilitates communication between departments."
+        }
+      ],
+      "synonyms": ["ease", "enable", "assist", "expedite"],
+      "antonyms": ["hinder", "impede", "obstruct"]
+    },
+    {
+      "word": "fervent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or displaying a passionate intensity",
+          "example": "She was a fervent supporter of the local theater."
+        }
+      ],
+      "synonyms": ["passionate", "ardent", "zealous", "fervid"],
+      "antonyms": ["apathetic", "indifferent", "lukewarm"]
+    },
+    {
+      "word": "heterogeneous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "diverse in character or content",
+          "example": "The class was a heterogeneous mix of ages and backgrounds."
+        }
+      ],
+      "synonyms": ["diverse", "varied", "mixed", "assorted"],
+      "antonyms": ["homogeneous", "uniform", "similar"]
+    },
+    {
+      "word": "hyperbole",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "deliberate exaggeration not meant to be taken literally",
+          "example": "Saying the line was a mile long was hyperbole, but it was long."
+        }
+      ],
+      "synonyms": ["exaggeration", "overstatement", "embellishment"],
+      "antonyms": ["understatement"]
+    },
+    {
+      "word": "impudent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not showing due respect for another person; impertinent",
+          "example": "The impudent boy stuck out his tongue at the teacher."
+        }
+      ],
+      "synonyms": ["impertinent", "insolent", "cheeky", "brazen"],
+      "antonyms": ["respectful", "polite", "courteous"]
+    },
+    {
+      "word": "insipid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking flavor",
+          "example": "The soup was insipid and needed salt."
+        },
+        {
+          "pos": "adjective",
+          "definition": "lacking vigor or interest",
+          "example": "The movie's insipid dialogue bored even the actors."
+        }
+      ],
+      "synonyms": ["bland", "tasteless", "flavorless", "watery"],
+      "antonyms": ["flavorful", "tasty", "piquant"]
+    },
+    {
+      "word": "insular",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ignorant of or uninterested in cultures, ideas or peoples outside one's own experience",
+          "example": "The village was insular and suspicious of newcomers."
+        }
+      ],
+      "synonyms": ["narrow-minded", "parochial", "provincial", "inward-looking"],
+      "antonyms": ["cosmopolitan", "open-minded", "broad-minded"]
+    },
+    {
+      "word": "jubilant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or expressing great happiness and triumph",
+          "example": "Jubilant fans poured onto the field after the final whistle."
+        }
+      ],
+      "synonyms": ["joyful", "exultant", "elated", "triumphant"],
+      "antonyms": ["dejected", "despondent", "sorrowful"]
+    },
+    {
+      "word": "misanthrope",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who dislikes humankind and avoids human society",
+          "example": "The misanthrope in the story lives alone on a remote island."
+        }
+      ],
+      "synonyms": ["cynic", "recluse", "hater of humankind"],
+      "antonyms": ["philanthropist", "humanitarian"]
+    },
+    {
+      "word": "naive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a lack of experience, wisdom or judgment",
+          "example": "It was naive to think the problem would solve itself."
+        }
+      ],
+      "synonyms": ["innocent", "unsophisticated", "ingenuous", "credulous"],
+      "antonyms": ["experienced", "worldly", "sophisticated"]
+    },
+    {
+      "word": "notorious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "famous or well known, typically for some bad quality or deed",
+          "example": "The road is notorious for accidents."
+        }
+      ],
+      "synonyms": ["infamous", "disreputable", "scandalous"],
+      "antonyms": ["unknown", "reputable"]
+    },
+    {
+      "word": "novel",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "new or unusual in an interesting way",
+          "example": "The team took a novel approach to the problem."
+        }
+      ],
+      "synonyms": ["new", "original", "innovative", "fresh"],
+      "antonyms": ["old", "familiar", "hackneyed"]
+    },
+    {
+      "word": "obscure",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not discovered or known about; uncertain",
+          "example": "The origins of the custom are obscure."
+        },
+        {
+          "pos": "adjective",
+          "definition": "not important or well known",
+          "example": "The prize went to an obscure poet from a small town."
+        },
+        {
+          "pos": "verb",
+          "definition": "to keep from being seen; to conceal",
+          "example": "Clouds obscured the summit."
+        }
+      ],
+      "synonyms": ["unclear", "uncertain", "unknown", "mysterious"],
+      "antonyms": ["clear", "known", "famous"]
+    },
+    {
+      "word": "obsolete",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "no longer produced or used; out of date",
+          "example": "Typewriters became obsolete when personal computers arrived."
+        }
+      ],
+      "synonyms": ["outdated", "outmoded", "antiquated", "defunct"],
+      "antonyms": ["current", "modern", "up-to-date"]
+    },
+    {
+      "word": "prodigal",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "spending money or resources freely and recklessly",
+          "example": "The prodigal heir spent his fortune in two years."
+        },
+        {
+          "pos": "adjective",
+          "definition": "having or giving something on a lavish scale",
+          "example": "The garden was prodigal with roses every June."
+        }
+      ],
+      "synonyms": ["wasteful", "extravagant", "spendthrift", "profligate"],
+      "antonyms": ["frugal", "thrifty", "economical"]
+    },
+    {
+      "word": "quiescent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in a state or period of inactivity or dormancy",
+          "example": "The disease can remain quiescent for years."
+        }
+      ],
+      "synonyms": ["inactive", "dormant", "latent", "still"],
+      "antonyms": ["active", "busy", "lively"]
+    },
+    {
+      "word": "relegate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to consign or dismiss to an inferior rank or position",
+          "example": "The old furniture was relegated to the basement."
+        }
+      ],
+      "synonyms": ["demote", "downgrade", "banish", "consign"],
+      "antonyms": ["promote", "elevate"]
+    },
+    {
+      "word": "rhetoric",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the art of effective or persuasive speaking or writing",
+          "example": "She studied rhetoric to improve her debating."
+        },
+        {
+          "pos": "noun",
+          "definition": "language designed to persuade or impress, often regarded as lacking sincerity or meaningful content",
+          "example": "Voters were tired of empty campaign rhetoric."
+        }
+      ],
+      "synonyms": ["oratory", "eloquence", "persuasion"]
+    },
+    {
+      "word": "spurious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not being what it purports to be; false or fake",
+          "example": "The study was based on spurious data."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of reasoning) apparently but not actually valid",
+          "example": "He made a spurious connection between the two events."
+        }
+      ],
+      "synonyms": ["false", "fake", "bogus", "counterfeit"],
+      "antonyms": ["genuine", "authentic", "valid"]
+    },
+    {
+      "word": "superfluous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unnecessary, especially through being more than enough",
+          "example": "The design avoids superfluous decoration."
+        }
+      ],
+      "synonyms": ["unnecessary", "redundant", "excess", "surplus"],
+      "antonyms": ["necessary", "essential", "required"]
+    },
+    {
+      "word": "trite",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a remark or idea) overused and consequently of little import",
+          "example": "The card had a trite message about following your dreams."
+        }
+      ],
+      "synonyms": ["banal", "hackneyed", "clichéd", "stale"],
+      "antonyms": ["original", "fresh", "novel"]
+    },
+    {
+      "word": "unprecedented",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "never done or known before",
+          "example": "The drought caused unprecedented damage to the crops."
+        }
+      ],
+      "synonyms": ["unparalleled", "unheard of", "unequaled", "new"],
+      "antonyms": ["common", "usual", "familiar"]
+    },
+    {
+      "word": "venerate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to regard with great respect; to revere",
+          "example": "The village venerates the old monk as a saint."
+        }
+      ],
+      "synonyms": ["revere", "honor", "worship", "esteem"],
+      "antonyms": ["despise", "scorn", "disdain"]
+    }
+  ]
+}

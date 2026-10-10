@@ -1,0 +1,651 @@
+{
+  "level": "common",
+  "number": 6,
+  "words": [
+    {
+      "word": "adulation",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "excessive admiration or praise",
+          "example": "The young actor found the adulation of his fans hard to live up to."
+        }
+      ],
+      "synonyms": ["worship", "idolization", "flattery"],
+      "antonyms": ["contempt", "scorn"]
+    },
+    {
+      "word": "analogous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "comparable in certain respects, so that a comparison can be drawn",
+          "example": "The heart is analogous to a pump."
+        }
+      ],
+      "synonyms": ["comparable", "similar", "parallel", "akin"],
+      "antonyms": ["dissimilar", "different"]
+    },
+    {
+      "word": "appease",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to calm or satisfy someone by giving in to their demands",
+          "example": "The company appeased angry customers with a full refund."
+        }
+      ],
+      "synonyms": ["placate", "pacify", "mollify", "conciliate"],
+      "antonyms": ["provoke", "antagonize", "enrage"]
+    },
+    {
+      "word": "bolster",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to support or strengthen",
+          "example": "New evidence bolstered the case for the defense."
+        }
+      ],
+      "synonyms": ["strengthen", "reinforce", "support", "buttress"],
+      "antonyms": ["weaken", "undermine"]
+    },
+    {
+      "word": "brevity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "concise and exact use of words",
+          "example": "The editor praised the brevity of her report."
+        },
+        {
+          "pos": "noun",
+          "definition": "shortness of time",
+          "example": "The brevity of their visit disappointed the grandparents."
+        }
+      ],
+      "synonyms": ["conciseness", "succinctness", "terseness"],
+      "antonyms": ["verbosity", "wordiness", "prolixity"]
+    },
+    {
+      "word": "cogent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "clear, logical and convincing",
+          "example": "She made a cogent case for delaying the launch."
+        }
+      ],
+      "synonyms": ["compelling", "convincing", "persuasive", "sound"],
+      "antonyms": ["weak", "unconvincing", "flimsy"]
+    },
+    {
+      "word": "condone",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to accept or allow behavior that is considered wrong",
+          "example": "The school does not condone cheating of any kind."
+        }
+      ],
+      "synonyms": ["excuse", "overlook", "tolerate", "pardon"],
+      "antonyms": ["condemn", "censure", "forbid"]
+    },
+    {
+      "word": "conformity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "behavior that follows accepted standards or rules",
+          "example": "The novel is a protest against the conformity of suburban life."
+        }
+      ],
+      "synonyms": ["conventionality", "compliance", "orthodoxy"],
+      "antonyms": ["nonconformity", "individuality", "dissent"]
+    },
+    {
+      "word": "conspicuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "standing out so as to be clearly visible; attracting notice",
+          "example": "Her red coat was conspicuous in the sea of gray suits."
+        }
+      ],
+      "synonyms": ["noticeable", "prominent", "obvious", "striking"],
+      "antonyms": ["inconspicuous", "hidden", "unobtrusive"]
+    },
+    {
+      "word": "contrite",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or expressing remorse at the recognition that one has done wrong",
+          "example": "The contrite driver apologized to the family again and again."
+        }
+      ],
+      "synonyms": ["remorseful", "penitent", "repentant", "apologetic"],
+      "antonyms": ["unrepentant", "impenitent", "defiant"]
+    },
+    {
+      "word": "convoluted",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely complex and difficult to follow",
+          "example": "The film's convoluted plot left most of the audience confused."
+        }
+      ],
+      "synonyms": ["complicated", "tortuous", "intricate", "labyrinthine"],
+      "antonyms": ["simple", "straightforward", "clear"]
+    },
+    {
+      "word": "deter",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to discourage someone from doing something by instilling doubt or fear",
+          "example": "Higher fines are meant to deter people from littering."
+        }
+      ],
+      "synonyms": ["discourage", "dissuade", "prevent", "inhibit"],
+      "antonyms": ["encourage", "motivate", "spur"]
+    },
+    {
+      "word": "discord",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "disagreement between people",
+          "example": "Money was a constant source of discord in the family."
+        }
+      ],
+      "synonyms": ["strife", "conflict", "dissension", "friction"],
+      "antonyms": ["harmony", "accord", "agreement"]
+    },
+    {
+      "word": "elicit",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to draw out a response, answer or fact from someone",
+          "example": "The question elicited a long silence."
+        }
+      ],
+      "synonyms": ["draw out", "evoke", "extract", "provoke"],
+      "note": "Elicit means to draw out; illicit means illegal."
+    },
+    {
+      "word": "embellish",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something more attractive by adding details or decorations",
+          "example": "The jacket was embellished with silver embroidery."
+        },
+        {
+          "pos": "verb",
+          "definition": "to make a story more interesting by adding details that are often untrue",
+          "example": "He tends to embellish his fishing stories."
+        }
+      ],
+      "synonyms": ["decorate", "adorn", "ornament", "enhance"],
+      "antonyms": ["simplify", "strip"]
+    },
+    {
+      "word": "empirical",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "based on observation or experience rather than theory or pure logic",
+          "example": "There is little empirical evidence for the claim."
+        }
+      ],
+      "synonyms": ["observational", "experimental", "practical", "factual"],
+      "antonyms": ["theoretical", "hypothetical", "speculative"]
+    },
+    {
+      "word": "ephemeral",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lasting for a very short time",
+          "example": "Fame on social media is often ephemeral."
+        }
+      ],
+      "synonyms": ["fleeting", "transient", "transitory", "short-lived"],
+      "antonyms": ["enduring", "permanent", "lasting"]
+    },
+    {
+      "word": "eulogy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a speech or piece of writing that praises someone highly, typically someone who has just died",
+          "example": "Her son gave a moving eulogy at the funeral."
+        }
+      ],
+      "synonyms": ["tribute", "encomium", "panegyric", "praise"],
+      "antonyms": ["diatribe", "condemnation"]
+    },
+    {
+      "word": "exemplary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "serving as a desirable model; very good",
+          "example": "The nurse was praised for her exemplary care."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a punishment) serving as a warning",
+          "example": "The judge handed down an exemplary sentence to deter others."
+        }
+      ],
+      "synonyms": ["model", "ideal", "admirable", "commendable"],
+      "antonyms": ["deplorable", "poor"]
+    },
+    {
+      "word": "gratuitous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "uncalled for; lacking good reason",
+          "example": "Critics objected to the film's gratuitous violence."
+        },
+        {
+          "pos": "adjective",
+          "definition": "given or done free of charge",
+          "example": "The guide offered gratuitous advice to every tourist he met."
+        }
+      ],
+      "synonyms": ["unwarranted", "unjustified", "needless", "unprovoked"],
+      "antonyms": ["justified", "warranted", "necessary"]
+    },
+    {
+      "word": "haughty",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "arrogantly superior and disdainful",
+          "example": "The haughty waiter sniffed at our choice of wine."
+        }
+      ],
+      "synonyms": ["arrogant", "conceited", "supercilious", "proud"],
+      "antonyms": ["humble", "modest", "unassuming"]
+    },
+    {
+      "word": "homogeneous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "of the same kind; alike",
+          "example": "The suburb's houses were homogeneous, each a copy of the next."
+        }
+      ],
+      "synonyms": ["uniform", "similar", "alike", "consistent"],
+      "antonyms": ["heterogeneous", "diverse", "varied"]
+    },
+    {
+      "word": "iconoclast",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who attacks cherished beliefs or institutions",
+          "example": "An iconoclast in her field, she challenged decades of accepted theory."
+        }
+      ],
+      "synonyms": ["rebel", "nonconformist", "dissenter", "heretic"],
+      "antonyms": ["conformist", "traditionalist"]
+    },
+    {
+      "word": "idiosyncrasy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a mode of behavior or way of thought peculiar to an individual",
+          "example": "One of his idiosyncrasies was eating dessert first."
+        }
+      ],
+      "synonyms": ["quirk", "peculiarity", "eccentricity", "oddity"]
+    },
+    {
+      "word": "implicit",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "implied though not plainly expressed",
+          "example": "There was an implicit threat in his offer."
+        },
+        {
+          "pos": "adjective",
+          "definition": "with no qualification or question; absolute",
+          "example": "She had implicit trust in her doctor."
+        }
+      ],
+      "synonyms": ["implied", "tacit", "unspoken", "understood"],
+      "antonyms": ["explicit", "stated", "overt"]
+    },
+    {
+      "word": "incessant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "continuing without pause or interruption",
+          "example": "The incessant rain flooded the low fields."
+        }
+      ],
+      "synonyms": ["constant", "unceasing", "ceaseless", "relentless"],
+      "antonyms": ["intermittent", "occasional", "sporadic"]
+    },
+    {
+      "word": "intransigent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unwilling or refusing to change one's views or to agree about something",
+          "example": "Talks failed because both sides remained intransigent."
+        }
+      ],
+      "synonyms": ["uncompromising", "inflexible", "obstinate", "unbending"],
+      "antonyms": ["compromising", "flexible", "amenable"]
+    },
+    {
+      "word": "irascible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing a tendency to be easily angered",
+          "example": "The irascible old chef shouted at anyone who touched his knives."
+        }
+      ],
+      "synonyms": ["irritable", "short-tempered", "testy", "choleric"],
+      "antonyms": ["even-tempered", "placid", "easygoing"]
+    },
+    {
+      "word": "laconic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "using very few words",
+          "example": "His laconic reply, \"No,\" ended the discussion."
+        }
+      ],
+      "synonyms": ["terse", "brief", "concise", "taciturn"],
+      "antonyms": ["verbose", "garrulous", "loquacious"]
+    },
+    {
+      "word": "mitigate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make something bad less severe, serious or painful",
+          "example": "Planting trees can mitigate the effects of flooding."
+        }
+      ],
+      "synonyms": ["alleviate", "lessen", "reduce", "ease"],
+      "antonyms": ["aggravate", "exacerbate", "intensify"],
+      "note": "Mitigate means to lessen; militate means to be a powerful factor against something."
+    },
+    {
+      "word": "mollify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to appease the anger or anxiety of someone",
+          "example": "The manager mollified the angry customer with a free meal."
+        }
+      ],
+      "synonyms": ["placate", "appease", "pacify", "soothe"],
+      "antonyms": ["enrage", "provoke", "antagonize"]
+    },
+    {
+      "word": "mundane",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking interest or excitement; dull",
+          "example": "Most of the job is mundane paperwork."
+        },
+        {
+          "pos": "adjective",
+          "definition": "of this earthly world rather than a heavenly or spiritual one",
+          "example": "The monks set aside mundane concerns."
+        }
+      ],
+      "synonyms": ["ordinary", "humdrum", "routine", "banal"],
+      "antonyms": ["exciting", "extraordinary", "remarkable"]
+    },
+    {
+      "word": "ostentatious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "designed to impress or attract notice; showy",
+          "example": "Their ostentatious wedding had fireworks and a string orchestra."
+        }
+      ],
+      "synonyms": ["showy", "flamboyant", "pretentious", "flashy"],
+      "antonyms": ["modest", "understated", "restrained"]
+    },
+    {
+      "word": "phlegmatic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having an unemotional and stolidly calm disposition",
+          "example": "The phlegmatic pilot calmly announced that one engine had failed."
+        }
+      ],
+      "synonyms": ["calm", "composed", "impassive", "stolid"],
+      "antonyms": ["excitable", "emotional", "volatile"]
+    },
+    {
+      "word": "plausible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "seeming reasonable or probable",
+          "example": "Her explanation for being late was plausible."
+        }
+      ],
+      "synonyms": ["believable", "credible", "reasonable", "likely"],
+      "antonyms": ["implausible", "unlikely", "far-fetched"]
+    },
+    {
+      "word": "polarize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to divide or cause to divide into two sharply contrasting groups",
+          "example": "The proposal polarized the town into supporters and opponents."
+        }
+      ],
+      "synonyms": ["divide", "split", "separate"],
+      "antonyms": ["unite", "unify"]
+    },
+    {
+      "word": "precocious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a child) having developed certain abilities at an earlier age than usual",
+          "example": "The precocious girl was reading novels at five."
+        }
+      ],
+      "synonyms": ["advanced", "gifted", "mature", "forward"],
+      "antonyms": ["backward", "slow", "immature"]
+    },
+    {
+      "word": "prescient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing knowledge of events before they take place",
+          "example": "Her prescient warning about the housing bubble was ignored."
+        }
+      ],
+      "synonyms": ["prophetic", "farsighted", "visionary", "perceptive"],
+      "antonyms": ["shortsighted", "myopic"]
+    },
+    {
+      "word": "pristine",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in its original condition; unspoiled",
+          "example": "The old car was in pristine condition."
+        }
+      ],
+      "synonyms": ["immaculate", "unspoiled", "untouched", "perfect"],
+      "antonyms": ["dirty", "spoiled", "damaged"]
+    },
+    {
+      "word": "prosaic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking poetic beauty; commonplace or dull",
+          "example": "The truth was more prosaic: the ghost was a loose shutter."
+        }
+      ],
+      "synonyms": ["ordinary", "mundane", "unimaginative", "pedestrian"],
+      "antonyms": ["imaginative", "poetic", "exciting"]
+    },
+    {
+      "word": "rampant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of something unwelcome) flourishing or spreading unchecked",
+          "example": "Corruption was rampant in the old regime."
+        }
+      ],
+      "synonyms": ["widespread", "unchecked", "uncontrolled", "rife"],
+      "antonyms": ["controlled", "limited", "restrained"]
+    },
+    {
+      "word": "recalcitrant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having an obstinately uncooperative attitude toward authority or discipline",
+          "example": "The teacher kept the recalcitrant pupils after class."
+        }
+      ],
+      "synonyms": ["uncooperative", "defiant", "unruly", "intractable"],
+      "antonyms": ["compliant", "obedient", "docile"]
+    },
+    {
+      "word": "rigorous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely thorough and careful",
+          "example": "The drug went through rigorous testing."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a rule or system) strictly applied or adhered to",
+          "example": "The academy is known for its rigorous discipline."
+        }
+      ],
+      "synonyms": ["thorough", "meticulous", "exhaustive", "strict"],
+      "antonyms": ["careless", "sloppy", "lax"]
+    },
+    {
+      "word": "subtle",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "so delicate or precise as to be difficult to analyze or describe",
+          "example": "There is a subtle difference between the two shades of blue."
+        },
+        {
+          "pos": "adjective",
+          "definition": "making use of clever and indirect methods to achieve something",
+          "example": "He dropped a subtle hint that he wanted to leave."
+        }
+      ],
+      "synonyms": ["fine", "delicate", "slight", "nuanced"],
+      "antonyms": ["obvious", "blatant", "crude"]
+    },
+    {
+      "word": "tangential",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "diverging from a previous course; peripheral",
+          "example": "His point was tangential to the main discussion."
+        }
+      ],
+      "synonyms": ["peripheral", "incidental", "irrelevant", "digressive"],
+      "antonyms": ["central", "relevant", "pertinent"]
+    },
+    {
+      "word": "tirade",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a long, angry speech of criticism or accusation",
+          "example": "He launched into a tirade about the state of the trains."
+        }
+      ],
+      "synonyms": ["diatribe", "harangue", "rant", "invective"],
+      "antonyms": ["eulogy", "praise"]
+    },
+    {
+      "word": "tractable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "easy to control or influence",
+          "example": "The horse was more tractable after a week of training."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a problem) easy to deal with",
+          "example": "Breaking the project into steps made it more tractable."
+        }
+      ],
+      "synonyms": ["manageable", "docile", "compliant", "amenable"],
+      "antonyms": ["intractable", "unruly", "obstinate"]
+    },
+    {
+      "word": "verbose",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "using or expressed in more words than are needed",
+          "example": "The verbose report could have been a single page."
+        }
+      ],
+      "synonyms": ["wordy", "long-winded", "prolix", "garrulous"],
+      "antonyms": ["concise", "terse", "succinct"]
+    },
+    {
+      "word": "viable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "capable of working successfully; feasible",
+          "example": "Solar power is now a viable alternative to coal."
+        }
+      ],
+      "synonyms": ["feasible", "workable", "practicable", "realistic"],
+      "antonyms": ["impractical", "unworkable", "impossible"]
+    },
+    {
+      "word": "wary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or showing caution about possible dangers or problems",
+          "example": "Be wary of offers that seem too good to be true."
+        }
+      ],
+      "synonyms": ["cautious", "careful", "circumspect", "chary"],
+      "antonyms": ["heedless", "reckless", "careless"]
+    }
+  ]
+}

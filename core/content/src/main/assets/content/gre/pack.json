@@ -2,6 +2,11 @@
   "id": "gre",
   "name": "GRE",
   "decks": [
-    "common-01"
+    "common-01",
+    "common-02",
+    "common-03",
+    "common-04",
+    "common-05",
+    "common-06"
   ]
 }
