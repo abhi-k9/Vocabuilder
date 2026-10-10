@@ -1,5 +1,7 @@
 # Vocabuilder
 
+[![CI](https://github.com/abhi-k9/Vocabuilder/actions/workflows/ci.yml/badge.svg)](https://github.com/abhi-k9/Vocabuilder/actions/workflows/ci.yml)
+
 An Android app for building exam vocabulary (GRE first) with flashcards and spaced repetition.
 
 Built with Kotlin, Jetpack Compose and Material 3, following Google's recommended app architecture.
@@ -38,3 +40,6 @@ Without it, release builds are signed with the debug key.
 ./gradlew testDebugUnitTest  # unit tests
 ./gradlew :app:lintDebug     # Android Lint
 ```
+
+The [CI workflow](.github/workflows/ci.yml) runs the formatting check, unit tests, debug and release
+builds and lint on every push.

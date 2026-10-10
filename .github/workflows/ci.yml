@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, "claude/**" ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Format and unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - name: Check formatting
+        run: ./gradlew spotlessCheck
+      - name: Unit tests
+        run: ./gradlew --continue testDebugUnitTest
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-reports
+          path: "**/build/reports/tests"
+
+  build:
+    name: Build APKs
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - name: Build debug and release APKs
+        run: ./gradlew --continue assembleDebug assembleRelease
+      - name: Upload APKs
+        uses: actions/upload-artifact@v7
+        with:
+          name: apks
+          path: app/build/outputs/apk/**/*.apk
+
+  lint:
+    name: Android Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - name: Lint
+        run: ./gradlew --continue :app:lintDebug
+      - name: Upload lint reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lint-reports
+          path: app/build/reports/lint-results-*
