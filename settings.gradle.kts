@@ -41,7 +41,11 @@ include(":core:datastore")
 include(":core:designsystem")
 include(":core:domain")
 include(":core:model")
+include(":core:navigation")
 include(":core:testing")
+include(":core:ui")
+
+include(":feature:decks")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     """

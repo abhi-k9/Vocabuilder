@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_decks_title">Decks</string>
+    <string name="feature_decks_back">Back</string>
+    <string name="feature_decks_more">More options</string>
+    <plurals name="feature_decks_pack_progress">
+        <item quantity="one">%1$d of %2$d word mastered</item>
+        <item quantity="other">%1$d of %2$d words mastered</item>
+    </plurals>
+    <plurals name="feature_decks_due">
+        <item quantity="one">%d to review</item>
+        <item quantity="other">%d to review</item>
+    </plurals>
+    <plurals name="feature_decks_new">
+        <item quantity="one">%d new</item>
+        <item quantity="other">%d new</item>
+    </plurals>
+    <string name="feature_decks_separator">" · "</string>
+    <string name="feature_decks_complete">Mastered</string>
+    <string name="feature_decks_caught_up">All caught up</string>
+    <string name="feature_decks_complete_icon">Deck mastered</string>
+
+    <plurals name="feature_decks_words">
+        <item quantity="one">%d word</item>
+        <item quantity="other">%d words</item>
+    </plurals>
+    <string name="feature_decks_caught_up_message">You\'re all caught up with this deck. Its words will come back when they\'re due for review.</string>
+    <string name="feature_decks_reset">Reset progress</string>
+    <string name="feature_decks_reset_title">Reset this deck?</string>
+    <string name="feature_decks_reset_message">Your progress on its words, including stars and words marked as known, will be lost.</string>
+    <string name="feature_decks_reset_confirm">Reset</string>
+    <string name="feature_decks_cancel">Cancel</string>
+    <string name="feature_decks_not_found">This deck no longer exists.</string>
+</resources>

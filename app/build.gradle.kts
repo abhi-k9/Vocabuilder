@@ -66,10 +66,23 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.common)
+    implementation(projects.core.data)
     implementation(projects.core.designsystem)
+    implementation(projects.core.domain)
+    implementation(projects.core.model)
+    implementation(projects.core.navigation)
+    implementation(projects.core.ui)
+    implementation(projects.feature.decks)
 
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material3.navigationSuite)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.lifecycle.viewModel.navigation3)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
 }

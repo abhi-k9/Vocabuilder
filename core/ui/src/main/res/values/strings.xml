@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_ui_level_common">Common</string>
+    <string name="core_ui_level_intermediate">Intermediate</string>
+    <string name="core_ui_level_advanced">Advanced</string>
+    <string name="core_ui_level_common_words">Common words</string>
+    <string name="core_ui_level_intermediate_words">Intermediate words</string>
+    <string name="core_ui_level_advanced_words">Advanced words</string>
+    <string name="core_ui_deck_number">Deck %1$d</string>
+    <!-- A deck's full name, such as "Common · Deck 3". -->
+    <string name="core_ui_deck_title">%1$s · Deck %2$d</string>
+
+    <string name="core_ui_mastery_new">New</string>
+    <string name="core_ui_mastery_learning">Learning</string>
+    <string name="core_ui_mastery_reviewing">Reviewing</string>
+    <string name="core_ui_mastery_mastered">Mastered</string>
+    <string name="core_ui_mastery_known">Known</string>
+    <string name="core_ui_mastery_legend_item">%1$s %2$d</string>
+
+    <string name="core_ui_pos_noun">noun</string>
+    <string name="core_ui_pos_verb">verb</string>
+    <string name="core_ui_pos_adjective">adjective</string>
+    <string name="core_ui_pos_adverb">adverb</string>
+    <string name="core_ui_pos_noun_short">n.</string>
+    <string name="core_ui_pos_verb_short">v.</string>
+    <string name="core_ui_pos_adjective_short">adj.</string>
+    <string name="core_ui_pos_adverb_short">adv.</string>
+
+    <plurals name="core_ui_progress_description">
+        <item quantity="one">%1$d of %2$d word mastered</item>
+        <item quantity="other">%1$d of %2$d words mastered</item>
+    </plurals>
+</resources>
