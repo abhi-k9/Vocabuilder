@@ -1,0 +1,668 @@
+{
+  "level": "advanced",
+  "number": 1,
+  "words": [
+    {
+      "word": "abnegate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to renounce or reject something desired or valuable",
+          "example": "The monk abnegated all worldly pleasures."
+        }
+      ],
+      "synonyms": ["renounce", "relinquish", "forgo", "abjure"],
+      "antonyms": ["indulge", "embrace"]
+    },
+    {
+      "word": "aegis",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the protection, backing or support of a particular person or organization",
+          "example": "The festival is held under the aegis of the city council."
+        }
+      ],
+      "synonyms": ["protection", "sponsorship", "patronage", "auspices"]
+    },
+    {
+      "word": "aplomb",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "self-confidence or assurance, especially when in a demanding situation",
+          "example": "She handled the hostile questions with aplomb."
+        }
+      ],
+      "synonyms": ["poise", "composure", "assurance", "sangfroid"],
+      "antonyms": ["awkwardness", "nervousness"]
+    },
+    {
+      "word": "arrogate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to take or claim something for oneself without justification",
+          "example": "The committee arrogated to itself the power to hire staff."
+        }
+      ],
+      "synonyms": ["seize", "usurp", "appropriate", "commandeer"],
+      "antonyms": ["surrender", "relinquish"]
+    },
+    {
+      "word": "august",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "respected and impressive",
+          "example": "The prize was awarded by an august panel of scholars."
+        }
+      ],
+      "synonyms": ["distinguished", "eminent", "venerable", "illustrious"],
+      "antonyms": ["lowly", "humble"]
+    },
+    {
+      "word": "cabal",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a secret political clique or faction",
+          "example": "A cabal of generals planned the coup."
+        }
+      ],
+      "synonyms": ["clique", "faction", "coterie", "conspiracy"]
+    },
+    {
+      "word": "calumny",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the making of false and defamatory statements in order to damage someone's reputation",
+          "example": "She was the victim of a campaign of calumny."
+        }
+      ],
+      "synonyms": ["slander", "defamation", "libel", "smear"],
+      "antonyms": ["praise", "eulogy"]
+    },
+    {
+      "word": "champion",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to support the cause of; to defend",
+          "example": "She championed the rights of tenants for decades."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person who fights or argues for a cause or on behalf of someone else",
+          "example": "He was a champion of free speech."
+        }
+      ],
+      "synonyms": ["advocate", "defend", "support", "promote"],
+      "antonyms": ["oppose", "attack"]
+    },
+    {
+      "word": "check",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to stop or slow down the progress of something undesirable",
+          "example": "Firebreaks helped check the spread of the blaze."
+        },
+        {
+          "pos": "noun",
+          "definition": "a stop or restraint on the progress of something",
+          "example": "The courts act as a check on executive power."
+        }
+      ],
+      "synonyms": ["curb", "restrain", "halt", "arrest"],
+      "antonyms": ["encourage", "release"]
+    },
+    {
+      "word": "comity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "courteous and considerate behavior toward others",
+          "example": "The comity between the two neighbors survived the dispute over the fence."
+        },
+        {
+          "pos": "noun",
+          "definition": "an association of nations for their mutual benefit",
+          "example": "Free trade was seen as the basis of a comity of nations."
+        }
+      ],
+      "synonyms": ["courtesy", "civility", "goodwill", "amity"],
+      "antonyms": ["hostility", "discourtesy"]
+    },
+    {
+      "word": "concomitant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "naturally accompanying or associated",
+          "example": "The job brought fame and its concomitant loss of privacy."
+        },
+        {
+          "pos": "noun",
+          "definition": "a phenomenon that naturally accompanies or follows something",
+          "example": "Stress is often a concomitant of rapid change."
+        }
+      ],
+      "synonyms": ["attendant", "accompanying", "associated", "related"],
+      "antonyms": ["unrelated", "independent"]
+    },
+    {
+      "word": "cynosure",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person or thing that is the center of attention or admiration",
+          "example": "The new art museum is the cynosure of the waterfront."
+        }
+      ],
+      "synonyms": ["center of attention", "focus", "focal point", "highlight"]
+    },
+    {
+      "word": "decimate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to kill, destroy or remove a large proportion of",
+          "example": "The disease decimated the elm trees of the region."
+        }
+      ],
+      "synonyms": ["devastate", "destroy", "wipe out", "ravage"],
+      "note": "Decimate originally meant to kill one in every ten; it now means to destroy a large part of something."
+    },
+    {
+      "word": "dyspeptic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "of or having indigestion or consequent irritability or depression",
+          "example": "The dyspeptic critic hated every play of the season."
+        }
+      ],
+      "synonyms": ["irritable", "bad-tempered", "grumpy", "testy"],
+      "antonyms": ["cheerful", "genial", "good-humored"]
+    },
+    {
+      "word": "efface",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to erase a mark from a surface",
+          "example": "Time had effaced the inscription on the stone."
+        },
+        {
+          "pos": "verb",
+          "definition": "to make oneself appear insignificant or inconspicuous",
+          "example": "She effaced herself at parties, staying in the kitchen."
+        }
+      ],
+      "synonyms": ["erase", "rub out", "obliterate", "eradicate"],
+      "antonyms": ["preserve", "retain"]
+    },
+    {
+      "word": "effete",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "affected, overrefined and ineffectual",
+          "example": "The novel satirizes the effete aristocrats of the court."
+        }
+      ],
+      "synonyms": ["ineffectual", "decadent", "feeble", "overrefined"],
+      "antonyms": ["vigorous", "robust", "strong"]
+    },
+    {
+      "word": "encomium",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a speech or piece of writing that praises someone or something highly",
+          "example": "The obituary was a long encomium to the late senator."
+        }
+      ],
+      "synonyms": ["eulogy", "tribute", "panegyric", "accolade"],
+      "antonyms": ["criticism", "diatribe"]
+    },
+    {
+      "word": "execrable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely bad or unpleasant",
+          "example": "The food at the motel was execrable."
+        }
+      ],
+      "synonyms": ["dreadful", "appalling", "terrible", "abominable"],
+      "antonyms": ["excellent", "superb", "admirable"]
+    },
+    {
+      "word": "fatuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "silly and pointless",
+          "example": "He made a fatuous remark about the weather during the funeral."
+        }
+      ],
+      "synonyms": ["foolish", "inane", "vacuous", "asinine"],
+      "antonyms": ["sensible", "wise", "intelligent"]
+    },
+    {
+      "word": "harbor",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to keep a thought or feeling, typically a negative one, in one's mind, especially secretly",
+          "example": "He harbored a grudge against his old teacher."
+        },
+        {
+          "pos": "verb",
+          "definition": "to shelter or hide a criminal or wanted person",
+          "example": "It is a crime to harbor a fugitive."
+        }
+      ],
+      "synonyms": ["nurse", "hold", "bear", "cherish"]
+    },
+    {
+      "word": "hector",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to talk to someone in a bullying way",
+          "example": "The sergeant hectored the new recruits."
+        }
+      ],
+      "synonyms": ["bully", "intimidate", "browbeat", "harass"],
+      "antonyms": ["coax", "cajole"]
+    },
+    {
+      "word": "hegemony",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "leadership or dominance, especially by one country or social group over others",
+          "example": "The empire's hegemony lasted for centuries."
+        }
+      ],
+      "synonyms": ["dominance", "supremacy", "ascendancy", "control"],
+      "antonyms": ["subordination", "subservience"]
+    },
+    {
+      "word": "immure",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to enclose or confine someone against their will",
+          "example": "The prisoner was immured in a tower for years."
+        }
+      ],
+      "synonyms": ["confine", "imprison", "incarcerate", "shut in"],
+      "antonyms": ["release", "free", "liberate"]
+    },
+    {
+      "word": "inveterate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having a particular habit, activity or interest that is long-established and unlikely to change",
+          "example": "He is an inveterate liar."
+        }
+      ],
+      "synonyms": ["confirmed", "habitual", "hardened", "incorrigible"],
+      "antonyms": ["occasional", "reformed"]
+    },
+    {
+      "word": "juggernaut",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a huge, powerful and overwhelming force or institution",
+          "example": "The retail juggernaut drove many small shops out of business."
+        }
+      ],
+      "synonyms": ["colossus", "giant", "behemoth", "powerhouse"]
+    },
+    {
+      "word": "lachrymose",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "tearful or given to weeping",
+          "example": "The lachrymose film had the whole audience reaching for tissues."
+        }
+      ],
+      "synonyms": ["tearful", "weepy", "maudlin", "mournful"],
+      "antonyms": ["cheerful", "happy"]
+    },
+    {
+      "word": "licentious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "promiscuous and unprincipled in sexual matters",
+          "example": "The novel was banned for its licentious content."
+        }
+      ],
+      "synonyms": ["dissolute", "debauched", "immoral", "wanton"],
+      "antonyms": ["chaste", "moral", "virtuous"]
+    },
+    {
+      "word": "manifold",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "many and various",
+          "example": "The benefits of the plan are manifold."
+        }
+      ],
+      "synonyms": ["many", "numerous", "multiple", "diverse"],
+      "antonyms": ["few", "single"]
+    },
+    {
+      "word": "moribund",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a thing) in terminal decline; lacking vitality or vigor",
+          "example": "The town's moribund shipyards finally closed."
+        }
+      ],
+      "synonyms": ["declining", "dying", "stagnant", "waning"],
+      "antonyms": ["thriving", "flourishing", "vital"]
+    },
+    {
+      "word": "nebulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in the form of a cloud or haze; hazy",
+          "example": "A nebulous glow surrounded the street lamps in the fog."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a concept) unclear, vague or ill-defined",
+          "example": "The plan's goals were nebulous."
+        }
+      ],
+      "synonyms": ["hazy", "misty", "cloudy", "foggy"],
+      "antonyms": ["clear", "distinct"]
+    },
+    {
+      "word": "noisome",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having an extremely offensive smell",
+          "example": "A noisome odor rose from the drains."
+        },
+        {
+          "pos": "adjective",
+          "definition": "disagreeable; unpleasant",
+          "example": "His noisome habits made him a poor roommate."
+        }
+      ],
+      "synonyms": ["foul", "fetid", "stinking", "rank"],
+      "antonyms": ["fragrant", "sweet"],
+      "note": "Noisome has nothing to do with noise."
+    },
+    {
+      "word": "ossify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cease developing; to become stagnant or rigid",
+          "example": "Without new members, the club's traditions ossified."
+        },
+        {
+          "pos": "verb",
+          "definition": "to turn into bone or bony tissue",
+          "example": "The cartilage ossifies as the child grows."
+        }
+      ],
+      "synonyms": ["stagnate", "harden", "fossilize", "become rigid"],
+      "antonyms": ["develop", "evolve"]
+    },
+    {
+      "word": "panegyric",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a public speech or published text in praise of someone or something",
+          "example": "The biography reads like a panegyric."
+        }
+      ],
+      "synonyms": ["eulogy", "encomium", "tribute", "paean"],
+      "antonyms": ["criticism", "diatribe", "condemnation"]
+    },
+    {
+      "word": "parsimonious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unwilling to spend money or use resources; stingy or frugal",
+          "example": "The parsimonious old man reused tea bags three times."
+        }
+      ],
+      "synonyms": ["stingy", "miserly", "mean", "tight-fisted"],
+      "antonyms": ["generous", "lavish", "munificent"]
+    },
+    {
+      "word": "patrician",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "belonging to or characteristic of the aristocracy",
+          "example": "Her patrician accent marked her as wealthy."
+        },
+        {
+          "pos": "noun",
+          "definition": "an aristocrat or nobleman",
+          "example": "The patricians of Rome held most of the land."
+        }
+      ],
+      "synonyms": ["aristocratic", "noble", "upper-class", "blue-blooded"],
+      "antonyms": ["plebeian", "common", "lowly"]
+    },
+    {
+      "word": "pertinacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "holding firmly to an opinion or a course of action",
+          "example": "The pertinacious reporter called every day for a month."
+        }
+      ],
+      "synonyms": ["persistent", "determined", "tenacious", "dogged"],
+      "antonyms": ["irresolute", "half-hearted", "wavering"]
+    },
+    {
+      "word": "pique",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a feeling of irritation or resentment resulting from a slight, especially to one's pride",
+          "example": "She left the room in a fit of pique."
+        },
+        {
+          "pos": "verb",
+          "definition": "to stimulate interest or curiosity",
+          "example": "The mysterious letter piqued her curiosity."
+        }
+      ],
+      "synonyms": ["irritation", "resentment", "annoyance", "umbrage"],
+      "antonyms": ["delight", "pleasure"]
+    },
+    {
+      "word": "quotidian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "of or occurring every day; daily",
+          "example": "The novel finds beauty in quotidian routines."
+        }
+      ],
+      "synonyms": ["daily", "everyday", "ordinary", "mundane"],
+      "antonyms": ["extraordinary", "exceptional"]
+    },
+    {
+      "word": "redoubtable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) formidable, especially as an opponent",
+          "example": "She was a redoubtable debater."
+        }
+      ],
+      "synonyms": ["formidable", "fearsome", "awe-inspiring", "impressive"],
+      "antonyms": ["weak", "unimpressive"]
+    },
+    {
+      "word": "sangfroid",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "composure or coolness, sometimes excessive, as shown in danger or under trying circumstances",
+          "example": "She landed the plane with remarkable sangfroid."
+        }
+      ],
+      "synonyms": ["composure", "poise", "calm", "aplomb"],
+      "antonyms": ["panic", "agitation", "anxiety"]
+    },
+    {
+      "word": "saturnine",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or their manner) slow and gloomy",
+          "example": "The saturnine detective rarely smiled."
+        }
+      ],
+      "synonyms": ["gloomy", "morose", "melancholy", "dour"],
+      "antonyms": ["cheerful", "jovial", "sunny"]
+    },
+    {
+      "word": "sententious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "given to moralizing in a pompous or affected manner",
+          "example": "The novel is weighed down by sententious asides."
+        }
+      ],
+      "synonyms": ["moralizing", "preachy", "pompous", "sanctimonious"],
+      "antonyms": ["humble", "unassuming"]
+    },
+    {
+      "word": "sinuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having many curves and turns",
+          "example": "A sinuous river wound through the valley."
+        },
+        {
+          "pos": "adjective",
+          "definition": "lithe and supple",
+          "example": "The dancer moved with sinuous grace."
+        }
+      ],
+      "synonyms": ["winding", "curving", "serpentine", "meandering"],
+      "antonyms": ["straight", "direct"]
+    },
+    {
+      "word": "stultify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cause to lose enthusiasm and initiative, especially as a result of a tedious or restrictive routine",
+          "example": "The rigid rules stultified the young teachers."
+        }
+      ],
+      "synonyms": ["hamper", "stifle", "dull", "smother"],
+      "antonyms": ["stimulate", "invigorate"]
+    },
+    {
+      "word": "subterfuge",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "deceit used in order to achieve one's goal",
+          "example": "They gained entry to the building by subterfuge."
+        }
+      ],
+      "synonyms": ["trickery", "deception", "chicanery", "ruse"],
+      "antonyms": ["honesty", "openness"]
+    },
+    {
+      "word": "surly",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "bad-tempered and unfriendly",
+          "example": "The surly waiter slammed down our plates."
+        }
+      ],
+      "synonyms": ["sullen", "sulky", "grumpy", "churlish"],
+      "antonyms": ["friendly", "pleasant", "genial"]
+    },
+    {
+      "word": "table",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to postpone consideration of a motion or bill",
+          "example": "The committee tabled the proposal until next year."
+        }
+      ],
+      "synonyms": ["postpone", "shelve", "defer", "put off"],
+      "antonyms": ["consider", "discuss"],
+      "note": "In American usage, to table a proposal is to set it aside; in British usage, it is to present it for discussion."
+    },
+    {
+      "word": "temerity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "excessive confidence or boldness; audacity",
+          "example": "He had the temerity to call the queen by her first name."
+        }
+      ],
+      "synonyms": ["audacity", "nerve", "effrontery", "impudence"],
+      "antonyms": ["timidity", "diffidence", "caution"]
+    },
+    {
+      "word": "variegated",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "exhibiting different colors, especially as irregular patches or streaks",
+          "example": "The plant has variegated leaves of cream and green."
+        },
+        {
+          "pos": "adjective",
+          "definition": "marked by variety",
+          "example": "She had a long and variegated career."
+        }
+      ],
+      "synonyms": ["multicolored", "mottled", "dappled", "streaked"],
+      "antonyms": ["plain", "uniform", "monochrome"]
+    },
+    {
+      "word": "veracious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "speaking or representing the truth",
+          "example": "The jury trusted the veracious witness."
+        }
+      ],
+      "synonyms": ["truthful", "honest", "accurate", "faithful"],
+      "antonyms": ["mendacious", "untruthful", "deceitful"]
+    }
+  ]
+}

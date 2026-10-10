@@ -1,0 +1,680 @@
+{
+  "level": "advanced",
+  "number": 5,
+  "words": [
+    {
+      "word": "abeyance",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a state of temporary disuse or suspension",
+          "example": "The plans were held in abeyance until funding was found."
+        }
+      ],
+      "synonyms": ["suspension", "dormancy", "remission", "latency"],
+      "antonyms": ["operation", "force", "effect"]
+    },
+    {
+      "word": "accretion",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "growth or increase by the gradual accumulation of additional layers or matter",
+          "example": "The island formed by the accretion of coral over millennia."
+        }
+      ],
+      "synonyms": ["accumulation", "build-up", "growth", "increase"],
+      "antonyms": ["erosion", "decrease"]
+    },
+    {
+      "word": "apogee",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the highest point in the development of something; a climax or culmination",
+          "example": "The empire reached its apogee under the third king."
+        }
+      ],
+      "synonyms": ["peak", "zenith", "pinnacle", "height"],
+      "antonyms": ["nadir", "low point"]
+    },
+    {
+      "word": "blandishment",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a flattering or pleasing statement or action used to persuade someone gently to do something",
+          "example": "Despite all their blandishments, she refused to sell her land."
+        }
+      ],
+      "synonyms": ["flattery", "cajolery", "coaxing", "wheedling"],
+      "antonyms": ["threat", "coercion"]
+    },
+    {
+      "word": "cant",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "hypocritical and sanctimonious talk, typically of a moral, religious or political nature",
+          "example": "He was tired of the cant about family values."
+        },
+        {
+          "pos": "noun",
+          "definition": "the jargon of a particular group",
+          "example": "The memo was written in management cant."
+        }
+      ],
+      "synonyms": ["hypocrisy", "sanctimony", "humbug", "insincerity"],
+      "antonyms": ["sincerity"]
+    },
+    {
+      "word": "celerity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "swiftness of movement",
+          "example": "The fire crew responded with celerity."
+        }
+      ],
+      "synonyms": ["speed", "swiftness", "rapidity", "alacrity"],
+      "antonyms": ["slowness", "sluggishness"]
+    },
+    {
+      "word": "consummate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a high degree of skill and flair; complete or perfect",
+          "example": "She was a consummate professional who never missed a deadline."
+        },
+        {
+          "pos": "verb",
+          "definition": "to make a marriage or relationship complete",
+          "example": "The deal was consummated with a handshake."
+        }
+      ],
+      "synonyms": ["accomplished", "perfect", "masterly", "supreme"],
+      "antonyms": ["inept", "amateurish", "incompetent"]
+    },
+    {
+      "word": "coterie",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a small group of people with shared interests or tastes, especially one that is exclusive of other people",
+          "example": "A coterie of loyal fans followed the band from city to city."
+        }
+      ],
+      "synonyms": ["clique", "circle", "set", "inner circle"]
+    },
+    {
+      "word": "cupidity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "greed for money or possessions",
+          "example": "The cupidity of the landlord was well known."
+        }
+      ],
+      "synonyms": ["greed", "avarice", "covetousness", "rapacity"],
+      "antonyms": ["generosity"]
+    },
+    {
+      "word": "discriminating",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing refined taste or good judgment",
+          "example": "The shop caters to discriminating collectors."
+        }
+      ],
+      "synonyms": ["discerning", "selective", "refined", "cultivated"],
+      "antonyms": ["undiscriminating", "indiscriminate"],
+      "note": "As a compliment, discriminating means having refined taste."
+    },
+    {
+      "word": "dolorous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "feeling or expressing great sorrow or distress",
+          "example": "The violin played a dolorous melody."
+        }
+      ],
+      "synonyms": ["mournful", "sorrowful", "doleful", "plaintive"],
+      "antonyms": ["joyful", "cheerful", "happy"]
+    },
+    {
+      "word": "encumber",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to restrict or burden someone or something in such a way that free action or movement is difficult",
+          "example": "She was encumbered with heavy bags."
+        }
+      ],
+      "synonyms": ["burden", "hamper", "impede", "weigh down"],
+      "antonyms": ["free", "relieve", "unburden"]
+    },
+    {
+      "word": "eschew",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to deliberately avoid using; to abstain from",
+          "example": "The chef eschews frozen food."
+        }
+      ],
+      "synonyms": ["avoid", "shun", "abstain from", "forgo"],
+      "antonyms": ["embrace", "indulge in"]
+    },
+    {
+      "word": "etiolated",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a plant) pale and drawn out due to a lack of light",
+          "example": "The etiolated seedlings had grown in a dark shed."
+        },
+        {
+          "pos": "adjective",
+          "definition": "having lost vigor or substance; feeble",
+          "example": "The book is an etiolated version of a great story."
+        }
+      ],
+      "synonyms": ["pale", "wan", "blanched", "sickly"],
+      "antonyms": ["robust", "verdant"]
+    },
+    {
+      "word": "evince",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reveal the presence of a quality or feeling",
+          "example": "The students evinced little interest in the topic."
+        }
+      ],
+      "synonyms": ["show", "reveal", "display", "manifest"],
+      "antonyms": ["conceal", "hide"]
+    },
+    {
+      "word": "extirpate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to search out and destroy completely",
+          "example": "The government vowed to extirpate corruption."
+        }
+      ],
+      "synonyms": ["eradicate", "root out", "eliminate", "exterminate"],
+      "antonyms": ["foster", "nurture", "cultivate"]
+    },
+    {
+      "word": "factious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relating or inclined to dissension",
+          "example": "The factious council could not agree on a budget."
+        }
+      ],
+      "synonyms": ["divided", "quarrelsome", "contentious", "sectarian"],
+      "antonyms": ["united", "harmonious", "cooperative"],
+      "note": "Factious means divided into quarreling factions; fractious means unruly or irritable."
+    },
+    {
+      "word": "fetter",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to restrict the freedom of",
+          "example": "She felt fettered by the rules of the old firm."
+        },
+        {
+          "pos": "noun",
+          "definition": "a chain or manacle used to restrain a prisoner, or a restraint in general",
+          "example": "The prisoners' fetters clanked as they walked."
+        }
+      ],
+      "synonyms": ["restrict", "restrain", "constrain", "hamper"],
+      "antonyms": ["free", "liberate", "release"]
+    },
+    {
+      "word": "fledgling",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of an organization or system) new or inexperienced",
+          "example": "The fledgling company had only three employees."
+        },
+        {
+          "pos": "noun",
+          "definition": "a young bird that has just grown the feathers it needs to fly",
+          "example": "The fledgling hopped along the branch."
+        }
+      ],
+      "synonyms": ["emerging", "budding", "nascent", "new"],
+      "antonyms": ["established", "mature", "experienced"]
+    },
+    {
+      "word": "fulsome",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "complimentary or flattering to an excessive degree",
+          "example": "The fulsome praise of the new boss embarrassed even him."
+        }
+      ],
+      "synonyms": ["excessive", "effusive", "unctuous", "overdone"],
+      "antonyms": ["restrained", "sincere"],
+      "note": "Fulsome often implies excessive or insincere praise, not just generous praise."
+    },
+    {
+      "word": "guileless",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "devoid of guile; innocent and without deception",
+          "example": "Her guileless face made it easy to trust her."
+        }
+      ],
+      "synonyms": ["ingenuous", "artless", "innocent", "naive"],
+      "antonyms": ["wily", "cunning", "deceitful"]
+    },
+    {
+      "word": "inchoate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "just begun and so not fully formed or developed; rudimentary",
+          "example": "Her ideas for the book were still inchoate."
+        }
+      ],
+      "synonyms": ["rudimentary", "embryonic", "incipient", "undeveloped"],
+      "antonyms": ["developed", "mature", "complete"]
+    },
+    {
+      "word": "inculcate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to instill an attitude, idea or habit by persistent instruction",
+          "example": "The school tries to inculcate a love of learning."
+        }
+      ],
+      "synonyms": ["instill", "implant", "ingrain", "teach"]
+    },
+    {
+      "word": "indigent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "poor; needy",
+          "example": "The clinic offers free care to indigent patients."
+        }
+      ],
+      "synonyms": ["poor", "needy", "impoverished", "destitute"],
+      "antonyms": ["rich", "wealthy", "affluent"]
+    },
+    {
+      "word": "jejune",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "naive, simplistic and superficial",
+          "example": "The article's jejune analysis ignored the real causes."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of ideas or writing) dull; uninspiring",
+          "example": "The jejune lecture put half the room to sleep."
+        }
+      ],
+      "synonyms": ["naive", "simplistic", "unsophisticated", "juvenile"],
+      "antonyms": ["mature", "sophisticated"]
+    },
+    {
+      "word": "largesse",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "generosity in bestowing money or gifts upon others",
+          "example": "The museum was built thanks to the largesse of a local family."
+        }
+      ],
+      "synonyms": ["generosity", "liberality", "munificence", "bounty"],
+      "antonyms": ["meanness", "stinginess"]
+    },
+    {
+      "word": "malinger",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to exaggerate or feign illness in order to escape duty or work",
+          "example": "The manager suspected she was malingering to avoid the audit."
+        }
+      ],
+      "synonyms": ["shirk", "feign illness", "dodge", "skive"]
+    },
+    {
+      "word": "myopic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking imagination, foresight or intellectual insight",
+          "example": "The myopic policy ignored the long-term costs."
+        },
+        {
+          "pos": "adjective",
+          "definition": "nearsighted",
+          "example": "Myopic children may struggle to read the board."
+        }
+      ],
+      "synonyms": ["shortsighted", "narrow-minded", "unimaginative", "insular"],
+      "antonyms": ["farsighted", "visionary", "prescient"]
+    },
+    {
+      "word": "nadir",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the lowest point in the fortunes of a person or organization",
+          "example": "The team reached its nadir with ten straight losses."
+        }
+      ],
+      "synonyms": ["low point", "bottom", "depths", "rock bottom"],
+      "antonyms": ["zenith", "peak", "acme"]
+    },
+    {
+      "word": "nettle",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to irritate or annoy someone",
+          "example": "Her condescending tone nettled him."
+        }
+      ],
+      "synonyms": ["irritate", "annoy", "vex", "irk"],
+      "antonyms": ["please", "soothe", "placate"]
+    },
+    {
+      "word": "opprobrium",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "harsh criticism or censure",
+          "example": "The decision drew international opprobrium."
+        }
+      ],
+      "synonyms": ["censure", "criticism", "condemnation", "vilification"],
+      "antonyms": ["praise", "acclaim"]
+    },
+    {
+      "word": "overweening",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing excessive confidence or pride",
+          "example": "His overweening ambition alienated his allies."
+        }
+      ],
+      "synonyms": ["arrogant", "conceited", "haughty", "presumptuous"],
+      "antonyms": ["modest", "humble", "diffident"]
+    },
+    {
+      "word": "peccadillo",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a small, relatively unimportant offense or sin",
+          "example": "The press seized on his youthful peccadilloes."
+        }
+      ],
+      "synonyms": ["misdemeanor", "lapse", "indiscretion", "slip"],
+      "antonyms": ["crime", "atrocity"]
+    },
+    {
+      "word": "philippic",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a bitter attack or denunciation, especially a verbal one",
+          "example": "The senator's philippic against the bill lasted an hour."
+        }
+      ],
+      "synonyms": ["tirade", "diatribe", "harangue", "invective"],
+      "antonyms": ["eulogy", "panegyric"]
+    },
+    {
+      "word": "philistine",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who is hostile or indifferent to culture and the arts",
+          "example": "Only a philistine would pave over the old gardens."
+        }
+      ],
+      "synonyms": ["barbarian", "boor", "lowbrow", "ignoramus"],
+      "antonyms": ["aesthete", "connoisseur"]
+    },
+    {
+      "word": "precipitate",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "done, made or acting suddenly or without careful consideration",
+          "example": "Their precipitate decision to sell the house was soon regretted."
+        },
+        {
+          "pos": "verb",
+          "definition": "to cause an event or situation, typically one that is bad or undesirable, to happen suddenly or prematurely",
+          "example": "The assassination precipitated a war."
+        }
+      ],
+      "synonyms": ["hasty", "rash", "impetuous", "reckless"],
+      "antonyms": ["considered", "careful", "deliberate"],
+      "note": "Precipitate means rash or hasty; precipitous means steep or sudden."
+    },
+    {
+      "word": "propinquity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the state of being close to someone or something; proximity",
+          "example": "Friendships often form through simple propinquity."
+        },
+        {
+          "pos": "noun",
+          "definition": "close kinship",
+          "example": "The propinquity of the two families made the marriage awkward."
+        }
+      ],
+      "synonyms": ["proximity", "closeness", "nearness", "adjacency"],
+      "antonyms": ["distance", "remoteness"]
+    },
+    {
+      "word": "provident",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "making or indicating timely preparation for the future",
+          "example": "A provident farmer stores grain for lean years."
+        }
+      ],
+      "synonyms": ["prudent", "farsighted", "careful", "thrifty"],
+      "antonyms": ["improvident", "shortsighted", "careless"]
+    },
+    {
+      "word": "punctilious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing great attention to detail or correct behavior",
+          "example": "He was punctilious about answering every letter within a day."
+        }
+      ],
+      "synonyms": ["meticulous", "scrupulous", "fastidious", "conscientious"],
+      "antonyms": ["careless", "slapdash", "lax"]
+    },
+    {
+      "word": "redolent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "strongly reminiscent or suggestive of something",
+          "example": "The village is redolent of an earlier, slower age."
+        },
+        {
+          "pos": "adjective",
+          "definition": "strongly smelling of something",
+          "example": "The kitchen was redolent of garlic and thyme."
+        }
+      ],
+      "synonyms": ["evocative", "reminiscent", "suggestive"]
+    },
+    {
+      "word": "salubrious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "health-giving; healthy",
+          "example": "The mountain air was thought to be salubrious."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a place) pleasant; not run-down",
+          "example": "They moved to a more salubrious part of town."
+        }
+      ],
+      "synonyms": ["healthy", "wholesome", "beneficial", "invigorating"],
+      "antonyms": ["unhealthy", "insalubrious", "noxious"]
+    },
+    {
+      "word": "sedition",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "conduct or speech inciting people to rebel against the authority of a state or monarch",
+          "example": "The journalist was jailed for sedition."
+        }
+      ],
+      "synonyms": ["incitement", "rebellion", "subversion", "insurrection"],
+      "antonyms": ["loyalty", "allegiance"]
+    },
+    {
+      "word": "slake",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to quench or satisfy one's thirst",
+          "example": "We slaked our thirst at a mountain stream."
+        }
+      ],
+      "synonyms": ["quench", "satisfy", "sate", "satiate"],
+      "antonyms": ["intensify", "stoke"]
+    },
+    {
+      "word": "solecism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a grammatical mistake in speech or writing",
+          "example": "The essay was marred by solecisms."
+        },
+        {
+          "pos": "noun",
+          "definition": "a breach of good manners; a piece of incorrect behavior",
+          "example": "Arriving without a gift was a social solecism."
+        }
+      ],
+      "synonyms": ["error", "blunder", "mistake", "gaffe"]
+    },
+    {
+      "word": "stentorian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person's voice) loud and powerful",
+          "example": "The sergeant's stentorian voice carried across the parade ground."
+        }
+      ],
+      "synonyms": ["booming", "thunderous", "loud", "resonant"],
+      "antonyms": ["soft", "quiet", "faint"]
+    },
+    {
+      "word": "supine",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) lying face upward",
+          "example": "The patient lay supine on the table."
+        },
+        {
+          "pos": "adjective",
+          "definition": "failing to act or protest as a result of moral weakness or indolence",
+          "example": "The supine board did nothing to stop the fraud."
+        }
+      ],
+      "synonyms": ["flat on one's back", "recumbent"],
+      "antonyms": ["prone", "upright"]
+    },
+    {
+      "word": "tender",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to offer or present something formally",
+          "example": "The minister tendered her resignation."
+        },
+        {
+          "pos": "adjective",
+          "definition": "showing gentleness and concern or sympathy",
+          "example": "He gave her a tender look."
+        }
+      ],
+      "synonyms": ["offer", "proffer", "present", "submit"],
+      "antonyms": ["withdraw", "retract"],
+      "note": "As a verb, tender means to offer formally."
+    },
+    {
+      "word": "toady",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who behaves obsequiously to someone important",
+          "example": "The director was surrounded by toadies."
+        },
+        {
+          "pos": "verb",
+          "definition": "to act in an obsequious way",
+          "example": "She refused to toady to the new owners."
+        }
+      ],
+      "synonyms": ["sycophant", "flatterer", "lackey", "yes-man"]
+    },
+    {
+      "word": "transitory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not permanent",
+          "example": "Their happiness was transitory."
+        }
+      ],
+      "synonyms": ["fleeting", "transient", "ephemeral", "short-lived"],
+      "antonyms": ["permanent", "lasting", "enduring"]
+    },
+    {
+      "word": "turpitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "depraved or wicked behavior or character",
+          "example": "He was dismissed for moral turpitude."
+        }
+      ],
+      "synonyms": ["wickedness", "depravity", "vileness", "corruption"],
+      "antonyms": ["virtue", "probity", "integrity"]
+    }
+  ]
+}

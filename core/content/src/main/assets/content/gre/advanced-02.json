@@ -1,0 +1,659 @@
+{
+  "level": "advanced",
+  "number": 2,
+  "words": [
+    {
+      "word": "acumen",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the ability to make good judgments and quick decisions, typically in a particular domain",
+          "example": "Her business acumen turned a small shop into a chain."
+        }
+      ],
+      "synonyms": ["shrewdness", "astuteness", "insight", "judgment"],
+      "antonyms": ["ineptitude", "stupidity"]
+    },
+    {
+      "word": "antediluvian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ridiculously old-fashioned",
+          "example": "His antediluvian views on women shocked the younger staff."
+        }
+      ],
+      "synonyms": ["antiquated", "outdated", "archaic", "obsolete"],
+      "antonyms": ["modern", "up-to-date", "current"]
+    },
+    {
+      "word": "asperity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "harshness of tone or manner",
+          "example": "\"That will do,\" she said with some asperity."
+        }
+      ],
+      "synonyms": ["harshness", "severity", "sharpness", "acerbity"],
+      "antonyms": ["mildness", "gentleness", "kindness"]
+    },
+    {
+      "word": "avuncular",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "kind and friendly toward a younger or less experienced person",
+          "example": "The avuncular coach always had time for new players."
+        }
+      ],
+      "synonyms": ["genial", "kindly", "benevolent", "paternal"],
+      "antonyms": ["unfriendly", "cold", "stern"]
+    },
+    {
+      "word": "benighted",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in a state of pitiful or contemptible intellectual or moral ignorance",
+          "example": "The missionaries saw the islanders as benighted, which said more about them."
+        }
+      ],
+      "synonyms": ["ignorant", "unenlightened", "backward", "uneducated"],
+      "antonyms": ["enlightened", "informed", "educated"]
+    },
+    {
+      "word": "canard",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an unfounded rumor or story",
+          "example": "The claim that the senator was a spy is an old canard."
+        }
+      ],
+      "synonyms": ["rumor", "hoax", "falsehood", "fabrication"],
+      "antonyms": ["truth", "fact"]
+    },
+    {
+      "word": "captious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "tending to find fault or raise petty objections",
+          "example": "The captious reviewer complained about the font."
+        }
+      ],
+      "synonyms": ["carping", "nitpicking", "critical", "faultfinding"],
+      "antonyms": ["appreciative", "uncritical"]
+    },
+    {
+      "word": "cavil",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make petty or unnecessary objections",
+          "example": "They caviled at the cost of the coffee but approved the budget."
+        },
+        {
+          "pos": "noun",
+          "definition": "a trivial and annoying objection",
+          "example": "The editor dismissed the reader's cavils."
+        }
+      ],
+      "synonyms": ["quibble", "carp", "nitpick", "complain"]
+    },
+    {
+      "word": "complaisant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "willing to please others; obliging to an excessive degree",
+          "example": "The complaisant host agreed to every request."
+        }
+      ],
+      "synonyms": ["obliging", "accommodating", "compliant", "amenable"],
+      "antonyms": ["obstinate", "contrary", "uncooperative"]
+    },
+    {
+      "word": "countenance",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to admit as acceptable or possible; to tolerate",
+          "example": "The school will not countenance bullying."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person's face or facial expression",
+          "example": "His countenance darkened when he heard the news."
+        }
+      ],
+      "synonyms": ["tolerate", "permit", "condone", "sanction"],
+      "antonyms": ["forbid", "prohibit", "oppose"]
+    },
+    {
+      "word": "craven",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "contemptibly lacking in courage; cowardly",
+          "example": "The craven guard fled at the first sign of trouble."
+        }
+      ],
+      "synonyms": ["cowardly", "spineless", "timid", "pusillanimous"],
+      "antonyms": ["brave", "courageous", "bold"]
+    },
+    {
+      "word": "decorous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "in keeping with good taste and propriety; polite and restrained",
+          "example": "The guests at the embassy dinner were decorous and quiet."
+        }
+      ],
+      "synonyms": ["proper", "seemly", "dignified", "refined"],
+      "antonyms": ["indecorous", "improper", "unseemly"]
+    },
+    {
+      "word": "descry",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to catch sight of",
+          "example": "From the tower we could descry a ship on the horizon."
+        }
+      ],
+      "synonyms": ["glimpse", "spot", "discern", "espy"]
+    },
+    {
+      "word": "desultory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking a plan, purpose or enthusiasm",
+          "example": "They made a few desultory attempts to clean the house."
+        }
+      ],
+      "synonyms": ["halfhearted", "random", "aimless", "casual"],
+      "antonyms": ["purposeful", "methodical", "focused"]
+    },
+    {
+      "word": "enfranchise",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to give the right to vote to",
+          "example": "The amendment enfranchised women in 1920."
+        }
+      ],
+      "synonyms": ["give the vote to", "emancipate", "liberate"],
+      "antonyms": ["disenfranchise"]
+    },
+    {
+      "word": "ethereal",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extremely delicate and light in a way that seems too perfect for this world",
+          "example": "Her ethereal voice filled the cathedral."
+        }
+      ],
+      "synonyms": ["delicate", "airy", "gossamer", "otherworldly"],
+      "antonyms": ["earthly", "solid", "substantial"]
+    },
+    {
+      "word": "eviscerate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to deprive of vital or essential content",
+          "example": "The amendments eviscerated the original bill."
+        },
+        {
+          "pos": "verb",
+          "definition": "to disembowel a person or animal",
+          "example": "The hunter eviscerated the deer before carrying it home."
+        }
+      ],
+      "synonyms": ["gut", "weaken", "enfeeble", "emasculate"],
+      "antonyms": ["strengthen", "bolster"]
+    },
+    {
+      "word": "exculpate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to show or declare that someone is not guilty of wrongdoing",
+          "example": "The new evidence exculpated the prisoner."
+        }
+      ],
+      "synonyms": ["exonerate", "absolve", "clear", "vindicate"],
+      "antonyms": ["inculpate", "incriminate", "blame"]
+    },
+    {
+      "word": "exegesis",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "critical explanation or interpretation of a text, especially of scripture",
+          "example": "The scholar wrote a detailed exegesis of the poem."
+        }
+      ],
+      "synonyms": ["interpretation", "explanation", "analysis", "commentary"]
+    },
+    {
+      "word": "homily",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a tedious moralizing lecture or discourse",
+          "example": "He gave us a homily about the value of hard work."
+        }
+      ],
+      "synonyms": ["sermon", "lecture", "address", "moralizing"]
+    },
+    {
+      "word": "imperturbable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unable to be upset or excited; calm",
+          "example": "The imperturbable pilot landed the damaged plane."
+        }
+      ],
+      "synonyms": ["composed", "calm", "unflappable", "serene"],
+      "antonyms": ["excitable", "nervous", "agitated"]
+    },
+    {
+      "word": "ingratiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to bring oneself into favor with someone by flattering or trying to please them",
+          "example": "He tried to ingratiate himself with the new boss."
+        }
+      ],
+      "synonyms": ["curry favor", "flatter", "toady to", "fawn on"],
+      "antonyms": ["alienate", "offend"]
+    },
+    {
+      "word": "inured",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "accustomed to something, especially something unpleasant",
+          "example": "Years in the city had inured her to the noise."
+        }
+      ],
+      "synonyms": ["hardened", "accustomed", "habituated", "desensitized"],
+      "antonyms": ["sensitive", "unaccustomed"]
+    },
+    {
+      "word": "lambaste",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to criticize someone or something harshly",
+          "example": "The coach lambasted the referee after the game."
+        }
+      ],
+      "synonyms": ["criticize", "castigate", "berate", "excoriate"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "litany",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a tedious recital or repetitive series",
+          "example": "He listened to a litany of complaints about the service."
+        },
+        {
+          "pos": "noun",
+          "definition": "a series of petitions for use in church services",
+          "example": "The priest led the congregation in the litany."
+        }
+      ],
+      "synonyms": ["list", "catalog", "string", "series"]
+    },
+    {
+      "word": "machination",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a plot or scheme",
+          "example": "The novel follows the machinations of a scheming duke."
+        }
+      ],
+      "synonyms": ["plot", "scheme", "intrigue", "conspiracy"]
+    },
+    {
+      "word": "mien",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person's look or manner, especially one of a particular kind indicating their character or mood",
+          "example": "He has the serious mien of a judge."
+        }
+      ],
+      "synonyms": ["manner", "bearing", "demeanor", "air"]
+    },
+    {
+      "word": "paroxysm",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a sudden attack or violent expression of a particular emotion or activity",
+          "example": "The joke sent him into paroxysms of laughter."
+        }
+      ],
+      "synonyms": ["fit", "spasm", "outburst", "convulsion"]
+    },
+    {
+      "word": "portentous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "of or like a portent",
+          "example": "The portentous silence before the storm frightened the children."
+        },
+        {
+          "pos": "adjective",
+          "definition": "done in a pompously or overly solemn manner so as to impress",
+          "example": "The narrator's portentous voice made the documentary feel like a sermon."
+        }
+      ],
+      "synonyms": ["ominous", "threatening", "foreboding", "menacing"],
+      "antonyms": ["encouraging", "auspicious"]
+    },
+    {
+      "word": "putative",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "generally considered or reputed to be",
+          "example": "The putative father of the child denied the claim."
+        }
+      ],
+      "synonyms": ["supposed", "reputed", "assumed", "alleged"],
+      "antonyms": ["proven", "confirmed"]
+    },
+    {
+      "word": "qualify",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make a statement or assertion less absolute; to add reservations to",
+          "example": "She qualified her praise by noting a few weaknesses."
+        },
+        {
+          "pos": "verb",
+          "definition": "to be entitled to a particular benefit or privilege by fulfilling a necessary condition",
+          "example": "Students qualify for a discount on train tickets."
+        }
+      ],
+      "synonyms": ["modify", "limit", "temper", "moderate"],
+      "note": "To qualify a statement is to limit or soften it."
+    },
+    {
+      "word": "raconteur",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who tells anecdotes in a skillful and amusing way",
+          "example": "A gifted raconteur, he kept the dinner guests laughing."
+        }
+      ],
+      "synonyms": ["storyteller", "anecdotalist", "narrator"]
+    },
+    {
+      "word": "rarefied",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "distant from the lives and concerns of ordinary people; esoteric",
+          "example": "The rarefied world of high fashion bewildered her."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of air, especially that at high altitudes) of lower pressure than usual; thin",
+          "example": "Climbers struggle to breathe in the rarefied air."
+        }
+      ],
+      "synonyms": ["esoteric", "exclusive", "select", "lofty"],
+      "antonyms": ["ordinary", "mundane"]
+    },
+    {
+      "word": "recidivism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the tendency of a convicted criminal to reoffend",
+          "example": "Education programs in prisons can reduce recidivism."
+        }
+      ],
+      "synonyms": ["relapse", "reoffending", "backsliding"]
+    },
+    {
+      "word": "recondite",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a subject or knowledge) little known; abstruse",
+          "example": "The book is full of recondite references to medieval law."
+        }
+      ],
+      "synonyms": ["obscure", "abstruse", "arcane", "esoteric"],
+      "antonyms": ["simple", "familiar", "accessible"]
+    },
+    {
+      "word": "ribald",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "referring to sexual matters in an amusingly rude or irreverent way",
+          "example": "The sailors sang ribald songs."
+        }
+      ],
+      "synonyms": ["bawdy", "racy", "risqué", "vulgar"],
+      "antonyms": ["decent", "clean", "prim"]
+    },
+    {
+      "word": "sobriquet",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person's nickname",
+          "example": "He earned the sobriquet \"the Iron Chancellor.\""
+        }
+      ],
+      "synonyms": ["nickname", "epithet", "moniker", "pet name"]
+    },
+    {
+      "word": "somnolent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sleepy; drowsy",
+          "example": "The heat made the audience somnolent."
+        },
+        {
+          "pos": "adjective",
+          "definition": "causing or suggestive of sleep",
+          "example": "The somnolent hum of bees filled the garden."
+        }
+      ],
+      "synonyms": ["sleepy", "drowsy", "soporific", "lethargic"],
+      "antonyms": ["alert", "awake", "wakeful"]
+    },
+    {
+      "word": "stint",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to supply an ungenerous or inadequate amount of something",
+          "example": "Don't stint on the butter."
+        },
+        {
+          "pos": "noun",
+          "definition": "a person's fixed or allotted period of work",
+          "example": "She did a two-year stint in the navy."
+        }
+      ],
+      "synonyms": ["skimp", "economize", "scrimp", "be sparing"],
+      "antonyms": ["lavish", "splurge"]
+    },
+    {
+      "word": "temper",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to act as a neutralizing or counterbalancing force to something",
+          "example": "She tempered her criticism with praise."
+        },
+        {
+          "pos": "verb",
+          "definition": "to improve the hardness and elasticity of steel or other metal by heating and then cooling it",
+          "example": "The blacksmith tempered the sword blade."
+        }
+      ],
+      "synonyms": ["moderate", "soften", "mitigate", "tone down"],
+      "antonyms": ["intensify", "aggravate"],
+      "note": "As a verb, temper means to moderate or soften."
+    },
+    {
+      "word": "tremulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "shaking or quivering slightly",
+          "example": "She spoke in a tremulous voice."
+        },
+        {
+          "pos": "adjective",
+          "definition": "timid; nervous",
+          "example": "He gave a tremulous smile as he walked on stage."
+        }
+      ],
+      "synonyms": ["trembling", "shaky", "quavering", "quivering"],
+      "antonyms": ["steady", "firm"]
+    },
+    {
+      "word": "tyro",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a beginner or novice",
+          "example": "The course is ideal for tyros who have never painted."
+        }
+      ],
+      "synonyms": ["beginner", "novice", "neophyte", "newcomer"],
+      "antonyms": ["expert", "veteran", "master"]
+    },
+    {
+      "word": "umbrage",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "offense or annoyance",
+          "example": "She took umbrage at his remarks about her cooking."
+        }
+      ],
+      "synonyms": ["offense", "resentment", "pique", "annoyance"]
+    },
+    {
+      "word": "untoward",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unexpected and inappropriate or adverse",
+          "example": "The guard noticed nothing untoward."
+        }
+      ],
+      "synonyms": ["unusual", "unexpected", "inappropriate", "improper"],
+      "antonyms": ["ordinary", "appropriate", "expected"]
+    },
+    {
+      "word": "verisimilitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the appearance of being true or real",
+          "example": "The novel's rich detail gives it verisimilitude."
+        }
+      ],
+      "synonyms": ["realism", "authenticity", "plausibility", "credibility"],
+      "antonyms": ["implausibility", "unreality"]
+    },
+    {
+      "word": "vicissitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a change of circumstances or fortune, typically one that is unwelcome or unpleasant",
+          "example": "The firm survived the vicissitudes of the market."
+        }
+      ],
+      "synonyms": ["change", "fluctuation", "ups and downs", "variation"],
+      "antonyms": ["stability", "constancy"]
+    },
+    {
+      "word": "wanton",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a cruel or violent action) deliberate and unprovoked",
+          "example": "The wanton destruction of the forest angered the villagers."
+        },
+        {
+          "pos": "adjective",
+          "definition": "sexually immodest or promiscuous",
+          "example": "The play's wanton heroine scandalized audiences."
+        }
+      ],
+      "synonyms": ["deliberate", "gratuitous", "unprovoked", "malicious"],
+      "antonyms": ["provoked", "justified"]
+    },
+    {
+      "word": "winsome",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "attractive or appealing in appearance or character",
+          "example": "The puppy had a winsome face."
+        }
+      ],
+      "synonyms": ["charming", "engaging", "appealing", "endearing"],
+      "antonyms": ["unattractive", "unappealing"]
+    },
+    {
+      "word": "wont",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "one's customary behavior in a particular situation",
+          "example": "She rose early, as was her wont."
+        },
+        {
+          "pos": "adjective",
+          "definition": "accustomed; apt",
+          "example": "He was wont to sing in the shower."
+        }
+      ],
+      "synonyms": ["custom", "habit", "practice", "routine"]
+    },
+    {
+      "word": "zealot",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who is fanatical and uncompromising in pursuit of their religious, political or other ideals",
+          "example": "The zealots refused any compromise."
+        }
+      ],
+      "synonyms": ["fanatic", "extremist", "radical", "militant"],
+      "antonyms": ["moderate"]
+    }
+  ]
+}

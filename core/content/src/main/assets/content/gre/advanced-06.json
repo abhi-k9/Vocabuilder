@@ -1,0 +1,654 @@
+{
+  "level": "advanced",
+  "number": 6,
+  "words": [
+    {
+      "word": "abjure",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to solemnly renounce a belief, cause or claim",
+          "example": "He abjured his former political views in a public letter."
+        }
+      ],
+      "synonyms": ["renounce", "repudiate", "forswear", "recant"],
+      "antonyms": ["embrace", "espouse", "affirm"]
+    },
+    {
+      "word": "abstemious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not self-indulgent, especially when eating and drinking",
+          "example": "An abstemious man, he never had more than one glass of wine."
+        }
+      ],
+      "synonyms": ["temperate", "moderate", "self-denying", "ascetic"],
+      "antonyms": ["self-indulgent", "gluttonous", "intemperate"]
+    },
+    {
+      "word": "apostate",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who renounces a religious or political belief or principle",
+          "example": "The party treated him as an apostate after he changed sides."
+        }
+      ],
+      "synonyms": ["defector", "renegade", "deserter", "turncoat"],
+      "antonyms": ["loyalist", "adherent"]
+    },
+    {
+      "word": "broach",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to raise a difficult subject for discussion",
+          "example": "She found it hard to broach the subject of money with her parents."
+        }
+      ],
+      "synonyms": ["bring up", "raise", "introduce", "mention"],
+      "antonyms": ["avoid", "drop"]
+    },
+    {
+      "word": "brook",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to tolerate or allow something, typically something unwelcome",
+          "example": "The coach brooks no excuses for lateness."
+        },
+        {
+          "pos": "noun",
+          "definition": "a small stream",
+          "example": "A brook ran along the bottom of the garden."
+        }
+      ],
+      "synonyms": ["tolerate", "allow", "stand", "endure"],
+      "antonyms": ["forbid", "reject"],
+      "note": "As a verb, brook means to tolerate and is almost always used in the negative."
+    },
+    {
+      "word": "catholic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "including a wide variety of things; all-embracing",
+          "example": "Her catholic tastes in music ranged from opera to punk."
+        }
+      ],
+      "synonyms": ["broad", "eclectic", "wide-ranging", "universal"],
+      "antonyms": ["narrow", "limited", "specialized"],
+      "note": "In lowercase, catholic means broad or universal."
+    },
+    {
+      "word": "circumlocution",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the use of many words where fewer would do, especially in a deliberate attempt to be vague or evasive",
+          "example": "The spokesman's circumlocution fooled no one."
+        }
+      ],
+      "synonyms": ["periphrasis", "verbosity", "wordiness", "evasion"],
+      "antonyms": ["directness", "brevity"]
+    },
+    {
+      "word": "conflate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to combine two or more texts, ideas or sets of information into one, often wrongly",
+          "example": "Many people conflate weather with climate."
+        }
+      ],
+      "synonyms": ["combine", "merge", "confuse", "mix up"],
+      "antonyms": ["separate", "distinguish"]
+    },
+    {
+      "word": "demotic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "denoting or relating to the kind of language used by ordinary people; colloquial",
+          "example": "The novel's demotic dialogue captures the voices of the street."
+        }
+      ],
+      "synonyms": ["colloquial", "vernacular", "popular", "informal"],
+      "antonyms": ["formal", "literary"]
+    },
+    {
+      "word": "dross",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "something regarded as worthless; rubbish",
+          "example": "The editor sifted the gems from the dross."
+        }
+      ],
+      "synonyms": ["rubbish", "trash", "junk", "chaff"],
+      "antonyms": ["treasure", "gem"]
+    },
+    {
+      "word": "effrontery",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "insolent or impertinent behavior",
+          "example": "She had the effrontery to ask for a reference after quitting without notice."
+        }
+      ],
+      "synonyms": ["impudence", "audacity", "gall", "nerve"],
+      "antonyms": ["respect", "deference", "humility"]
+    },
+    {
+      "word": "emollient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having the quality of softening or soothing the skin",
+          "example": "The cream has emollient properties."
+        },
+        {
+          "pos": "adjective",
+          "definition": "attempting to avoid confrontation or anger; calming or conciliatory",
+          "example": "She answered the angry letter in emollient terms."
+        }
+      ],
+      "synonyms": ["soothing", "softening", "moisturizing"],
+      "antonyms": ["irritating", "abrasive"]
+    },
+    {
+      "word": "enjoin",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to instruct or urge someone to do something",
+          "example": "The doctor enjoined him to rest for a week."
+        },
+        {
+          "pos": "verb",
+          "definition": "to prohibit someone from performing a particular action by issuing an injunction",
+          "example": "The court enjoined the company from selling the drug."
+        }
+      ],
+      "synonyms": ["urge", "instruct", "direct", "order"]
+    },
+    {
+      "word": "exigent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "pressing; demanding",
+          "example": "The flood created exigent circumstances."
+        }
+      ],
+      "synonyms": ["urgent", "pressing", "critical", "demanding"],
+      "antonyms": ["unimportant", "trivial"]
+    },
+    {
+      "word": "expiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to atone for guilt or sin",
+          "example": "He tried to expiate his crimes through years of charity work."
+        }
+      ],
+      "synonyms": ["atone for", "make amends for", "redeem", "compensate for"]
+    },
+    {
+      "word": "gainsay",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to deny or contradict; to speak against or oppose",
+          "example": "No one could gainsay the force of her argument."
+        }
+      ],
+      "synonyms": ["deny", "contradict", "dispute", "challenge"],
+      "antonyms": ["confirm", "support", "affirm"]
+    },
+    {
+      "word": "garish",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "obtrusively bright and showy; lurid",
+          "example": "The bar was decorated in garish colors."
+        }
+      ],
+      "synonyms": ["gaudy", "lurid", "loud", "flashy"],
+      "antonyms": ["tasteful", "muted", "subdued"]
+    },
+    {
+      "word": "garner",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to gather or collect something, especially information or approval",
+          "example": "The documentary garnered several awards."
+        }
+      ],
+      "synonyms": ["gather", "collect", "accumulate", "amass"],
+      "antonyms": ["scatter", "lose"]
+    },
+    {
+      "word": "gauche",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unsophisticated and socially awkward",
+          "example": "It would be gauche to discuss money at the dinner table."
+        }
+      ],
+      "synonyms": ["awkward", "tactless", "clumsy", "inept"],
+      "antonyms": ["sophisticated", "tactful", "suave"]
+    },
+    {
+      "word": "histrionic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "overly theatrical or melodramatic in character or style",
+          "example": "His histrionic outburst over a parking ticket embarrassed everyone."
+        }
+      ],
+      "synonyms": ["melodramatic", "theatrical", "exaggerated", "overacted"],
+      "antonyms": ["restrained", "understated", "calm"]
+    },
+    {
+      "word": "hoary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "grayish white",
+          "example": "His hoary beard reached his chest."
+        },
+        {
+          "pos": "adjective",
+          "definition": "old and trite",
+          "example": "The comedian told a hoary joke about mothers-in-law."
+        }
+      ],
+      "synonyms": ["gray", "white", "silver", "grizzled"],
+      "antonyms": ["dark"]
+    },
+    {
+      "word": "idyll",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an extremely happy, peaceful or picturesque episode or scene, typically an idealized or unsustainable one",
+          "example": "Their summer on the island was an idyll."
+        }
+      ],
+      "synonyms": ["paradise", "utopia", "heaven", "haven"],
+      "antonyms": ["nightmare"]
+    },
+    {
+      "word": "impregnable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a fortified position) unable to be captured or broken into",
+          "example": "The castle was thought impregnable."
+        },
+        {
+          "pos": "adjective",
+          "definition": "unable to be defeated or destroyed; unassailable",
+          "example": "The team built an impregnable lead in the first half."
+        }
+      ],
+      "synonyms": ["invulnerable", "unassailable", "impenetrable", "secure"],
+      "antonyms": ["vulnerable", "defenseless"]
+    },
+    {
+      "word": "insouciant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a casual lack of concern; indifferent",
+          "example": "She gave an insouciant shrug when told she was late."
+        }
+      ],
+      "synonyms": ["nonchalant", "carefree", "unconcerned", "blithe"],
+      "antonyms": ["anxious", "worried", "concerned"]
+    },
+    {
+      "word": "irresolute",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing or feeling hesitancy; uncertain",
+          "example": "The irresolute leader changed his mind three times in a week."
+        }
+      ],
+      "synonyms": ["indecisive", "hesitant", "wavering", "vacillating"],
+      "antonyms": ["resolute", "decisive", "determined"]
+    },
+    {
+      "word": "languor",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the state or feeling, often pleasant, of tiredness or inertia",
+          "example": "A pleasant languor came over us after lunch."
+        }
+      ],
+      "synonyms": ["lassitude", "lethargy", "torpor", "listlessness"],
+      "antonyms": ["vigor", "energy", "vitality"]
+    },
+    {
+      "word": "lassitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a state of physical or mental weariness; lack of energy",
+          "example": "The fever left him with a lingering lassitude."
+        }
+      ],
+      "synonyms": ["lethargy", "weariness", "fatigue", "languor"],
+      "antonyms": ["energy", "vigor", "vitality"]
+    },
+    {
+      "word": "limpid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a liquid) free of anything that darkens; completely clear",
+          "example": "We swam in the limpid water of the lake."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of writing or music) clear and easily comprehended",
+          "example": "Her limpid prose makes difficult ideas seem simple."
+        }
+      ],
+      "synonyms": ["clear", "transparent", "crystal clear", "pellucid"],
+      "antonyms": ["murky", "cloudy", "opaque"]
+    },
+    {
+      "word": "lionize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to give a lot of public attention and approval to someone; to treat as a celebrity",
+          "example": "The young poet was lionized by the literary world."
+        }
+      ],
+      "synonyms": ["celebrate", "glorify", "idolize", "acclaim"],
+      "antonyms": ["vilify", "disparage"]
+    },
+    {
+      "word": "lucre",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "money, especially when regarded as sordid or distasteful or gained in a dishonorable way",
+          "example": "He gave up the stage for filthy lucre."
+        }
+      ],
+      "synonyms": ["money", "profit", "gain", "cash"]
+    },
+    {
+      "word": "malapropism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the mistaken use of a word in place of a similar-sounding one, often with an amusing effect",
+          "example": "Saying \"dance a flamingo\" for \"dance a flamenco\" is a malapropism."
+        }
+      ],
+      "synonyms": ["misuse", "wrong word", "solecism"]
+    },
+    {
+      "word": "mollycoddle",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to treat someone very indulgently or overprotectively",
+          "example": "His parents mollycoddled him until he left home."
+        }
+      ],
+      "synonyms": ["pamper", "spoil", "coddle", "baby"],
+      "antonyms": ["neglect", "mistreat"]
+    },
+    {
+      "word": "neologism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a newly coined word or expression",
+          "example": "\"Selfie\" was a neologism not so long ago."
+        }
+      ],
+      "synonyms": ["new word", "coinage", "invention"]
+    },
+    {
+      "word": "nostrum",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a medicine, especially one that is not considered effective, prepared by an unqualified person",
+          "example": "The peddler sold nostrums that claimed to cure everything."
+        },
+        {
+          "pos": "noun",
+          "definition": "a pet scheme or favorite remedy, especially for bringing about some social or political reform",
+          "example": "The candidate repeated the usual nostrums about tax cuts."
+        }
+      ],
+      "synonyms": ["quack remedy", "elixir", "potion", "panacea"]
+    },
+    {
+      "word": "odium",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "general or widespread hatred or disgust directed toward someone as a result of their actions",
+          "example": "The company earned public odium by polluting the river."
+        }
+      ],
+      "synonyms": ["hatred", "loathing", "contempt", "opprobrium"],
+      "antonyms": ["esteem", "favor", "approval"]
+    },
+    {
+      "word": "orotund",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person's voice) resonant and imposing",
+          "example": "The actor's orotund voice filled the theater."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of writing or style) pompous; pretentious",
+          "example": "The report's orotund style hid its thin content."
+        }
+      ],
+      "synonyms": ["resonant", "sonorous", "booming", "rich"],
+      "antonyms": ["thin", "reedy"]
+    },
+    {
+      "word": "penury",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "extreme poverty; destitution",
+          "example": "The artist died in penury."
+        }
+      ],
+      "synonyms": ["poverty", "destitution", "indigence", "privation"],
+      "antonyms": ["wealth", "affluence", "prosperity"]
+    },
+    {
+      "word": "perspicuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of an account or representation) clearly expressed and easily understood; lucid",
+          "example": "The textbook gives a perspicuous account of the theory."
+        }
+      ],
+      "synonyms": ["clear", "lucid", "plain", "intelligible"],
+      "antonyms": ["obscure", "confusing", "muddled"],
+      "note": "Perspicuous means clearly expressed; perspicacious means perceptive."
+    },
+    {
+      "word": "plenitude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an abundance",
+          "example": "The market had a plenitude of fresh fruit."
+        }
+      ],
+      "synonyms": ["abundance", "profusion", "plethora", "wealth"],
+      "antonyms": ["scarcity", "dearth", "paucity"]
+    },
+    {
+      "word": "prolix",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of speech or writing) using or containing too many words; tediously lengthy",
+          "example": "The prolix report ran to nine hundred pages."
+        }
+      ],
+      "synonyms": ["verbose", "wordy", "long-winded", "rambling"],
+      "antonyms": ["concise", "succinct", "terse"]
+    },
+    {
+      "word": "rebuff",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reject someone or something in an abrupt or ungracious manner",
+          "example": "She rebuffed all his attempts at conversation."
+        },
+        {
+          "pos": "noun",
+          "definition": "an abrupt or ungracious refusal or rejection of an offer or request",
+          "example": "His proposal met with a sharp rebuff."
+        }
+      ],
+      "synonyms": ["reject", "snub", "spurn", "repulse"],
+      "antonyms": ["accept", "welcome", "embrace"]
+    },
+    {
+      "word": "sacrosanct",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of a principle, place or routine) regarded as too important or valuable to be interfered with",
+          "example": "His Sunday morning walk was sacrosanct."
+        }
+      ],
+      "synonyms": ["sacred", "inviolable", "untouchable", "hallowed"],
+      "antonyms": ["unimportant", "expendable"]
+    },
+    {
+      "word": "salacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or conveying undue or inappropriate interest in sexual matters",
+          "example": "The tabloid printed salacious gossip about the actor."
+        }
+      ],
+      "synonyms": ["lewd", "prurient", "lascivious", "indecent"],
+      "antonyms": ["decent", "clean", "wholesome"]
+    },
+    {
+      "word": "sanctimonious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "making a show of being morally superior to other people",
+          "example": "His sanctimonious lectures about saving money annoyed his friends."
+        }
+      ],
+      "synonyms": ["self-righteous", "holier-than-thou", "preachy", "pious"],
+      "antonyms": ["humble", "modest"]
+    },
+    {
+      "word": "scurrilous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "making or spreading scandalous claims about someone with the intention of damaging their reputation",
+          "example": "The pamphlet made scurrilous attacks on the mayor."
+        }
+      ],
+      "synonyms": ["defamatory", "slanderous", "abusive", "libelous"],
+      "antonyms": ["complimentary", "laudatory"]
+    },
+    {
+      "word": "sedulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or action) showing dedication and diligence",
+          "example": "The sedulous apprentice practiced every evening."
+        }
+      ],
+      "synonyms": ["diligent", "assiduous", "industrious", "persevering"],
+      "antonyms": ["lazy", "careless", "negligent"]
+    },
+    {
+      "word": "tawdry",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showy but cheap and of poor quality",
+          "example": "The shop sold tawdry souvenirs."
+        },
+        {
+          "pos": "adjective",
+          "definition": "sordid or unpleasant",
+          "example": "The tabloids loved the tawdry details of the affair."
+        }
+      ],
+      "synonyms": ["gaudy", "cheap", "flashy", "tacky"],
+      "antonyms": ["tasteful", "elegant", "refined"]
+    },
+    {
+      "word": "vaunt",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to boast about or praise something, especially excessively",
+          "example": "The much-vaunted new system crashed on its first day."
+        }
+      ],
+      "synonyms": ["boast about", "brag about", "trumpet", "extol"],
+      "antonyms": ["belittle", "play down"]
+    },
+    {
+      "word": "wanting",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking in a certain required or necessary quality",
+          "example": "His plan was found wanting."
+        }
+      ],
+      "synonyms": ["lacking", "deficient", "inadequate", "insufficient"],
+      "antonyms": ["sufficient", "adequate", "satisfactory"],
+      "note": "As an adjective, wanting means lacking or not good enough."
+    },
+    {
+      "word": "wizened",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "shriveled or wrinkled with age",
+          "example": "A wizened old man sat on the porch."
+        }
+      ],
+      "synonyms": ["wrinkled", "shriveled", "withered", "lined"],
+      "antonyms": ["smooth", "plump"]
+    }
+  ]
+}

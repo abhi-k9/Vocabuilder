@@ -1,0 +1,648 @@
+{
+  "level": "advanced",
+  "number": 7,
+  "words": [
+    {
+      "word": "apocryphal",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a story or statement) of doubtful authenticity, although widely circulated as being true",
+          "example": "The story about the inventor and the apple is probably apocryphal."
+        }
+      ],
+      "synonyms": ["fictitious", "legendary", "spurious", "unverified"],
+      "antonyms": ["authentic", "verified", "true"]
+    },
+    {
+      "word": "apposite",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "apt in the circumstances or in relation to something",
+          "example": "She ended her speech with an apposite quotation."
+        }
+      ],
+      "synonyms": ["apt", "appropriate", "pertinent", "fitting"],
+      "antonyms": ["inappropriate", "irrelevant", "inapt"]
+    },
+    {
+      "word": "appropriate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to take something for one's own use, typically without the owner's permission",
+          "example": "The general appropriated the villa as his headquarters."
+        },
+        {
+          "pos": "verb",
+          "definition": "to devote money or assets to a special purpose",
+          "example": "Congress appropriated funds for the new bridge."
+        }
+      ],
+      "synonyms": ["seize", "take over", "commandeer", "expropriate"],
+      "antonyms": ["relinquish", "surrender"],
+      "note": "As a verb, appropriate means to take for oneself, not just to be suitable."
+    },
+    {
+      "word": "augury",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a sign of what will happen; an omen",
+          "example": "The early lead was a good augury for the election."
+        }
+      ],
+      "synonyms": ["omen", "sign", "portent", "harbinger"]
+    },
+    {
+      "word": "baleful",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "threatening harm; menacing",
+          "example": "The guard dog gave us a baleful stare."
+        }
+      ],
+      "synonyms": ["menacing", "threatening", "sinister", "malevolent"],
+      "antonyms": ["benign", "friendly", "kindly"]
+    },
+    {
+      "word": "beatific",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "blissfully happy",
+          "example": "A beatific smile spread across the baby's face."
+        }
+      ],
+      "synonyms": ["blissful", "serene", "rapturous", "joyful"],
+      "antonyms": ["miserable", "sorrowful"]
+    },
+    {
+      "word": "bellicose",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "demonstrating aggression and willingness to fight",
+          "example": "The general's bellicose speeches alarmed neighboring states."
+        }
+      ],
+      "synonyms": ["belligerent", "aggressive", "hostile", "warlike"],
+      "antonyms": ["peaceable", "pacific", "conciliatory"]
+    },
+    {
+      "word": "bilious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "spiteful; bad-tempered",
+          "example": "The critic wrote a bilious review of the novel."
+        },
+        {
+          "pos": "adjective",
+          "definition": "affected by nausea or vomiting",
+          "example": "The rough crossing left most passengers bilious."
+        }
+      ],
+      "synonyms": ["irritable", "peevish", "testy", "splenetic"],
+      "antonyms": ["good-natured", "genial"]
+    },
+    {
+      "word": "bromide",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a trite and unoriginal idea or remark, typically intended to soothe or placate",
+          "example": "The minister offered the usual bromides about patience."
+        }
+      ],
+      "synonyms": ["platitude", "cliché", "banality", "truism"]
+    },
+    {
+      "word": "bumptious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "self-assertive or proud to an irritating degree",
+          "example": "The bumptious intern corrected the director in front of everyone."
+        }
+      ],
+      "synonyms": ["self-important", "pompous", "arrogant", "cocky"],
+      "antonyms": ["humble", "modest", "unassuming"]
+    },
+    {
+      "word": "burlesque",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an absurd or comically exaggerated imitation of something, especially in a literary or dramatic work",
+          "example": "The play is a burlesque of grand opera."
+        },
+        {
+          "pos": "verb",
+          "definition": "to cause to appear absurd by parody",
+          "example": "The sketch burlesques the manners of the old aristocracy."
+        }
+      ],
+      "synonyms": ["parody", "caricature", "satire", "travesty"]
+    },
+    {
+      "word": "byzantine",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "excessively complicated and typically involving a great deal of administrative detail",
+          "example": "Getting a permit meant navigating byzantine rules."
+        }
+      ],
+      "synonyms": ["complicated", "intricate", "convoluted", "labyrinthine"],
+      "antonyms": ["simple", "straightforward"]
+    },
+    {
+      "word": "chary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "cautiously or suspiciously reluctant to do something",
+          "example": "Investors are chary of new tech start-ups."
+        }
+      ],
+      "synonyms": ["wary", "cautious", "careful", "leery"],
+      "antonyms": ["heedless", "reckless", "unwary"]
+    },
+    {
+      "word": "chauvinism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "exaggerated or aggressive patriotism",
+          "example": "Wartime chauvinism made any criticism look like treason."
+        },
+        {
+          "pos": "noun",
+          "definition": "excessive or prejudiced support for one's own group, especially prejudice against women",
+          "example": "She called out the chauvinism of the hiring panel."
+        }
+      ],
+      "synonyms": ["jingoism", "nationalism", "xenophobia", "flag-waving"]
+    },
+    {
+      "word": "chimera",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a thing that is hoped or wished for but in fact is illusory or impossible to achieve",
+          "example": "A perfectly fair tax system may be a chimera."
+        }
+      ],
+      "synonyms": ["illusion", "fantasy", "dream", "pipe dream"],
+      "antonyms": ["reality"]
+    },
+    {
+      "word": "contumacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "stubbornly or willfully disobedient to authority",
+          "example": "The contumacious witness refused to answer the court's questions."
+        }
+      ],
+      "synonyms": ["insubordinate", "defiant", "recalcitrant", "rebellious"],
+      "antonyms": ["obedient", "compliant", "docile"]
+    },
+    {
+      "word": "denouement",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the final part of a play, film or narrative in which the strands of the plot are drawn together and matters are explained or resolved",
+          "example": "The novel's denouement reveals the true identity of the narrator."
+        }
+      ],
+      "synonyms": ["climax", "resolution", "conclusion", "finale"],
+      "antonyms": ["opening", "beginning"]
+    },
+    {
+      "word": "dissolute",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lax in morals; licentious",
+          "example": "He spent a dissolute youth in the gambling houses of the city."
+        }
+      ],
+      "synonyms": ["debauched", "dissipated", "degenerate", "licentious"],
+      "antonyms": ["virtuous", "upright", "moral"]
+    },
+    {
+      "word": "estimable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "worthy of great respect",
+          "example": "The estimable judge served the court for forty years."
+        }
+      ],
+      "synonyms": ["admirable", "respectable", "worthy", "praiseworthy"],
+      "antonyms": ["contemptible", "despicable"]
+    },
+    {
+      "word": "firebrand",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who is passionate about a particular cause, typically inciting change and taking radical action",
+          "example": "The young firebrand urged the workers to strike."
+        }
+      ],
+      "synonyms": ["radical", "agitator", "revolutionary", "rabble-rouser"],
+      "antonyms": ["moderate", "conformist"]
+    },
+    {
+      "word": "flag",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to become tired, weaker or less enthusiastic",
+          "example": "Interest in the project began to flag after the first year."
+        },
+        {
+          "pos": "verb",
+          "definition": "to mark an item for attention",
+          "example": "The software flags any unusual transactions."
+        }
+      ],
+      "synonyms": ["tire", "weaken", "wane", "fade"],
+      "antonyms": ["revive", "strengthen"],
+      "note": "As a verb, flag often means to grow tired or weak."
+    },
+    {
+      "word": "hedge",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to limit or qualify something by conditions or exceptions",
+          "example": "She hedged her answer with several caveats."
+        },
+        {
+          "pos": "verb",
+          "definition": "to protect oneself against loss by supporting more than one possible result",
+          "example": "He hedged his bets by applying to five schools."
+        }
+      ],
+      "synonyms": ["qualify", "equivocate", "waffle", "prevaricate"],
+      "antonyms": ["commit"]
+    },
+    {
+      "word": "heterodox",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not conforming with accepted or orthodox standards or beliefs",
+          "example": "Her heterodox views on economics made her unpopular with colleagues."
+        }
+      ],
+      "synonyms": ["unorthodox", "heretical", "dissenting", "nonconformist"],
+      "antonyms": ["orthodox", "conventional", "mainstream"]
+    },
+    {
+      "word": "impugn",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to dispute the truth, validity or honesty of a statement or motive; to call into question",
+          "example": "The lawyer impugned the witness's credibility."
+        }
+      ],
+      "synonyms": ["challenge", "question", "dispute", "attack"],
+      "antonyms": ["support", "defend", "vindicate"]
+    },
+    {
+      "word": "impute",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to represent something, especially something bad, as being done, caused or possessed by someone; to attribute",
+          "example": "They imputed the failure to poor leadership."
+        }
+      ],
+      "synonyms": ["attribute", "ascribe", "assign", "credit"]
+    },
+    {
+      "word": "ineluctable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unable to be resisted or avoided; inescapable",
+          "example": "The novel builds to an ineluctable tragedy."
+        }
+      ],
+      "synonyms": ["inescapable", "inevitable", "unavoidable", "inexorable"],
+      "antonyms": ["avoidable", "escapable"]
+    },
+    {
+      "word": "iniquity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "immoral or grossly unfair behavior",
+          "example": "The preacher railed against the iniquity of the city."
+        }
+      ],
+      "synonyms": ["wickedness", "sin", "injustice", "evil"],
+      "antonyms": ["virtue", "righteousness", "justice"]
+    },
+    {
+      "word": "jingoism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "extreme patriotism, especially in the form of aggressive or warlike foreign policy",
+          "example": "The newspapers stoked jingoism before the war."
+        }
+      ],
+      "synonyms": ["chauvinism", "nationalism", "xenophobia", "flag-waving"]
+    },
+    {
+      "word": "kowtow",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to act in an excessively subservient manner",
+          "example": "He refused to kowtow to the new owners."
+        }
+      ],
+      "synonyms": ["grovel", "toady", "fawn", "bow and scrape"],
+      "antonyms": ["defy", "resist", "stand up to"]
+    },
+    {
+      "word": "lugubrious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "looking or sounding sad and dismal",
+          "example": "The bloodhound has a lugubrious face."
+        }
+      ],
+      "synonyms": ["mournful", "gloomy", "doleful", "melancholy"],
+      "antonyms": ["cheerful", "joyful", "merry"]
+    },
+    {
+      "word": "maladroit",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "ineffective or bungling; clumsy",
+          "example": "The maladroit waiter spilled soup on the guest."
+        }
+      ],
+      "synonyms": ["clumsy", "awkward", "inept", "bungling"],
+      "antonyms": ["adroit", "deft", "skillful"]
+    },
+    {
+      "word": "mendicant",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a beggar",
+          "example": "Mendicants lined the steps of the temple."
+        },
+        {
+          "pos": "adjective",
+          "definition": "given to begging",
+          "example": "The friars belonged to a mendicant order."
+        }
+      ],
+      "synonyms": ["beggar", "pauper", "supplicant"]
+    },
+    {
+      "word": "militate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "(of a fact or circumstance) to be a powerful or conclusive factor in preventing",
+          "example": "His youth militated against his promotion."
+        }
+      ],
+      "synonyms": ["work against", "hinder", "count against"],
+      "antonyms": ["favor", "support"],
+      "note": "Militate means to weigh against something; mitigate means to lessen."
+    },
+    {
+      "word": "minatory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "expressing or conveying a threat",
+          "example": "The letter had a minatory tone."
+        }
+      ],
+      "synonyms": ["threatening", "menacing", "ominous", "intimidating"],
+      "antonyms": ["reassuring", "friendly"]
+    },
+    {
+      "word": "miscreant",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who has done something wrong or unlawful",
+          "example": "Police are searching for the miscreants who vandalized the park."
+        }
+      ],
+      "synonyms": ["wrongdoer", "criminal", "villain", "delinquent"]
+    },
+    {
+      "word": "palliate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make a disease or its symptoms less severe without removing the cause",
+          "example": "The drugs palliate the pain but do not cure the illness."
+        },
+        {
+          "pos": "verb",
+          "definition": "to disguise the seriousness of an offense",
+          "example": "Nothing can palliate such cruelty."
+        }
+      ],
+      "synonyms": ["alleviate", "ease", "relieve", "soothe"],
+      "antonyms": ["aggravate", "exacerbate"]
+    },
+    {
+      "word": "pecuniary",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relating to or consisting of money",
+          "example": "He had no pecuniary interest in the deal."
+        }
+      ],
+      "synonyms": ["financial", "monetary", "fiscal"]
+    },
+    {
+      "word": "pillory",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to attack or ridicule publicly",
+          "example": "The minister was pilloried in the press."
+        }
+      ],
+      "synonyms": ["ridicule", "lambaste", "denounce", "mock"],
+      "antonyms": ["praise", "laud"]
+    },
+    {
+      "word": "placid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person or animal) not easily upset or excited",
+          "example": "The placid cow didn't even look up."
+        }
+      ],
+      "synonyms": ["calm", "serene", "tranquil", "equable"],
+      "antonyms": ["excitable", "agitated", "volatile"]
+    },
+    {
+      "word": "prattle",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to talk at length in a foolish or inconsequential way",
+          "example": "He prattled on about his golf game for an hour."
+        },
+        {
+          "pos": "noun",
+          "definition": "foolish or inconsequential talk",
+          "example": "She was tired of his prattle."
+        }
+      ],
+      "synonyms": ["chatter", "babble", "blather", "jabber"]
+    },
+    {
+      "word": "pusillanimous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "showing a lack of courage or determination; timid",
+          "example": "The pusillanimous council refused to take a stand."
+        }
+      ],
+      "synonyms": ["cowardly", "timid", "craven", "spineless"],
+      "antonyms": ["brave", "courageous", "bold"]
+    },
+    {
+      "word": "rapacious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "aggressively greedy or grasping",
+          "example": "The rapacious landlord raised the rent every year."
+        }
+      ],
+      "synonyms": ["grasping", "greedy", "avaricious", "predatory"],
+      "antonyms": ["generous", "unselfish"]
+    },
+    {
+      "word": "refulgent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "shining very brightly",
+          "example": "The refulgent sunset lit the whole sky."
+        }
+      ],
+      "synonyms": ["radiant", "resplendent", "brilliant", "effulgent"],
+      "antonyms": ["dark", "dull", "dim"]
+    },
+    {
+      "word": "reprobate",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an unprincipled person",
+          "example": "The old reprobate gambled away his family's savings."
+        },
+        {
+          "pos": "adjective",
+          "definition": "unprincipled",
+          "example": "His reprobate friends led him into trouble."
+        }
+      ],
+      "synonyms": ["rogue", "scoundrel", "villain", "miscreant"],
+      "antonyms": ["saint", "paragon"]
+    },
+    {
+      "word": "rococo",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "extravagantly or excessively ornate, especially in music or literature",
+          "example": "The writer's rococo style is hard to read."
+        }
+      ],
+      "synonyms": ["ornate", "florid", "elaborate", "flamboyant"],
+      "antonyms": ["plain", "simple", "austere"]
+    },
+    {
+      "word": "sinecure",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a position requiring little or no work but giving the holder status or financial benefit",
+          "example": "The post of honorary advisor was a sinecure."
+        }
+      ],
+      "synonyms": ["soft job", "cushy job", "easy number"]
+    },
+    {
+      "word": "splenetic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "bad-tempered; spiteful",
+          "example": "The columnist wrote splenetic attacks on modern art."
+        }
+      ],
+      "synonyms": ["bad-tempered", "irritable", "peevish", "choleric"],
+      "antonyms": ["good-natured", "genial"]
+    },
+    {
+      "word": "traduce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to speak badly of or tell lies about someone so as to damage their reputation",
+          "example": "The campaign traduced her record as governor."
+        }
+      ],
+      "synonyms": ["slander", "defame", "vilify", "malign"],
+      "antonyms": ["praise", "extol", "laud"]
+    },
+    {
+      "word": "unwonted",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unaccustomed or unusual",
+          "example": "She spoke with unwonted sharpness."
+        }
+      ],
+      "synonyms": ["unusual", "uncharacteristic", "unaccustomed", "rare"],
+      "antonyms": ["usual", "customary", "habitual"]
+    },
+    {
+      "word": "vainglorious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "excessively proud of oneself or one's achievements",
+          "example": "The vainglorious general boasted of victories he never won."
+        }
+      ],
+      "synonyms": ["boastful", "conceited", "arrogant", "vain"],
+      "antonyms": ["modest", "humble", "self-effacing"]
+    }
+  ]
+}

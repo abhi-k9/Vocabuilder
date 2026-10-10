@@ -1,0 +1,665 @@
+{
+  "level": "advanced",
+  "number": 4,
+  "words": [
+    {
+      "word": "adumbrate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to report or represent in outline",
+          "example": "The memo adumbrates the main features of the new policy."
+        },
+        {
+          "pos": "verb",
+          "definition": "to indicate faintly; to foreshadow",
+          "example": "Early skirmishes adumbrated the coming war."
+        }
+      ],
+      "synonyms": ["outline", "sketch", "delineate", "summarize"]
+    },
+    {
+      "word": "amalgamate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to combine or unite to form one organization or structure",
+          "example": "The two schools amalgamated last year."
+        }
+      ],
+      "synonyms": ["merge", "combine", "unite", "consolidate"],
+      "antonyms": ["separate", "divide", "split"]
+    },
+    {
+      "word": "anodyne",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not likely to provoke dissent or offense; inoffensive, often deliberately so",
+          "example": "The official statement was anodyne and said nothing new."
+        },
+        {
+          "pos": "noun",
+          "definition": "a painkilling drug or medicine",
+          "example": "The doctor gave him an anodyne for the pain."
+        }
+      ],
+      "synonyms": ["bland", "inoffensive", "innocuous", "neutral"],
+      "antonyms": ["provocative", "controversial"]
+    },
+    {
+      "word": "apprise",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to inform or tell someone",
+          "example": "The nurse apprised the family of the patient's condition."
+        }
+      ],
+      "synonyms": ["inform", "notify", "advise", "tell"]
+    },
+    {
+      "word": "arrest",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to stop or check progress or a process",
+          "example": "Early treatment can arrest the spread of the disease."
+        },
+        {
+          "pos": "verb",
+          "definition": "to attract someone's attention",
+          "example": "An odd sight arrested her attention on the way home."
+        }
+      ],
+      "synonyms": ["halt", "stop", "check", "stem"],
+      "antonyms": ["encourage", "accelerate", "promote"],
+      "note": "Beyond detaining a suspect, arrest means to stop a process."
+    },
+    {
+      "word": "bathos",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an effect of anticlimax created by an unintentional lapse in mood from the sublime to the trivial or ridiculous",
+          "example": "The ode slides into bathos when the poet rhymes \"glory\" with \"gory.\""
+        }
+      ],
+      "synonyms": ["anticlimax", "letdown", "mawkishness"]
+    },
+    {
+      "word": "callow",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a young person) inexperienced and immature",
+          "example": "He was a callow youth of seventeen when he enlisted."
+        }
+      ],
+      "synonyms": ["inexperienced", "immature", "naive", "green"],
+      "antonyms": ["experienced", "mature", "sophisticated"]
+    },
+    {
+      "word": "choleric",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "bad-tempered or irritable",
+          "example": "The choleric old man shouted at the children."
+        }
+      ],
+      "synonyms": ["irascible", "irritable", "testy", "cantankerous"],
+      "antonyms": ["good-natured", "placid", "easygoing"]
+    },
+    {
+      "word": "derogate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to disparage someone or something",
+          "example": "He never missed a chance to derogate his rivals."
+        },
+        {
+          "pos": "verb",
+          "definition": "to detract from something",
+          "example": "The flaws do not derogate from the book's achievement."
+        }
+      ],
+      "synonyms": ["disparage", "belittle", "denigrate", "deprecate"],
+      "antonyms": ["praise", "extol"]
+    },
+    {
+      "word": "dirge",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a lament for the dead, especially one forming part of a funeral rite",
+          "example": "The band played a dirge as the coffin passed."
+        }
+      ],
+      "synonyms": ["elegy", "lament", "requiem", "threnody"]
+    },
+    {
+      "word": "discomfit",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make someone feel uneasy or embarrassed",
+          "example": "The question discomfited the minister."
+        }
+      ],
+      "synonyms": ["embarrass", "disconcert", "unsettle", "fluster"],
+      "antonyms": ["reassure", "calm"]
+    },
+    {
+      "word": "discursive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "digressing from subject to subject",
+          "example": "The memoir is discursive but charming."
+        }
+      ],
+      "synonyms": ["digressive", "rambling", "wandering", "meandering"],
+      "antonyms": ["concise", "focused", "succinct"]
+    },
+    {
+      "word": "effulgent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "shining brightly; radiant",
+          "example": "The effulgent sunrise lit up the whole valley."
+        }
+      ],
+      "synonyms": ["radiant", "brilliant", "resplendent", "luminous"],
+      "antonyms": ["dim", "dull", "dark"]
+    },
+    {
+      "word": "enervate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to cause someone to feel drained of energy or vitality; to weaken",
+          "example": "The long, humid summer enervated everyone."
+        }
+      ],
+      "synonyms": ["weaken", "exhaust", "tire", "sap"],
+      "antonyms": ["energize", "invigorate", "strengthen"],
+      "note": "Enervate means to weaken, the opposite of what it sounds like."
+    },
+    {
+      "word": "epicure",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who takes particular pleasure in fine food and drink",
+          "example": "An epicure, he traveled across France to sample its cheeses."
+        }
+      ],
+      "synonyms": ["gourmet", "gastronome", "connoisseur", "foodie"]
+    },
+    {
+      "word": "equable",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of a person) not easily disturbed or angered; calm and even-tempered",
+          "example": "Her equable temperament made her an ideal nurse."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a climate) not varying greatly",
+          "example": "The island has an equable climate."
+        }
+      ],
+      "synonyms": ["even-tempered", "placid", "calm", "serene"],
+      "antonyms": ["temperamental", "excitable", "volatile"]
+    },
+    {
+      "word": "exiguous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "very small in size or amount",
+          "example": "They lived on an exiguous income."
+        }
+      ],
+      "synonyms": ["meager", "scanty", "sparse", "paltry"],
+      "antonyms": ["ample", "abundant", "generous"]
+    },
+    {
+      "word": "gerrymander",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to manipulate the boundaries of an electoral constituency so as to favor one party or class",
+          "example": "The ruling party gerrymandered the districts before the vote."
+        }
+      ],
+      "synonyms": ["rig", "manipulate", "fix"]
+    },
+    {
+      "word": "gossamer",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "used to refer to something very light, thin and insubstantial or delicate",
+          "example": "The bride wore a gossamer veil."
+        },
+        {
+          "pos": "noun",
+          "definition": "a fine, filmy substance consisting of cobwebs spun by small spiders",
+          "example": "Gossamer glistened on the dewy grass."
+        }
+      ],
+      "synonyms": ["delicate", "gauzy", "filmy", "diaphanous"],
+      "antonyms": ["heavy", "thick", "coarse"]
+    },
+    {
+      "word": "grouse",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to complain pettily; to grumble",
+          "example": "The players groused about the early practice."
+        },
+        {
+          "pos": "noun",
+          "definition": "a complaint or grumble",
+          "example": "His main grouse was the lack of parking."
+        }
+      ],
+      "synonyms": ["complain", "grumble", "gripe", "moan"],
+      "antonyms": ["praise", "compliment"]
+    },
+    {
+      "word": "hagiography",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a biography that idealizes its subject",
+          "example": "The authorized biography was little more than hagiography."
+        }
+      ],
+      "synonyms": ["idealization", "adulation", "glorification"],
+      "antonyms": ["exposé", "critique"]
+    },
+    {
+      "word": "hidebound",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "unwilling or unable to change because of tradition or convention",
+          "example": "The hidebound committee rejected every new idea."
+        }
+      ],
+      "synonyms": ["conservative", "conventional", "set in one's ways", "narrow-minded"],
+      "antonyms": ["progressive", "open-minded", "liberal"]
+    },
+    {
+      "word": "impassive",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not feeling or showing emotion",
+          "example": "The judge remained impassive as the verdict was read."
+        }
+      ],
+      "synonyms": ["expressionless", "stolid", "unemotional", "poker-faced"],
+      "antonyms": ["emotional", "expressive", "animated"]
+    },
+    {
+      "word": "imprecation",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a spoken curse",
+          "example": "He muttered imprecations against the referee."
+        }
+      ],
+      "synonyms": ["curse", "oath", "malediction", "execration"],
+      "antonyms": ["blessing", "benediction"]
+    },
+    {
+      "word": "invidious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of an action or situation) likely to arouse or incur resentment or anger in others",
+          "example": "Picking one winner from so many good entries was an invidious task."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a comparison or distinction) unfairly discriminating; unjust",
+          "example": "It would be invidious to single out one volunteer for praise."
+        }
+      ],
+      "synonyms": ["unpleasant", "awkward", "thankless", "undesirable"],
+      "antonyms": ["pleasant", "enviable"]
+    },
+    {
+      "word": "martinet",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a strict disciplinarian, especially in the armed forces",
+          "example": "The new sergeant was a martinet who punished the slightest lapse."
+        }
+      ],
+      "synonyms": ["disciplinarian", "stickler", "taskmaster", "authoritarian"]
+    },
+    {
+      "word": "meretricious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "apparently attractive but having in reality no value or integrity",
+          "example": "The ad was full of meretricious promises."
+        }
+      ],
+      "synonyms": ["showy", "superficial", "tawdry", "specious"],
+      "antonyms": ["genuine", "sincere", "valuable"]
+    },
+    {
+      "word": "munificent",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "larger or more generous than is usual or necessary",
+          "example": "A munificent gift from a former pupil saved the school."
+        }
+      ],
+      "synonyms": ["generous", "lavish", "liberal", "bountiful"],
+      "antonyms": ["mean", "stingy", "miserly"]
+    },
+    {
+      "word": "obloquy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "strong public criticism or verbal abuse",
+          "example": "The ministers faced obloquy for the failed policy."
+        },
+        {
+          "pos": "noun",
+          "definition": "disgrace, especially that brought about by public criticism",
+          "example": "The scandal brought him years of obloquy."
+        }
+      ],
+      "synonyms": ["vilification", "abuse", "denunciation", "censure"],
+      "antonyms": ["praise", "acclaim", "adulation"]
+    },
+    {
+      "word": "obstreperous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "noisy and difficult to control",
+          "example": "The obstreperous crowd shouted down the speaker."
+        }
+      ],
+      "synonyms": ["unruly", "disorderly", "boisterous", "rowdy"],
+      "antonyms": ["quiet", "docile", "orderly"]
+    },
+    {
+      "word": "paean",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a song of praise or triumph",
+          "example": "The novel is a paean to the city of Lisbon."
+        }
+      ],
+      "synonyms": ["tribute", "hymn", "encomium", "accolade"],
+      "antonyms": ["criticism", "condemnation"]
+    },
+    {
+      "word": "pastiche",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an artistic work in a style that imitates that of another work, artist or period",
+          "example": "The opera is a pastiche of eighteenth-century styles."
+        }
+      ],
+      "synonyms": ["imitation", "parody", "medley", "hodgepodge"]
+    },
+    {
+      "word": "pedestrian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking inspiration or excitement; dull",
+          "example": "The novel's plot is pedestrian and predictable."
+        }
+      ],
+      "synonyms": ["dull", "uninspired", "prosaic", "mundane"],
+      "antonyms": ["exciting", "inspired", "imaginative"],
+      "note": "As an adjective, pedestrian means dull and ordinary."
+    },
+    {
+      "word": "pellucid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "translucently clear",
+          "example": "The pellucid stream showed every stone on its bed."
+        },
+        {
+          "pos": "adjective",
+          "definition": "easily understood",
+          "example": "Her pellucid explanation helped everyone follow the theory."
+        }
+      ],
+      "synonyms": ["clear", "limpid", "transparent", "crystalline"],
+      "antonyms": ["murky", "cloudy", "opaque"]
+    },
+    {
+      "word": "probity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the quality of having strong moral principles; honesty and decency",
+          "example": "No one doubted the judge's probity."
+        }
+      ],
+      "synonyms": ["integrity", "honesty", "rectitude", "uprightness"],
+      "antonyms": ["dishonesty", "corruption", "turpitude"]
+    },
+    {
+      "word": "proclivity",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a tendency to choose or do something regularly; an inclination or predisposition toward a particular thing",
+          "example": "He has a proclivity for exaggeration."
+        }
+      ],
+      "synonyms": ["tendency", "inclination", "propensity", "penchant"],
+      "antonyms": ["aversion", "disinclination"]
+    },
+    {
+      "word": "propitiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to win or regain the favor of a god, spirit or person by doing something that pleases them",
+          "example": "The villagers made offerings to propitiate the gods."
+        }
+      ],
+      "synonyms": ["appease", "placate", "pacify", "mollify"],
+      "antonyms": ["provoke", "anger", "offend"],
+      "note": "Propitiate means to appease; propitious means favorable."
+    },
+    {
+      "word": "prurient",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or encouraging an excessive interest in sexual matters",
+          "example": "The tabloid fed its readers' prurient curiosity."
+        }
+      ],
+      "synonyms": ["salacious", "lascivious", "lewd", "voyeuristic"],
+      "antonyms": ["decent", "chaste"]
+    },
+    {
+      "word": "remonstrate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to make a forcefully reproachful protest",
+          "example": "He remonstrated with the referee over the penalty."
+        }
+      ],
+      "synonyms": ["protest", "object", "complain", "argue"],
+      "antonyms": ["agree", "accept"]
+    },
+    {
+      "word": "sophistry",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "the use of clever but false arguments, especially with the intention of deceiving",
+          "example": "The lawyer's argument was pure sophistry."
+        }
+      ],
+      "synonyms": ["casuistry", "specious reasoning", "fallacy", "quibbling"]
+    },
+    {
+      "word": "specious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "superficially plausible, but actually wrong",
+          "example": "The report rests on a specious argument."
+        }
+      ],
+      "synonyms": ["misleading", "fallacious", "spurious", "deceptive"],
+      "antonyms": ["valid", "sound", "genuine"]
+    },
+    {
+      "word": "surfeit",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an excessive amount of something",
+          "example": "A surfeit of rich food left him ill."
+        }
+      ],
+      "synonyms": ["excess", "glut", "surplus", "overabundance"],
+      "antonyms": ["dearth", "lack", "shortage"]
+    },
+    {
+      "word": "tome",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a book, especially a large, heavy, scholarly one",
+          "example": "He carried a dusty tome on Roman law."
+        }
+      ],
+      "synonyms": ["volume", "book", "opus", "work"]
+    },
+    {
+      "word": "trammel",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to deprive of freedom of action",
+          "example": "The artist felt trammeled by the gallery's demands."
+        },
+        {
+          "pos": "noun",
+          "definition": "a restriction or impediment to someone's freedom of action",
+          "example": "She escaped the trammels of small-town life."
+        }
+      ],
+      "synonyms": ["restrict", "hamper", "constrain", "fetter"],
+      "antonyms": ["free", "liberate"]
+    },
+    {
+      "word": "unctuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "excessively or ingratiatingly flattering; oily",
+          "example": "The unctuous salesman called everyone \"my friend.\""
+        }
+      ],
+      "synonyms": ["ingratiating", "obsequious", "sycophantic", "oily"],
+      "antonyms": ["sincere", "frank"]
+    },
+    {
+      "word": "verdant",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of countryside) green with grass or other rich vegetation",
+          "example": "The verdant hills rolled down to the sea."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a person) young and inexperienced",
+          "example": "Verdant recruits made up half the regiment."
+        }
+      ],
+      "synonyms": ["green", "lush", "leafy", "grassy"],
+      "antonyms": ["barren", "arid", "parched"]
+    },
+    {
+      "word": "vitiate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to spoil or impair the quality or efficiency of",
+          "example": "A single error vitiated the whole experiment."
+        },
+        {
+          "pos": "verb",
+          "definition": "to destroy or impair the legal validity of",
+          "example": "Fraud vitiates any contract."
+        }
+      ],
+      "synonyms": ["impair", "spoil", "mar", "undermine"],
+      "antonyms": ["improve", "enhance", "strengthen"]
+    },
+    {
+      "word": "vituperate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to blame or insult someone in strong or violent language",
+          "example": "The coach vituperated the referee after the game."
+        }
+      ],
+      "synonyms": ["revile", "berate", "abuse", "vilify"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "voluble",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "speaking or spoken incessantly and fluently",
+          "example": "The voluble tour guide never stopped talking."
+        }
+      ],
+      "synonyms": ["talkative", "loquacious", "garrulous", "fluent"],
+      "antonyms": ["taciturn", "reticent", "quiet"]
+    },
+    {
+      "word": "xenophobia",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "dislike of or prejudice against people from other countries",
+          "example": "The campaign played on xenophobia."
+        }
+      ],
+      "synonyms": ["prejudice", "chauvinism", "bigotry", "intolerance"],
+      "antonyms": ["tolerance", "open-mindedness"]
+    }
+  ]
+}

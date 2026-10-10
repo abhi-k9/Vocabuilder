@@ -1,0 +1,649 @@
+{
+  "level": "advanced",
+  "number": 3,
+  "words": [
+    {
+      "word": "abrogate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to repeal or do away with a law, right or formal agreement",
+          "example": "The new government abrogated the trade treaty."
+        }
+      ],
+      "synonyms": ["repeal", "revoke", "rescind", "annul"],
+      "antonyms": ["enact", "establish", "ratify"]
+    },
+    {
+      "word": "attenuate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to reduce the force, effect or value of something",
+          "example": "The thick walls attenuate the noise from the street."
+        }
+      ],
+      "synonyms": ["weaken", "reduce", "diminish", "lessen"],
+      "antonyms": ["strengthen", "intensify", "amplify"]
+    },
+    {
+      "word": "bemused",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "puzzled, confused or bewildered",
+          "example": "She gave a bemused look at the strange menu."
+        }
+      ],
+      "synonyms": ["bewildered", "puzzled", "perplexed", "baffled"],
+      "antonyms": ["clear-headed", "unconfused"],
+      "note": "Bemused means puzzled, not amused."
+    },
+    {
+      "word": "bowdlerize",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to remove material considered improper or offensive from a text, especially with the result that it becomes weaker",
+          "example": "The publisher bowdlerized the novel for younger readers."
+        }
+      ],
+      "synonyms": ["censor", "expurgate", "sanitize", "cut"]
+    },
+    {
+      "word": "carping",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "continually finding fault in a petty way",
+          "example": "He was weary of his boss's carping comments."
+        }
+      ],
+      "synonyms": ["faultfinding", "captious", "critical", "nagging"],
+      "antonyms": ["complimentary", "praising"]
+    },
+    {
+      "word": "censorious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "severely critical of others",
+          "example": "Her censorious neighbors disapproved of everything she did."
+        }
+      ],
+      "synonyms": ["critical", "disapproving", "judgmental", "captious"],
+      "antonyms": ["approving", "complimentary"]
+    },
+    {
+      "word": "cogitate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to think deeply about something; to meditate or reflect",
+          "example": "He sat on the bench, cogitating on what to do next."
+        }
+      ],
+      "synonyms": ["ponder", "contemplate", "ruminate", "deliberate"]
+    },
+    {
+      "word": "dally",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to act or move slowly",
+          "example": "Don't dally on your way home from school."
+        },
+        {
+          "pos": "verb",
+          "definition": "to have a casual romantic or sexual liaison with someone, or to take a casual interest in something",
+          "example": "He dallied with the idea of becoming a painter."
+        }
+      ],
+      "synonyms": ["dawdle", "linger", "loiter", "delay"],
+      "antonyms": ["hurry", "hasten", "rush"]
+    },
+    {
+      "word": "deracinate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to tear something up by the roots; to uproot",
+          "example": "War deracinated whole communities."
+        }
+      ],
+      "synonyms": ["uproot", "displace", "dislocate", "eradicate"]
+    },
+    {
+      "word": "desuetude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a state of disuse",
+          "example": "The old rail line fell into desuetude after the war."
+        }
+      ],
+      "synonyms": ["disuse", "neglect", "abeyance", "obsolescence"],
+      "antonyms": ["use", "practice"]
+    },
+    {
+      "word": "diaphanous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(especially of fabric) light, delicate and translucent",
+          "example": "The dancer wore a diaphanous silk scarf."
+        }
+      ],
+      "synonyms": ["sheer", "translucent", "gauzy", "filmy"],
+      "antonyms": ["opaque", "thick", "heavy"]
+    },
+    {
+      "word": "dilatory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "slow to act",
+          "example": "The council was dilatory in fixing the roads."
+        },
+        {
+          "pos": "adjective",
+          "definition": "intended to cause delay",
+          "example": "The defense used dilatory tactics to postpone the trial."
+        }
+      ],
+      "synonyms": ["slow", "tardy", "sluggish", "procrastinating"],
+      "antonyms": ["prompt", "punctual", "quick"]
+    },
+    {
+      "word": "disabuse",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to persuade someone that an idea or belief is mistaken",
+          "example": "Let me disabuse you of the idea that this job will be easy."
+        }
+      ],
+      "synonyms": ["undeceive", "set straight", "correct", "enlighten"],
+      "antonyms": ["mislead", "deceive"]
+    },
+    {
+      "word": "disaffected",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "dissatisfied with the people in authority and no longer willing to support them",
+          "example": "The party tried to win back disaffected voters."
+        }
+      ],
+      "synonyms": ["alienated", "estranged", "discontented", "rebellious"],
+      "antonyms": ["contented", "loyal", "satisfied"]
+    },
+    {
+      "word": "doggerel",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "comic verse composed in irregular rhythm",
+          "example": "The birthday card was full of cheerful doggerel."
+        }
+      ],
+      "synonyms": ["bad verse", "jingle"]
+    },
+    {
+      "word": "ensconce",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to establish or settle someone in a comfortable, safe or secret place",
+          "example": "She ensconced herself in an armchair with a novel."
+        }
+      ],
+      "synonyms": ["settle", "install", "nestle", "establish"]
+    },
+    {
+      "word": "fetid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "smelling extremely unpleasant",
+          "example": "The fetid water in the ditch was full of flies."
+        }
+      ],
+      "synonyms": ["stinking", "rank", "foul", "noisome"],
+      "antonyms": ["fragrant", "sweet-smelling", "fresh"]
+    },
+    {
+      "word": "fulminate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to express vehement protest",
+          "example": "He fulminated against the new parking rules."
+        }
+      ],
+      "synonyms": ["rail", "protest", "rant", "inveigh"],
+      "antonyms": ["praise", "approve"]
+    },
+    {
+      "word": "germane",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relevant to a subject under consideration",
+          "example": "Her experience abroad was germane to the new job."
+        }
+      ],
+      "synonyms": ["relevant", "pertinent", "apposite", "applicable"],
+      "antonyms": ["irrelevant", "extraneous", "immaterial"]
+    },
+    {
+      "word": "halcyon",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "denoting a period of time in the past that was idyllically happy and peaceful",
+          "example": "She remembered the halcyon days of her childhood on the farm."
+        }
+      ],
+      "synonyms": ["idyllic", "golden", "carefree", "serene"],
+      "antonyms": ["troubled", "turbulent"]
+    },
+    {
+      "word": "ignoble",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "not honorable in character or purpose",
+          "example": "He refused to stoop to such ignoble tactics."
+        }
+      ],
+      "synonyms": ["dishonorable", "base", "shameful", "unworthy"],
+      "antonyms": ["noble", "honorable", "worthy"]
+    },
+    {
+      "word": "imbroglio",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an extremely confused, complicated or embarrassing situation",
+          "example": "The minister was caught in a diplomatic imbroglio."
+        }
+      ],
+      "synonyms": ["muddle", "entanglement", "mess", "predicament"]
+    },
+    {
+      "word": "impolitic",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "failing to possess or display prudence; unwise",
+          "example": "It would be impolitic to criticize the boss in public."
+        }
+      ],
+      "synonyms": ["unwise", "imprudent", "injudicious", "ill-advised"],
+      "antonyms": ["politic", "wise", "prudent"]
+    },
+    {
+      "word": "importune",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to ask someone pressingly and persistently for or to do something",
+          "example": "The beggars importuned every tourist who passed."
+        }
+      ],
+      "synonyms": ["pester", "badger", "harass", "beseech"]
+    },
+    {
+      "word": "intimate",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to imply or hint",
+          "example": "He intimated that he might resign."
+        },
+        {
+          "pos": "adjective",
+          "definition": "closely acquainted; familiar",
+          "example": "They were intimate friends for forty years."
+        }
+      ],
+      "synonyms": ["imply", "hint", "suggest", "insinuate"],
+      "antonyms": ["state", "declare"],
+      "note": "As a verb, intimate means to hint."
+    },
+    {
+      "word": "loath",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "reluctant; unwilling",
+          "example": "She was loath to leave the warm house."
+        }
+      ],
+      "synonyms": ["reluctant", "unwilling", "disinclined", "averse"],
+      "antonyms": ["willing", "eager", "keen"],
+      "note": "Loath means unwilling; loathe is the verb meaning to hate."
+    },
+    {
+      "word": "mawkish",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "sentimental in an exaggerated or false way",
+          "example": "The film's mawkish ending spoiled an otherwise honest story."
+        }
+      ],
+      "synonyms": ["sentimental", "maudlin", "cloying", "saccharine"],
+      "antonyms": ["unsentimental", "restrained"]
+    },
+    {
+      "word": "peremptory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "insisting on immediate attention or obedience, especially in a brusquely imperious way",
+          "example": "The boss gave a peremptory order to leave the room."
+        }
+      ],
+      "synonyms": ["imperious", "brusque", "abrupt", "high-handed"],
+      "antonyms": ["polite", "gentle", "deferential"]
+    },
+    {
+      "word": "perfidy",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "deceitfulness; untrustworthiness",
+          "example": "The general's perfidy cost the king his crown."
+        }
+      ],
+      "synonyms": ["treachery", "betrayal", "duplicity", "disloyalty"],
+      "antonyms": ["loyalty", "fidelity", "faithfulness"]
+    },
+    {
+      "word": "picayune",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "petty; worthless",
+          "example": "The committee wasted hours on picayune details."
+        }
+      ],
+      "synonyms": ["petty", "trivial", "trifling", "insignificant"],
+      "antonyms": ["important", "significant"]
+    },
+    {
+      "word": "plaudit",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "an expression of praise or approval",
+          "example": "The novel won plaudits from critics."
+        }
+      ],
+      "synonyms": ["praise", "acclaim", "applause", "accolade"],
+      "antonyms": ["criticism", "censure"]
+    },
+    {
+      "word": "plebeian",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "lacking in refinement",
+          "example": "His plebeian tastes amused his snobbish in-laws."
+        },
+        {
+          "pos": "noun",
+          "definition": "a member of the lower social classes",
+          "example": "In ancient Rome, plebeians could not marry patricians."
+        }
+      ],
+      "synonyms": ["coarse", "common", "uncultured", "lowbrow"],
+      "antonyms": ["refined", "cultured", "patrician"]
+    },
+    {
+      "word": "presage",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to be a sign or warning that something, typically something bad, will happen",
+          "example": "The dark clouds presaged a storm."
+        },
+        {
+          "pos": "noun",
+          "definition": "a sign or warning that something will happen; an omen",
+          "example": "The warm winter was a presage of drought."
+        }
+      ],
+      "synonyms": ["portend", "foreshadow", "herald", "augur"]
+    },
+    {
+      "word": "propitious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "giving or indicating a good chance of success; favorable",
+          "example": "It was a propitious moment to launch the business."
+        }
+      ],
+      "synonyms": ["favorable", "auspicious", "promising", "opportune"],
+      "antonyms": ["inauspicious", "unfavorable", "ominous"]
+    },
+    {
+      "word": "pulchritude",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "beauty",
+          "example": "The poems celebrate the pulchritude of the countryside."
+        }
+      ],
+      "synonyms": ["beauty", "loveliness", "comeliness", "attractiveness"],
+      "antonyms": ["ugliness"]
+    },
+    {
+      "word": "querulous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "complaining in a petulant or whining manner",
+          "example": "The querulous patient found fault with every meal."
+        }
+      ],
+      "synonyms": ["peevish", "petulant", "whining", "fretful"],
+      "antonyms": ["uncomplaining", "contented"]
+    },
+    {
+      "word": "quibble",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to argue or raise objections about a trivial matter",
+          "example": "They quibbled over the cost of the coffee."
+        },
+        {
+          "pos": "noun",
+          "definition": "a slight objection or criticism",
+          "example": "My only quibble with the book is its length."
+        }
+      ],
+      "synonyms": ["cavil", "nitpick", "carp", "split hairs"]
+    },
+    {
+      "word": "refractory",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "stubborn or unmanageable",
+          "example": "The refractory mule refused to move."
+        },
+        {
+          "pos": "adjective",
+          "definition": "(of a disease) not yielding to treatment",
+          "example": "The doctors tried a new drug on refractory cases."
+        }
+      ],
+      "synonyms": ["obstinate", "stubborn", "recalcitrant", "intractable"],
+      "antonyms": ["obedient", "tractable", "docile"]
+    },
+    {
+      "word": "risible",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "such as to provoke laughter",
+          "example": "The idea that he could run a marathon was risible."
+        }
+      ],
+      "synonyms": ["laughable", "ludicrous", "absurd", "ridiculous"],
+      "antonyms": ["serious", "sensible"]
+    },
+    {
+      "word": "sartorial",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relating to tailoring, clothes or style of dress",
+          "example": "He was known for his sartorial elegance."
+        }
+      ],
+      "synonyms": ["tailored", "clothing", "dress"]
+    },
+    {
+      "word": "solipsism",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "extreme preoccupation with and indulgence of one's feelings and desires; egoistic self-absorption",
+          "example": "The memoir's solipsism grows tiresome."
+        },
+        {
+          "pos": "noun",
+          "definition": "the view or theory that the self is all that can be known to exist",
+          "example": "The philosophy course began with a debate on solipsism."
+        }
+      ],
+      "synonyms": ["self-absorption", "egotism", "narcissism"],
+      "antonyms": ["altruism", "selflessness"]
+    },
+    {
+      "word": "stem",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to stop or restrict the flow of something",
+          "example": "Doctors struggled to stem the bleeding."
+        },
+        {
+          "pos": "verb",
+          "definition": "to originate in or be caused by",
+          "example": "His anger stems from years of neglect."
+        }
+      ],
+      "synonyms": ["stop", "check", "curb", "halt"],
+      "antonyms": ["encourage", "increase"],
+      "note": "Besides meaning to arise from, stem means to stop or restrain."
+    },
+    {
+      "word": "sybarite",
+      "senses": [
+        {
+          "pos": "noun",
+          "definition": "a person who is self-indulgent in their fondness for sensuous luxury",
+          "example": "The sybarite spent his days in silk robes eating sweets."
+        }
+      ],
+      "synonyms": ["hedonist", "voluptuary", "epicure", "pleasure-seeker"],
+      "antonyms": ["ascetic", "puritan"]
+    },
+    {
+      "word": "tantamount",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "equivalent in seriousness to; virtually the same as",
+          "example": "Staying silent would be tantamount to lying."
+        }
+      ],
+      "synonyms": ["equivalent", "equal", "comparable", "synonymous"]
+    },
+    {
+      "word": "tendentious",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "expressing or intending to promote a particular cause or point of view, especially a controversial one",
+          "example": "The documentary was criticized as tendentious."
+        }
+      ],
+      "synonyms": ["biased", "partisan", "one-sided", "slanted"],
+      "antonyms": ["impartial", "neutral", "balanced"]
+    },
+    {
+      "word": "turgid",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "(of language or style) tediously pompous or bombastic",
+          "example": "The novel's turgid prose makes it hard to finish."
+        },
+        {
+          "pos": "adjective",
+          "definition": "swollen and distended or congested",
+          "example": "The river was turgid after the rains."
+        }
+      ],
+      "synonyms": ["pompous", "bombastic", "grandiloquent", "overblown"],
+      "antonyms": ["simple", "plain", "lucid"]
+    },
+    {
+      "word": "upbraid",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to find fault with someone; to scold",
+          "example": "The captain upbraided the crew for their carelessness."
+        }
+      ],
+      "synonyms": ["reprimand", "scold", "berate", "rebuke"],
+      "antonyms": ["praise", "commend"]
+    },
+    {
+      "word": "vacuous",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "having or showing a lack of thought or intelligence; mindless",
+          "example": "The show was vacuous entertainment."
+        }
+      ],
+      "synonyms": ["empty", "inane", "vapid", "mindless"],
+      "antonyms": ["intelligent", "thoughtful", "profound"]
+    },
+    {
+      "word": "visceral",
+      "senses": [
+        {
+          "pos": "adjective",
+          "definition": "relating to deep inward feelings rather than to the intellect",
+          "example": "He had a visceral dislike of the man."
+        }
+      ],
+      "synonyms": ["instinctive", "gut", "deep-seated", "emotional"],
+      "antonyms": ["rational", "intellectual", "cerebral"]
+    },
+    {
+      "word": "wheedle",
+      "senses": [
+        {
+          "pos": "verb",
+          "definition": "to use flattery or coaxing in order to persuade someone to do something or give one something",
+          "example": "The child wheedled an extra cookie out of her grandmother."
+        }
+      ],
+      "synonyms": ["coax", "cajole", "inveigle", "persuade"],
+      "antonyms": ["force", "coerce"]
+    }
+  ]
+}
