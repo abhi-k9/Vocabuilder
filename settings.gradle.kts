@@ -33,9 +33,12 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 
+include(":core:common")
 include(":core:content")
 include(":core:designsystem")
+include(":core:domain")
 include(":core:model")
+include(":core:testing")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     """

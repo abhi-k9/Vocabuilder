@@ -2,7 +2,11 @@ package io.github.abhik9.vocabuilder.core.model
 
 import java.time.Instant
 
-/** One answer to a card, kept to show history and statistics. */
+/**
+ * One answer to a card, kept to show history and statistics.
+ *
+ * @property id assigned when the review is saved; 0 before.
+ */
 data class Review(
     val wordId: String,
     val reviewedAt: Instant,
@@ -10,6 +14,7 @@ data class Review(
     val mode: StudyMode,
     val stageBefore: Int,
     val stageAfter: Int,
+    val id: Long = 0,
 )
 
 /** What a study session goes through. */
