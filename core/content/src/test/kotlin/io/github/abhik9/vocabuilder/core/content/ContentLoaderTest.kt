@@ -83,6 +83,11 @@ class ContentLoaderTest {
     }
 
     @Test
+    fun fingerprintMatchesTheLoadedPack() {
+        assertEquals(loader.load("gre").fingerprint, loader.fingerprint("gre"))
+    }
+
+    @Test
     fun rejectsUnknownKeys() {
         files["gre/advanced-01.json"] = files.getValue("gre/advanced-01.json").replace("\"senses\"", "\"sense\"")
 

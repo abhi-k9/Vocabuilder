@@ -34,6 +34,20 @@ class ContentLoader(private val files: ContentFiles) {
 
     fun loadAll(): List<BundledPack> = packIds().map(::load)
 
+    /**
+     * The fingerprint [load] would give the pack, computed from its files without decoding its
+     * decks, to check cheaply whether the pack changed.
+     */
+    fun fingerprint(packId: String): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        val packPath = "$packId/pack.json"
+        val packText = readFile(packPath).also { digest.update(it.toByteArray()) }
+        decodeText<PackFile>(packPath, packText).decks.forEach { deckName ->
+            digest.update(readFile("$packId/$deckName.json").toByteArray())
+        }
+        return digest.hex()
+    }
+
     fun load(packId: String): BundledPack {
         val digest = MessageDigest.getInstance("SHA-256")
         fun readTracked(path: String): String = readFile(path).also { digest.update(it.toByteArray()) }
@@ -61,9 +75,11 @@ class ContentLoader(private val files: ContentFiles) {
             pack = Pack(id = packFile.id, name = packFile.name),
             decks = decks,
             words = words,
-            fingerprint = digest.digest().joinToString("") { "%02x".format(it) },
+            fingerprint = digest.hex(),
         )
     }
+
+    private fun MessageDigest.hex(): String = digest().joinToString("") { "%02x".format(it) }
 
     private fun readFile(path: String): String =
         files.read(path) ?: throw ContentException("Missing content file $path")

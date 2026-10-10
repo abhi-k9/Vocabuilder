@@ -62,3 +62,21 @@ jobs:
         with:
           name: lint-reports
           path: app/build/reports/lint-results-*
+
+  room-schema:
+    name: Room schema is committed
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - name: Generate the database schema
+        run: ./gradlew :core:database:kspDebugKotlin
+      - name: Verify it matches the committed schema
+        run: |
+          if [ -n "$(git status --porcelain core/database/schemas)" ]; then
+            echo "::error::The Room schema changed. Commit the files below."
+            git status --porcelain core/database/schemas
+            find core/database/schemas -name '*.json' -print -exec cat {} \;
+            exit 1
+          fi
