@@ -1,9 +1,9 @@
 package io.github.abhik9.vocabuilder.core.content
 
 import java.io.File
-import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
+import org.junit.Test
 
 /** Checks the content shipped with the app, read from this module's assets. */
 class BundledContentTest {

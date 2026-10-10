@@ -2,11 +2,11 @@ package io.github.abhik9.vocabuilder.core.content
 
 import io.github.abhik9.vocabuilder.core.model.Level
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
-import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
+import org.junit.Test
 
 class ContentLoaderTest {
     private val files = mutableMapOf(

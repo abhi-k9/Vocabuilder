@@ -6,10 +6,10 @@ import io.github.abhik9.vocabuilder.core.model.Pack
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
 import io.github.abhik9.vocabuilder.core.model.Sense
 import io.github.abhik9.vocabuilder.core.model.Word
-import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+import org.junit.Test
 
 class ContentValidatorTest {
     private val deck = Deck(id = "gre/common-01", packId = "gre", level = Level.COMMON, number = 1, position = 0)
