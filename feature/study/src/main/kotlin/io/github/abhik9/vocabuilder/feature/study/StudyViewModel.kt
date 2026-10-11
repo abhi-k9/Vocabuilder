@@ -106,10 +106,13 @@ class StudyViewModel @AssistedInject constructor(
     val canPronounce: StateFlow<Boolean> = pronouncer.isAvailable
 
     private val session = MutableStateFlow<StudySession?>(null)
-    private val words = MutableStateFlow<Map<String, Word>>(emptyMap())
 
-    /** The ids of all the app's words, by lowercase headword, to look up synonyms and antonyms. */
-    private val wordIdsByHeadword = MutableStateFlow<Map<String, String>>(emptyMap())
+    // Loaded before the session starts, and fixed from then on: the session's words, and the ids of
+    // all the app's words by lowercase headword, to look up synonyms and antonyms. Not flows: on
+    // Android's main thread, combine() can pass on a new session before the words that came with it.
+    private var words: Map<String, Word> = emptyMap()
+    private var wordIdsByHeadword: Map<String, String> = emptyMap()
+
     private val _relatedWord = MutableStateFlow<RelatedWord?>(null)
 
     /** The synonym or antonym looked up from the card, while it's shown. */
@@ -133,11 +136,10 @@ class StudyViewModel @AssistedInject constructor(
 
     val uiState: StateFlow<StudyUiState> = combine(
         session,
-        combine(words, wordIdsByHeadword, ::Pair),
         isFlipped,
         combine(settings, currentProgress, ::Pair),
         nextDeck,
-    ) { session, (words, wordIdsByHeadword), flipped, (settings, progress), nextDeck ->
+    ) { session, flipped, (settings, progress), nextDeck ->
         when {
             session == null -> StudyUiState.Loading
 
@@ -169,9 +171,9 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             val plan = buildPlan(request)
             val loaded = wordRepository.getWords(plan.wordIds).associateBy { it.id }
-            wordIdsByHeadword.value = wordRepository.observeWordSummaries().first()
+            wordIdsByHeadword = wordRepository.observeWordSummaries().first()
                 .associate { it.headword.lowercase() to it.id }
-            words.value = loaded
+            words = loaded
             session.value = StudySession(plan.wordIds.filter { it in loaded })
         }
     }
@@ -185,13 +187,13 @@ class StudyViewModel @AssistedInject constructor(
     /** Says the current card's word aloud. */
     fun pronounce() {
         val wordId = session.value?.currentWordId ?: return
-        words.value[wordId]?.let { pronouncer.speak(it.headword) }
+        words[wordId]?.let { pronouncer.speak(it.headword) }
     }
 
     /** Shows one of the card's synonyms or antonyms, with its meanings if it's one of the app's words. */
     fun lookUp(headword: String) {
         viewModelScope.launch {
-            val id = wordIdsByHeadword.value[headword.lowercase()]
+            val id = wordIdsByHeadword[headword.lowercase()]
             _relatedWord.value = RelatedWord(headword, id?.let { wordRepository.getWords(listOf(it)).firstOrNull() })
         }
     }
