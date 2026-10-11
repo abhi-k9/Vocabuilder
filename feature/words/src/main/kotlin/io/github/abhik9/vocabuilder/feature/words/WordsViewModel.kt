@@ -43,7 +43,7 @@ class WordsViewModel @Inject constructor(
         WordsUiState.Success(words = searchWords(words, query, filter), filter = filter)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), WordsUiState.Loading)
 
-    fun setQuery(query: String) {
+    fun updateQuery(query: String) {
         this.query = query
     }
 

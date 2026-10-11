@@ -53,7 +53,7 @@ internal fun WordsRoute(
     WordsScreen(
         uiState = uiState,
         query = viewModel.query,
-        onQueryChange = viewModel::setQuery,
+        onQueryChange = viewModel::updateQuery,
         onFilterChange = viewModel::setFilter,
         onWordClick = onWordClick,
     )
