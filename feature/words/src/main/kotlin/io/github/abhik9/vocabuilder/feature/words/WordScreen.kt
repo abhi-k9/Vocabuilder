@@ -9,15 +9,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,7 +30,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -42,9 +44,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.designsystem.component.Pill
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Sense
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import io.github.abhik9.vocabuilder.core.ui.MasteryPill
+import io.github.abhik9.vocabuilder.core.ui.WordMeaningSheet
 import io.github.abhik9.vocabuilder.core.ui.label
 import io.github.abhik9.vocabuilder.core.ui.title
 import java.time.LocalDate
@@ -59,15 +63,27 @@ internal fun WordRoute(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val canPronounce by viewModel.canPronounce.collectAsStateWithLifecycle()
+    val lookedUp by viewModel.lookedUp.collectAsStateWithLifecycle()
     WordScreen(
         uiState = uiState,
         canPronounce = canPronounce,
         onPronounce = viewModel::pronounce,
         onBack = onBack,
         onOpenWord = onOpenWord,
+        onLookUp = viewModel::lookUp,
         onToggleStar = viewModel::toggleStar,
         onToggleKnown = viewModel::toggleKnown,
     )
+    lookedUp?.let {
+        WordMeaningSheet(
+            word = it.word,
+            meanings = it.entry?.senses.orEmpty(),
+            fromWordNet = it.entry?.source == DictionarySource.WORDNET,
+            canPronounce = canPronounce,
+            onPronounce = viewModel::pronounceLookedUp,
+            onDismiss = viewModel::dismissLookedUp,
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -78,6 +94,7 @@ internal fun WordScreen(
     onPronounce: () -> Unit,
     onBack: () -> Unit,
     onOpenWord: (wordId: String) -> Unit,
+    onLookUp: (word: String) -> Unit,
     onToggleStar: () -> Unit,
     onToggleKnown: () -> Unit,
     modifier: Modifier = Modifier,
@@ -132,6 +149,7 @@ internal fun WordScreen(
                     canPronounce = canPronounce,
                     onPronounce = onPronounce,
                     onOpenWord = onOpenWord,
+                    onLookUp = onLookUp,
                     onToggleKnown = onToggleKnown,
                 )
             }
@@ -146,6 +164,7 @@ private fun WordContent(
     canPronounce: Boolean,
     onPronounce: () -> Unit,
     onOpenWord: (String) -> Unit,
+    onLookUp: (String) -> Unit,
     onToggleKnown: () -> Unit,
 ) {
     val word = state.word.word
@@ -190,8 +209,20 @@ private fun WordContent(
 
         word.senses.forEachIndexed { index, sense -> SenseBlock(index + 1, sense, numbered = word.senses.size > 1) }
 
-        RelatedWords(stringResource(R.string.feature_words_synonyms), word.synonyms, state.relatedWordIds, onOpenWord)
-        RelatedWords(stringResource(R.string.feature_words_antonyms), word.antonyms, state.relatedWordIds, onOpenWord)
+        RelatedWords(
+            title = stringResource(R.string.feature_words_synonyms),
+            words = word.synonyms,
+            wordIds = state.relatedWordIds,
+            onOpenWord = onOpenWord,
+            onLookUp = onLookUp,
+        )
+        RelatedWords(
+            title = stringResource(R.string.feature_words_antonyms),
+            words = word.antonyms,
+            wordIds = state.relatedWordIds,
+            onOpenWord = onOpenWord,
+            onLookUp = onLookUp,
+        )
 
         word.note?.let { note ->
             Surface(
@@ -230,7 +261,7 @@ private fun SenseBlock(number: Int, sense: Sense, numbered: Boolean) {
     }
 }
 
-/** Related words as chips; those that are words of their own open their page. */
+/** Related words as chips: those that are words of the app open their page, the others show their meanings. */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun RelatedWords(
@@ -238,6 +269,7 @@ private fun RelatedWords(
     words: List<String>,
     wordIds: Map<String, String>,
     onOpenWord: (String) -> Unit,
+    onLookUp: (String) -> Unit,
 ) {
     if (words.isEmpty()) return
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -248,7 +280,17 @@ private fun RelatedWords(
                 if (id != null) {
                     AssistChip(onClick = { onOpenWord(id) }, label = { Text(related) })
                 } else {
-                    SuggestionChip(onClick = {}, enabled = false, label = { Text(related) })
+                    AssistChip(
+                        onClick = { onLookUp(related) },
+                        label = { Text(related) },
+                        leadingIcon = {
+                            Icon(
+                                Icons.AutoMirrored.Outlined.MenuBook,
+                                contentDescription = null,
+                                modifier = Modifier.size(AssistChipDefaults.IconSize),
+                            )
+                        },
+                    )
                 }
             }
         }

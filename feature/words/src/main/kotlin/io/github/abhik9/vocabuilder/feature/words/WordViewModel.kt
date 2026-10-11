@@ -6,15 +6,19 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.domain.repository.DictionaryRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.domain.speech.Pronouncer
 import io.github.abhik9.vocabuilder.core.model.Deck
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
 import io.github.abhik9.vocabuilder.core.model.WordWithProgress
 import java.time.Clock
 import java.time.LocalDate
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -36,10 +40,17 @@ sealed interface WordUiState {
     ) : WordUiState
 }
 
+/** A synonym or antonym that isn't a word of the app, looked up in the dictionary: its [entry], if it has one. */
+data class LookedUpWord(
+    val word: String,
+    val entry: DictionaryEntry?,
+)
+
 @HiltViewModel(assistedFactory = WordViewModel.Factory::class)
 class WordViewModel @AssistedInject constructor(
     @Assisted private val wordId: String,
     wordRepository: WordRepository,
+    private val dictionaryRepository: DictionaryRepository,
     private val progressRepository: ProgressRepository,
     private val pronouncer: Pronouncer,
     private val clock: Clock,
@@ -62,9 +73,31 @@ class WordViewModel @AssistedInject constructor(
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), WordUiState.Loading)
 
+    private val _lookedUp = MutableStateFlow<LookedUpWord?>(null)
+
+    /** The synonym or antonym looked up in the dictionary, while it's shown. */
+    val lookedUp: StateFlow<LookedUpWord?> = _lookedUp.asStateFlow()
+
+    init {
+        viewModelScope.launch { dictionaryRepository.preload() }
+    }
+
     fun pronounce() {
         val state = uiState.value as? WordUiState.Success ?: return
         pronouncer.speak(state.word.word.headword)
+    }
+
+    /** Shows the meanings of a synonym or antonym that isn't a word of the app, from the dictionary. */
+    fun lookUp(word: String) {
+        viewModelScope.launch { _lookedUp.value = LookedUpWord(word, dictionaryRepository.getEntry(word)) }
+    }
+
+    fun pronounceLookedUp() {
+        _lookedUp.value?.let { pronouncer.speak(it.word) }
+    }
+
+    fun dismissLookedUp() {
+        _lookedUp.value = null
     }
 
     fun toggleStar() {
