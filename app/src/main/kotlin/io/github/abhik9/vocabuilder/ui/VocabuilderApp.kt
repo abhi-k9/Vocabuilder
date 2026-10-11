@@ -17,6 +17,7 @@ import androidx.navigation3.ui.NavDisplay
 import io.github.abhik9.vocabuilder.core.navigation.Navigator
 import io.github.abhik9.vocabuilder.feature.decks.navigation.decksEntries
 import io.github.abhik9.vocabuilder.feature.home.navigation.homeEntry
+import io.github.abhik9.vocabuilder.feature.settings.navigation.settingsEntry
 import io.github.abhik9.vocabuilder.feature.study.navigation.studyEntry
 import io.github.abhik9.vocabuilder.feature.words.navigation.wordsEntries
 import io.github.abhik9.vocabuilder.navigation.TopLevelDestination
@@ -69,6 +70,7 @@ fun VocabuilderApp() {
                 decksEntries(navigator)
                 studyEntry(navigator)
                 wordsEntries(navigator)
+                settingsEntry()
             },
         )
     }

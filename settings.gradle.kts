@@ -48,6 +48,7 @@ include(":core:ui")
 
 include(":feature:decks")
 include(":feature:home")
+include(":feature:settings")
 include(":feature:study")
 include(":feature:words")
 

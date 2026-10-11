@@ -1,0 +1,348 @@
+package io.github.abhik9.vocabuilder.feature.settings
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.LibraryBooks
+import androidx.compose.material.icons.outlined.Code
+import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Lock
+import androidx.compose.material.icons.outlined.Palette
+import androidx.compose.material.icons.outlined.RecordVoiceOver
+import androidx.compose.material.icons.outlined.RestartAlt
+import androidx.compose.material.icons.outlined.Shuffle
+import androidx.compose.material.icons.outlined.Style
+import androidx.compose.material.icons.outlined.WbSunny
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.abhik9.vocabuilder.core.common.AppInfo
+import io.github.abhik9.vocabuilder.core.designsystem.component.SectionHeader
+import io.github.abhik9.vocabuilder.core.designsystem.theme.supportsDynamicTheming
+import io.github.abhik9.vocabuilder.core.model.CardFront
+import io.github.abhik9.vocabuilder.core.model.ThemeMode
+import io.github.abhik9.vocabuilder.core.model.UserSettings
+import kotlin.math.roundToInt
+
+@Composable
+internal fun SettingsRoute(viewModel: SettingsViewModel) {
+    val settings by viewModel.settings.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val resources by rememberUpdatedState(LocalResources.current)
+
+    LaunchedEffect(viewModel) {
+        viewModel.events.collect { event ->
+            when (event) {
+                SettingsEvent.ProgressReset ->
+                    snackbarHostState.showSnackbar(resources.getString(R.string.feature_settings_reset_done))
+            }
+        }
+    }
+
+    SettingsScreen(
+        settings = settings,
+        appInfo = viewModel.appInfo,
+        snackbarHostState = snackbarHostState,
+        onThemeModeChange = viewModel::setThemeMode,
+        onDynamicColorChange = viewModel::setUseDynamicColor,
+        onNewWordsPerDayChange = viewModel::setNewWordsPerDay,
+        onCardFrontChange = viewModel::setCardFront,
+        onAutoPronounceChange = viewModel::setAutoPronounce,
+        onShuffleChange = viewModel::setShuffleCards,
+        onResetAllProgress = viewModel::resetAllProgress,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+internal fun SettingsScreen(
+    settings: UserSettings?,
+    appInfo: AppInfo,
+    snackbarHostState: SnackbarHostState,
+    onThemeModeChange: (ThemeMode) -> Unit,
+    onDynamicColorChange: (Boolean) -> Unit,
+    onNewWordsPerDayChange: (Int) -> Unit,
+    onCardFrontChange: (CardFront) -> Unit,
+    onAutoPronounceChange: (Boolean) -> Unit,
+    onShuffleChange: (Boolean) -> Unit,
+    onResetAllProgress: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var showResetDialog by rememberSaveable { mutableStateOf(false) }
+    Scaffold(
+        modifier = modifier,
+        topBar = { TopAppBar(title = { Text(stringResource(R.string.feature_settings_title)) }) },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { innerPadding ->
+        if (settings == null) return@Scaffold
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .padding(bottom = 24.dp),
+        ) {
+            AppearanceSection(settings, onThemeModeChange, onDynamicColorChange)
+            StudySection(settings, onNewWordsPerDayChange, onCardFrontChange, onAutoPronounceChange, onShuffleChange)
+
+            SectionHeader(stringResource(R.string.feature_settings_section_progress))
+            SettingsRow(
+                icon = Icons.Outlined.RestartAlt,
+                title = stringResource(R.string.feature_settings_reset_all),
+                subtitle = stringResource(R.string.feature_settings_reset_all_summary),
+                onClick = { showResetDialog = true },
+            )
+
+            AboutSection(appInfo)
+        }
+    }
+
+    if (showResetDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetDialog = false },
+            title = { Text(stringResource(R.string.feature_settings_reset_all_title)) },
+            text = { Text(stringResource(R.string.feature_settings_reset_all_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showResetDialog = false
+                        onResetAllProgress()
+                    },
+                ) { Text(stringResource(R.string.feature_settings_reset)) }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = { showResetDialog = false },
+                ) { Text(stringResource(R.string.feature_settings_cancel)) }
+            },
+        )
+    }
+}
+
+@Composable
+private fun AppearanceSection(
+    settings: UserSettings,
+    onThemeModeChange: (ThemeMode) -> Unit,
+    onDynamicColorChange: (Boolean) -> Unit,
+) {
+    SectionHeader(stringResource(R.string.feature_settings_section_appearance))
+    ListItem(
+        headlineContent = { Text(stringResource(R.string.feature_settings_theme)) },
+        leadingContent = { Icon(Icons.Outlined.DarkMode, contentDescription = null) },
+        supportingContent = {
+            SingleChoiceSegmentedButtonRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+            ) {
+                ThemeMode.entries.forEachIndexed { index, mode ->
+                    SegmentedButton(
+                        selected = settings.themeMode == mode,
+                        onClick = { onThemeModeChange(mode) },
+                        shape = SegmentedButtonDefaults.itemShape(index, ThemeMode.entries.size),
+                        label = { Text(mode.label()) },
+                    )
+                }
+            }
+        },
+    )
+    if (supportsDynamicTheming()) {
+        SwitchRow(
+            icon = Icons.Outlined.Palette,
+            title = stringResource(R.string.feature_settings_dynamic_color),
+            subtitle = stringResource(R.string.feature_settings_dynamic_color_summary),
+            checked = settings.useDynamicColor,
+            onCheckedChange = onDynamicColorChange,
+        )
+    }
+}
+
+@Composable
+private fun StudySection(
+    settings: UserSettings,
+    onNewWordsPerDayChange: (Int) -> Unit,
+    onCardFrontChange: (CardFront) -> Unit,
+    onAutoPronounceChange: (Boolean) -> Unit,
+    onShuffleChange: (Boolean) -> Unit,
+) {
+    SectionHeader(stringResource(R.string.feature_settings_section_study))
+    NewWordsRow(settings.newWordsPerDay, onNewWordsPerDayChange)
+    ListItem(
+        headlineContent = { Text(stringResource(R.string.feature_settings_card_front)) },
+        leadingContent = { Icon(Icons.Outlined.Style, contentDescription = null) },
+        supportingContent = {
+            Column {
+                Text(stringResource(R.string.feature_settings_card_front_summary))
+                SingleChoiceSegmentedButtonRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                ) {
+                    CardFront.entries.forEachIndexed { index, front ->
+                        SegmentedButton(
+                            selected = settings.cardFront == front,
+                            onClick = { onCardFrontChange(front) },
+                            shape = SegmentedButtonDefaults.itemShape(index, CardFront.entries.size),
+                            label = { Text(front.label()) },
+                        )
+                    }
+                }
+            }
+        },
+    )
+    SwitchRow(
+        icon = Icons.Outlined.RecordVoiceOver,
+        title = stringResource(R.string.feature_settings_auto_pronounce),
+        subtitle = stringResource(R.string.feature_settings_auto_pronounce_summary),
+        checked = settings.autoPronounce,
+        onCheckedChange = onAutoPronounceChange,
+    )
+    SwitchRow(
+        icon = Icons.Outlined.Shuffle,
+        title = stringResource(R.string.feature_settings_shuffle),
+        subtitle = stringResource(R.string.feature_settings_shuffle_summary),
+        checked = settings.shuffleCards,
+        onCheckedChange = onShuffleChange,
+    )
+}
+
+/** A slider in steps of [NEW_WORDS_STEP], saved when released so dragging doesn't write each value. */
+@Composable
+private fun NewWordsRow(newWordsPerDay: Int, onChange: (Int) -> Unit) {
+    val range = UserSettings.NEW_WORDS_PER_DAY_RANGE
+    var value by remember(newWordsPerDay) { mutableFloatStateOf(newWordsPerDay.toFloat()) }
+    val shown = value.roundToInt()
+    ListItem(
+        headlineContent = { Text(stringResource(R.string.feature_settings_new_words)) },
+        leadingContent = { Icon(Icons.Outlined.WbSunny, contentDescription = null) },
+        supportingContent = {
+            Column {
+                Text(
+                    if (shown == 0) {
+                        stringResource(R.string.feature_settings_new_words_none)
+                    } else {
+                        pluralStringResource(R.plurals.feature_settings_new_words_summary, shown, shown)
+                    },
+                )
+                Slider(
+                    value = value,
+                    onValueChange = { value = it },
+                    onValueChangeFinished = { onChange(value.roundToInt()) },
+                    valueRange = range.first.toFloat()..range.last.toFloat(),
+                    steps = (range.last - range.first) / NEW_WORDS_STEP - 1,
+                )
+            }
+        },
+    )
+}
+
+@Composable
+private fun AboutSection(appInfo: AppInfo) {
+    val uriHandler = LocalUriHandler.current
+    SectionHeader(stringResource(R.string.feature_settings_section_about))
+    SettingsRow(
+        icon = Icons.Outlined.Info,
+        title = stringResource(R.string.feature_settings_version),
+        subtitle = appInfo.versionName,
+    )
+    SettingsRow(
+        icon = Icons.Outlined.Code,
+        title = stringResource(R.string.feature_settings_source_code),
+        subtitle = appInfo.sourceCodeUrl,
+        onClick = { uriHandler.openUri(appInfo.sourceCodeUrl) },
+    )
+    SettingsRow(
+        icon = Icons.AutoMirrored.Outlined.LibraryBooks,
+        title = stringResource(R.string.feature_settings_content),
+        subtitle = stringResource(R.string.feature_settings_content_summary),
+    )
+    SettingsRow(
+        icon = Icons.Outlined.Lock,
+        title = stringResource(R.string.feature_settings_privacy),
+        subtitle = stringResource(R.string.feature_settings_privacy_summary),
+    )
+}
+
+@Composable
+private fun SettingsRow(icon: ImageVector, title: String, subtitle: String, onClick: (() -> Unit)? = null) {
+    ListItem(
+        headlineContent = { Text(title) },
+        supportingContent = { Text(subtitle) },
+        leadingContent = { Icon(icon, contentDescription = null) },
+        modifier = if (onClick != null) Modifier.clickable(role = Role.Button, onClick = onClick) else Modifier,
+    )
+}
+
+/** A row whose whole surface toggles the switch, announced as a switch. */
+@Composable
+private fun SwitchRow(
+    icon: ImageVector,
+    title: String,
+    subtitle: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(title) },
+        supportingContent = { Text(subtitle) },
+        leadingContent = { Icon(icon, contentDescription = null) },
+        trailingContent = { Switch(checked = checked, onCheckedChange = null) },
+        modifier = Modifier.toggleable(value = checked, role = Role.Switch, onValueChange = onCheckedChange),
+    )
+}
+
+@Composable
+private fun ThemeMode.label(): String = stringResource(
+    when (this) {
+        ThemeMode.SYSTEM -> R.string.feature_settings_theme_system
+        ThemeMode.LIGHT -> R.string.feature_settings_theme_light
+        ThemeMode.DARK -> R.string.feature_settings_theme_dark
+    },
+)
+
+@Composable
+private fun CardFront.label(): String = stringResource(
+    when (this) {
+        CardFront.WORD -> R.string.feature_settings_card_front_word
+        CardFront.DEFINITION -> R.string.feature_settings_card_front_definition
+    },
+)
+
+private const val NEW_WORDS_STEP = 5

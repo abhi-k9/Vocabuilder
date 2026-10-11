@@ -19,6 +19,9 @@ data object WordsNavKey : NavKey
 @Serializable
 data class WordNavKey(val wordId: String) : NavKey
 
+@Serializable
+data object SettingsNavKey : NavKey
+
 /** A deck's progress and words. */
 @Serializable
 data class DeckNavKey(val deckId: String) : NavKey

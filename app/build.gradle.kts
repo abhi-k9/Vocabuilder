@@ -31,6 +31,11 @@ android {
         applicationId = "io.github.abhik9.vocabuilder"
         versionCode = versionCodeOf(appVersionName)
         versionName = appVersionName
+        buildConfigField("String", "SOURCE_CODE_URL", "\"https://github.com/abhi-k9/Vocabuilder\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     signingConfigs {
@@ -76,6 +81,7 @@ dependencies {
     implementation(projects.core.ui)
     implementation(projects.feature.decks)
     implementation(projects.feature.home)
+    implementation(projects.feature.settings)
     implementation(projects.feature.study)
     implementation(projects.feature.words)
 
