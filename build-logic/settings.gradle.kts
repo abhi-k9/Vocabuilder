@@ -1,5 +1,8 @@
 pluginManagement {
     repositories {
+        // Kotlin's artifacts come from Maven Central itself rather than the plugin portal's mirror of it,
+        // which has failed to serve some of them on clean builds.
+        mavenCentral()
         gradlePluginPortal()
         google()
     }
