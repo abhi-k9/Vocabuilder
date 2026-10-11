@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Goes through Vocabuilder's main screens on a connected device or emulator, as a user would: studies a deck, with
 the buttons and with swipes, then the daily review, then opens the word list and the settings. Fails if the app
-crashes or a screen doesn't show up.
+crashes, a screen doesn't show up or a swipe doesn't answer the card as it should.
 
 Each step leaves a screenshot and the screen's view hierarchy in the output directory, with logcat and, after a crash,
 the crash (crash.txt) for the workflow to retrace.
@@ -135,14 +135,24 @@ def first_text_bounds(hierarchy):
     return f"'{node.get('text')}' at {node.get('bounds')}" if node is not None else "no text"
 
 
+def words_done(hierarchy):
+    """How many of the session's words are done, from the study screen's "2 of 50"."""
+    node = find(hierarchy, r"\d+ of \d+")
+    if node is None:
+        fail("the study screen shows no count of words done")
+    return int(node.get("text").split()[0])
+
+
 def swipe(direction):
-    """Drags the card sideways step by step, as a finger would, showing where it is on the way."""
+    """Drags the card sideways step by step, as a finger would, showing where it is on the way, then checks that it
+    answered the card: right as known, which counts the word as done, left as missed, which doesn't."""
     width, height = map(int, re.search(r"(\d+)x(\d+)", adb("shell", "wm", "size")).groups())
     y = height * 2 // 5
     xs = list(range(width // 5, width * 4 // 5 + 1, width // 20))
     if direction == "left":
         xs.reverse()
-    before = first_text_bounds(screen())
+    hierarchy = screen()
+    before, done = first_text_bounds(hierarchy), words_done(hierarchy)
     adb("shell", "input", "motionevent", "DOWN", str(xs[0]), str(y))
     for x in xs[1:]:
         adb("shell", "input", "motionevent", "MOVE", str(x), str(y))
@@ -152,7 +162,13 @@ def swipe(direction):
     step = f"swipe {direction}"
     check_alive(step)
     log(f"{step}: before, {before}; midway, {first_text_bounds(midway)}: {visible_text(midway)}")
-    log(f"ok: {step}, then on the screen: {visible_text(snapshot(f'swipe-{direction}'))}")
+    after = snapshot(f"swipe-{direction}")
+    if find(after, "Show meaning") is None:
+        fail(f"{step} didn't answer the card")
+    expected = done + 1 if direction == "right" else done
+    if words_done(after) != expected:
+        fail(f"{step} answered the card the wrong way: {done} words done before, {words_done(after)} after")
+    log(f"ok: {step}, then on the screen: {visible_text(after)}")
 
 
 def back():
