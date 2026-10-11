@@ -70,29 +70,3 @@ and pull requests, and checks that the Room schema is committed.
 The app is written in Kotlin with Jetpack Compose, Material 3, Hilt, Room and Navigation 3. The
 screens are in the `feature:*` modules, and the scheduler and study logic are plain Kotlin in
 `core:domain`, unit tested on the JVM.
-
-### Releasing
-
-Release builds are minified with R8 and signed with the key described by `keystore.properties` in
-the project root (git-ignored), or with the debug key without it:
-
-```properties
-storeFile=path/to/release.jks
-storePassword=…
-keyAlias=…
-keyPassword=…
-```
-
-The [Release workflow](.github/workflows/release.yml) publishes a GitHub release with the signed
-APK, its R8 mapping and its SHA-256 checksum. Run it from the Actions tab with a version such as
-`1.2.0` (it tags the chosen branch's latest commit `v1.2.0`), or push a `v1.2.0` tag. Each part of
-the version must be between 0 and 99, as it sets the version code (`10200`). Local builds are
-version `1.0.0` unless you pass `-Pvocabuilder.versionName=1.2.0`. The workflow needs these
-repository secrets:
-
-| Secret | Value |
-|--------|-------|
-| `RELEASE_KEYSTORE_BASE64` | The keystore, base64-encoded on one line (`base64 -w 0 release.jks`) |
-| `RELEASE_KEYSTORE_PASSWORD` | The keystore's password |
-| `RELEASE_KEY_ALIAS` | The key's alias |
-| `RELEASE_KEY_PASSWORD` | Only if the key's password differs from the keystore's |
