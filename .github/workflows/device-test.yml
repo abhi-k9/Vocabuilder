@@ -1,0 +1,100 @@
+name: Device test
+
+# Installs Vocabuilder on an Android emulator and goes through its main screens as a user would, studying a deck and
+# the daily review, then fails if the app crashed. A crash is retraced with the build's R8 mapping, and the results
+# (screenshots, screen dumps, logcat, the app's diagnostics log) are uploaded. See .github/scripts/device-test.py.
+#
+# On demand only (Actions → Device test → Run workflow): it takes several minutes, and emulators are less reliable
+# than the unit tests of the CI workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: A published release to test, such as v1.0.2; leave empty to build the chosen branch
+        required: false
+        default: ""
+      api:
+        description: Android API level of the emulator image, such as 30, 34 or 36
+        required: true
+        default: "36"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  emulator:
+    name: Emulator (API ${{ inputs.api }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download the release
+        if: inputs.release != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE: ${{ inputs.release }}
+        run: |
+          gh release download "$RELEASE" --pattern "*.apk" --pattern "*-mapping.txt" --dir dist
+          mv dist/*.apk dist/app.apk
+          mv dist/*-mapping.txt dist/mapping.txt
+
+      - uses: ./.github/actions/setup
+        if: inputs.release == ''
+
+      # Signed with the debug key: the device test needs no release key.
+      - name: Build the release APK
+        if: inputs.release == ''
+        run: |
+          ./gradlew assembleRelease
+          mkdir -p dist
+          cp app/build/outputs/apk/release/app-release.apk dist/app.apk
+          cp app/build/outputs/mapping/release/mapping.txt dist/mapping.txt
+
+      # Hardware acceleration for the emulator.
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      # Creates the AVD, boots the emulator, runs the script, then shuts the emulator down.
+      - name: Go through the app
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ inputs.api }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          # The defaults are too small for recent images: the app can't be installed, the system restarts.
+          disk-size: 6000M
+          ram-size: 4096M
+          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -camera-back none
+          disable-animations: true
+          emulator-boot-timeout: 900
+          script: python3 .github/scripts/device-test.py dist/app.apk "$RUNNER_TEMP/device-test"
+
+      - name: Retrace the crash
+        if: always()
+        run: |
+          crash="$RUNNER_TEMP/device-test/crash.txt"
+          if [ ! -s "$crash" ]; then echo "No crash."; exit 0; fi
+          retrace=$(find "$ANDROID_HOME/cmdline-tools" -path "*/bin/retrace" | sort | tail -n 1)
+          if [ -z "$retrace" ]; then echo "::warning::No retrace tool in the Android SDK."; exit 0; fi
+          "$retrace" dist/mapping.txt "$crash" | tee "$RUNNER_TEMP/device-test/crash-retraced.txt"
+
+      - name: Upload the results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: device-test-api-${{ inputs.api }}
+          path: ${{ runner.temp }}/device-test
+          if-no-files-found: ignore
