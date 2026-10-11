@@ -23,7 +23,7 @@ class NavigatorTest {
         navigator.navigate(StudyNavKey(StudyMode.DECK, "gre/common-01"))
 
         assertEquals(StudyNavKey(StudyMode.DECK, "gre/common-01"), navigator.currentKey)
-        assertEquals(DecksNavKey, navigator.currentTopLevelKey)
+        assertEquals(HomeNavKey, navigator.currentTopLevelKey)
         assertTrue(navigator.goBack())
         assertEquals(DeckNavKey("gre/common-01"), navigator.currentKey)
     }
@@ -38,11 +38,15 @@ class NavigatorTest {
     }
 
     @Test
-    fun topLevelScreensResetTheStack() {
+    fun topLevelScreensSitOnTheRoot() {
         navigator.navigate(DeckNavKey("gre/common-01"))
 
         navigator.navigate(DecksNavKey)
+        assertEquals(listOf(HomeNavKey, DecksNavKey), backStack)
+        assertEquals(DecksNavKey, navigator.currentTopLevelKey)
 
-        assertEquals(listOf(Navigator.ROOT), backStack)
+        navigator.navigate(DeckNavKey("gre/common-01"))
+        navigator.navigate(HomeNavKey)
+        assertEquals(listOf(HomeNavKey), backStack)
     }
 }

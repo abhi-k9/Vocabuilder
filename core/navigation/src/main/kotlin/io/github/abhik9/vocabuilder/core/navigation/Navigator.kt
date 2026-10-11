@@ -45,9 +45,9 @@ class Navigator(private val backStack: MutableList<NavKey>) {
 
     companion object {
         /** The screen at the bottom of the back stack, where the app starts. */
-        val ROOT: NavKey = DecksNavKey
+        val ROOT: NavKey = HomeNavKey
 
-        private val TOP_LEVEL: Set<NavKey> = setOf(DecksNavKey)
+        private val TOP_LEVEL: Set<NavKey> = setOf(HomeNavKey, DecksNavKey)
 
         fun isTopLevel(key: NavKey): Boolean = key in TOP_LEVEL
     }

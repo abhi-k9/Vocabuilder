@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_home_title">Today</string>
+
+    <string name="feature_home_daily_review">Daily review</string>
+    <plurals name="feature_home_due">
+        <item quantity="one">%d word to review</item>
+        <item quantity="other">%d words to review</item>
+    </plurals>
+    <plurals name="feature_home_new">
+        <item quantity="one">%d new word</item>
+        <item quantity="other">%d new words</item>
+    </plurals>
+    <string name="feature_home_and">%1$s and %2$s</string>
+    <string name="feature_home_daily_done">You\'re done for today. Words you\'ve studied will come back when they\'re due.</string>
+    <string name="feature_home_start">Start</string>
+    <plurals name="feature_home_reviewed_today">
+        <item quantity="one">%d card answered today</item>
+        <item quantity="other">%d cards answered today</item>
+    </plurals>
+
+    <string name="feature_home_continue_title">Continue</string>
+    <string name="feature_home_continue">Study this deck</string>
+
+    <string name="feature_home_progress_title">Your progress</string>
+    <plurals name="feature_home_progress">
+        <item quantity="one">%1$d of %2$d word mastered</item>
+        <item quantity="other">%1$d of %2$d words mastered</item>
+    </plurals>
+    <string name="feature_home_all_decks">See all decks</string>
+</resources>

@@ -16,6 +16,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import io.github.abhik9.vocabuilder.core.navigation.Navigator
 import io.github.abhik9.vocabuilder.feature.decks.navigation.decksEntries
+import io.github.abhik9.vocabuilder.feature.home.navigation.homeEntry
 import io.github.abhik9.vocabuilder.feature.study.navigation.studyEntry
 import io.github.abhik9.vocabuilder.navigation.TopLevelDestination
 
@@ -63,6 +64,7 @@ fun VocabuilderApp() {
                 rememberViewModelStoreNavEntryDecorator(),
             ),
             entryProvider = entryProvider {
+                homeEntry(navigator)
                 decksEntries(navigator)
                 studyEntry(navigator)
             },

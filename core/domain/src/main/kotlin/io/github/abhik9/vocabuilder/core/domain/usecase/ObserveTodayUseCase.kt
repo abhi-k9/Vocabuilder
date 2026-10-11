@@ -11,6 +11,8 @@ import java.time.LocalDate
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 
 /** Where the learner stands today, for the home screen. */
 class ObserveTodayUseCase @Inject constructor(
@@ -19,10 +21,11 @@ class ObserveTodayUseCase @Inject constructor(
     private val settingsRepository: UserSettingsRepository,
     private val clock: Clock,
 ) {
-    operator fun invoke(): Flow<TodayOverview> {
+    // Built anew for each collection, so a screen shown again after midnight counts the new day.
+    operator fun invoke(): Flow<TodayOverview> = flow {
         val today = LocalDate.now(clock)
         val startOfDay = today.atStartOfDay(clock.zone).toInstant()
-        return combine(
+        val todayOverviews = combine(
             wordRepository.observeDecks(),
             wordRepository.observeWordSummaries(),
             settingsRepository.settings,
@@ -31,17 +34,15 @@ class ObserveTodayUseCase @Inject constructor(
             val overviews = deckOverviews(decks, words, today)
             val introducedToday = words.count { it.progress.introducedDay == today }
             val newLeft = words.count { it.progress.isNew && !it.progress.alreadyKnown }
+            val due = words.count { it.progress.isDue(today) }
             TodayOverview(
-                dueCount = words.count {
-                    it.progress.isDue(
-                        today,
-                    )
-                }.coerceAtMost(BuildStudyPlanUseCase.MAX_DAILY_REVIEWS),
+                dueCount = due.coerceAtMost(BuildStudyPlanUseCase.MAX_DAILY_REVIEWS),
                 newCount = (settings.newWordsPerDay - introducedToday).coerceIn(0, newLeft),
                 reviewedToday = reviewedToday,
                 counts = MasteryCounts.of(words.map { it.progress.masteryState }),
                 nextDeck = overviews.firstOrNull { !it.isCaughtUp },
             )
         }
+        emitAll(todayOverviews)
     }
 }

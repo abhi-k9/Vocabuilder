@@ -74,6 +74,7 @@ dependencies {
     implementation(projects.core.navigation)
     implementation(projects.core.ui)
     implementation(projects.feature.decks)
+    implementation(projects.feature.home)
     implementation(projects.feature.study)
 
     implementation(libs.androidx.activity.compose)

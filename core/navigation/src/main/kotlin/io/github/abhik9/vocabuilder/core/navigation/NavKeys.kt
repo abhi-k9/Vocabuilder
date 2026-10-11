@@ -4,6 +4,10 @@ import androidx.navigation3.runtime.NavKey
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 import kotlinx.serialization.Serializable
 
+/** Today's review and progress, where the app starts. */
+@Serializable
+data object HomeNavKey : NavKey
+
 @Serializable
 data object DecksNavKey : NavKey
 
