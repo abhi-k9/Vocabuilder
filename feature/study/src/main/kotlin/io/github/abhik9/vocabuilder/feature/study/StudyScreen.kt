@@ -38,6 +38,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -202,17 +203,21 @@ private fun StudyingContent(
             progress = { if (state.wordCount == 0) 0f else state.doneCount.toFloat() / state.wordCount },
             modifier = Modifier.fillMaxWidth(),
         )
-        FlashCard(
-            word = state.word,
-            cardFront = state.cardFront,
-            isFlipped = state.isFlipped,
-            onFlip = onFlip,
-            onAnswer = onAnswer,
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .padding(16.dp),
-        )
+        // Each card starts afresh: unturned, rather than turning back over with the next word's
+        // meaning showing, and centered, even when a word swiped away comes straight back.
+        key(state.cardIndex) {
+            FlashCard(
+                word = state.word,
+                cardFront = state.cardFront,
+                isFlipped = state.isFlipped,
+                onFlip = onFlip,
+                onAnswer = onAnswer,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .padding(16.dp),
+            )
+        }
         Column(
             modifier = Modifier
                 .fillMaxWidth()

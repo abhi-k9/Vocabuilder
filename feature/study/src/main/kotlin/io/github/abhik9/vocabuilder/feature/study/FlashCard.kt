@@ -56,6 +56,9 @@ import kotlinx.coroutines.launch
 /**
  * A flashcard that turns over when tapped. Once turned, it can be swiped right for "knew it" or
  * left for "didn't know"; the same answers are offered as accessibility actions.
+ *
+ * Its state belongs to one showing of a card: give each card its own `key`, so the next one starts
+ * unturned and centered.
  */
 @Composable
 internal fun FlashCard(
@@ -71,8 +74,7 @@ internal fun FlashCard(
         animationSpec = tween(durationMillis = FLIP_MILLIS),
         label = "flip",
     )
-    // A new card starts centered, including the one brought back by undo.
-    val offsetX = remember(word.id) { Animatable(0f) }
+    val offsetX = remember { Animatable(0f) }
     val scope = rememberCoroutineScope()
     val currentOnAnswer by rememberUpdatedState(onAnswer)
 
@@ -91,7 +93,7 @@ internal fun FlashCard(
     Box(
         modifier = modifier
             .absoluteOffset { IntOffset(offsetX.value.roundToInt(), 0) }
-            .pointerInput(word.id, isFlipped) {
+            .pointerInput(isFlipped) {
                 if (!isFlipped) return@pointerInput
                 val threshold = size.width * SWIPE_THRESHOLD
                 detectHorizontalDragGestures(

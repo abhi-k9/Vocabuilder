@@ -110,6 +110,29 @@ class StudyViewModelTest {
     }
 
     @Test
+    fun aMissedWordThatComesStraightBackIsANewCard() = runTest {
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id))
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        assertEquals(0, assertIs<StudyUiState.Studying>(viewModel.state()).cardIndex)
+
+        viewModel.answer(knew = true)
+        var state = assertIs<StudyUiState.Studying>(viewModel.uiState.value)
+        assertEquals("vex", state.word.headword)
+        assertEquals(1, state.cardIndex)
+
+        // The last card left, so it's the next one too.
+        viewModel.flip()
+        viewModel.answer(knew = false)
+        state = assertIs<StudyUiState.Studying>(viewModel.uiState.value)
+        assertEquals("vex", state.word.headword)
+        assertEquals(2, state.cardIndex)
+        assertFalse(state.isFlipped)
+
+        viewModel.undo()
+        assertEquals(1, assertIs<StudyUiState.Studying>(viewModel.uiState.value).cardIndex)
+    }
+
+    @Test
     fun aCaughtUpDeckIsEmpty() = runTest {
         progress.setProgress(
             *TestData.advancedWords.map {

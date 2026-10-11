@@ -48,9 +48,12 @@ sealed interface StudyUiState {
     /**
      * @property doneCount words known in this session, out of [wordCount].
      * @property isFlipped the card shows its back: the meaning, or the word for definition-first cards.
+     * @property cardIndex how many cards were answered before this one. It tells cards apart even when
+     *   a missed word comes straight back, as the last card left.
      */
     data class Studying(
         val word: Word,
+        val cardIndex: Int,
         val isFlipped: Boolean,
         val cardFront: CardFront,
         val doneCount: Int,
@@ -127,6 +130,7 @@ class StudyViewModel @AssistedInject constructor(
 
             else -> StudyUiState.Studying(
                 word = words.getValue(checkNotNull(session.currentWordId)),
+                cardIndex = session.answers.size,
                 isFlipped = flipped,
                 cardFront = settings.cardFront,
                 doneCount = session.doneCount,
