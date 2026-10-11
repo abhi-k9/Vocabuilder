@@ -1,7 +1,7 @@
 # Vocabuilder: product and build plan
 
-Status: **draft for review**. Nothing is built yet. Open questions are at the end; the plan uses the
-recommended answer for each until you decide otherwise.
+Status: **v1 built** (items 1 to 17 below); v1.1 is next. All open questions at the end were answered
+with the recommended option, and `main` was created from this branch.
 
 ## 1. Goal
 
