@@ -2,6 +2,7 @@ package io.github.abhik9.vocabuilder.feature.study
 
 import io.github.abhik9.vocabuilder.core.domain.study.AnswerCardUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
+import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.UndoAnswerUseCase
 import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseCase
@@ -35,6 +36,8 @@ class StudyViewModelTest {
         buildPlan = BuildStudyPlanUseCase(words, settings, TestData.clock),
         answerCard = AnswerCardUseCase(progress, TestData.clock),
         undoAnswer = UndoAnswerUseCase(progress),
+        markKnown = MarkKnownUseCase(progress),
+        progressRepository = progress,
         wordRepository = words,
         observeDeckOverviews = ObserveDeckOverviewsUseCase(words, TestData.clock),
         settingsRepository = settings,
@@ -123,5 +126,34 @@ class StudyViewModelTest {
 
         assertEquals(TestData.advancedDeck, title.deck)
         assertTrue(title.isPractice)
+    }
+
+    @Test
+    fun aKnownWordLeavesTheSessionUntilUndone() = runTest {
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id))
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        viewModel.state()
+
+        viewModel.markKnown()
+
+        assertEquals("vex", assertIs<StudyUiState.Studying>(viewModel.uiState.value).word.headword)
+        assertEquals(true, progress.getProgress("gre:pique")?.alreadyKnown)
+
+        viewModel.undo()
+
+        assertEquals("pique", assertIs<StudyUiState.Studying>(viewModel.uiState.value).word.headword)
+        assertNull(progress.getProgress("gre:pique"))
+    }
+
+    @Test
+    fun starsTheCurrentWord() = runTest {
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id))
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        viewModel.state()
+
+        viewModel.toggleStar()
+
+        assertTrue(assertIs<StudyUiState.Studying>(viewModel.uiState.value).isStarred)
+        assertEquals(true, progress.getProgress("gre:pique")?.starred)
     }
 }

@@ -15,6 +15,7 @@ class AnswerCardUseCaseTest {
     private val progress = FakeProgressRepository()
     private val answerCard = AnswerCardUseCase(progress, TestData.clock)
     private val undoAnswer = UndoAnswerUseCase(progress)
+    private val markKnown = MarkKnownUseCase(progress)
 
     @Test
     fun recordsTheNewProgressAndTheReview() = runTest {
@@ -59,5 +60,21 @@ class AnswerCardUseCaseTest {
         undoAnswer(answer)
 
         assertNull(progress.getProgress("gre:abate"))
+    }
+
+    @Test
+    fun markingAWordKnownCanBeUndone() = runTest {
+        val before = WordProgress("gre:abate", stage = 1, dueDay = TODAY, reviewCount = 2)
+        progress.setProgress(before)
+
+        val answer = markKnown("gre:abate")
+
+        assertEquals(before.copy(alreadyKnown = true), progress.getProgress("gre:abate"))
+        assertEquals(before, answer.before)
+        assertTrue(progress.reviews.value.isEmpty())
+
+        undoAnswer(answer)
+
+        assertEquals(before, progress.getProgress("gre:abate"))
     }
 }

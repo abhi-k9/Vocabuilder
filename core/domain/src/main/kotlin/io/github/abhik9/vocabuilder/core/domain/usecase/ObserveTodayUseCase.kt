@@ -41,6 +41,7 @@ class ObserveTodayUseCase @Inject constructor(
                 reviewedToday = reviewedToday,
                 counts = MasteryCounts.of(words.map { it.progress.masteryState }),
                 nextDeck = overviews.firstOrNull { !it.isCaughtUp },
+                starredCount = words.count { it.progress.starred },
             )
         }
         emitAll(todayOverviews)

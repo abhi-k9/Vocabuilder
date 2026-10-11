@@ -35,5 +35,6 @@
     <string name="feature_decks_reset_message">Your progress on its words, including stars and words marked as known, will be lost.</string>
     <string name="feature_decks_reset_confirm">Reset</string>
     <string name="feature_decks_cancel">Cancel</string>
+    <string name="feature_decks_starred">Starred</string>
     <string name="feature_decks_not_found">This deck no longer exists.</string>
 </resources>

@@ -25,7 +25,7 @@ class ObserveTodayUseCaseTest {
             WordProgress("gre:abate", stage = 4, dueDay = TODAY.plusDays(10), reviewCount = 5),
             WordProgress("gre:laud", stage = 1, dueDay = TODAY, reviewCount = 2, introducedDay = TODAY),
             WordProgress("gre:wane", stage = 0, dueDay = TODAY, reviewCount = 1),
-            WordProgress("gre:zeal", alreadyKnown = true),
+            WordProgress("gre:zeal", alreadyKnown = true, starred = true),
         )
         progress.recordAnswer(
             progress.getProgress("gre:laud")!!,
@@ -40,6 +40,7 @@ class ObserveTodayUseCaseTest {
         assertEquals(1, today.reviewedToday)
         assertEquals(MasteryCounts(new = 2, learning = 1, reviewing = 1, mastered = 2), today.counts)
         assertEquals(TestData.commonDeck, today.nextDeck?.deck)
+        assertEquals(1, today.starredCount)
     }
 
     @Test

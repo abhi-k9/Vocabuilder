@@ -6,10 +6,12 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.domain.study.AnswerCardUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
+import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.StudySession
@@ -19,12 +21,17 @@ import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.model.Word
+import io.github.abhik9.vocabuilder.core.model.WordProgress
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -47,6 +54,7 @@ sealed interface StudyUiState {
         val doneCount: Int,
         val wordCount: Int,
         val canUndo: Boolean,
+        val isStarred: Boolean,
     ) : StudyUiState
 
     /** @property nextDeck the following deck with something to study, if this was a deck. */
@@ -69,6 +77,8 @@ class StudyViewModel @AssistedInject constructor(
     private val buildPlan: BuildStudyPlanUseCase,
     private val answerCard: AnswerCardUseCase,
     private val undoAnswer: UndoAnswerUseCase,
+    private val markKnown: MarkKnownUseCase,
+    private val progressRepository: ProgressRepository,
     private val wordRepository: WordRepository,
     private val observeDeckOverviews: ObserveDeckOverviewsUseCase,
     settingsRepository: UserSettingsRepository,
@@ -85,13 +95,20 @@ class StudyViewModel @AssistedInject constructor(
         .map { decks -> StudyTitle(request.mode, decks.firstOrNull { it.id == request.deckId }, request.practice) }
         .stateIn(viewModelScope, SharingStarted.Eagerly, StudyTitle(request.mode, null, request.practice))
 
+    /** The current card's progress, kept up to date as it's starred or answered. */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val currentProgress: Flow<WordProgress?> = session
+        .map { it?.currentWordId }
+        .distinctUntilChanged()
+        .flatMapLatest { id -> if (id == null) flowOf(null) else wordRepository.observeWord(id).map { it?.progress } }
+
     val uiState: StateFlow<StudyUiState> = combine(
         session,
         words,
         isFlipped,
-        settingsRepository.settings,
+        combine(settingsRepository.settings, currentProgress, ::Pair),
         nextDeck,
-    ) { session, words, flipped, settings, nextDeck ->
+    ) { session, words, flipped, (settings, progress), nextDeck ->
         when {
             session == null -> StudyUiState.Loading
 
@@ -106,6 +123,8 @@ class StudyViewModel @AssistedInject constructor(
                 doneCount = session.doneCount,
                 wordCount = session.wordCount,
                 canUndo = session.canUndo,
+                // Until the new card's progress arrives, the previous card's must not show.
+                isStarred = progress?.takeIf { it.wordId == session.currentWordId }?.starred == true,
             )
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), StudyUiState.Loading)
@@ -137,6 +156,30 @@ class StudyViewModel @AssistedInject constructor(
                 isAnswering = false
             }
         }
+    }
+
+    /** Takes the current card out of this session and future ones; undo brings it back. */
+    fun markKnown() {
+        val current = session.value ?: return
+        val wordId = current.currentWordId ?: return
+        if (isAnswering) return
+        isAnswering = true
+        viewModelScope.launch {
+            try {
+                val next = current.answer(markKnown(wordId))
+                if (next.isFinished) nextDeck.value = findNextDeck()
+                isFlipped.value = false
+                session.value = next
+            } finally {
+                isAnswering = false
+            }
+        }
+    }
+
+    fun toggleStar() {
+        val wordId = session.value?.currentWordId ?: return
+        val starred = (uiState.value as? StudyUiState.Studying)?.isStarred ?: return
+        viewModelScope.launch { progressRepository.setStarred(wordId, !starred) }
     }
 
     fun undo() {

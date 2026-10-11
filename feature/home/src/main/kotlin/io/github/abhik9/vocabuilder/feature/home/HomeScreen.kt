@@ -4,12 +4,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -17,6 +20,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -42,6 +46,7 @@ internal fun HomeRoute(
     onStartDailyReview: () -> Unit,
     onStudyDeck: (Deck) -> Unit,
     onOpenDecks: () -> Unit,
+    onStudyStarred: () -> Unit,
     viewModel: HomeViewModel,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -50,6 +55,7 @@ internal fun HomeRoute(
         onStartDailyReview = onStartDailyReview,
         onStudyDeck = onStudyDeck,
         onOpenDecks = onOpenDecks,
+        onStudyStarred = onStudyStarred,
     )
 }
 
@@ -60,6 +66,7 @@ internal fun HomeScreen(
     onStartDailyReview: () -> Unit,
     onStudyDeck: (Deck) -> Unit,
     onOpenDecks: () -> Unit,
+    onStudyStarred: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -85,6 +92,7 @@ internal fun HomeScreen(
                 ) {
                     DailyReviewCard(uiState.today, onStartDailyReview)
                     uiState.today.nextDeck?.let { ContinueCard(it, onStudyDeck) }
+                    if (uiState.today.starredCount > 0) StarredCard(uiState.today.starredCount, onStudyStarred)
                     ProgressCard(uiState.today, onOpenDecks)
                 }
             }
@@ -146,6 +154,21 @@ private fun ContinueCard(overview: DeckOverview, onStudyDeck: (Deck) -> Unit) {
         MasteryProgressBar(overview.counts)
         FilledTonalButton(onClick = { onStudyDeck(overview.deck) }, modifier = Modifier.fillMaxWidth()) {
             Text(stringResource(R.string.feature_home_continue))
+        }
+    }
+}
+
+@Composable
+private fun StarredCard(count: Int, onStudyStarred: () -> Unit) {
+    HomeCard {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Icon(Icons.Filled.Star, contentDescription = null, tint = MaterialTheme.colorScheme.tertiary)
+            Text(
+                text = pluralStringResource(R.plurals.feature_home_starred, count, count),
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.weight(1f),
+            )
+            FilledTonalButton(onClick = onStudyStarred) { Text(stringResource(R.string.feature_home_study)) }
         }
     }
 }

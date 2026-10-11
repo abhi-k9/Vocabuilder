@@ -16,6 +16,7 @@ fun EntryProviderScope<NavKey>.homeEntry(navigator: Navigator) {
             onStartDailyReview = { navigator.navigate(StudyNavKey(StudyMode.DAILY_REVIEW)) },
             onStudyDeck = { deck -> navigator.navigate(StudyNavKey(StudyMode.DECK, deck.id)) },
             onOpenDecks = { navigator.navigate(DecksNavKey) },
+            onStudyStarred = { navigator.navigate(StudyNavKey(StudyMode.STARRED)) },
             viewModel = hiltViewModel(),
         )
     }

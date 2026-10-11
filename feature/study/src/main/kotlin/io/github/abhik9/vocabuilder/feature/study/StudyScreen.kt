@@ -17,6 +17,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -68,6 +70,8 @@ internal fun StudyRoute(
         onFlip = viewModel::flip,
         onAnswer = viewModel::answer,
         onUndo = viewModel::undo,
+        onToggleStar = viewModel::toggleStar,
+        onMarkKnown = viewModel::markKnown,
         onPractice = onPractice,
         onNextDeck = onNextDeck,
     )
@@ -82,6 +86,8 @@ internal fun StudyScreen(
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
     onUndo: () -> Unit,
+    onToggleStar: () -> Unit,
+    onMarkKnown: () -> Unit,
     onPractice: () -> Unit,
     onNextDeck: (Deck) -> Unit,
     modifier: Modifier = Modifier,
@@ -113,6 +119,18 @@ internal fun StudyScreen(
                 },
                 actions = {
                     if (uiState is StudyUiState.Studying) {
+                        IconButton(onClick = onToggleStar) {
+                            Icon(
+                                imageVector = if (uiState.isStarred) Icons.Filled.Star else Icons.Outlined.StarBorder,
+                                contentDescription = stringResource(
+                                    if (uiState.isStarred) {
+                                        R.string.feature_study_unstar
+                                    } else {
+                                        R.string.feature_study_star
+                                    },
+                                ),
+                            )
+                        }
                         IconButton(onClick = onUndo, enabled = uiState.canUndo) {
                             Icon(
                                 Icons.AutoMirrored.Filled.Undo,
@@ -135,7 +153,12 @@ internal fun StudyScreen(
 
                 StudyUiState.Empty -> EmptySession(title, onPractice = onPractice, onDone = onClose)
 
-                is StudyUiState.Studying -> StudyingContent(uiState, onFlip = onFlip, onAnswer = onAnswer)
+                is StudyUiState.Studying -> StudyingContent(
+                    state = uiState,
+                    onFlip = onFlip,
+                    onAnswer = onAnswer,
+                    onMarkKnown = onMarkKnown,
+                )
 
                 is StudyUiState.Finished -> FinishedContent(
                     summary = uiState.summary,
@@ -154,6 +177,7 @@ private fun StudyingContent(
     state: StudyUiState.Studying,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
+    onMarkKnown: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -215,21 +239,32 @@ private fun StudyingContent(
                     modifier = Modifier.padding(top = 8.dp),
                 )
             } else {
-                FilledTonalButton(
-                    onClick = onFlip,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp),
-                ) {
-                    Text(
-                        stringResource(
-                            if (state.cardFront == CardFront.WORD) {
-                                R.string.feature_study_show_meaning
-                            } else {
-                                R.string.feature_study_show_word
-                            },
-                        ),
-                    )
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    OutlinedButton(
+                        onClick = onMarkKnown,
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(56.dp),
+                    ) {
+                        Text(stringResource(R.string.feature_study_already_know), textAlign = TextAlign.Center)
+                    }
+                    FilledTonalButton(
+                        onClick = onFlip,
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(56.dp),
+                    ) {
+                        Text(
+                            text = stringResource(
+                                if (state.cardFront == CardFront.WORD) {
+                                    R.string.feature_study_show_meaning
+                                } else {
+                                    R.string.feature_study_show_word
+                                },
+                            ),
+                            textAlign = TextAlign.Center,
+                        )
+                    }
                 }
             }
         }

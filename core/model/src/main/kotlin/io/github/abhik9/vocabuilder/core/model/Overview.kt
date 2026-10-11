@@ -71,6 +71,7 @@ data class DeckOverview(
  * @property reviewedToday answers given today.
  * @property counts all words by mastery state.
  * @property nextDeck the first deck with something to study, to continue with.
+ * @property starredCount words the learner starred.
  */
 data class TodayOverview(
     val dueCount: Int,
@@ -78,6 +79,7 @@ data class TodayOverview(
     val reviewedToday: Int,
     val counts: MasteryCounts,
     val nextDeck: DeckOverview?,
+    val starredCount: Int = 0,
 ) {
     /** Cards in today's daily review. */
     val dailyReviewCount: Int get() = dueCount + newCount

@@ -49,3 +49,23 @@ class UndoAnswerUseCase @Inject constructor(
         progressRepository.undoAnswer(answer.wordId, restored, answer.reviewId)
     }
 }
+
+/**
+ * Marks the current card's word as already known, so it leaves the session and future ones. Returns
+ * an answer that [UndoAnswerUseCase] can take back like any other.
+ */
+class MarkKnownUseCase @Inject constructor(
+    private val progressRepository: ProgressRepository,
+) {
+    suspend operator fun invoke(wordId: String): SessionAnswer {
+        val before = progressRepository.getProgress(wordId)
+        progressRepository.setAlreadyKnown(wordId, true)
+        val after = progressRepository.getProgress(wordId) ?: WordProgress(wordId, alreadyKnown = true)
+        return SessionAnswer(wordId = wordId, knew = true, before = before, after = after, reviewId = NO_REVIEW)
+    }
+
+    companion object {
+        /** The review id of an answer that saved no review. */
+        const val NO_REVIEW = 0L
+    }
+}
