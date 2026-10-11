@@ -11,6 +11,14 @@ data object HomeNavKey : NavKey
 @Serializable
 data object DecksNavKey : NavKey
 
+/** Every word, to search and filter. */
+@Serializable
+data object WordsNavKey : NavKey
+
+/** A word's meanings and the learner's progress on it. */
+@Serializable
+data class WordNavKey(val wordId: String) : NavKey
+
 /** A deck's progress and words. */
 @Serializable
 data class DeckNavKey(val deckId: String) : NavKey

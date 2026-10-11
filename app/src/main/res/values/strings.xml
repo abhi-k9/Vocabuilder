@@ -3,4 +3,5 @@
     <string name="app_name">Vocabuilder</string>
     <string name="nav_home">Today</string>
     <string name="nav_decks">Decks</string>
+    <string name="nav_words">Words</string>
 </resources>

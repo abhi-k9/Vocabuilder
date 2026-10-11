@@ -47,7 +47,7 @@ class Navigator(private val backStack: MutableList<NavKey>) {
         /** The screen at the bottom of the back stack, where the app starts. */
         val ROOT: NavKey = HomeNavKey
 
-        private val TOP_LEVEL: Set<NavKey> = setOf(HomeNavKey, DecksNavKey)
+        private val TOP_LEVEL: Set<NavKey> = setOf(HomeNavKey, DecksNavKey, WordsNavKey)
 
         fun isTopLevel(key: NavKey): Boolean = key in TOP_LEVEL
     }

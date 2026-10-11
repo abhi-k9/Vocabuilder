@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_words_title">Words</string>
+    <string name="feature_words_search">Search words and meanings</string>
+    <string name="feature_words_clear_search">Clear search</string>
+    <string name="feature_words_filter_all">All</string>
+    <string name="feature_words_filter_starred">Starred</string>
+    <plurals name="feature_words_count">
+        <item quantity="one">%d word</item>
+        <item quantity="other">%d words</item>
+    </plurals>
+    <string name="feature_words_no_results_title">No words found</string>
+    <string name="feature_words_no_results_message">Try another spelling, or search for a word in its meaning.</string>
+    <string name="feature_words_starred">Starred</string>
+
+    <string name="feature_words_back">Back</string>
+    <string name="feature_words_star">Star this word</string>
+    <string name="feature_words_unstar">Remove the star</string>
+    <string name="feature_words_synonyms">Synonyms</string>
+    <string name="feature_words_antonyms">Antonyms</string>
+    <string name="feature_words_progress">Your progress</string>
+    <string name="feature_words_status_new">You haven\'t studied this word yet.</string>
+    <string name="feature_words_status_known">You marked this word as known, so it\'s left out of study sessions.</string>
+    <string name="feature_words_status_due_today">Due for review today.</string>
+    <string name="feature_words_status_due">Next review on %1$s.</string>
+    <plurals name="feature_words_answered">
+        <item quantity="one">Answered %d time</item>
+        <item quantity="other">Answered %d times</item>
+    </plurals>
+    <plurals name="feature_words_missed">
+        <item quantity="one">missed %d time</item>
+        <item quantity="other">missed %d times</item>
+    </plurals>
+    <string name="feature_words_answered_and_missed">%1$s, %2$s</string>
+    <string name="feature_words_mark_known">I know this word</string>
+    <string name="feature_words_unmark_known">Study this word again</string>
+    <string name="feature_words_not_found">This word no longer exists.</string>
+</resources>

@@ -48,6 +48,7 @@ include(":core:ui")
 include(":feature:decks")
 include(":feature:home")
 include(":feature:study")
+include(":feature:words")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     """

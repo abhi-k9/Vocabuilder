@@ -1,5 +1,6 @@
 package io.github.abhik9.vocabuilder.feature.decks
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -58,6 +60,7 @@ import io.github.abhik9.vocabuilder.core.ui.title
 internal fun DeckRoute(
     onBack: () -> Unit,
     onStudy: (practice: Boolean) -> Unit,
+    onWordClick: (WordSummary) -> Unit,
     viewModel: DeckViewModel,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -65,6 +68,7 @@ internal fun DeckRoute(
         uiState = uiState,
         onBack = onBack,
         onStudy = onStudy,
+        onWordClick = onWordClick,
         onResetProgress = viewModel::resetProgress,
     )
 }
@@ -75,6 +79,7 @@ internal fun DeckScreen(
     uiState: DeckUiState,
     onBack: () -> Unit,
     onStudy: (practice: Boolean) -> Unit,
+    onWordClick: (WordSummary) -> Unit,
     onResetProgress: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -146,7 +151,7 @@ internal fun DeckScreen(
             ) {
                 item(key = "header") { DeckHeader(uiState.overview, onStudy) }
                 item(key = "divider") { HorizontalDivider(modifier = Modifier.padding(top = 8.dp)) }
-                items(uiState.words, key = { it.id }) { word -> WordRow(word) }
+                items(uiState.words, key = { it.id }) { word -> WordRow(word, onClick = { onWordClick(word) }) }
             }
         }
     }
@@ -207,7 +212,7 @@ private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean) -> U
 }
 
 @Composable
-private fun WordRow(word: WordSummary) {
+private fun WordRow(word: WordSummary, onClick: () -> Unit) {
     ListItem(
         headlineContent = { Text(word.headword, style = VocabuilderTheme.wordTypography.title) },
         supportingContent = {
@@ -229,5 +234,6 @@ private fun WordRow(word: WordSummary) {
                 MasteryPill(word.progress)
             }
         },
+        modifier = Modifier.clickable(role = Role.Button, onClick = onClick),
     )
 }

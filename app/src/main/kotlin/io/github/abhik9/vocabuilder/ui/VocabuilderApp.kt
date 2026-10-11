@@ -18,6 +18,7 @@ import io.github.abhik9.vocabuilder.core.navigation.Navigator
 import io.github.abhik9.vocabuilder.feature.decks.navigation.decksEntries
 import io.github.abhik9.vocabuilder.feature.home.navigation.homeEntry
 import io.github.abhik9.vocabuilder.feature.study.navigation.studyEntry
+import io.github.abhik9.vocabuilder.feature.words.navigation.wordsEntries
 import io.github.abhik9.vocabuilder.navigation.TopLevelDestination
 
 /**
@@ -67,6 +68,7 @@ fun VocabuilderApp() {
                 homeEntry(navigator)
                 decksEntries(navigator)
                 studyEntry(navigator)
+                wordsEntries(navigator)
             },
         )
     }

@@ -8,6 +8,7 @@ import io.github.abhik9.vocabuilder.core.navigation.DeckNavKey
 import io.github.abhik9.vocabuilder.core.navigation.DecksNavKey
 import io.github.abhik9.vocabuilder.core.navigation.Navigator
 import io.github.abhik9.vocabuilder.core.navigation.StudyNavKey
+import io.github.abhik9.vocabuilder.core.navigation.WordNavKey
 import io.github.abhik9.vocabuilder.feature.decks.DeckRoute
 import io.github.abhik9.vocabuilder.feature.decks.DeckViewModel
 import io.github.abhik9.vocabuilder.feature.decks.DecksRoute
@@ -23,6 +24,7 @@ fun EntryProviderScope<NavKey>.decksEntries(navigator: Navigator) {
         DeckRoute(
             onBack = { navigator.goBack() },
             onStudy = { practice -> navigator.navigate(StudyNavKey(StudyMode.DECK, key.deckId, practice)) },
+            onWordClick = { word -> navigator.navigate(WordNavKey(word.id)) },
             viewModel = hiltViewModel<DeckViewModel, DeckViewModel.Factory> { factory -> factory.create(key.deckId) },
         )
     }

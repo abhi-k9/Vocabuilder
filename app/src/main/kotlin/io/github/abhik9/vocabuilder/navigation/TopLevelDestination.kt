@@ -2,6 +2,8 @@ package io.github.abhik9.vocabuilder.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Style
 import androidx.compose.material.icons.outlined.Home
@@ -11,6 +13,7 @@ import androidx.navigation3.runtime.NavKey
 import io.github.abhik9.vocabuilder.R
 import io.github.abhik9.vocabuilder.core.navigation.DecksNavKey
 import io.github.abhik9.vocabuilder.core.navigation.HomeNavKey
+import io.github.abhik9.vocabuilder.core.navigation.WordsNavKey
 
 /** The screens reachable from the navigation bar. */
 enum class TopLevelDestination(
@@ -21,4 +24,5 @@ enum class TopLevelDestination(
 ) {
     HOME(HomeNavKey, Icons.Filled.Home, Icons.Outlined.Home, R.string.nav_home),
     DECKS(DecksNavKey, Icons.Filled.Style, Icons.Outlined.Style, R.string.nav_decks),
+    WORDS(WordsNavKey, Icons.AutoMirrored.Filled.MenuBook, Icons.AutoMirrored.Outlined.MenuBook, R.string.nav_words),
 }

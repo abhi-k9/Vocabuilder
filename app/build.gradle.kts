@@ -76,6 +76,7 @@ dependencies {
     implementation(projects.feature.decks)
     implementation(projects.feature.home)
     implementation(projects.feature.study)
+    implementation(projects.feature.words)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material.iconsExtended)
