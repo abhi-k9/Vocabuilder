@@ -31,7 +31,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -53,8 +52,10 @@ import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.MasteryState
 import io.github.abhik9.vocabuilder.core.model.StudyMode
+import io.github.abhik9.vocabuilder.core.ui.WordMeaningSheet
 import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.title
 
@@ -198,58 +199,14 @@ internal fun StudyScreen(
         }
     }
     relatedWord?.let {
-        RelatedWordSheet(
-            relatedWord = it,
+        WordMeaningSheet(
+            word = it.headword,
+            meanings = it.word?.senses ?: it.entry?.senses.orEmpty(),
+            fromWordNet = it.entry?.source == DictionarySource.WORDNET,
             canPronounce = canPronounce,
             onPronounce = onPronounceRelatedWord,
             onDismiss = onDismissRelatedWord,
         )
-    }
-}
-
-/** A synonym or antonym looked up from the card: its meanings if it's one of the app's words. */
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun RelatedWordSheet(
-    relatedWord: RelatedWord,
-    canPronounce: Boolean,
-    onPronounce: () -> Unit,
-    onDismiss: () -> Unit,
-) {
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(start = 24.dp, end = 24.dp, bottom = 32.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = relatedWord.headword,
-                    style = VocabuilderTheme.wordTypography.title,
-                    modifier = Modifier.weight(1f, fill = false),
-                )
-                if (canPronounce) {
-                    IconButton(onClick = onPronounce) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.VolumeUp,
-                            contentDescription = stringResource(R.string.feature_study_pronounce),
-                        )
-                    }
-                }
-            }
-            val word = relatedWord.word
-            if (word != null) {
-                Senses(word.senses)
-            } else {
-                Text(
-                    text = stringResource(R.string.feature_study_no_meaning),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
     }
 }
 
@@ -277,7 +234,6 @@ private fun StudyingContent(
                 word = state.word,
                 cardFront = state.cardFront,
                 isFlipped = state.isFlipped,
-                relatedWordsWithMeanings = state.relatedWordsWithMeanings,
                 onFlip = onFlip,
                 onAnswer = onAnswer,
                 onLookUp = onLookUp,

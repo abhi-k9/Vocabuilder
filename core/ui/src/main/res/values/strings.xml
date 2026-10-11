@@ -26,6 +26,12 @@
     <string name="core_ui_pos_adjective_short">adj.</string>
     <string name="core_ui_pos_adverb_short">adv.</string>
 
+    <string name="core_ui_sense_number">%1$d.</string>
+    <string name="core_ui_pronounce">Say the word</string>
+    <string name="core_ui_no_meaning">There\'s no meaning to show for this word.</string>
+    <!-- Required by the license of Open English WordNet, the dictionary of synonyms and antonyms. -->
+    <string name="core_ui_wordnet_credit">From Open English WordNet, under CC BY 4.0</string>
+
     <plurals name="core_ui_progress_description">
         <item quantity="one">%1$d of %2$d word mastered</item>
         <item quantity="other">%1$d of %2$d words mastered</item>

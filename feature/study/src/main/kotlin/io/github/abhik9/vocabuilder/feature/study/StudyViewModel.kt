@@ -7,6 +7,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
+import io.github.abhik9.vocabuilder.core.domain.repository.DictionaryRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
@@ -21,6 +22,7 @@ import io.github.abhik9.vocabuilder.core.domain.study.UndoAnswerUseCase
 import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseCase
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import io.github.abhik9.vocabuilder.core.model.Word
@@ -52,13 +54,10 @@ sealed interface StudyUiState {
      * @property isFlipped the card shows its back: the meaning, or the word for definition-first cards.
      * @property cardIndex how many cards were answered before this one. It tells cards apart even when
      *   a missed word comes straight back, as the last card left.
-     * @property relatedWordsWithMeanings the word's synonyms and antonyms that are words of the app, so
-     *   looking them up shows their meanings.
      */
     data class Studying(
         val word: Word,
         val cardIndex: Int,
-        val relatedWordsWithMeanings: Set<String>,
         val isFlipped: Boolean,
         val cardFront: CardFront,
         val doneCount: Int,
@@ -74,10 +73,14 @@ sealed interface StudyUiState {
     ) : StudyUiState
 }
 
-/** A synonym or antonym looked up from a card, with its meanings if it's one of the app's words. */
+/**
+ * A synonym or antonym looked up from a card, with its meanings: the [word] of the app it is, or else its [entry] in
+ * the dictionary. Without either, there's no meaning to show.
+ */
 data class RelatedWord(
     val headword: String,
-    val word: Word?,
+    val word: Word? = null,
+    val entry: DictionaryEntry? = null,
 )
 
 /** What the session goes through, for the title: a deck, or the daily review or starred words. */
@@ -96,6 +99,7 @@ class StudyViewModel @AssistedInject constructor(
     private val markKnown: MarkKnownUseCase,
     private val progressRepository: ProgressRepository,
     private val wordRepository: WordRepository,
+    private val dictionaryRepository: DictionaryRepository,
     private val observeDeckOverviews: ObserveDeckOverviewsUseCase,
     private val pronouncer: Pronouncer,
     settingsRepository: UserSettingsRepository,
@@ -154,9 +158,6 @@ class StudyViewModel @AssistedInject constructor(
                 StudyUiState.Studying(
                     word = word,
                     cardIndex = session.answers.size,
-                    relatedWordsWithMeanings = (word.synonyms + word.antonyms)
-                        .filter { it.lowercase() in wordIdsByHeadword }
-                        .toSet(),
                     isFlipped = flipped,
                     cardFront = settings.cardFront,
                     doneCount = session.doneCount,
@@ -179,6 +180,8 @@ class StudyViewModel @AssistedInject constructor(
             val started = StudySession(plan.wordIds.filter { it in loaded })
             log.record { "study: started $request, ${started.queue.size} cards" }
             session.value = started
+            // For the synonyms and antonyms on the cards.
+            dictionaryRepository.preload()
         }
     }
 
@@ -194,12 +197,17 @@ class StudyViewModel @AssistedInject constructor(
         words[wordId]?.let { pronouncer.speak(it.headword) }
     }
 
-    /** Shows one of the card's synonyms or antonyms, with its meanings if it's one of the app's words. */
+    /** Shows one of the card's synonyms or antonyms with its meanings: its own if it's a word of the app. */
     fun lookUp(headword: String) {
         viewModelScope.launch {
             val id = wordIdsByHeadword[headword.lowercase()]
-            _relatedWord.value = RelatedWord(headword, id?.let { wordRepository.getWords(listOf(it)).firstOrNull() })
-            log.record { "study: looked up \"$headword\", ${if (id == null) "not a word of the app" else id}" }
+            val word = id?.let { wordRepository.getWords(listOf(it)).firstOrNull() }
+            val entry = if (word == null) dictionaryRepository.getEntry(headword) else null
+            _relatedWord.value = RelatedWord(headword, word, entry)
+            log.record {
+                val found = word?.id ?: if (entry != null) "from the dictionary" else "with no meaning"
+                "study: looked up \"$headword\", $found"
+            }
         }
     }
 

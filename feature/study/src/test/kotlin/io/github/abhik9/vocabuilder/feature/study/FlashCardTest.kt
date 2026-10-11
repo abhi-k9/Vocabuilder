@@ -34,7 +34,6 @@ class FlashCardTest {
                 word = TestData.word("abate").copy(synonyms = listOf("lessen", "wane"), antonyms = listOf("grow")),
                 cardFront = CardFront.WORD,
                 isFlipped = isFlipped,
-                relatedWordsWithMeanings = setOf("wane"),
                 onFlip = { flips++ },
                 onAnswer = { answer = it },
                 onLookUp = {},

@@ -6,6 +6,10 @@ import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.UndoAnswerUseCase
 import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseCase
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
+import io.github.abhik9.vocabuilder.core.model.DictionarySense
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
+import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import io.github.abhik9.vocabuilder.core.model.WordProgress
@@ -13,6 +17,7 @@ import io.github.abhik9.vocabuilder.core.testing.FakePronouncer
 import io.github.abhik9.vocabuilder.core.testing.MainDispatcherRule
 import io.github.abhik9.vocabuilder.core.testing.TestData
 import io.github.abhik9.vocabuilder.core.testing.diagnostics.RecordingEventLog
+import io.github.abhik9.vocabuilder.core.testing.repository.FakeDictionaryRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeUserSettingsRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeWordRepository
 import kotlin.test.assertEquals
@@ -35,6 +40,12 @@ class StudyViewModelTest {
     private val settings = FakeUserSettingsRepository(UserSettings(shuffleCards = false))
     private val pronouncer = FakePronouncer()
     private val log = RecordingEventLog()
+    private val irk = DictionaryEntry(
+        word = "irk",
+        senses = listOf(DictionarySense(PartOfSpeech.VERB, "irritate or vex", "it galls me that we lost")),
+        source = DictionarySource.WORDNET,
+    )
+    private val dictionary = FakeDictionaryRepository(irk)
 
     private fun viewModel(request: StudyRequest, words: FakeWordRepository = this.words) = StudyViewModel(
         request = request,
@@ -44,6 +55,7 @@ class StudyViewModelTest {
         markKnown = MarkKnownUseCase(words.progressRepository),
         progressRepository = words.progressRepository,
         wordRepository = words,
+        dictionaryRepository = dictionary,
         observeDeckOverviews = ObserveDeckOverviewsUseCase(words, TestData.clock),
         pronouncer = pronouncer,
         settingsRepository = settings,
@@ -198,26 +210,36 @@ class StudyViewModelTest {
     }
 
     @Test
-    fun looksUpSynonymsAndAntonymsWithTheMeaningsOfThoseThatAreWordsOfTheApp() = runTest {
+    fun looksUpSynonymsAndAntonymsInTheAppsWordsThenInTheDictionary() = runTest {
         val (pique, vex) = TestData.advancedWords
         val withRelatedWords = pique.copy(synonyms = listOf("vex", "irk"), antonyms = listOf("soothe"))
         val words = FakeWordRepository.withProgress(TestData.words.map { if (it == pique) withRelatedWords else it })
         val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id), words)
         backgroundScope.launch { viewModel.uiState.collect {} }
-
-        assertEquals(setOf("vex"), assertIs<StudyUiState.Studying>(viewModel.state()).relatedWordsWithMeanings)
+        viewModel.state()
 
         viewModel.lookUp("vex")
-        assertEquals(RelatedWord("vex", vex), viewModel.relatedWord.value)
+        assertEquals(RelatedWord("vex", word = vex), viewModel.relatedWord.value)
         viewModel.pronounceRelatedWord()
 
         viewModel.lookUp("irk")
-        assertEquals(RelatedWord("irk", null), viewModel.relatedWord.value)
+        assertEquals(RelatedWord("irk", entry = irk), viewModel.relatedWord.value)
         viewModel.pronounceRelatedWord()
         assertEquals(listOf("vex", "irk"), pronouncer.spoken)
 
+        viewModel.lookUp("soothe")
+        assertEquals(RelatedWord("soothe"), viewModel.relatedWord.value)
+
         viewModel.dismissRelatedWord()
         assertNull(viewModel.relatedWord.value)
+        assertEquals(
+            listOf(
+                "study: looked up \"vex\", ${vex.id}",
+                "study: looked up \"irk\", from the dictionary",
+                "study: looked up \"soothe\", with no meaning",
+            ),
+            log.messages.filter { it.startsWith("study: looked up") },
+        )
     }
 
     @Test

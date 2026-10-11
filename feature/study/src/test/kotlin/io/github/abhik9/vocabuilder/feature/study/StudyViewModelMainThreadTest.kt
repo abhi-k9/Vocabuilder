@@ -14,6 +14,7 @@ import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.testing.FakePronouncer
 import io.github.abhik9.vocabuilder.core.testing.LooperMainDispatcher
 import io.github.abhik9.vocabuilder.core.testing.TestData
+import io.github.abhik9.vocabuilder.core.testing.repository.FakeDictionaryRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeUserSettingsRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeWordRepository
 import kotlin.test.assertEquals
@@ -67,6 +68,7 @@ class StudyViewModelMainThreadTest {
             markKnown = MarkKnownUseCase(progress),
             progressRepository = progress,
             wordRepository = slowWords,
+            dictionaryRepository = FakeDictionaryRepository(),
             observeDeckOverviews = ObserveDeckOverviewsUseCase(slowWords, TestData.clock),
             pronouncer = FakePronouncer(),
             settingsRepository = settings,
