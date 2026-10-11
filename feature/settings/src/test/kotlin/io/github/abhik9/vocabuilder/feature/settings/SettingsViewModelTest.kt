@@ -18,12 +18,15 @@ import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class SettingsViewModelTest {
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
@@ -80,8 +83,8 @@ class SettingsViewModelTest {
     @Test
     fun turnsDiagnosticsOnAndOffAndClearsThem() = runTest {
         val viewModel = viewModel()
-        // Kept up to date while watched, as by the screen.
-        backgroundScope.launch { viewModel.diagnostics.collect {} }
+        // Kept up to date while watched, as by the screen; watched from now on, not once the test waits.
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.diagnostics.collect {} }
         diagnostics.logSize.value = 1024
 
         viewModel.setDiagnosticsRecording(true)

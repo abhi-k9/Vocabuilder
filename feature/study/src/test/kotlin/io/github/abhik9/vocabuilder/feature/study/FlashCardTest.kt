@@ -3,7 +3,7 @@ package io.github.abhik9.vocabuilder.feature.study
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
@@ -66,14 +66,22 @@ class FlashCardTest {
     }
 
     @Test
-    fun aCardIsTurnedOverByTappingNotBySwiping() {
+    fun swipingACardBeforeTurningItOverDoesNotAnswerIt() {
         showCard(isFlipped = false)
 
         compose.onNodeWithTag(CARD).performTouchInput { swipeRight() }
         compose.waitForIdle()
+
         assertNull(answer)
+    }
+
+    @Test
+    fun tappingACardTurnsItOver() {
+        showCard(isFlipped = false)
 
         compose.onNodeWithTag(CARD).performClick()
+        compose.waitForIdle()
+
         assertEquals(1, flips)
     }
 
