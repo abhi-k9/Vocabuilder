@@ -42,6 +42,7 @@ include(":core:designsystem")
 include(":core:domain")
 include(":core:model")
 include(":core:navigation")
+include(":core:speech")
 include(":core:testing")
 include(":core:ui")
 

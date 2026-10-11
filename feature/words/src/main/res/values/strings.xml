@@ -14,6 +14,7 @@
     <string name="feature_words_starred">Starred</string>
 
     <string name="feature_words_back">Back</string>
+    <string name="feature_words_pronounce">Say the word</string>
     <string name="feature_words_star">Star this word</string>
     <string name="feature_words_unstar">Remove the star</string>
     <string name="feature_words_synonyms">Synonyms</string>

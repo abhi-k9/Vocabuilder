@@ -1,6 +1,7 @@
 package io.github.abhik9.vocabuilder.feature.words
 
 import io.github.abhik9.vocabuilder.core.model.WordProgress
+import io.github.abhik9.vocabuilder.core.testing.FakePronouncer
 import io.github.abhik9.vocabuilder.core.testing.MainDispatcherRule
 import io.github.abhik9.vocabuilder.core.testing.TestData
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeWordRepository
@@ -17,6 +18,7 @@ class WordViewModelsTest {
     val mainDispatcherRule = MainDispatcherRule()
 
     private val words = FakeWordRepository.withProgress()
+    private val pronouncer = FakePronouncer()
 
     @Test
     fun browserSearchesAndFilters() = runTest {
@@ -38,12 +40,15 @@ class WordViewModelsTest {
 
     @Test
     fun wordPageShowsTheWordAndTogglesItsStar() = runTest {
-        val viewModel = WordViewModel("gre:abate", words, words.progressRepository, TestData.clock)
+        val viewModel = WordViewModel("gre:abate", words, words.progressRepository, pronouncer, TestData.clock)
         backgroundScope.launch { viewModel.uiState.collect {} }
 
         val state = assertIs<WordUiState.Success>(viewModel.uiState.first { it is WordUiState.Success })
         assertEquals("abate", state.word.word.headword)
         assertEquals(TestData.commonDeck, state.deck)
+
+        viewModel.pronounce()
+        assertEquals(listOf("abate"), pronouncer.spoken)
 
         viewModel.toggleStar()
         viewModel.toggleKnown()
@@ -56,7 +61,7 @@ class WordViewModelsTest {
 
     @Test
     fun missingWordsAreReported() = runTest {
-        val viewModel = WordViewModel("gre:missing", words, words.progressRepository, TestData.clock)
+        val viewModel = WordViewModel("gre:missing", words, words.progressRepository, pronouncer, TestData.clock)
 
         assertEquals(WordUiState.NotFound, viewModel.uiState.first { it != WordUiState.Loading })
     }

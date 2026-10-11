@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
+import io.github.abhik9.vocabuilder.core.domain.speech.Pronouncer
 import io.github.abhik9.vocabuilder.core.domain.study.AnswerCardUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
@@ -20,6 +21,7 @@ import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseC
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
 import io.github.abhik9.vocabuilder.core.model.StudyMode
+import io.github.abhik9.vocabuilder.core.model.UserSettings
 import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -81,8 +83,15 @@ class StudyViewModel @AssistedInject constructor(
     private val progressRepository: ProgressRepository,
     private val wordRepository: WordRepository,
     private val observeDeckOverviews: ObserveDeckOverviewsUseCase,
+    private val pronouncer: Pronouncer,
     settingsRepository: UserSettingsRepository,
 ) : ViewModel() {
+    private val settings: StateFlow<UserSettings> =
+        settingsRepository.settings.stateIn(viewModelScope, SharingStarted.Eagerly, UserSettings())
+
+    /** Whether words can be said aloud on this device. */
+    val canPronounce: StateFlow<Boolean> = pronouncer.isAvailable
+
     private val session = MutableStateFlow<StudySession?>(null)
     private val words = MutableStateFlow<Map<String, Word>>(emptyMap())
     private val isFlipped = MutableStateFlow(false)
@@ -106,7 +115,7 @@ class StudyViewModel @AssistedInject constructor(
         session,
         words,
         isFlipped,
-        combine(settingsRepository.settings, currentProgress, ::Pair),
+        combine(settings, currentProgress, ::Pair),
         nextDeck,
     ) { session, words, flipped, (settings, progress), nextDeck ->
         when {
@@ -138,7 +147,17 @@ class StudyViewModel @AssistedInject constructor(
         }
     }
 
-    fun flip() = isFlipped.update { !it }
+    fun flip() {
+        val turningOver = !isFlipped.value
+        isFlipped.update { !it }
+        if (turningOver && settings.value.autoPronounce) pronounce()
+    }
+
+    /** Says the current card's word aloud. */
+    fun pronounce() {
+        val wordId = session.value?.currentWordId ?: return
+        words.value[wordId]?.let { pronouncer.speak(it.headword) }
+    }
 
     fun answer(knew: Boolean) {
         val current = session.value ?: return

@@ -2,6 +2,7 @@
 <resources>
     <string name="feature_study_close">Close</string>
     <string name="feature_study_undo">Undo last answer</string>
+    <string name="feature_study_pronounce">Say the word</string>
     <string name="feature_study_star">Star this word</string>
     <string name="feature_study_unstar">Remove the star</string>
     <string name="feature_study_already_know">I know this</string>

@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.AssistChip
@@ -57,8 +58,11 @@ internal fun WordRoute(
     viewModel: WordViewModel,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val canPronounce by viewModel.canPronounce.collectAsStateWithLifecycle()
     WordScreen(
         uiState = uiState,
+        canPronounce = canPronounce,
+        onPronounce = viewModel::pronounce,
         onBack = onBack,
         onOpenWord = onOpenWord,
         onToggleStar = viewModel::toggleStar,
@@ -70,6 +74,8 @@ internal fun WordRoute(
 @Composable
 internal fun WordScreen(
     uiState: WordUiState,
+    canPronounce: Boolean,
+    onPronounce: () -> Unit,
     onBack: () -> Unit,
     onOpenWord: (wordId: String) -> Unit,
     onToggleStar: () -> Unit,
@@ -121,7 +127,13 @@ internal fun WordScreen(
                         .padding(32.dp),
                 )
 
-                is WordUiState.Success -> WordContent(uiState, onOpenWord, onToggleKnown)
+                is WordUiState.Success -> WordContent(
+                    state = uiState,
+                    canPronounce = canPronounce,
+                    onPronounce = onPronounce,
+                    onOpenWord = onOpenWord,
+                    onToggleKnown = onToggleKnown,
+                )
             }
         }
     }
@@ -129,7 +141,13 @@ internal fun WordScreen(
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun WordContent(state: WordUiState.Success, onOpenWord: (String) -> Unit, onToggleKnown: () -> Unit) {
+private fun WordContent(
+    state: WordUiState.Success,
+    canPronounce: Boolean,
+    onPronounce: () -> Unit,
+    onOpenWord: (String) -> Unit,
+    onToggleKnown: () -> Unit,
+) {
     val word = state.word.word
     Column(
         modifier = Modifier
@@ -140,7 +158,21 @@ private fun WordContent(state: WordUiState.Success, onOpenWord: (String) -> Unit
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(word.headword, style = VocabuilderTheme.wordTypography.display)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = word.headword,
+                    style = VocabuilderTheme.wordTypography.display,
+                    modifier = Modifier.weight(1f, fill = false),
+                )
+                if (canPronounce) {
+                    IconButton(onClick = onPronounce) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.VolumeUp,
+                            contentDescription = stringResource(R.string.feature_words_pronounce),
+                        )
+                    }
+                }
+            }
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),

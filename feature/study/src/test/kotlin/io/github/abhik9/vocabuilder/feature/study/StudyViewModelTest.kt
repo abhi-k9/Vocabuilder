@@ -7,7 +7,9 @@ import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.UndoAnswerUseCase
 import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseCase
 import io.github.abhik9.vocabuilder.core.model.StudyMode
+import io.github.abhik9.vocabuilder.core.model.UserSettings
 import io.github.abhik9.vocabuilder.core.model.WordProgress
+import io.github.abhik9.vocabuilder.core.testing.FakePronouncer
 import io.github.abhik9.vocabuilder.core.testing.MainDispatcherRule
 import io.github.abhik9.vocabuilder.core.testing.TestData
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeUserSettingsRepository
@@ -30,6 +32,7 @@ class StudyViewModelTest {
     private val words = FakeWordRepository.withProgress()
     private val progress = words.progressRepository
     private val settings = FakeUserSettingsRepository()
+    private val pronouncer = FakePronouncer()
 
     private fun viewModel(request: StudyRequest) = StudyViewModel(
         request = request,
@@ -40,6 +43,7 @@ class StudyViewModelTest {
         progressRepository = progress,
         wordRepository = words,
         observeDeckOverviews = ObserveDeckOverviewsUseCase(words, TestData.clock),
+        pronouncer = pronouncer,
         settingsRepository = settings,
     )
 
@@ -155,5 +159,19 @@ class StudyViewModelTest {
 
         assertTrue(assertIs<StudyUiState.Studying>(viewModel.uiState.value).isStarred)
         assertEquals(true, progress.getProgress("gre:pique")?.starred)
+    }
+
+    @Test
+    fun saysTheWordWhenAskedOrWhenTurningTheCardIfEnabled() = runTest {
+        settings.set(UserSettings(autoPronounce = true))
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id))
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        viewModel.state()
+
+        viewModel.pronounce()
+        viewModel.flip()
+        viewModel.flip()
+
+        assertEquals(listOf("pique", "pique"), pronouncer.spoken)
     }
 }

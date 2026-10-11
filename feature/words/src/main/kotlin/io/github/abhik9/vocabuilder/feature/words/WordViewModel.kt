@@ -8,6 +8,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
+import io.github.abhik9.vocabuilder.core.domain.speech.Pronouncer
 import io.github.abhik9.vocabuilder.core.model.Deck
 import io.github.abhik9.vocabuilder.core.model.WordWithProgress
 import java.time.Clock
@@ -40,8 +41,12 @@ class WordViewModel @AssistedInject constructor(
     @Assisted private val wordId: String,
     wordRepository: WordRepository,
     private val progressRepository: ProgressRepository,
+    private val pronouncer: Pronouncer,
     private val clock: Clock,
 ) : ViewModel() {
+    /** Whether words can be said aloud on this device. */
+    val canPronounce: StateFlow<Boolean> = pronouncer.isAvailable
+
     val uiState: StateFlow<WordUiState> = combine(
         wordRepository.observeWord(wordId),
         wordRepository.observeDecks(),
@@ -56,6 +61,11 @@ class WordViewModel @AssistedInject constructor(
             today = LocalDate.now(clock),
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), WordUiState.Loading)
+
+    fun pronounce() {
+        val state = uiState.value as? WordUiState.Success ?: return
+        pronouncer.speak(state.word.word.headword)
+    }
 
     fun toggleStar() {
         val state = uiState.value as? WordUiState.Success ?: return

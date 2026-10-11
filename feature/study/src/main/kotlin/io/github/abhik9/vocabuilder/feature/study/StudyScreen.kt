@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Star
@@ -63,9 +64,12 @@ internal fun StudyRoute(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val title by viewModel.title.collectAsStateWithLifecycle()
+    val canPronounce by viewModel.canPronounce.collectAsStateWithLifecycle()
     StudyScreen(
         uiState = uiState,
         title = title,
+        canPronounce = canPronounce,
+        onPronounce = viewModel::pronounce,
         onClose = onClose,
         onFlip = viewModel::flip,
         onAnswer = viewModel::answer,
@@ -82,6 +86,8 @@ internal fun StudyRoute(
 internal fun StudyScreen(
     uiState: StudyUiState,
     title: StudyTitle,
+    canPronounce: Boolean,
+    onPronounce: () -> Unit,
     onClose: () -> Unit,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
@@ -119,6 +125,14 @@ internal fun StudyScreen(
                 },
                 actions = {
                     if (uiState is StudyUiState.Studying) {
+                        if (canPronounce) {
+                            IconButton(onClick = onPronounce) {
+                                Icon(
+                                    Icons.AutoMirrored.Filled.VolumeUp,
+                                    contentDescription = stringResource(R.string.feature_study_pronounce),
+                                )
+                            }
+                        }
                         IconButton(onClick = onToggleStar) {
                             Icon(
                                 imageVector = if (uiState.isStarred) Icons.Filled.Star else Icons.Outlined.StarBorder,
