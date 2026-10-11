@@ -47,8 +47,18 @@ def save_logs():
     return crash
 
 
+def visible_text(hierarchy):
+    """The texts and descriptions on the screen, top to bottom, to show in the log what it looks like."""
+    nodes = ElementTree.fromstring(hierarchy).iter("node")
+    return " | ".join(text for node in nodes for text in (node.get("text"), node.get("content-desc")) if text)
+
+
 def fail(message):
     log(f"FAIL: {message}")
+    try:
+        log(f"On the screen: {visible_text(screen())}")
+    except Exception as e:  # The app may be gone: what matters is the failure.
+        log(f"Couldn't read the screen: {e}")
     crash = save_logs()
     if crash.strip():
         log("== Crash (retraced in crash-retraced.txt)\n" + crash)
@@ -128,8 +138,7 @@ def swipe(direction):
     time.sleep(2)
     step = f"swipe {direction}"
     check_alive(step)
-    snapshot(f"swipe-{direction}")
-    log(f"ok: {step}")
+    log(f"ok: {step}, then on the screen: {visible_text(snapshot(f'swipe-{direction}'))}")
 
 
 def back():
