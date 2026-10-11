@@ -20,6 +20,13 @@ class BundledContentTest {
     }
 
     @Test
+    fun theDictionaryHasTheMeaningsOfEveryRelatedWordThatIsNotAWordOfThePacks() {
+        val problems = ContentValidator.validateDictionary(loader.loadDictionary(), loader.loadAll())
+
+        assertEquals(emptyList(), problems, "Dictionary problems:\n" + problems.joinToString("\n"))
+    }
+
+    @Test
     fun everyDeckFileIsListedInItsPack() {
         loader.loadAll().forEach { pack ->
             val listed = pack.decks.map { it.id.substringAfter('/') + ".json" }.toSet()

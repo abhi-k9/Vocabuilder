@@ -1,6 +1,9 @@
 package io.github.abhik9.vocabuilder.core.content
 
 import io.github.abhik9.vocabuilder.core.model.Deck
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
+import io.github.abhik9.vocabuilder.core.model.DictionarySense
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Level
 import io.github.abhik9.vocabuilder.core.model.Pack
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
@@ -86,6 +89,56 @@ class ContentValidatorTest {
         assertTrue(problems.any { "gre/advanced-02: has 0 words" in it }, problems.toString())
     }
 
+    private fun entry(
+        word: String = "subside",
+        definition: String = "to become less intense",
+        example: String? = "The wind subsided.",
+        source: DictionarySource = DictionarySource.VOCABUILDER,
+    ) = DictionaryEntry(word, listOf(DictionarySense(PartOfSpeech.VERB, definition, example)), source)
+
+    private fun validateDictionary(vararg entries: DictionaryEntry, words: List<Word> = listOf(word())) =
+        ContentValidator.validateDictionary(
+            entries.toList(),
+            listOf(BundledPack(Pack("gre", "GRE"), listOf(deck), words, fingerprint = "")),
+        )
+
+    @Test
+    fun acceptsADictionaryOfTheRelatedWordsThatAreNotWordsOfThePacks() {
+        val words = listOf(word(synonyms = listOf("subside", "wane"), antonyms = listOf("intensify")), word("wane"))
+
+        assertEquals(
+            emptyList(),
+            validateDictionary(entry(), entry("intensify", source = DictionarySource.WORDNET), words = words),
+        )
+    }
+
+    @Test
+    fun flagsRelatedWordsWithoutMeaningsAndEntriesThatAreNotRelatedWords() {
+        val problems = validateDictionary(entry("wane"), entry("abate"))
+
+        assertTrue(problems.any { "\"subside\" is a synonym or antonym with no meaning" in it }, problems.toString())
+        assertTrue(problems.any { "\"wane\": isn't a synonym or antonym" in it }, problems.toString())
+        assertTrue(problems.any { "\"abate\": is a word of the packs" in it }, problems.toString())
+    }
+
+    @Test
+    fun flagsWordsDefinedTwice() {
+        val problems = validateDictionary(entry(), entry(source = DictionarySource.WORDNET))
+
+        assertTrue(problems.any { "\"subside\" has 2 entries" in it }, problems.toString())
+    }
+
+    @Test
+    fun holdsWrittenEntriesToTheStyleOfThePacksButNotWordNetOnes() {
+        assertTrue(validateDictionary(entry(definition = "To subside.")).any { "start in lowercase" in it })
+        assertTrue(validateDictionary(entry(example = null)).any { "has no example" in it })
+        assertTrue(validateDictionary(entry(example = "The wind dropped.")).any { "doesn't use the word" in it })
+
+        val wordNet = entry(definition = "Wear off.", example = "the pain", source = DictionarySource.WORDNET)
+        assertEquals(emptyList(), validateDictionary(wordNet))
+        assertTrue(validateDictionary(entry(definition = " ", source = DictionarySource.WORDNET)).any { "empty" in it })
+    }
+
     @Test
     fun recognizesFormsOfTheWord() {
         assertTrue(ContentValidator.exampleUsesWord("abate", "The noise abated."))
@@ -94,6 +147,10 @@ class ContentValidatorTest {
         assertTrue(ContentValidator.exampleUsesWord("naïve", "A naive plan."))
         assertTrue(ContentValidator.exampleUsesWord("ad hoc", "An ad hoc committee met."))
         assertFalse(ContentValidator.exampleUsesWord("ad hoc", "An ad-hoc committee met."))
+        assertTrue(ContentValidator.exampleUsesWord("abstain from", "She abstained from sweets."))
+        assertTrue(ContentValidator.exampleUsesWord("new word", "The dictionary added new words."))
+        assertTrue(ContentValidator.exampleUsesWord("break one's word", "He wouldn't break his word."))
+        assertFalse(ContentValidator.exampleUsesWord("break one's word", "He wouldn't break the word."))
         assertFalse(ContentValidator.exampleUsesWord("abate", "The noise faded."))
     }
 }

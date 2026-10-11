@@ -22,12 +22,21 @@ data class Word(
     val primarySense: Sense get() = senses.first()
 }
 
+/** A meaning as shown: a word's own sense, or one from the dictionary. */
+interface Meaning {
+    val partOfSpeech: PartOfSpeech
+    val definition: String
+
+    /** Shows the word in use, when there's an example. */
+    val example: String?
+}
+
 /** One meaning of a word, with a sentence showing it in use. */
 data class Sense(
-    val partOfSpeech: PartOfSpeech,
-    val definition: String,
-    val example: String,
-)
+    override val partOfSpeech: PartOfSpeech,
+    override val definition: String,
+    override val example: String,
+) : Meaning
 
 enum class PartOfSpeech {
     NOUN,

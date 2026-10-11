@@ -1,5 +1,8 @@
 package io.github.abhik9.vocabuilder.core.content
 
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
+import io.github.abhik9.vocabuilder.core.model.DictionarySense
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Level
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
 import kotlin.test.assertEquals
@@ -45,6 +48,29 @@ class ContentLoaderTest {
                   "id": "gre:obviate-old",
                   "senses": [
                     { "pos": "verb", "definition": "to remove a need", "example": "The map obviated asking." }
+                  ]
+                }
+              ]
+            }
+        """.trimIndent(),
+        "dictionary/written.json" to """
+            {
+              "entries": [
+                {
+                  "word": "subside",
+                  "senses": [{ "pos": "verb", "definition": "to become calmer", "example": "The wind subsided." }]
+                }
+              ]
+            }
+        """.trimIndent(),
+        "dictionary/wordnet.json" to """
+            {
+              "entries": [
+                {
+                  "word": "intensify",
+                  "senses": [
+                    { "pos": "verb", "definition": "increase in extent or intensity", "example": "the storm intensified" },
+                    { "pos": "verb", "definition": "make more intense, stronger, or more marked" }
                   ]
                 }
               ]
@@ -101,6 +127,36 @@ class ContentLoaderTest {
 
         val error = assertFailsWith<ContentException> { loader.load("gre") }
         assertTrue("gre/common-01.json" in error.message.orEmpty())
+    }
+
+    @Test
+    fun loadsTheDictionaryWithWhereEachEntryComesFrom() {
+        assertEquals(
+            listOf(
+                DictionaryEntry(
+                    word = "subside",
+                    senses = listOf(DictionarySense(PartOfSpeech.VERB, "to become calmer", "The wind subsided.")),
+                    source = DictionarySource.VOCABUILDER,
+                ),
+                DictionaryEntry(
+                    word = "intensify",
+                    senses = listOf(
+                        DictionarySense(PartOfSpeech.VERB, "increase in extent or intensity", "the storm intensified"),
+                        DictionarySense(PartOfSpeech.VERB, "make more intense, stronger, or more marked"),
+                    ),
+                    source = DictionarySource.WORDNET,
+                ),
+            ),
+            loader.loadDictionary(),
+        )
+    }
+
+    @Test
+    fun reportsAMissingDictionary() {
+        files.remove("dictionary/wordnet.json")
+
+        val error = assertFailsWith<ContentException> { loader.loadDictionary() }
+        assertTrue("dictionary/wordnet.json" in error.message.orEmpty())
     }
 
     @Test

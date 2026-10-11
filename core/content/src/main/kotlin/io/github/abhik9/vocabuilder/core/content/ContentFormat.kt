@@ -44,6 +44,26 @@ internal data class SenseValue(
     val example: String,
 )
 
+/**
+ * `dictionary/wordnet.json` and `dictionary/written.json`: the meanings of the synonyms and antonyms that aren't words
+ * of the packs, from Open English WordNet and written for Vocabuilder.
+ */
+@Serializable
+internal data class DictionaryFile(val entries: List<DictionaryEntryValue>)
+
+@Serializable
+internal data class DictionaryEntryValue(
+    val word: String,
+    val senses: List<DictionarySenseValue>,
+)
+
+@Serializable
+internal data class DictionarySenseValue(
+    val pos: PartOfSpeechValue,
+    val definition: String,
+    val example: String? = null,
+)
+
 @Serializable
 internal enum class LevelValue {
     @SerialName("common")

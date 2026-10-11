@@ -1,6 +1,9 @@
 package io.github.abhik9.vocabuilder.core.content
 
 import io.github.abhik9.vocabuilder.core.model.Deck
+import io.github.abhik9.vocabuilder.core.model.DictionaryEntry
+import io.github.abhik9.vocabuilder.core.model.DictionarySense
+import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Level
 import io.github.abhik9.vocabuilder.core.model.Pack
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
@@ -79,6 +82,14 @@ class ContentLoader(private val files: ContentFiles) {
         )
     }
 
+    /**
+     * The dictionary of the synonyms and antonyms that aren't words of the packs: the entries written for Vocabuilder,
+     * then those from Open English WordNet.
+     */
+    fun loadDictionary(): List<DictionaryEntry> =
+        decode<DictionaryFile>(WRITTEN_DICTIONARY).entries.map { it.toModel(DictionarySource.VOCABUILDER) } +
+            decode<DictionaryFile>(WORDNET_DICTIONARY).entries.map { it.toModel(DictionarySource.WORDNET) }
+
     private fun MessageDigest.hex(): String = digest().joinToString("") { "%02x".format(it) }
 
     private fun readFile(path: String): String =
@@ -94,6 +105,8 @@ class ContentLoader(private val files: ContentFiles) {
 
     companion object {
         const val INDEX = "index.json"
+        const val WORDNET_DICTIONARY = "dictionary/wordnet.json"
+        const val WRITTEN_DICTIONARY = "dictionary/written.json"
 
         /** The id a word gets unless its file sets one: `gre:bete-noire` for "bête noire". */
         fun wordId(packId: String, headword: String): String = "$packId:${slug(headword)}"
@@ -115,6 +128,12 @@ private fun WordValue.toModel(packId: String, deckId: String, position: Int) = W
     antonyms = antonyms,
     note = note,
     position = position,
+)
+
+private fun DictionaryEntryValue.toModel(source: DictionarySource) = DictionaryEntry(
+    word = word,
+    senses = senses.map { DictionarySense(it.pos.toModel(), it.definition, it.example) },
+    source = source,
 )
 
 private fun LevelValue.toModel() = when (this) {

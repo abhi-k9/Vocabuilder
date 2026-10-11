@@ -57,5 +57,33 @@ A deck file looks like this:
 - **Notes** are for what a learner could get wrong: a confusable word ("adverse" and "averse"), a
   secondary meaning, or a meaning that's the opposite of what it looks like ("enervate").
 
+## Dictionary
+
+Synonyms and antonyms that aren't words of the packs show meanings from the dictionary, in
+`content/dictionary`:
+
+```
+dictionary/
+  wordnet.json        meanings from Open English WordNet, made by scripts/build-dictionary.py
+  written.json        meanings written for Vocabuilder, of the words WordNet doesn't have
+  LICENSE.txt         Open English WordNet's license, which must ship with its meanings
+```
+
+Both files list entries like this, with an optional example:
+
+```json
+{"entries": [
+{"word": "subside", "senses": [{"pos": "verb", "definition": "wear off or die down", "example": "The pain subsided"}]}
+]}
+```
+
+Every synonym and antonym that isn't a word of the packs needs an entry, and every entry must be
+one of them. After changing the synonyms or antonyms, run `scripts/build-dictionary.py` (it
+downloads Open English WordNet 2025, about 11 MB, into `build/`). It picks the senses of each word
+that WordNet links to the words listing it, or else the most common of their part of speech, and
+lists the words WordNet doesn't have: write those in `written.json`, in the packs' style, with an
+example. The script leaves out of `wordnet.json` the words that `written.json` has, so to replace a
+poor WordNet entry, write the word there and run the script again.
+
 `BundledContentTest` checks all of these rules it can on every build: run
 `./gradlew :core:content:testDebugUnitTest`.
