@@ -25,6 +25,11 @@
         <item quantity="other">%d words</item>
     </plurals>
     <string name="feature_decks_caught_up_message">You\'re all caught up with this deck. Its words will come back when they\'re due for review.</string>
+    <plurals name="feature_decks_study">
+        <item quantity="one">Study %d word</item>
+        <item quantity="other">Study %d words</item>
+    </plurals>
+    <string name="feature_decks_practice">Practice anyway</string>
     <string name="feature_decks_reset">Reset progress</string>
     <string name="feature_decks_reset_title">Reset this deck?</string>
     <string name="feature_decks_reset_message">Your progress on its words, including stars and words marked as known, will be lost.</string>

@@ -46,6 +46,7 @@ include(":core:testing")
 include(":core:ui")
 
 include(":feature:decks")
+include(":feature:study")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     """

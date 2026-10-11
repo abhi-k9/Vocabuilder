@@ -14,6 +14,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.outlined.RestartAlt
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -23,6 +24,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -53,12 +55,14 @@ import io.github.abhik9.vocabuilder.core.ui.title
 @Composable
 internal fun DeckRoute(
     onBack: () -> Unit,
+    onStudy: (practice: Boolean) -> Unit,
     viewModel: DeckViewModel,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     DeckScreen(
         uiState = uiState,
         onBack = onBack,
+        onStudy = onStudy,
         onResetProgress = viewModel::resetProgress,
     )
 }
@@ -68,6 +72,7 @@ internal fun DeckRoute(
 internal fun DeckScreen(
     uiState: DeckUiState,
     onBack: () -> Unit,
+    onStudy: (practice: Boolean) -> Unit,
     onResetProgress: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -137,7 +142,7 @@ internal fun DeckScreen(
                 ),
                 modifier = Modifier.fillMaxSize(),
             ) {
-                item(key = "header") { DeckHeader(uiState.overview) }
+                item(key = "header") { DeckHeader(uiState.overview, onStudy) }
                 item(key = "divider") { HorizontalDivider(modifier = Modifier.padding(top = 8.dp)) }
                 items(uiState.words, key = { it.id }) { word -> WordRow(word) }
             }
@@ -167,7 +172,7 @@ internal fun DeckScreen(
 }
 
 @Composable
-private fun DeckHeader(overview: DeckOverview) {
+private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -187,6 +192,14 @@ private fun DeckHeader(overview: DeckOverview) {
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            OutlinedButton(onClick = { onStudy(true) }, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(R.string.feature_decks_practice))
+            }
+        } else {
+            val cards = overview.counts.new + overview.dueCount
+            Button(onClick = { onStudy(false) }, modifier = Modifier.fillMaxWidth()) {
+                Text(pluralStringResource(R.plurals.feature_decks_study, cards, cards))
+            }
         }
     }
 }

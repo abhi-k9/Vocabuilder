@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_study_close">Close</string>
+    <string name="feature_study_undo">Undo last answer</string>
+    <string name="feature_study_daily_review">Daily review</string>
+    <string name="feature_study_starred">Starred words</string>
+    <string name="feature_study_practice">%1$s · Practice</string>
+    <string name="feature_study_count">%1$d of %2$d</string>
+
+    <string name="feature_study_tap_to_reveal">Tap the card to see the meaning</string>
+    <string name="feature_study_tap_to_reveal_word">Tap the card to see the word</string>
+    <string name="feature_study_which_word">Which word means…</string>
+    <string name="feature_study_show_meaning">Show meaning</string>
+    <string name="feature_study_show_word">Show word</string>
+    <string name="feature_study_flip_back">Show the front</string>
+    <string name="feature_study_knew">Knew it</string>
+    <string name="feature_study_did_not_know">Didn\'t know</string>
+    <string name="feature_study_swipe_hint">Swipe right if you knew it, left if you didn\'t</string>
+    <string name="feature_study_synonyms">Synonyms</string>
+    <string name="feature_study_antonyms">Antonyms</string>
+    <string name="feature_study_sense_number">%1$d.</string>
+
+    <string name="feature_study_empty_title">All caught up</string>
+    <string name="feature_study_empty_deck">No words in this deck are due right now. They\'ll come back when it\'s time to review them.</string>
+    <string name="feature_study_empty_daily">Nothing is due today, and you\'ve met today\'s new words. Come back tomorrow, or study a deck.</string>
+    <string name="feature_study_empty_starred">You haven\'t starred any words yet. Star a word on its card to study it here.</string>
+    <string name="feature_study_practice_anyway">Practice anyway</string>
+    <string name="feature_study_done">Done</string>
+
+    <string name="feature_study_finished_title">Session complete</string>
+    <string name="feature_study_finished_deck">You\'ve gone through %1$s.</string>
+    <string name="feature_study_stat_studied">Words studied</string>
+    <string name="feature_study_stat_knew">Knew right away</string>
+    <string name="feature_study_stat_missed">Missed at first</string>
+    <string name="feature_study_stat_mastered">Newly mastered</string>
+    <string name="feature_study_next_deck">Continue with %1$s</string>
+</resources>
