@@ -21,10 +21,13 @@ class SettingsViewModelTest {
 
     private val settings = FakeUserSettingsRepository()
     private val progress = FakeProgressRepository()
-    private val viewModel = SettingsViewModel(settings, progress, AppInfo("1.0.0", "https://example.com"))
+
+    // Created in each test, once the rule has replaced the main dispatcher that viewModelScope uses.
+    private fun viewModel() = SettingsViewModel(settings, progress, AppInfo("1.0.0", "https://example.com"))
 
     @Test
     fun changesSettings() = runTest {
+        val viewModel = viewModel()
         viewModel.setThemeMode(ThemeMode.DARK)
         viewModel.setUseDynamicColor(false)
         viewModel.setNewWordsPerDay(20)
@@ -48,6 +51,7 @@ class SettingsViewModelTest {
     @Test
     fun resetsAllProgressAndSaysSo() = runTest {
         progress.setProgress(WordProgress("gre:abate", stage = 3, reviewCount = 2))
+        val viewModel = viewModel()
 
         viewModel.resetAllProgress()
 
