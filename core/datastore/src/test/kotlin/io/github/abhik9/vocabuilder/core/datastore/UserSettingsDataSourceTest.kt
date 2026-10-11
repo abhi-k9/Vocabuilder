@@ -39,7 +39,7 @@ class UserSettingsDataSourceTest {
         dataSource.setNewWordsPerDay(25)
         dataSource.setCardFront(CardFront.DEFINITION)
         dataSource.setAutoPronounce(true)
-        dataSource.setShuffleCards(true)
+        dataSource.setShuffleCards(false)
 
         assertEquals(
             UserSettings(
@@ -48,7 +48,7 @@ class UserSettingsDataSourceTest {
                 newWordsPerDay = 25,
                 cardFront = CardFront.DEFINITION,
                 autoPronounce = true,
-                shuffleCards = true,
+                shuffleCards = false,
             ),
             dataSource.settings.first(),
         )

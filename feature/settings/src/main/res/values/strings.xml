@@ -24,7 +24,7 @@
     <string name="feature_settings_auto_pronounce">Pronounce automatically</string>
     <string name="feature_settings_auto_pronounce_summary">Say the word aloud when its card is turned over</string>
     <string name="feature_settings_shuffle">Shuffle cards</string>
-    <string name="feature_settings_shuffle_summary">Study a deck\'s words in random order</string>
+    <string name="feature_settings_shuffle_summary">Show cards in random order rather than alphabetically</string>
 
     <string name="feature_settings_section_progress">Progress</string>
     <string name="feature_settings_reset_all">Reset all progress</string>

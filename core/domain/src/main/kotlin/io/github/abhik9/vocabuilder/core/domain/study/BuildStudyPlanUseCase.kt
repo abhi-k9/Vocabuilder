@@ -44,8 +44,12 @@ class BuildStudyPlanUseCase @Inject constructor(
                     .shuffled(random)
                 val introducedToday = words.count { it.progress.introducedDay == today }
                 val newAllowed = (settings.newWordsPerDay - introducedToday).coerceAtLeast(0)
-                val new = ordered.filter { it.progress.isNew && !it.progress.alreadyKnown }.take(newAllowed)
-                due + new
+                // New words come deck by deck. Shuffled, they're picked at random from the deck being
+                // learned, and mixed in with the reviews.
+                val new = ordered.filter { it.progress.isNew && !it.progress.alreadyKnown }
+                    .let { if (settings.shuffleCards) it.shuffledWithinDecks(random) else it }
+                    .take(newAllowed)
+                (due + new).maybeShuffled(settings.shuffleCards, random)
             }
 
             StudyMode.STARRED -> ordered.filter { it.progress.starred }.maybeShuffled(settings.shuffleCards, random)
@@ -57,6 +61,10 @@ class BuildStudyPlanUseCase @Inject constructor(
 
     private fun List<WordSummary>.maybeShuffled(shuffle: Boolean, random: Random) =
         if (shuffle) shuffled(random) else this
+
+    /** Shuffles the words of each deck, keeping the decks in order. */
+    private fun List<WordSummary>.shuffledWithinDecks(random: Random) =
+        groupBy { it.deckId }.values.flatMap { it.shuffled(random) }
 
     private fun deckOrder(decks: List<Deck>): Comparator<WordSummary> {
         val deckIndex = decks.withIndex().associate { (index, deck) -> deck.id to index }

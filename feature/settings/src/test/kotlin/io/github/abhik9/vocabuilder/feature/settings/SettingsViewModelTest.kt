@@ -33,7 +33,7 @@ class SettingsViewModelTest {
         viewModel.setNewWordsPerDay(20)
         viewModel.setCardFront(CardFront.DEFINITION)
         viewModel.setAutoPronounce(true)
-        viewModel.setShuffleCards(true)
+        viewModel.setShuffleCards(false)
 
         assertEquals(
             UserSettings(
@@ -42,7 +42,7 @@ class SettingsViewModelTest {
                 newWordsPerDay = 20,
                 cardFront = CardFront.DEFINITION,
                 autoPronounce = true,
-                shuffleCards = true,
+                shuffleCards = false,
             ),
             settings.settings.value,
         )

@@ -9,8 +9,8 @@ data class UserSettings(
     val cardFront: CardFront = CardFront.WORD,
     /** Say the word aloud when the card is turned over. */
     val autoPronounce: Boolean = false,
-    /** Study a deck's words in random order rather than the deck's order. */
-    val shuffleCards: Boolean = false,
+    /** Show cards in random order, rather than in their deck's order, which is alphabetical. */
+    val shuffleCards: Boolean = true,
 ) {
     companion object {
         const val DEFAULT_NEW_WORDS_PER_DAY = 10

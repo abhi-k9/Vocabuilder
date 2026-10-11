@@ -31,7 +31,7 @@ class StudyViewModelTest {
 
     private val words = FakeWordRepository.withProgress()
     private val progress = words.progressRepository
-    private val settings = FakeUserSettingsRepository()
+    private val settings = FakeUserSettingsRepository(UserSettings(shuffleCards = false))
     private val pronouncer = FakePronouncer()
 
     private fun viewModel(request: StudyRequest) = StudyViewModel(
@@ -186,7 +186,7 @@ class StudyViewModelTest {
 
     @Test
     fun saysTheWordWhenAskedOrWhenTurningTheCardIfEnabled() = runTest {
-        settings.set(UserSettings(autoPronounce = true))
+        settings.set(UserSettings(autoPronounce = true, shuffleCards = false))
         val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id))
         backgroundScope.launch { viewModel.uiState.collect {} }
         viewModel.state()

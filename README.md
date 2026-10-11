@@ -15,9 +15,9 @@ It runs on Android 8.0 and newer.
   It also offers the deck to continue with, your starred words and your overall progress.
 - **Decks** lists the 20 decks, from common to advanced words, with how much of each you've
   learned. Open one to study it, see its words or reset it.
-- **Cards**: tap a card to turn it over, then answer *Knew it* or *Didn't know*, or swipe it right
-  or left. A missed card comes back a few cards later, and the last answer can be undone. A session
-  ends with a summary.
+- **Cards** come in random order. Tap a card to turn it over, then answer *Knew it* or *Didn't
+  know*, or swipe it right or left. A missed card comes back a few cards later, and the last answer
+  can be undone. A session ends with a summary.
 - **I know this** takes a word you already know out of study (its page can bring it back); a
   **star** marks a word to study with the other starred ones.
 - **Words**: search by word or by its main meaning (ignoring case and accents), filter by
@@ -27,8 +27,8 @@ It runs on Android 8.0 and newer.
   it has an English voice), or turn on *Pronounce automatically* to hear each word when its card
   is turned over.
 - **Settings**: the number of new words a day (0 to 50), whether cards show the word or its meaning
-  first, pronouncing automatically, shuffling, the theme, dynamic color (Android 12 and newer) and
-  resetting all progress.
+  first, pronouncing automatically, random or alphabetical order, the theme, dynamic color (Android
+  12 and newer) and resetting all progress.
 
 Progress is included in Android's backup and device-to-device transfer.
 

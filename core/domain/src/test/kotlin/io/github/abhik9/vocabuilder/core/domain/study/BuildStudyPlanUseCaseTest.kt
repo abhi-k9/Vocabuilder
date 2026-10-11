@@ -16,7 +16,8 @@ import kotlinx.coroutines.test.runTest
 class BuildStudyPlanUseCaseTest {
     private val words = FakeWordRepository.withProgress()
     private val progress = words.progressRepository
-    private val settings = FakeUserSettingsRepository()
+    private val inOrder = UserSettings(shuffleCards = false)
+    private val settings = FakeUserSettingsRepository(inOrder)
     private val buildPlan = BuildStudyPlanUseCase(words, settings, TestData.clock)
 
     private suspend fun plan(request: StudyRequest) = buildPlan(request, Random(1)).wordIds
@@ -58,17 +59,21 @@ class BuildStudyPlanUseCaseTest {
     }
 
     @Test
-    fun shufflesDecksWhenAsked() = runTest {
-        settings.set(UserSettings(shuffleCards = true))
+    fun shufflesCardsByDefault() = runTest {
+        settings.set(UserSettings())
+        val inDeckOrder = TestData.commonWords.map { it.id }
 
-        val ids = plan(StudyRequest(StudyMode.DECK, TestData.commonDeck.id))
+        val plans = (1..20).map { seed ->
+            buildPlan(StudyRequest(StudyMode.DECK, TestData.commonDeck.id), Random(seed)).wordIds
+        }
 
-        assertEquals(TestData.commonWords.map { it.id }.toSet(), ids.toSet())
+        plans.forEach { assertEquals(inDeckOrder.toSet(), it.toSet()) }
+        assertTrue(plans.any { it != inDeckOrder }, "Never shuffled")
     }
 
     @Test
     fun dailyReviewHasDueWordsThenNewOnesUpToTheDailyLimit() = runTest {
-        settings.set(UserSettings(newWordsPerDay = 2))
+        settings.set(inOrder.copy(newWordsPerDay = 2))
         progress.setProgress(
             studied("vex", stage = 3, dueDay = TODAY),
             studied("laud", stage = 2, dueDay = TODAY.plusDays(1)),
@@ -78,8 +83,24 @@ class BuildStudyPlanUseCaseTest {
     }
 
     @Test
-    fun dailyReviewCountsWordsAlreadyIntroducedToday() = runTest {
+    fun shuffledDailyReviewPicksNewWordsAtRandomFromTheDeckBeingLearned() = runTest {
         settings.set(UserSettings(newWordsPerDay = 2))
+        progress.setProgress(studied("vex", stage = 3, dueDay = TODAY))
+        val commonIds = TestData.commonWords.map { it.id }
+
+        // Every seed picks two of the common deck's words, though the advanced deck has one left too.
+        val plans = (1..20).map { seed -> buildPlan(StudyRequest(StudyMode.DAILY_REVIEW), Random(seed)).wordIds }
+        plans.forEach { ids ->
+            assertEquals(setOf("gre:vex"), ids.toSet() - commonIds.toSet())
+            assertEquals(3, ids.size)
+        }
+        assertTrue(plans.map { it.toSet() }.distinct().size > 1, "Always the same new words")
+        assertTrue(plans.any { it.first() != "gre:vex" }, "The review never mixed with the new words")
+    }
+
+    @Test
+    fun dailyReviewCountsWordsAlreadyIntroducedToday() = runTest {
+        settings.set(inOrder.copy(newWordsPerDay = 2))
         progress.setProgress(
             WordProgress("gre:abate", stage = 3, dueDay = TODAY.plusDays(7), reviewCount = 1, introducedDay = TODAY),
         )
