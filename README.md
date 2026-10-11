@@ -2,73 +2,77 @@
 
 [![CI](https://github.com/abhi-k9/Vocabuilder/actions/workflows/ci.yml/badge.svg)](https://github.com/abhi-k9/Vocabuilder/actions/workflows/ci.yml)
 
-An Android app for building exam vocabulary with flashcards and spaced repetition, starting with
-1,000 GRE words. It's free, has no ads, needs no account and never goes online: your progress stays
-on your device.
+Vocabuilder helps you learn the vocabulary of the GRE with flashcards: 1,000 words in 20 decks,
+each coming back just as you're about to forget it. It's free, with no ads and no account, and it
+works offline: the app has no Internet access, so your progress stays on your device.
 
-Built with Kotlin, Jetpack Compose and Material 3, following Google's recommended app architecture.
-See the [plan](docs/PLAN.md) for what's next.
+Download the APK from the [latest release](https://github.com/abhi-k9/Vocabuilder/releases/latest).
+It runs on Android 8.0 and newer.
 
-## Features
+## Usage
 
-- **1,000 GRE words** in 20 decks of 50, from common to advanced, each with original definitions,
-  example sentences, synonyms and antonyms, and notes on easily confused words ("adverse" and
-  "averse") and secondary meanings ("table", "temper", "flag").
-- **Flashcards**: tap a card to turn it over, then answer *Knew it* or *Didn't know*, or swipe right
-  or left. Missed cards come back a few cards later, and the last answer can be undone. The front
-  can show the word or its meaning.
-- **Spaced repetition**: each word known moves up a stage, reviewed after 1, 3, 7, 16, 35 and 90
-  days; a missed word starts over. Words known for 16 days or more count as mastered.
-- **Today**: a daily review of the words due plus a few new ones (10 a day by default), the deck to
-  continue with, and your progress.
-- **Decks** with their progress (new, learning, reviewing and mastered words), each with its word
-  list. A caught-up deck can be practiced without changing its schedule, or reset.
-- **I know this** takes a word out of study, and **stars** mark words to study on their own.
-- **Words**: search all words and their meanings (ignoring case and accents), filter by state or
-  stars, and open a word's page with its senses, related words and progress.
-- **Pronunciation** with the device's text-to-speech, on demand or when a card is turned over.
-- Light and dark themes, dynamic color, an adaptive layout (navigation rail on tablets), and
-  progress included in Android's backup and device transfer.
+- **Today** has your daily review: the words due today, plus a few new ones (10 a day by default).
+  It also offers the deck to continue with, your starred words and your overall progress.
+- **Decks** lists the 20 decks, from common to advanced words, with how much of each you've
+  learned. Open one to study it, see its words or reset it.
+- **Cards**: tap a card to turn it over, then answer *Knew it* or *Didn't know*, or swipe it right
+  or left. A missed card comes back a few cards later, and the last answer can be undone. A session
+  ends with a summary.
+- **I know this** takes a word you already know out of study; a **star** marks a word to study
+  with the other starred ones.
+- **Words**: search all the words and their meanings (ignoring case and accents), filter them by
+  progress or star, and open a word's page: its meanings with examples, synonyms and antonyms, notes
+  on easily confused words, and when it's due.
+- **Pronunciation**: the speaker button says a word aloud with your device's text-to-speech, or
+  turn on *Pronounce automatically* to hear each word when its card is turned over.
+- **Settings**: the number of new words a day (0 to 50), whether cards show the word or its meaning
+  first, shuffling, the theme and dynamic color, and resetting all progress.
 
-## Architecture
+Progress is included in Android's backup and device-to-device transfer.
 
-The app follows a layered, multi-module architecture with unidirectional data flow, like
-[ExpiryWatch](https://github.com/abhi-k9/ExpiryWatch):
+## How words come back
 
-| Module | Contents |
-|--------|----------|
-| `app` | Application, activity, navigation shell |
-| `feature:home`, `feature:decks`, `feature:study`, `feature:words`, `feature:settings` | Screens and their ViewModels |
-| `core:model` | Domain models (pure Kotlin) |
-| `core:domain` | The scheduler, study sessions, use cases and repository interfaces (pure Kotlin) |
-| `core:content` | The bundled word packs and their loader and validator |
-| `core:data` | Repository implementations; copies the bundled packs into the database |
-| `core:database` | Room database |
-| `core:datastore` | User settings |
-| `core:speech` | Text-to-speech |
-| `core:designsystem`, `core:ui` | Theme, mastery colors and shared components |
-| `core:navigation`, `core:common`, `core:testing` | Navigation keys, dispatchers and clock, test fakes |
-| `build-logic` | Gradle convention plugins |
+Each time you know a word, it moves up a stage and comes back later: after 1, 3, 7, 16, 35, then
+90 days.
 
-The word packs are JSON files in `core/content/src/main/assets/content`; see the
-[content guide](docs/CONTENT.md) for their format and style rules, which a test checks.
+- A word you know the first time you see it starts at 7 days.
+- A word you miss starts over: it comes back a few cards later until you know it, then the next
+  day.
+- From 16 days on, a word counts as **mastered**. Before that, it's **learning** (just missed) or
+  **reviewing**.
+- A deck you're caught up with can be practiced anyway. Practicing doesn't move words ahead of
+  their schedule, but a word you miss still starts over.
 
-## Building
+## Words
+
+The definitions, example sentences and notes are written for Vocabuilder. The word lists are JSON
+files in [`core/content/src/main/assets/content`](core/content/src/main/assets/content); the
+[content guide](docs/CONTENT.md) describes their format and the style rules a test checks them
+against.
+
+## Development
 
 Requirements: JDK 17 or newer, and the Android SDK (Android Studio sets this up for you).
 
 ```bash
-./gradlew assembleDebug      # build
-./gradlew installDebug       # install on a connected device
+./gradlew installDebug                                          # build and install on a device
+./gradlew spotlessApply                                         # format the code
+./gradlew :core:model:test :core:domain:test testDebugUnitTest  # unit tests
+./gradlew :app:lintDebug                                        # Android Lint
 ```
 
-Debug builds use the application ID suffix `.debug`, so they can be installed next to a release
-build.
+Debug builds have the application ID suffix `.debug`, so they can be installed next to a release.
+[CI](.github/workflows/ci.yml) runs the formatting check, unit tests, lint and builds on every
+push, and checks that the Room schema is committed.
 
-### Release signing
+The app is written in Kotlin with Jetpack Compose, Material 3, Hilt, Room and Navigation 3. The
+screens are in the `feature:*` modules, and the scheduler and study logic are plain Kotlin in
+`core:domain`, unit tested on the JVM.
 
-Release builds are minified with R8. To sign them with your own key, create `keystore.properties`
-in the project root (it's git-ignored):
+### Releasing
+
+Release builds are minified with R8 and signed with the key described by `keystore.properties` in
+the project root (git-ignored), or with the debug key without it:
 
 ```properties
 storeFile=path/to/release.jks
@@ -77,41 +81,14 @@ keyAlias=…
 keyPassword=…
 ```
 
-Without it, release builds are signed with the debug key.
-
-To sign the release APKs built by CI and the release workflow, add these repository secrets
-(Settings → Secrets and variables → Actions):
+The [Release workflow](.github/workflows/release.yml) publishes a GitHub release with the signed
+APK, its R8 mapping and its SHA-256 checksum. Run it from the Actions tab with a version such as
+`1.2.0` (it tags the commit `v1.2.0`), or push a `v1.2.0` tag. Each part of the version must be
+between 0 and 99, as it sets the version code (`10200`). It needs these repository secrets:
 
 | Secret | Value |
 |--------|-------|
-| `RELEASE_KEYSTORE_BASE64` | The keystore file, base64-encoded on a single line (`base64 -w 0 release.jks`) |
-| `RELEASE_KEYSTORE_PASSWORD` | The keystore password |
+| `RELEASE_KEYSTORE_BASE64` | The keystore, base64-encoded on one line (`base64 -w 0 release.jks`) |
+| `RELEASE_KEYSTORE_PASSWORD` | The keystore's password |
 | `RELEASE_KEY_ALIAS` | The key's alias |
-| `RELEASE_KEY_PASSWORD` | Optional: the key's password, if it differs from the keystore's |
-
-### Releases
-
-The release workflow publishes a [GitHub release](https://github.com/abhi-k9/Vocabuilder/releases)
-with the signed APK, its R8 mapping and its SHA-256 checksum. Start it either way:
-
-- In the Actions tab, open **Release**, choose **Run workflow** and enter the version, such as
-  `1.0.0`. The workflow tags the branch's latest commit as `v1.0.0`.
-- Or push a tag: `git tag v1.0.0 && git push origin v1.0.0`.
-
-The version sets the app's version name (`1.2.0`) and version code (`10200`), so each part must be
-between 0 and 99. Local builds are version `1.0.0` unless you pass
-`-Pvocabuilder.versionName=1.2.0`. The workflow refuses to publish without the signing secrets.
-
-## Testing and checks
-
-```bash
-./gradlew spotlessApply                                      # format the code
-./gradlew :core:model:test :core:domain:test testDebugUnitTest  # unit tests
-./gradlew :app:lintDebug                                     # Android Lint
-```
-
-Domain logic has plain JVM unit tests, the database is tested with Robolectric, and ViewModels are
-tested with the fakes in `core:testing`.
-
-The [CI workflow](.github/workflows/ci.yml) runs the formatting check, unit tests, debug and release
-builds and lint on every push, and checks that the exported Room schema is committed.
+| `RELEASE_KEY_PASSWORD` | Only if the key's password differs from the keystore's |
