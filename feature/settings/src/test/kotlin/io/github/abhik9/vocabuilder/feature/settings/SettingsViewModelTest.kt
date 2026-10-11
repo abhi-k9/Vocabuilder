@@ -19,6 +19,7 @@ import kotlin.test.assertIs
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
@@ -79,6 +80,8 @@ class SettingsViewModelTest {
     @Test
     fun turnsDiagnosticsOnAndOffAndClearsThem() = runTest {
         val viewModel = viewModel()
+        // Kept up to date while watched, as by the screen.
+        backgroundScope.launch { viewModel.diagnostics.collect {} }
         diagnostics.logSize.value = 1024
 
         viewModel.setDiagnosticsRecording(true)
