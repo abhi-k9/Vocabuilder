@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Goes through Vocabuilder's main screens on a connected device or emulator, as a user would: studies a deck, with
-the buttons and with swipes, then the daily review, then opens the word list and the settings. Fails if the app
-crashes, a screen doesn't show up or a swipe doesn't answer the card as it should.
+the buttons and with swipes, looking up a synonym on the way, then the daily review, then opens the word list and the
+settings. Fails if the app crashes, a screen doesn't show up, a synonym has no meaning or a swipe doesn't answer the
+card as it should.
 
 Each step leaves a screenshot and the screen's view hierarchy in the output directory, with logcat and, after a crash,
 the crash (crash.txt) for the workflow to retrace.
@@ -171,6 +172,43 @@ def swipe(direction):
     log(f"ok: {step}, then on the screen: {visible_text(after)}")
 
 
+PARTS_OF_SPEECH = ("noun", "verb", "adjective", "adverb")
+looked_up = False
+
+
+def look_up_synonym():
+    """On a turned card, taps its first synonym if one shows, and checks that its meaning does, then closes it."""
+    global looked_up
+    nodes = list(ElementTree.fromstring(screen()).iter("node"))
+    texts = [node.get("text", "") for node in nodes]
+    if looked_up or "Synonyms" not in texts:
+        return
+    chip = next((node for node in nodes[texts.index("Synonyms") + 1 :] if node.get("text")), None)
+    if chip is None or chip.get("text") == "Antonyms":
+        return
+    synonym = chip.get("text")
+    x, y = center(chip)
+    adb("shell", "input", "tap", str(x), str(y))
+    time.sleep(2)
+    step = f"look up '{synonym}'"
+    check_alive(step)
+    sheet = snapshot("look-up")
+    shown = visible_text(sheet)
+    # The sheet's title is the synonym, apart from its chip, with a part of speech below it for each meaning.
+    nodes = list(ElementTree.fromstring(sheet).iter("node"))
+    title = next((n for n in nodes if n.get("text") == synonym and n.get("bounds") != chip.get("bounds")), None)
+    if title is None:
+        fail(f"{step} didn't show it")
+    top = center(title)[1]
+    if "There's no meaning to show" in shown or not any(
+        n.get("text") in PARTS_OF_SPEECH and center(n)[1] > top for n in nodes
+    ):
+        fail(f"{step} showed no meaning")
+    log(f"ok: {step}, then on the screen: {shown}")
+    looked_up = True
+    back()
+
+
 def back():
     adb("shell", "input", "keyevent", "KEYCODE_BACK")
     time.sleep(2)
@@ -178,8 +216,9 @@ def back():
 
 
 def study_one_card(answer):
-    """Turns the current card over and answers it with a button, or with a swipe."""
+    """Turns the current card over, looks up a synonym if none was yet, and answers it with a button or a swipe."""
     tap("Show meaning")
+    look_up_synonym()
     if answer in ("left", "right"):
         swipe(answer)
     else:
@@ -231,5 +270,7 @@ if find(screen(), "Start") is not None:
 tap("Words")
 tap("Settings")
 
+if not looked_up:
+    log("warning: no card showed a synonym to look up")
 save_logs()
 log("PASS: no crash")
