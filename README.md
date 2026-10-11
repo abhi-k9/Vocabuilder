@@ -18,13 +18,14 @@ It runs on Android 8.0 and newer.
 - **Cards** come in random order. Tap a card to turn it over, then answer *Knew it* or *Didn't
   know*, or swipe it right or left. A missed card comes back a few cards later, and the last answer
   can be undone. A session ends with a summary.
-- **Synonyms and antonyms** on a card's back can be tapped to hear them, and to see their meanings
-  when they're words of the app, marked with a book.
+- **Synonyms and antonyms** on a card's back can be tapped to see their meanings and hear them:
+  their own when they're words of the app, or else the dictionary's.
 - **I know this** takes a word you already know out of study (its page can bring it back); a
   **star** marks a word to study with the other starred ones.
 - **Words**: search by word or by its main meaning (ignoring case and accents), filter by
-  progress or star, and open a word's page: its meanings with examples, synonyms and antonyms, a
-  note on a look-alike word or a second meaning for some, and when it's due.
+  progress or star, and open a word's page: its meanings with examples, synonyms and antonyms (to
+  open, or to look up in the dictionary), a note on a look-alike word or a second meaning for some,
+  and when it's due.
 - **Pronunciation**: the speaker button says a word aloud with your device's text-to-speech (when
   it has an English voice), or turn on *Pronounce automatically* to hear each word when its card
   is turned over.
@@ -53,6 +54,12 @@ The definitions, example sentences and notes are written for Vocabuilder. The wo
 files in [`core/content/src/main/assets/content`](core/content/src/main/assets/content); the
 [content guide](docs/CONTENT.md) describes their format and the style rules a test checks them
 against.
+
+The meanings of the synonyms and antonyms that aren't words of the app come from [Open English
+WordNet](https://en-word.net/) 2025, by the Open English WordNet team, under [CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/), and derived from Princeton WordNet (see the
+[license](core/content/src/main/assets/content/dictionary/LICENSE.txt)); a few that WordNet doesn't
+have are written for Vocabuilder.
 
 ## Diagnostics
 

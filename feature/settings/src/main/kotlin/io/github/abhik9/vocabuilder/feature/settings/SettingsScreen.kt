@@ -13,6 +13,7 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.LibraryBooks
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.DarkMode
@@ -354,6 +355,12 @@ private fun AboutSection(appInfo: AppInfo) {
         subtitle = stringResource(R.string.feature_settings_content_summary),
     )
     SettingsRow(
+        icon = Icons.AutoMirrored.Outlined.MenuBook,
+        title = stringResource(R.string.feature_settings_dictionary),
+        subtitle = stringResource(R.string.feature_settings_dictionary_summary),
+        onClick = { uriHandler.openUri(WORDNET_URL) },
+    )
+    SettingsRow(
         icon = Icons.Outlined.Lock,
         title = stringResource(R.string.feature_settings_privacy),
         subtitle = stringResource(R.string.feature_settings_privacy_summary),
@@ -408,3 +415,6 @@ private fun CardFront.label(): String = stringResource(
 private const val NEW_WORDS_STEP = 5
 
 private const val DIAGNOSTICS_MIME_TYPE = "text/plain"
+
+/** Open English WordNet, credited for the dictionary as its license requires. */
+private const val WORDNET_URL = "https://en-word.net/"
