@@ -35,6 +35,15 @@
     <string name="feature_settings_cancel">Cancel</string>
     <string name="feature_settings_reset_done">Your progress was reset</string>
 
+    <string name="feature_settings_section_diagnostics">Diagnostics</string>
+    <string name="feature_settings_diagnostics">Record diagnostics</string>
+    <string name="feature_settings_diagnostics_summary">Keep a log of what the app does, to help investigate issues. It stays on this device unless you export it.</string>
+    <string name="feature_settings_diagnostics_export">Export log</string>
+    <string name="feature_settings_diagnostics_export_summary">Save it with app and device details to a file (%1$s)</string>
+    <string name="feature_settings_diagnostics_clear">Clear log</string>
+    <string name="feature_settings_diagnostics_clear_summary">Delete what has been recorded</string>
+    <string name="feature_settings_diagnostics_exported">Diagnostics exported</string>
+    <string name="feature_settings_diagnostics_export_failed">Couldn\'t export the diagnostics. Please try again.</string>
     <string name="feature_settings_section_about">About</string>
     <string name="feature_settings_version">Version</string>
     <string name="feature_settings_source_code">Source code</string>

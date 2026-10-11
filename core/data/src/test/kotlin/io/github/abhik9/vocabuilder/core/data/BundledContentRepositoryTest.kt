@@ -9,6 +9,7 @@ import io.github.abhik9.vocabuilder.core.data.repository.RoomProgressRepository
 import io.github.abhik9.vocabuilder.core.data.repository.RoomWordRepository
 import io.github.abhik9.vocabuilder.core.database.VocabuilderDatabase
 import io.github.abhik9.vocabuilder.core.model.WordProgress
+import io.github.abhik9.vocabuilder.core.testing.diagnostics.RecordingEventLog
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -25,6 +26,7 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class BundledContentRepositoryTest {
     private lateinit var database: VocabuilderDatabase
+    private val log = RecordingEventLog()
 
     private val files = mutableMapOf(
         "index.json" to """{ "packs": ["gre"] }""",
@@ -69,13 +71,14 @@ class BundledContentRepositoryTest {
         val words = RoomWordRepository(database.contentDao())
         assertEquals(listOf("abate", "wane"), words.observeWordSummaries().first().map { it.headword }.sorted())
         assertEquals(listOf("gre/common-01"), words.observeDecks().first().map { it.id })
+        assertTrue(log.messages.single().startsWith("content: copied gre, 2 words in "), log.messages.single())
     }
 
     @Test
     fun updatesChangedPacksAndKeepsProgress() = runTest {
         val content = repository(StandardTestDispatcher(testScheduler))
         content.syncBundledContent()
-        RoomProgressRepository(database.progressDao()).setStarred("gre:abate", true)
+        RoomProgressRepository(database.progressDao(), log).setStarred("gre:abate", true)
 
         files["gre/common-01.json"] = deck("abate", "laud")
         content.syncBundledContent()
@@ -96,6 +99,7 @@ class BundledContentRepositoryTest {
 
         // The fingerprint still matches, so the (now broken) copy wasn't refreshed.
         assertEquals(emptyList(), dao.observeWordSummaries().first())
+        assertEquals("content: gre is up to date", log.messages.last())
     }
 
     @Test
@@ -112,5 +116,6 @@ class BundledContentRepositoryTest {
         loader = ContentLoader { files[it] },
         contentDao = database.contentDao(),
         ioDispatcher = dispatcher,
+        log = log,
     )
 }

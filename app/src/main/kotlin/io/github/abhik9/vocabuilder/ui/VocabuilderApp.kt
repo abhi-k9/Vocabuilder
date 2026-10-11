@@ -7,6 +7,7 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
@@ -14,6 +15,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.navigation.Navigator
 import io.github.abhik9.vocabuilder.feature.decks.navigation.decksEntries
 import io.github.abhik9.vocabuilder.feature.home.navigation.homeEntry
@@ -27,11 +29,12 @@ import io.github.abhik9.vocabuilder.navigation.TopLevelDestination
  * of the back stack. The bar is hidden on detail screens such as a study session.
  */
 @Composable
-fun VocabuilderApp() {
+fun VocabuilderApp(eventLog: EventLog = EventLog.NONE) {
     val backStack = rememberNavBackStack(Navigator.ROOT)
     val navigator = remember(backStack) { Navigator(backStack) }
 
     val currentKey = backStack.lastOrNull() ?: Navigator.ROOT
+    LaunchedEffect(currentKey) { eventLog.record { "screen: $currentKey" } }
     val currentTopLevelKey = navigator.currentTopLevelKey
     val layoutType = if (Navigator.isTopLevel(currentKey)) {
         NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(currentWindowAdaptiveInfoV2())

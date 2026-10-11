@@ -1,5 +1,8 @@
 package io.github.abhik9.vocabuilder.feature.settings
 
+import android.text.format.Formatter
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,8 +13,11 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.LibraryBooks
+import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.DeleteSweep
+import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Palette
@@ -46,6 +52,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.pluralStringResource
@@ -64,17 +71,28 @@ import kotlin.math.roundToInt
 @Composable
 internal fun SettingsRoute(viewModel: SettingsViewModel) {
     val settings by viewModel.settings.collectAsStateWithLifecycle()
+    val diagnostics by viewModel.diagnostics.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val resources by rememberUpdatedState(LocalResources.current)
 
     LaunchedEffect(viewModel) {
         viewModel.events.collect { event ->
-            when (event) {
-                SettingsEvent.ProgressReset ->
-                    snackbarHostState.showSnackbar(resources.getString(R.string.feature_settings_reset_done))
+            val message = when (event) {
+                SettingsEvent.ProgressReset -> R.string.feature_settings_reset_done
+
+                is SettingsEvent.DiagnosticsExported -> if (event.success) {
+                    R.string.feature_settings_diagnostics_exported
+                } else {
+                    R.string.feature_settings_diagnostics_export_failed
+                }
             }
+            snackbarHostState.showSnackbar(resources.getString(message))
         }
     }
+
+    val diagnosticsExportLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument(DIAGNOSTICS_MIME_TYPE),
+    ) { uri -> uri?.let { viewModel.exportDiagnosticsTo(it.toString()) } }
 
     SettingsScreen(
         settings = settings,
@@ -87,6 +105,10 @@ internal fun SettingsRoute(viewModel: SettingsViewModel) {
         onAutoPronounceChange = viewModel::setAutoPronounce,
         onShuffleChange = viewModel::setShuffleCards,
         onResetAllProgress = viewModel::resetAllProgress,
+        diagnostics = diagnostics,
+        onDiagnosticsRecordingChange = viewModel::setDiagnosticsRecording,
+        onExportDiagnostics = { diagnosticsExportLauncher.launch(viewModel.suggestedDiagnosticsFileName) },
+        onClearDiagnostics = viewModel::clearDiagnostics,
     )
 }
 
@@ -103,6 +125,10 @@ internal fun SettingsScreen(
     onAutoPronounceChange: (Boolean) -> Unit,
     onShuffleChange: (Boolean) -> Unit,
     onResetAllProgress: () -> Unit,
+    diagnostics: DiagnosticsState,
+    onDiagnosticsRecordingChange: (Boolean) -> Unit,
+    onExportDiagnostics: () -> Unit,
+    onClearDiagnostics: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     var showResetDialog by rememberSaveable { mutableStateOf(false) }
@@ -130,6 +156,7 @@ internal fun SettingsScreen(
                 onClick = { showResetDialog = true },
             )
 
+            DiagnosticsSection(diagnostics, onDiagnosticsRecordingChange, onExportDiagnostics, onClearDiagnostics)
             AboutSection(appInfo)
         }
     }
@@ -274,6 +301,39 @@ private fun NewWordsRow(newWordsPerDay: Int, onChange: (Int) -> Unit) {
 }
 
 @Composable
+private fun DiagnosticsSection(
+    diagnostics: DiagnosticsState,
+    onRecordingChange: (Boolean) -> Unit,
+    onExport: () -> Unit,
+    onClear: () -> Unit,
+) {
+    SectionHeader(stringResource(R.string.feature_settings_section_diagnostics))
+    SwitchRow(
+        icon = Icons.Outlined.BugReport,
+        title = stringResource(R.string.feature_settings_diagnostics),
+        subtitle = stringResource(R.string.feature_settings_diagnostics_summary),
+        checked = diagnostics.isRecording,
+        onCheckedChange = onRecordingChange,
+    )
+    // Only once something has been recorded.
+    if (diagnostics.logBytes > 0) {
+        val size = Formatter.formatShortFileSize(LocalContext.current, diagnostics.logBytes)
+        SettingsRow(
+            icon = Icons.Outlined.Description,
+            title = stringResource(R.string.feature_settings_diagnostics_export),
+            subtitle = stringResource(R.string.feature_settings_diagnostics_export_summary, size),
+            onClick = onExport,
+        )
+        SettingsRow(
+            icon = Icons.Outlined.DeleteSweep,
+            title = stringResource(R.string.feature_settings_diagnostics_clear),
+            subtitle = stringResource(R.string.feature_settings_diagnostics_clear_summary),
+            onClick = onClear,
+        )
+    }
+}
+
+@Composable
 private fun AboutSection(appInfo: AppInfo) {
     val uriHandler = LocalUriHandler.current
     SectionHeader(stringResource(R.string.feature_settings_section_about))
@@ -346,3 +406,5 @@ private fun CardFront.label(): String = stringResource(
 )
 
 private const val NEW_WORDS_STEP = 5
+
+private const val DIAGNOSTICS_MIME_TYPE = "text/plain"

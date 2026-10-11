@@ -54,15 +54,32 @@ files in [`core/content/src/main/assets/content`](core/content/src/main/assets/c
 [content guide](docs/CONTENT.md) describes their format and the style rules a test checks them
 against.
 
+## Diagnostics
+
+To investigate an issue, turn on **Record diagnostics** in Settings, reproduce the issue, then
+**Export log** to a file and attach it to the report. Debug builds record by default.
+
+The log records what the app does: process starts and crashes, the screens opened, study sessions
+and answers (by word), settings changes, copying the word lists into the database and the
+text-to-speech engine. The export starts with the app's version, the device, recent process exits
+and how many words are at each stage. It's capped at about 512 KB, isn't included in backups, and
+never leaves the device unless you export it.
+
+Release builds are obfuscated by R8, so a crash in the log names classes like `x21`. To read it, run
+the [Retrace workflow](.github/workflows/retrace.yml) from the Actions tab with the version shown
+at the top of the log, and paste the stack trace. The [Device test
+workflow](.github/workflows/device-test.yml) goes through the app on an emulator, and retraces a
+crash the same way.
+
 ## Development
 
 Requirements: JDK 21 or newer, and the Android SDK (Android Studio sets this up for you).
 
 ```bash
-./gradlew installDebug                                          # build and install on a device
-./gradlew spotlessApply                                         # format the code
-./gradlew :core:model:test :core:domain:test testDebugUnitTest  # unit tests
-./gradlew :app:lintDebug                                        # Android Lint
+./gradlew installDebug       # build and install on a device
+./gradlew spotlessApply      # format the code
+./gradlew :core:common:test :core:model:test :core:domain:test testDebugUnitTest
+./gradlew :app:lintDebug     # Android Lint
 ```
 
 Debug builds have the application ID suffix `.debug`, so they can be installed next to a release.

@@ -12,6 +12,7 @@ import io.github.abhik9.vocabuilder.core.model.WordProgress
 import io.github.abhik9.vocabuilder.core.testing.FakePronouncer
 import io.github.abhik9.vocabuilder.core.testing.MainDispatcherRule
 import io.github.abhik9.vocabuilder.core.testing.TestData
+import io.github.abhik9.vocabuilder.core.testing.diagnostics.RecordingEventLog
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeUserSettingsRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeWordRepository
 import kotlin.test.assertEquals
@@ -33,6 +34,7 @@ class StudyViewModelTest {
     private val progress = words.progressRepository
     private val settings = FakeUserSettingsRepository(UserSettings(shuffleCards = false))
     private val pronouncer = FakePronouncer()
+    private val log = RecordingEventLog()
 
     private fun viewModel(request: StudyRequest, words: FakeWordRepository = this.words) = StudyViewModel(
         request = request,
@@ -45,6 +47,7 @@ class StudyViewModelTest {
         observeDeckOverviews = ObserveDeckOverviewsUseCase(words, TestData.clock),
         pronouncer = pronouncer,
         settingsRepository = settings,
+        log = log,
     )
 
     private suspend fun StudyViewModel.state() = uiState.first { it != StudyUiState.Loading }
@@ -81,6 +84,16 @@ class StudyViewModelTest {
 
         assertEquals(1, progress.getProgress("gre:pique")?.stage)
         assertEquals(3, progress.getProgress("gre:vex")?.stage)
+        assertEquals(
+            listOf(
+                "study: started StudyRequest(mode=DECK, deckId=gre/advanced-01, practice=false), 2 cards",
+                "study: gre:pique missed, stage new to 0, due 2026-10-10",
+                "study: gre:vex known, stage new to 3, due 2026-10-17",
+                "study: gre:pique known, stage 0 to 1, due 2026-10-11",
+                "study: finished, SessionSummary(studied=2, knewFirstTime=1, missed=1, newlyMastered=0)",
+            ),
+            log.messages,
+        )
     }
 
     @Test

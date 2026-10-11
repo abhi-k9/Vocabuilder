@@ -2,6 +2,7 @@ package io.github.abhik9.vocabuilder.core.data.repository
 
 import io.github.abhik9.vocabuilder.core.common.di.AppDispatcher
 import io.github.abhik9.vocabuilder.core.common.di.Dispatcher
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.content.ContentLoader
 import io.github.abhik9.vocabuilder.core.database.dao.ContentDao
 import io.github.abhik9.vocabuilder.core.database.model.PackEntity
@@ -10,6 +11,7 @@ import io.github.abhik9.vocabuilder.core.database.model.senseEntities
 import io.github.abhik9.vocabuilder.core.domain.repository.ContentRepository
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.time.measureTimedValue
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,6 +29,7 @@ internal class BundledContentRepository @Inject constructor(
     private val loader: ContentLoader,
     private val contentDao: ContentDao,
     @param:Dispatcher(AppDispatcher.IO) private val ioDispatcher: CoroutineDispatcher,
+    private val log: EventLog,
 ) : ContentRepository {
     private val _isReady = MutableStateFlow(false)
     override val isReady: StateFlow<Boolean> = _isReady.asStateFlow()
@@ -37,7 +40,12 @@ internal class BundledContentRepository @Inject constructor(
         withContext(ioDispatcher) {
             try {
                 loader.packIds().forEachIndexed { position, packId ->
-                    if (contentDao.fingerprint(packId) != loader.fingerprint(packId)) copyPack(packId, position)
+                    if (contentDao.fingerprint(packId) == loader.fingerprint(packId)) {
+                        log.record { "content: $packId is up to date" }
+                    } else {
+                        val (words, duration) = measureTimedValue { copyPack(packId, position) }
+                        log.record { "content: copied $packId, $words words in ${duration.inWholeMilliseconds} ms" }
+                    }
                 }
             } finally {
                 // Never keep the app waiting: with a broken pack, the others are still usable.
@@ -46,7 +54,8 @@ internal class BundledContentRepository @Inject constructor(
         }
     }
 
-    private suspend fun copyPack(packId: String, position: Int) {
+    /** Returns the number of words copied. */
+    private suspend fun copyPack(packId: String, position: Int): Int {
         val bundled = loader.load(packId)
         contentDao.replacePack(
             pack = PackEntity(
@@ -59,5 +68,6 @@ internal class BundledContentRepository @Inject constructor(
             words = bundled.words.map { it.asEntity(packId) },
             senses = bundled.words.flatMap { it.senseEntities() },
         )
+        return bundled.words.size
     }
 }

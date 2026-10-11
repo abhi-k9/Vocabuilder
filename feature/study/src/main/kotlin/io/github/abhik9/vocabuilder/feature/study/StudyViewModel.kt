@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
@@ -98,6 +99,7 @@ class StudyViewModel @AssistedInject constructor(
     private val observeDeckOverviews: ObserveDeckOverviewsUseCase,
     private val pronouncer: Pronouncer,
     settingsRepository: UserSettingsRepository,
+    private val log: EventLog,
 ) : ViewModel() {
     private val settings: StateFlow<UserSettings> =
         settingsRepository.settings.stateIn(viewModelScope, SharingStarted.Eagerly, UserSettings())
@@ -174,7 +176,9 @@ class StudyViewModel @AssistedInject constructor(
             wordIdsByHeadword = wordRepository.observeWordSummaries().first()
                 .associate { it.headword.lowercase() to it.id }
             words = loaded
-            session.value = StudySession(plan.wordIds.filter { it in loaded })
+            val started = StudySession(plan.wordIds.filter { it in loaded })
+            log.record { "study: started $request, ${started.queue.size} cards" }
+            session.value = started
         }
     }
 
@@ -195,6 +199,7 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             val id = wordIdsByHeadword[headword.lowercase()]
             _relatedWord.value = RelatedWord(headword, id?.let { wordRepository.getWords(listOf(it)).firstOrNull() })
+            log.record { "study: looked up \"$headword\", ${if (id == null) "not a word of the app" else id}" }
         }
     }
 
@@ -214,8 +219,15 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             try {
                 val answer = answerCard(wordId, knew, request.mode)
+                log.record {
+                    "study: $wordId ${if (knew) "known" else "missed"}, " +
+                        "stage ${answer.before?.stage ?: "new"} to ${answer.after.stage}, due ${answer.after.dueDay}"
+                }
                 val next = current.answer(answer)
-                if (next.isFinished) nextDeck.value = findNextDeck()
+                if (next.isFinished) {
+                    log.record { "study: finished, ${next.summary()}" }
+                    nextDeck.value = findNextDeck()
+                }
                 isFlipped.value = false
                 session.value = next
             } finally {
@@ -233,7 +245,11 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             try {
                 val next = current.answer(markKnown(wordId))
-                if (next.isFinished) nextDeck.value = findNextDeck()
+                log.record { "study: $wordId marked as known" }
+                if (next.isFinished) {
+                    log.record { "study: finished, ${next.summary()}" }
+                    nextDeck.value = findNextDeck()
+                }
                 isFlipped.value = false
                 session.value = next
             } finally {
@@ -256,6 +272,7 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             try {
                 undoAnswer(last)
+                log.record { "study: undid the answer to ${last.wordId}" }
                 isFlipped.value = false
                 session.value = current.undo()
             } finally {

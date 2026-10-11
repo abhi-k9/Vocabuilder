@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import javax.inject.Qualifier
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineDispatcher
@@ -24,11 +25,15 @@ object CoroutineScopesModule {
     @ApplicationScope
     fun providesApplicationScope(
         @Dispatcher(AppDispatcher.Default) dispatcher: CoroutineDispatcher,
-    ): CoroutineScope = CoroutineScope(SupervisorJob() + dispatcher + backgroundErrorHandler)
+        log: EventLog,
+    ): CoroutineScope = CoroutineScope(SupervisorJob() + dispatcher + backgroundErrorHandler(log))
 }
 
 /**
  * Background work failing, such as refreshing content, shouldn't take the whole app down: the
- * error is printed instead, and the rest of the work in the scope carries on.
+ * error is recorded instead, and the rest of the work in the scope carries on.
  */
-private val backgroundErrorHandler = CoroutineExceptionHandler { _, error -> error.printStackTrace() }
+internal fun backgroundErrorHandler(log: EventLog) = CoroutineExceptionHandler { _, error ->
+    error.printStackTrace()
+    log.record { "background work failed: ${error.stackTraceToString()}" }
+}

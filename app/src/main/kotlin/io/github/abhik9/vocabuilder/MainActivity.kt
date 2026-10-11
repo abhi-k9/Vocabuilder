@@ -13,13 +13,18 @@ import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.ui.VocabuilderApp
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val viewModel: MainActivityViewModel by viewModels()
+
+    @Inject
+    lateinit var eventLog: EventLog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
@@ -48,7 +53,7 @@ class MainActivity : ComponentActivity() {
             }
 
             VocabuilderTheme(darkTheme = darkTheme, dynamicColor = settings.useDynamicColor) {
-                VocabuilderApp()
+                VocabuilderApp(eventLog)
             }
         }
     }

@@ -1,5 +1,6 @@
 package io.github.abhik9.vocabuilder.feature.study
 
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.domain.study.AnswerCardUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
@@ -69,6 +70,7 @@ class StudyViewModelMainThreadTest {
             observeDeckOverviews = ObserveDeckOverviewsUseCase(slowWords, TestData.clock),
             pronouncer = FakePronouncer(),
             settingsRepository = settings,
+            log = EventLog.NONE,
         )
         val screen = launch(main) { viewModel.uiState.collect {} }
         delay(WATCHING_MILLIS)

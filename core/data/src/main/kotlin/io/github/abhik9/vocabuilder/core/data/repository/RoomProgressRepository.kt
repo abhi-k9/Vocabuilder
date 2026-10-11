@@ -1,5 +1,6 @@
 package io.github.abhik9.vocabuilder.core.data.repository
 
+import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.database.dao.ProgressDao
 import io.github.abhik9.vocabuilder.core.database.model.asEntity
 import io.github.abhik9.vocabuilder.core.database.model.asExternalModel
@@ -12,6 +13,7 @@ import kotlinx.coroutines.flow.Flow
 
 internal class RoomProgressRepository @Inject constructor(
     private val progressDao: ProgressDao,
+    private val log: EventLog,
 ) : ProgressRepository {
     override suspend fun getProgress(wordId: String): WordProgress? = progressDao.get(wordId)?.asExternalModel()
 
@@ -26,9 +28,15 @@ internal class RoomProgressRepository @Inject constructor(
     override suspend fun setAlreadyKnown(wordId: String, alreadyKnown: Boolean) =
         progressDao.setAlreadyKnown(wordId, alreadyKnown)
 
-    override suspend fun resetDeck(deckId: String) = progressDao.resetDeck(deckId)
+    override suspend fun resetDeck(deckId: String) {
+        progressDao.resetDeck(deckId)
+        log.record { "progress: reset $deckId" }
+    }
 
-    override suspend fun resetAll() = progressDao.resetAll()
+    override suspend fun resetAll() {
+        progressDao.resetAll()
+        log.record { "progress: reset everything" }
+    }
 
     override fun observeReviewCountSince(since: Instant): Flow<Int> = progressDao.observeReviewCountSince(since)
 }

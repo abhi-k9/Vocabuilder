@@ -24,7 +24,7 @@ jobs:
       - name: Check formatting
         run: ./gradlew spotlessCheck
       - name: Unit tests
-        run: ./gradlew --continue :core:model:test :core:domain:test testDebugUnitTest
+        run: ./gradlew --continue :core:common:test :core:model:test :core:domain:test testDebugUnitTest
       - name: Upload test reports
         if: failure()
         uses: actions/upload-artifact@v7
