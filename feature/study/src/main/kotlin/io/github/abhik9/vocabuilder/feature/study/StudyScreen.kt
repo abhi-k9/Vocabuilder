@@ -31,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -48,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.designsystem.component.EmptyState
+import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
@@ -66,11 +68,16 @@ internal fun StudyRoute(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val title by viewModel.title.collectAsStateWithLifecycle()
     val canPronounce by viewModel.canPronounce.collectAsStateWithLifecycle()
+    val relatedWord by viewModel.relatedWord.collectAsStateWithLifecycle()
     StudyScreen(
         uiState = uiState,
         title = title,
         canPronounce = canPronounce,
+        relatedWord = relatedWord,
         onPronounce = viewModel::pronounce,
+        onLookUp = viewModel::lookUp,
+        onPronounceRelatedWord = viewModel::pronounceRelatedWord,
+        onDismissRelatedWord = viewModel::dismissRelatedWord,
         onClose = onClose,
         onFlip = viewModel::flip,
         onAnswer = viewModel::answer,
@@ -88,7 +95,11 @@ internal fun StudyScreen(
     uiState: StudyUiState,
     title: StudyTitle,
     canPronounce: Boolean,
+    relatedWord: RelatedWord?,
     onPronounce: () -> Unit,
+    onLookUp: (headword: String) -> Unit,
+    onPronounceRelatedWord: () -> Unit,
+    onDismissRelatedWord: () -> Unit,
     onClose: () -> Unit,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
@@ -172,6 +183,7 @@ internal fun StudyScreen(
                     state = uiState,
                     onFlip = onFlip,
                     onAnswer = onAnswer,
+                    onLookUp = onLookUp,
                     onMarkKnown = onMarkKnown,
                 )
 
@@ -185,6 +197,60 @@ internal fun StudyScreen(
             }
         }
     }
+    relatedWord?.let {
+        RelatedWordSheet(
+            relatedWord = it,
+            canPronounce = canPronounce,
+            onPronounce = onPronounceRelatedWord,
+            onDismiss = onDismissRelatedWord,
+        )
+    }
+}
+
+/** A synonym or antonym looked up from the card: its meanings if it's one of the app's words. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun RelatedWordSheet(
+    relatedWord: RelatedWord,
+    canPronounce: Boolean,
+    onPronounce: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    ModalBottomSheet(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(start = 24.dp, end = 24.dp, bottom = 32.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = relatedWord.headword,
+                    style = VocabuilderTheme.wordTypography.title,
+                    modifier = Modifier.weight(1f, fill = false),
+                )
+                if (canPronounce) {
+                    IconButton(onClick = onPronounce) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.VolumeUp,
+                            contentDescription = stringResource(R.string.feature_study_pronounce),
+                        )
+                    }
+                }
+            }
+            val word = relatedWord.word
+            if (word != null) {
+                Senses(word.senses)
+            } else {
+                Text(
+                    text = stringResource(R.string.feature_study_no_meaning),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
 }
 
 @Composable
@@ -192,6 +258,7 @@ private fun StudyingContent(
     state: StudyUiState.Studying,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
+    onLookUp: (headword: String) -> Unit,
     onMarkKnown: () -> Unit,
 ) {
     Column(
@@ -210,8 +277,10 @@ private fun StudyingContent(
                 word = state.word,
                 cardFront = state.cardFront,
                 isFlipped = state.isFlipped,
+                relatedWordsWithMeanings = state.relatedWordsWithMeanings,
                 onFlip = onFlip,
                 onAnswer = onAnswer,
+                onLookUp = onLookUp,
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()

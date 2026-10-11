@@ -18,6 +18,8 @@ It runs on Android 8.0 and newer.
 - **Cards** come in random order. Tap a card to turn it over, then answer *Knew it* or *Didn't
   know*, or swipe it right or left. A missed card comes back a few cards later, and the last answer
   can be undone. A session ends with a summary.
+- **Synonyms and antonyms** on a card's back can be tapped to hear them, and to see their meanings
+  when they're words of the app, marked with a book.
 - **I know this** takes a word you already know out of study (its page can bring it back); a
   **star** marks a word to study with the other starred ones.
 - **Words**: search by word or by its main meaning (ignoring case and accents), filter by

@@ -34,13 +34,13 @@ class StudyViewModelTest {
     private val settings = FakeUserSettingsRepository(UserSettings(shuffleCards = false))
     private val pronouncer = FakePronouncer()
 
-    private fun viewModel(request: StudyRequest) = StudyViewModel(
+    private fun viewModel(request: StudyRequest, words: FakeWordRepository = this.words) = StudyViewModel(
         request = request,
         buildPlan = BuildStudyPlanUseCase(words, settings, TestData.clock),
-        answerCard = AnswerCardUseCase(progress, TestData.clock),
-        undoAnswer = UndoAnswerUseCase(progress),
-        markKnown = MarkKnownUseCase(progress),
-        progressRepository = progress,
+        answerCard = AnswerCardUseCase(words.progressRepository, TestData.clock),
+        undoAnswer = UndoAnswerUseCase(words.progressRepository),
+        markKnown = MarkKnownUseCase(words.progressRepository),
+        progressRepository = words.progressRepository,
         wordRepository = words,
         observeDeckOverviews = ObserveDeckOverviewsUseCase(words, TestData.clock),
         pronouncer = pronouncer,
@@ -182,6 +182,29 @@ class StudyViewModelTest {
 
         assertTrue(assertIs<StudyUiState.Studying>(viewModel.uiState.value).isStarred)
         assertEquals(true, progress.getProgress("gre:pique")?.starred)
+    }
+
+    @Test
+    fun looksUpSynonymsAndAntonymsWithTheMeaningsOfThoseThatAreWordsOfTheApp() = runTest {
+        val (pique, vex) = TestData.advancedWords
+        val withRelatedWords = pique.copy(synonyms = listOf("vex", "irk"), antonyms = listOf("soothe"))
+        val words = FakeWordRepository.withProgress(TestData.words.map { if (it == pique) withRelatedWords else it })
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id), words)
+        backgroundScope.launch { viewModel.uiState.collect {} }
+
+        assertEquals(setOf("vex"), assertIs<StudyUiState.Studying>(viewModel.state()).relatedWordsWithMeanings)
+
+        viewModel.lookUp("vex")
+        assertEquals(RelatedWord("vex", vex), viewModel.relatedWord.value)
+        viewModel.pronounceRelatedWord()
+
+        viewModel.lookUp("irk")
+        assertEquals(RelatedWord("irk", null), viewModel.relatedWord.value)
+        viewModel.pronounceRelatedWord()
+        assertEquals(listOf("vex", "irk"), pronouncer.spoken)
+
+        viewModel.dismissRelatedWord()
+        assertNull(viewModel.relatedWord.value)
     }
 
     @Test

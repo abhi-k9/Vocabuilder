@@ -22,6 +22,7 @@
     <string name="feature_study_swipe_hint">Swipe right if you knew it, left if you didn\'t</string>
     <string name="feature_study_synonyms">Synonyms</string>
     <string name="feature_study_antonyms">Antonyms</string>
+    <string name="feature_study_no_meaning">This word isn\'t one of Vocabuilder\'s words, so there\'s no meaning to show.</string>
     <string name="feature_study_sense_number">%1$d.</string>
 
     <string name="feature_study_empty_title">All caught up</string>

@@ -29,6 +29,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
@@ -50,10 +51,13 @@ sealed interface StudyUiState {
      * @property isFlipped the card shows its back: the meaning, or the word for definition-first cards.
      * @property cardIndex how many cards were answered before this one. It tells cards apart even when
      *   a missed word comes straight back, as the last card left.
+     * @property relatedWordsWithMeanings the word's synonyms and antonyms that are words of the app, so
+     *   looking them up shows their meanings.
      */
     data class Studying(
         val word: Word,
         val cardIndex: Int,
+        val relatedWordsWithMeanings: Set<String>,
         val isFlipped: Boolean,
         val cardFront: CardFront,
         val doneCount: Int,
@@ -68,6 +72,12 @@ sealed interface StudyUiState {
         val nextDeck: Deck?,
     ) : StudyUiState
 }
+
+/** A synonym or antonym looked up from a card, with its meanings if it's one of the app's words. */
+data class RelatedWord(
+    val headword: String,
+    val word: Word?,
+)
 
 /** What the session goes through, for the title: a deck, or the daily review or starred words. */
 data class StudyTitle(
@@ -97,6 +107,13 @@ class StudyViewModel @AssistedInject constructor(
 
     private val session = MutableStateFlow<StudySession?>(null)
     private val words = MutableStateFlow<Map<String, Word>>(emptyMap())
+
+    /** The ids of all the app's words, by lowercase headword, to look up synonyms and antonyms. */
+    private val wordIdsByHeadword = MutableStateFlow<Map<String, String>>(emptyMap())
+    private val _relatedWord = MutableStateFlow<RelatedWord?>(null)
+
+    /** The synonym or antonym looked up from the card, while it's shown. */
+    val relatedWord: StateFlow<RelatedWord?> = _relatedWord.asStateFlow()
     private val isFlipped = MutableStateFlow(false)
     private val nextDeck = MutableStateFlow<Deck?>(null)
 
@@ -116,11 +133,11 @@ class StudyViewModel @AssistedInject constructor(
 
     val uiState: StateFlow<StudyUiState> = combine(
         session,
-        words,
+        combine(words, wordIdsByHeadword, ::Pair),
         isFlipped,
         combine(settings, currentProgress, ::Pair),
         nextDeck,
-    ) { session, words, flipped, (settings, progress), nextDeck ->
+    ) { session, (words, wordIdsByHeadword), flipped, (settings, progress), nextDeck ->
         when {
             session == null -> StudyUiState.Loading
 
@@ -128,17 +145,23 @@ class StudyViewModel @AssistedInject constructor(
 
             session.isFinished -> StudyUiState.Finished(session.summary(), nextDeck)
 
-            else -> StudyUiState.Studying(
-                word = words.getValue(checkNotNull(session.currentWordId)),
-                cardIndex = session.answers.size,
-                isFlipped = flipped,
-                cardFront = settings.cardFront,
-                doneCount = session.doneCount,
-                wordCount = session.wordCount,
-                canUndo = session.canUndo,
-                // Until the new card's progress arrives, the previous card's must not show.
-                isStarred = progress?.takeIf { it.wordId == session.currentWordId }?.starred == true,
-            )
+            else -> {
+                val word = words.getValue(checkNotNull(session.currentWordId))
+                StudyUiState.Studying(
+                    word = word,
+                    cardIndex = session.answers.size,
+                    relatedWordsWithMeanings = (word.synonyms + word.antonyms)
+                        .filter { it.lowercase() in wordIdsByHeadword }
+                        .toSet(),
+                    isFlipped = flipped,
+                    cardFront = settings.cardFront,
+                    doneCount = session.doneCount,
+                    wordCount = session.wordCount,
+                    canUndo = session.canUndo,
+                    // Until the new card's progress arrives, the previous card's must not show.
+                    isStarred = progress?.takeIf { it.wordId == session.currentWordId }?.starred == true,
+                )
+            }
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), StudyUiState.Loading)
 
@@ -146,6 +169,8 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             val plan = buildPlan(request)
             val loaded = wordRepository.getWords(plan.wordIds).associateBy { it.id }
+            wordIdsByHeadword.value = wordRepository.observeWordSummaries().first()
+                .associate { it.headword.lowercase() to it.id }
             words.value = loaded
             session.value = StudySession(plan.wordIds.filter { it in loaded })
         }
@@ -161,6 +186,22 @@ class StudyViewModel @AssistedInject constructor(
     fun pronounce() {
         val wordId = session.value?.currentWordId ?: return
         words.value[wordId]?.let { pronouncer.speak(it.headword) }
+    }
+
+    /** Shows one of the card's synonyms or antonyms, with its meanings if it's one of the app's words. */
+    fun lookUp(headword: String) {
+        viewModelScope.launch {
+            val id = wordIdsByHeadword.value[headword.lowercase()]
+            _relatedWord.value = RelatedWord(headword, id?.let { wordRepository.getWords(listOf(it)).firstOrNull() })
+        }
+    }
+
+    fun pronounceRelatedWord() {
+        _relatedWord.value?.let { pronouncer.speak(it.headword) }
+    }
+
+    fun dismissRelatedWord() {
+        _relatedWord.value = null
     }
 
     fun answer(knew: Boolean) {

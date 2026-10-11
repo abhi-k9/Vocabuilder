@@ -8,6 +8,8 @@ import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absoluteOffset
@@ -15,11 +17,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,6 +55,7 @@ import androidx.compose.ui.unit.dp
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.MasteryState
+import io.github.abhik9.vocabuilder.core.model.Sense
 import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.label
@@ -55,7 +65,8 @@ import kotlinx.coroutines.launch
 
 /**
  * A flashcard that turns over when tapped. Once turned, it can be swiped right for "knew it" or
- * left for "didn't know"; the same answers are offered as accessibility actions.
+ * left for "didn't know"; the same answers are offered as accessibility actions. Its back lists the
+ * word's synonyms and antonyms, to look up; those in [relatedWordsWithMeanings] have meanings to show.
  *
  * Its state belongs to one showing of a card: give each card its own `key`, so the next one starts
  * unturned and centered.
@@ -65,8 +76,10 @@ internal fun FlashCard(
     word: Word,
     cardFront: CardFront,
     isFlipped: Boolean,
+    relatedWordsWithMeanings: Set<String>,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
+    onLookUp: (headword: String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val rotation by animateFloatAsState(
@@ -148,7 +161,9 @@ internal fun FlashCard(
                     CardFrontFace(word, cardFront)
                 } else {
                     // Counter-rotated, so the back reads the right way round.
-                    Box(modifier = Modifier.graphicsLayer { rotationY = 180f }) { CardBackFace(word) }
+                    Box(modifier = Modifier.graphicsLayer { rotationY = 180f }) {
+                        CardBackFace(word, relatedWordsWithMeanings, onLookUp)
+                    }
                 }
             }
         }
@@ -220,7 +235,7 @@ private fun CardFrontFace(word: Word, cardFront: CardFront) {
 }
 
 @Composable
-private fun CardBackFace(word: Word) {
+private fun CardBackFace(word: Word, relatedWordsWithMeanings: Set<String>, onLookUp: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -229,33 +244,9 @@ private fun CardBackFace(word: Word) {
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = word.headword, style = VocabuilderTheme.wordTypography.title)
-        word.senses.forEachIndexed { index, sense ->
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (word.senses.size > 1) {
-                    Text(
-                        text = stringResource(R.string.feature_study_sense_number, index + 1),
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(
-                        text = sense.partOfSpeech.label(),
-                        style = MaterialTheme.typography.labelLarge,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(text = sense.definition, style = MaterialTheme.typography.bodyLarge)
-                    Text(
-                        text = sense.example,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
-        }
-        RelatedWords(stringResource(R.string.feature_study_synonyms), word.synonyms)
-        RelatedWords(stringResource(R.string.feature_study_antonyms), word.antonyms)
+        Senses(word.senses)
+        RelatedWords(stringResource(R.string.feature_study_synonyms), word.synonyms, relatedWordsWithMeanings, onLookUp)
+        RelatedWords(stringResource(R.string.feature_study_antonyms), word.antonyms, relatedWordsWithMeanings, onLookUp)
         word.note?.let { note ->
             Surface(
                 color = MaterialTheme.colorScheme.tertiaryContainer,
@@ -269,12 +260,67 @@ private fun CardBackFace(word: Word) {
     }
 }
 
+/** A word's senses, one after the other in the enclosing column, numbered if there are several. */
 @Composable
-private fun RelatedWords(title: String, words: List<String>) {
+internal fun Senses(senses: List<Sense>) {
+    senses.forEachIndexed { index, sense ->
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (senses.size > 1) {
+                Text(
+                    text = stringResource(R.string.feature_study_sense_number, index + 1),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    text = sense.partOfSpeech.label(),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(text = sense.definition, style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = sense.example,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+/** Synonyms or antonyms as chips that look the word up; a book marks those with meanings to show. */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun RelatedWords(
+    title: String,
+    words: List<String>,
+    withMeanings: Set<String>,
+    onLookUp: (String) -> Unit,
+) {
     if (words.isEmpty()) return
-    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+    Column {
         Text(title, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        Text(words.joinToString(", "), style = MaterialTheme.typography.bodyMedium)
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            words.forEach { related ->
+                if (related in withMeanings) {
+                    AssistChip(
+                        onClick = { onLookUp(related) },
+                        label = { Text(related) },
+                        leadingIcon = {
+                            Icon(
+                                Icons.AutoMirrored.Outlined.MenuBook,
+                                contentDescription = null,
+                                modifier = Modifier.size(AssistChipDefaults.IconSize),
+                            )
+                        },
+                    )
+                } else {
+                    SuggestionChip(onClick = { onLookUp(related) }, label = { Text(related) })
+                }
+            }
+        }
     }
 }
 
