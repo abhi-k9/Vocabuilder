@@ -13,11 +13,13 @@ import io.github.abhik9.vocabuilder.core.content.AssetContentFiles
 import io.github.abhik9.vocabuilder.core.content.ContentLoader
 import io.github.abhik9.vocabuilder.core.data.DataDiagnosticsSection
 import io.github.abhik9.vocabuilder.core.data.repository.BundledContentRepository
+import io.github.abhik9.vocabuilder.core.data.repository.BundledDictionaryRepository
 import io.github.abhik9.vocabuilder.core.data.repository.ContentResolverDocumentStore
 import io.github.abhik9.vocabuilder.core.data.repository.DataStoreUserSettingsRepository
 import io.github.abhik9.vocabuilder.core.data.repository.RoomProgressRepository
 import io.github.abhik9.vocabuilder.core.data.repository.RoomWordRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ContentRepository
+import io.github.abhik9.vocabuilder.core.domain.repository.DictionaryRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.DocumentStore
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
@@ -37,6 +39,9 @@ internal abstract class DataModule {
 
     @Binds
     abstract fun bindsContentRepository(repository: BundledContentRepository): ContentRepository
+
+    @Binds
+    abstract fun bindsDictionaryRepository(repository: BundledDictionaryRepository): DictionaryRepository
 
     @Binds
     abstract fun bindsDocumentStore(store: ContentResolverDocumentStore): DocumentStore
