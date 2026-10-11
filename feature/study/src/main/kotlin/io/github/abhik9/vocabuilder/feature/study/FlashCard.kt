@@ -10,10 +10,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -27,6 +27,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.AbsoluteAlignment
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -85,14 +86,11 @@ internal fun FlashCard(
     val knewLabel = stringResource(R.string.feature_study_knew)
     val didNotKnowLabel = stringResource(R.string.feature_study_did_not_know)
 
-    Card(
+    // The swipe is handled, tilted and labeled outside the layer that turns the card over: a turned
+    // card is mirrored, so inside it drags would go the wrong way and the label would read backwards.
+    Box(
         modifier = modifier
-            .offset { IntOffset(offsetX.value.roundToInt(), 0) }
-            .graphicsLayer {
-                rotationY = rotation
-                rotationZ = offsetX.value / size.width.coerceAtLeast(1f) * MAX_TILT_DEGREES
-                cameraDistance = CAMERA_DISTANCE * density
-            }
+            .absoluteOffset { IntOffset(offsetX.value.roundToInt(), 0) }
             .pointerInput(word.id, isFlipped) {
                 if (!isFlipped) return@pointerInput
                 val threshold = size.width * SWIPE_THRESHOLD
@@ -115,34 +113,44 @@ internal fun FlashCard(
                     scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
                 }
             }
-            .clip(CardDefaults.shape)
-            .clickable(onClickLabel = flipLabel, role = Role.Button, onClick = onFlip)
-            .semantics {
-                if (isFlipped) {
-                    customActions = listOf(
-                        CustomAccessibilityAction(knewLabel) {
-                            onAnswer(true)
-                            true
-                        },
-                        CustomAccessibilityAction(didNotKnowLabel) {
-                            onAnswer(false)
-                            true
-                        },
-                    )
-                }
-            },
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+            .graphicsLayer { rotationZ = offsetX.value / size.width.coerceAtLeast(1f) * MAX_TILT_DEGREES },
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            if (rotation <= 90f) {
-                CardFrontFace(word, cardFront)
-            } else {
-                // Counter-rotated, so the back reads the right way round.
-                Box(modifier = Modifier.graphicsLayer { rotationY = 180f }) { CardBackFace(word) }
+        Card(
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    rotationY = rotation
+                    cameraDistance = CAMERA_DISTANCE * density
+                }
+                .clip(CardDefaults.shape)
+                .clickable(onClickLabel = flipLabel, role = Role.Button, onClick = onFlip)
+                .semantics {
+                    if (isFlipped) {
+                        customActions = listOf(
+                            CustomAccessibilityAction(knewLabel) {
+                                onAnswer(true)
+                                true
+                            },
+                            CustomAccessibilityAction(didNotKnowLabel) {
+                                onAnswer(false)
+                                true
+                            },
+                        )
+                    }
+                },
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
+            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                if (rotation <= 90f) {
+                    CardFrontFace(word, cardFront)
+                } else {
+                    // Counter-rotated, so the back reads the right way round.
+                    Box(modifier = Modifier.graphicsLayer { rotationY = 180f }) { CardBackFace(word) }
+                }
             }
-            SwipeLabel(offset = offsetX.value, knewLabel = knewLabel, didNotKnowLabel = didNotKnowLabel)
         }
+        SwipeLabel(offset = offsetX.value, knewLabel = knewLabel, didNotKnowLabel = didNotKnowLabel)
     }
 }
 
@@ -268,7 +276,7 @@ private fun RelatedWords(title: String, words: List<String>) {
     }
 }
 
-/** "Knew it" or "Didn't know" in the corner, fading in as the card is swiped. */
+/** "Knew it" or "Didn't know" in the corner the card is swiped away from, fading in as it goes. */
 @Composable
 private fun SwipeLabel(offset: Float, knewLabel: String, didNotKnowLabel: String) {
     if (offset == 0f) return
@@ -284,7 +292,7 @@ private fun SwipeLabel(offset: Float, knewLabel: String, didNotKnowLabel: String
             contentColor = colors.onContainer,
             shape = MaterialTheme.shapes.small,
             modifier = Modifier
-                .align(if (knew) Alignment.TopStart else Alignment.TopEnd)
+                .align(if (knew) AbsoluteAlignment.TopLeft else AbsoluteAlignment.TopRight)
                 .alpha((abs(offset) / SWIPE_LABEL_FULL_OPACITY_PX).coerceIn(0f, 1f)),
         ) {
             Text(
