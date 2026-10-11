@@ -129,15 +129,29 @@ def tap(pattern, timeout=30):
     log(f"ok: {step}")
 
 
+def first_text_bounds(hierarchy):
+    """Where the first text on the screen is, which on a study screen is the card's word."""
+    node = next((n for n in ElementTree.fromstring(hierarchy).iter("node") if n.get("text")), None)
+    return f"'{node.get('text')}' at {node.get('bounds')}" if node is not None else "no text"
+
+
 def swipe(direction):
+    """Drags the card sideways step by step, as a finger would, showing where it is on the way."""
     width, height = map(int, re.search(r"(\d+)x(\d+)", adb("shell", "wm", "size")).groups())
     y = height * 2 // 5
-    left, right = width // 5, width * 4 // 5
-    start, end = (left, right) if direction == "right" else (right, left)
-    adb("shell", "input", "swipe", str(start), str(y), str(end), str(y), "300")
+    xs = list(range(width // 5, width * 4 // 5 + 1, width // 20))
+    if direction == "left":
+        xs.reverse()
+    before = first_text_bounds(screen())
+    adb("shell", "input", "motionevent", "DOWN", str(xs[0]), str(y))
+    for x in xs[1:]:
+        adb("shell", "input", "motionevent", "MOVE", str(x), str(y))
+    midway = screen()
+    adb("shell", "input", "motionevent", "UP", str(xs[-1]), str(y))
     time.sleep(2)
     step = f"swipe {direction}"
     check_alive(step)
+    log(f"{step}: before, {before}; midway, {first_text_bounds(midway)}: {visible_text(midway)}")
     log(f"ok: {step}, then on the screen: {visible_text(snapshot(f'swipe-{direction}'))}")
 
 
