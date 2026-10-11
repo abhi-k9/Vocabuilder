@@ -42,11 +42,11 @@ class NavigatorTest {
         navigator.navigate(DeckNavKey("gre/common-01"))
 
         navigator.navigate(DecksNavKey)
-        assertEquals(listOf(HomeNavKey, DecksNavKey), backStack)
+        assertEquals(listOf<NavKey>(HomeNavKey, DecksNavKey), backStack)
         assertEquals(DecksNavKey, navigator.currentTopLevelKey)
 
         navigator.navigate(DeckNavKey("gre/common-01"))
         navigator.navigate(HomeNavKey)
-        assertEquals(listOf(HomeNavKey), backStack)
+        assertEquals(listOf<NavKey>(HomeNavKey), backStack)
     }
 }
