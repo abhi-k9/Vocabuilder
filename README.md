@@ -90,8 +90,10 @@ Requirements: JDK 21 or newer, and the Android SDK (Android Studio sets this up 
 ```
 
 Debug builds have the application ID suffix `.debug`, so they can be installed next to a release.
-[CI](.github/workflows/ci.yml) runs the formatting check, unit tests, lint and builds on pushes
-and pull requests, and checks that the Room schema is committed.
+[CI](.github/workflows/ci.yml) runs the formatting check, unit tests, lint and a release build,
+and checks that the Room schema is committed, in one job. To save Actions minutes it runs only for
+main and pull requests, skips changes to docs and scripts, and runs for other branches from the
+Actions tab.
 
 The app is written in Kotlin with Jetpack Compose, Material 3, Hilt, Room and Navigation 3. The
 screens are in the `feature:*` modules, and the scheduler and study logic are plain Kotlin in

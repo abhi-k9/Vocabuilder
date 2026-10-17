@@ -99,3 +99,4 @@ jobs:
           name: device-test-api-${{ inputs.api }}
           path: ${{ runner.temp }}/device-test
           if-no-files-found: ignore
+          retention-days: 7

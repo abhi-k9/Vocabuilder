@@ -1,9 +1,29 @@
 name: CI
 
+# One job, so Gradle is set up and the project configured once rather than for each check. It runs
+# for main and pull requests, and from the Actions tab (Run workflow) for any other branch, not on
+# every push to every branch. Changes that can't affect the build, such as docs or the on-demand
+# workflows, don't run it.
 on:
   push:
-    branches: [ main, "claude/**" ]
+    branches: [ main ]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "scripts/**"
+      - ".github/scripts/**"
+      - ".github/workflows/device-test.yml"
+      - ".github/workflows/release.yml"
+      - ".github/workflows/retrace.yml"
   pull_request:
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "scripts/**"
+      - ".github/scripts/**"
+      - ".github/workflows/device-test.yml"
+      - ".github/workflows/release.yml"
+      - ".github/workflows/retrace.yml"
   workflow_dispatch:
 
 concurrency:
@@ -14,8 +34,8 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: Format and unit tests
+  check:
+    name: Format, tests, lint and build
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -23,63 +43,14 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Check formatting
         run: ./gradlew spotlessCheck
-      - name: Unit tests
-        run: ./gradlew --continue :core:common:test :core:model:test :core:domain:test testDebugUnitTest
-      - name: Upload test reports
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: test-reports
-          path: "**/build/reports/tests"
-
-  build:
-    name: Build APKs
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v7
-      - uses: ./.github/actions/setup
-      - name: Set up release signing
-        uses: ./.github/actions/release-signing
-        with:
-          keystore-base64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
-          keystore-password: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          key-alias: ${{ secrets.RELEASE_KEY_ALIAS }}
-          key-password: ${{ secrets.RELEASE_KEY_PASSWORD }}
-      - name: Build debug and release APKs
-        run: ./gradlew --continue assembleDebug assembleRelease
-      - name: Upload APKs
-        uses: actions/upload-artifact@v7
-        with:
-          name: apks
-          path: app/build/outputs/apk/**/*.apk
-
-  lint:
-    name: Android Lint
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v7
-      - uses: ./.github/actions/setup
-      - name: Lint
-        run: ./gradlew --continue :app:lintDebug
-      - name: Upload lint reports
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: lint-reports
-          path: app/build/reports/lint-results-*
-
-  room-schema:
-    name: Room schema is committed
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v7
-      - uses: ./.github/actions/setup
-      - name: Generate the database schema
-        run: ./gradlew :core:database:kspDebugKotlin
-      - name: Verify it matches the committed schema
+      # Unit tests also generate the Room schema, checked below. The release build is signed with
+      # the debug key: it's there to check that R8 builds the app, and the Release workflow signs.
+      - name: Unit tests, lint and release build
+        run: >-
+          ./gradlew --continue
+          :core:common:test :core:model:test :core:domain:test testDebugUnitTest
+          :app:lintDebug assembleRelease
+      - name: Check that the Room schema is committed
         run: |
           if [ -n "$(git status --porcelain core/database/schemas)" ]; then
             echo "::error::The Room schema changed. Commit the files below."
@@ -87,3 +58,12 @@ jobs:
             find core/database/schemas -name '*.json' -print -exec cat {} \;
             exit 1
           fi
+      - name: Upload test and lint reports
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reports
+          path: |
+            **/build/reports/tests
+            app/build/reports/lint-results-*
+          retention-days: 7
