@@ -234,26 +234,33 @@ def system_ready():
     )
 
 
-for _ in range(60):
-    if system_ready():
-        break
-    time.sleep(3)
-time.sleep(10)
+def wait_until_ready():
+    for _ in range(60):
+        if system_ready():
+            break
+        time.sleep(3)
+    time.sleep(10)
+
+
+wait_until_ready()
 
 log(
     f"Device: {adb('shell', 'getprop', 'ro.product.model').strip()}, "
     f"Android {adb('shell', 'getprop', 'ro.build.version.release').strip()} "
     f"(API {adb('shell', 'getprop', 'ro.build.version.sdk').strip()})"
 )
-for attempt in range(3):
+# On Android 17 emulators, the system can still be settling after the checks above, and an install then fails with
+# "Can't find service: package" or "Broken pipe": retry, copying the APK to the device first ("--no-streaming").
+for attempt in range(4):
     try:
-        adb("install", "-r", apk, timeout=300)
+        adb("install", "-r", *(["--no-streaming"] if attempt else []), apk, timeout=300)
         break
     except RuntimeError as e:
-        if attempt == 2 or "Can't find service" not in str(e):
+        if attempt == 3:
             raise
         log(f"retrying the install: {e}")
-        time.sleep(20)
+        time.sleep(15)
+        wait_until_ready()
 packages = adb("shell", "pm", "list", "packages", NAMESPACE).split()
 package = next(p.removeprefix("package:") for p in packages if p.startswith("package:"))
 log(f"Installed {package}")
