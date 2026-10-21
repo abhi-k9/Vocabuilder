@@ -225,9 +225,17 @@ def study_one_card(answer):
         tap(answer)
 
 
-# The emulator reports a completed boot before every system service answers.
+# The emulator reports a completed boot before every system service answers: wait for the window manager and input,
+# and until the package manager actually answers (on Android 17, "service check" finds it before "cmd" can reach it).
+def system_ready():
+    return (
+        adb("shell", "pm", "path", "android", check=False).startswith("package:")
+        and all(": found" in adb("shell", "service", "check", name, check=False) for name in ("window", "input"))
+    )
+
+
 for _ in range(60):
-    if all(": found" in adb("shell", "service", "check", name, check=False) for name in ("package", "window", "input")):
+    if system_ready():
         break
     time.sleep(3)
 time.sleep(10)
@@ -237,7 +245,15 @@ log(
     f"Android {adb('shell', 'getprop', 'ro.build.version.release').strip()} "
     f"(API {adb('shell', 'getprop', 'ro.build.version.sdk').strip()})"
 )
-adb("install", "-r", apk, timeout=300)
+for attempt in range(3):
+    try:
+        adb("install", "-r", apk, timeout=300)
+        break
+    except RuntimeError as e:
+        if attempt == 2 or "Can't find service" not in str(e):
+            raise
+        log(f"retrying the install: {e}")
+        time.sleep(20)
 packages = adb("shell", "pm", "list", "packages", NAMESPACE).split()
 package = next(p.removeprefix("package:") for p in packages if p.startswith("package:"))
 log(f"Installed {package}")
