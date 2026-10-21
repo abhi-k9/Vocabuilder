@@ -28,7 +28,8 @@ package = None
 def adb(*args, check=True, timeout=120):
     result = subprocess.run(["adb", *args], capture_output=True, text=True, timeout=timeout)
     if check and result.returncode != 0:
-        raise RuntimeError(f"adb {' '.join(args)}: {result.stderr.strip() or result.stdout.strip()}")
+        output = "\n".join(part for part in (result.stdout.strip(), result.stderr.strip()) if part)
+        raise RuntimeError(f"adb {' '.join(args)}: {output}")
     return result.stdout
 
 
