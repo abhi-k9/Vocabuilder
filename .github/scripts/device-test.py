@@ -266,7 +266,17 @@ package = next(p.removeprefix("package:") for p in packages if p.startswith("pac
 log(f"Installed {package}")
 adb("logcat", "-b", "all", "-c", check=False)
 
-adb("shell", "am", "start", "-W", "-n", f"{package}/{NAMESPACE}.MainActivity")
+# Just installed, the app's activity may not be registered yet on a system still settling, as on Android 17
+# emulators: "Activity class ... does not exist".
+for attempt in range(5):
+    try:
+        adb("shell", "am", "start", "-W", "-n", f"{package}/{NAMESPACE}.MainActivity")
+        break
+    except RuntimeError as e:
+        if attempt == 4:
+            raise
+        log(f"retrying the start: {e}")
+        time.sleep(10)
 # The first start copies the word lists into the database.
 wait_for("Today", "start", timeout=120)
 snapshot("today")
