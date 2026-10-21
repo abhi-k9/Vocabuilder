@@ -14,9 +14,9 @@ on:
         required: false
         default: ""
       api:
-        description: Android API level of the emulator image, such as 30, 34 or 36
+        description: Android API level of the emulator image, such as 30, 34, 36 or 37
         required: true
-        default: "36"
+        default: "37"
 
 permissions:
   contents: read
