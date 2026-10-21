@@ -67,12 +67,39 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
+      # Since Android 16 QPR2, SDK packages can carry a minor version ("android-37.0") and some
+      # images only come with 16 KB pages ("google_apis_ps16k"), so the packages for the API level
+      # are looked up rather than assumed: the platform, and a Google APIs x86_64 image, preferring
+      # the usual 4 KB one.
+      - name: Find the emulator's SDK packages
+        id: sdk
+        env:
+          API: ${{ inputs.api }}
+        run: |
+          sdkmanager=$(find "$ANDROID_HOME/cmdline-tools" -path "*/bin/sdkmanager" | sort -V | tail -n 1)
+          packages=$("$sdkmanager" --list 2>/dev/null | awk '{ print $1 }' | sort -u)
+          platform=$(grep -E "^platforms;android-${API}(\.[0-9]+)?$" <<< "$packages" | sort -V | tail -n 1 || true)
+          image=$(grep -E "^system-images;android-${API}(\.[0-9]+)?;google_apis(_ps16k)?;x86_64$" <<< "$packages" | sort | head -n 1 || true)
+          if [ -z "$platform" ] || [ -z "$image" ]; then
+            echo "::error::No SDK platform or Google APIs x86_64 image for API $API. Packages for it:"
+            grep -F "android-$API" <<< "$packages" || true
+            exit 1
+          fi
+          echo "Using $platform and $image"
+          IFS=';' read -r _ image_level target _ <<< "$image"
+          {
+            echo "api-level=${platform#platforms;android-}"
+            echo "image-api-level=${image_level#android-}"
+            echo "target=$target"
+          } >> "$GITHUB_OUTPUT"
+
       # Creates the AVD, boots the emulator, runs the script, then shuts the emulator down.
       - name: Go through the app
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: ${{ inputs.api }}
-          target: google_apis
+          api-level: ${{ steps.sdk.outputs.api-level }}
+          system-image-api-level: ${{ steps.sdk.outputs.image-api-level }}
+          target: ${{ steps.sdk.outputs.target }}
           arch: x86_64
           profile: pixel_6
           # The defaults are too small for recent images: the app can't be installed, the system restarts.
