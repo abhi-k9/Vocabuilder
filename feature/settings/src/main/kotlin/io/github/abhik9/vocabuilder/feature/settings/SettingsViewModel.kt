@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.abhik9.vocabuilder.core.common.AppInfo
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.domain.diagnostics.ExportDiagnosticsUseCase
 import io.github.abhik9.vocabuilder.core.domain.repository.DiagnosticsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
@@ -17,7 +18,6 @@ import java.time.LocalTime
 import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -46,12 +46,12 @@ class SettingsViewModel @Inject constructor(
     val appInfo: AppInfo,
 ) : ViewModel() {
     val settings: StateFlow<UserSettings?> = settingsRepository.settings
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), null)
+        .stateIn(viewModelScope, WhileUiSubscribed, null)
 
     val diagnostics: StateFlow<DiagnosticsState> =
         combine(diagnosticsRepository.isRecording, diagnosticsRepository.logSize, ::DiagnosticsState).stateIn(
             viewModelScope,
-            SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+            WhileUiSubscribed,
             DiagnosticsState(diagnosticsRepository.isRecording.value, diagnosticsRepository.logSize.value),
         )
 
@@ -92,9 +92,5 @@ class SettingsViewModel @Inject constructor(
 
     private fun launch(block: suspend () -> Unit) {
         viewModelScope.launch { block() }
-    }
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
     }
 }

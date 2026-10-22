@@ -7,11 +7,11 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.model.WordSummary
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -41,7 +41,7 @@ class WordsViewModel @Inject constructor(
         filter,
     ) { words, query, filter ->
         WordsUiState.Success(words = searchWords(words, query, filter), filter = filter)
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), WordsUiState.Loading)
+    }.stateIn(viewModelScope, WhileUiSubscribed, WordsUiState.Loading)
 
     fun updateQuery(query: String) {
         this.query = query
@@ -49,9 +49,5 @@ class WordsViewModel @Inject constructor(
 
     fun setFilter(filter: WordFilter) {
         this.filter.value = filter
-    }
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
     }
 }

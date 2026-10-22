@@ -3,6 +3,7 @@ package io.github.abhik9.vocabuilder.feature.decks
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.domain.usecase.ObserveDeckOverviewsUseCase
 import io.github.abhik9.vocabuilder.core.model.DeckOverview
@@ -10,7 +11,6 @@ import io.github.abhik9.vocabuilder.core.model.Level
 import io.github.abhik9.vocabuilder.core.model.MasteryCounts
 import io.github.abhik9.vocabuilder.core.model.Pack
 import javax.inject.Inject
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -41,11 +41,7 @@ class DecksViewModel @Inject constructor(
     val uiState: StateFlow<DecksUiState> =
         combine(wordRepository.observePacks(), observeDeckOverviews()) { packs, overviews ->
             DecksUiState.Success(packSections(packs, overviews))
-        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), DecksUiState.Loading)
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
-    }
+        }.stateIn(viewModelScope, WhileUiSubscribed, DecksUiState.Loading)
 }
 
 internal fun packSections(packs: List<Pack>, overviews: List<DeckOverview>): List<PackSection> {

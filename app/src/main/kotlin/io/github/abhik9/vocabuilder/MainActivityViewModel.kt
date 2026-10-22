@@ -3,11 +3,11 @@ package io.github.abhik9.vocabuilder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.domain.repository.ContentRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import javax.inject.Inject
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -27,9 +27,5 @@ class MainActivityViewModel @Inject constructor(
     val uiState: StateFlow<MainActivityUiState> =
         combine(settingsRepository.settings, contentRepository.isReady) { settings, contentReady ->
             if (contentReady) MainActivityUiState.Success(settings) else MainActivityUiState.Loading
-        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), MainActivityUiState.Loading)
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
-    }
+        }.stateIn(viewModelScope, WhileUiSubscribed, MainActivityUiState.Loading)
 }

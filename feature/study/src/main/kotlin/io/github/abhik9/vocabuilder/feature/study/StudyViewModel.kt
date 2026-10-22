@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.common.diagnostics.EventLog
 import io.github.abhik9.vocabuilder.core.domain.repository.DictionaryRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
@@ -204,7 +205,7 @@ class StudyViewModel @AssistedInject constructor(
                 )
             }
         }
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), StudyUiState.Loading)
+    }.stateIn(viewModelScope, WhileUiSubscribed, StudyUiState.Loading)
 
     init {
         viewModelScope.launch {
@@ -348,9 +349,5 @@ class StudyViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(request: StudyRequest): StudyViewModel
-    }
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
     }
 }

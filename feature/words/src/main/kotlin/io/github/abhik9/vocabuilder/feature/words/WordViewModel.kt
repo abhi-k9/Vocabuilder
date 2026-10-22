@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.abhik9.vocabuilder.core.common.WhileUiSubscribed
 import io.github.abhik9.vocabuilder.core.domain.repository.DictionaryRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
@@ -16,7 +17,6 @@ import io.github.abhik9.vocabuilder.core.model.WordWithProgress
 import java.time.Clock
 import java.time.LocalDate
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
@@ -71,7 +71,7 @@ class WordViewModel @AssistedInject constructor(
             relatedWordIds = summaries.filter { it.headword in related }.associate { it.headword to it.id },
             today = LocalDate.now(clock),
         )
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), WordUiState.Loading)
+    }.stateIn(viewModelScope, WhileUiSubscribed, WordUiState.Loading)
 
     private val _lookedUp = MutableStateFlow<LookedUpWord?>(null)
 
@@ -113,9 +113,5 @@ class WordViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(wordId: String): WordViewModel
-    }
-
-    private companion object {
-        const val STOP_TIMEOUT_MILLIS = 5_000L
     }
 }
