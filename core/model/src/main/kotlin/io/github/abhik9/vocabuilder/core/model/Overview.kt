@@ -20,9 +20,6 @@ data class MasteryCounts(
 ) {
     val total: Int get() = new + learning + reviewing + mastered
 
-    /** Words studied at least once, or marked as known. */
-    val started: Int get() = total - new
-
     operator fun plus(other: MasteryCounts) = MasteryCounts(
         new = new + other.new,
         learning = learning + other.learning,
@@ -66,13 +63,14 @@ data class DeckOverview(
 /**
  * Where the learner stands today, for the home screen.
  *
- * @property dueCount words due for review today.
+ * @property dueCount reviews in today's daily review: the words due, up to the most a session takes.
  * @property newCount new words the daily review will introduce today.
  * @property reviewedToday answers given today.
  * @property counts all words by mastery state.
  * @property nextDeck the first deck with something to study, to continue with.
  * @property starredCount words the learner starred.
- * @property troubleCount words the learner missed most, not yet mastered.
+ * @property troubleCount trouble words to study: those missed most and not yet mastered, up to the most a
+ *   session takes.
  * @property streak days in a row with answers, up to today or, until today ends, yesterday.
  */
 data class TodayOverview(
@@ -81,9 +79,9 @@ data class TodayOverview(
     val reviewedToday: Int,
     val counts: MasteryCounts,
     val nextDeck: DeckOverview?,
-    val starredCount: Int = 0,
-    val troubleCount: Int = 0,
-    val streak: Int = 0,
+    val starredCount: Int,
+    val troubleCount: Int,
+    val streak: Int,
 ) {
     /** Cards in today's daily review. */
     val dailyReviewCount: Int get() = dueCount + newCount

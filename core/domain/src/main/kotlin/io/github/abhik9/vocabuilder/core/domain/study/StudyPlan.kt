@@ -13,16 +13,5 @@ data class StudyRequest(
     val quiz: Boolean = false,
 )
 
-/**
- * The cards of a study session, in order.
- *
- * @property isPractice the words aren't due: answering "knew it" won't move them along their
- * schedule, but missing one still does.
- */
-data class StudyPlan(
-    val request: StudyRequest,
-    val wordIds: List<String>,
-    val isPractice: Boolean = false,
-) {
-    val isEmpty: Boolean get() = wordIds.isEmpty()
-}
+/** The cards of a study session, in order. */
+data class StudyPlan(val wordIds: List<String>)

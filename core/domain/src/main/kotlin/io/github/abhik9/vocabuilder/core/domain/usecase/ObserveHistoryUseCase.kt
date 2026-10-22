@@ -35,7 +35,7 @@ class ObserveHistoryUseCase @Inject constructor(
 }
 
 internal fun history(answers: List<Answer>, words: List<WordSummary>, today: LocalDate, zone: ZoneId): History {
-    val byDay = answers.groupBy { it.at.atZone(zone).toLocalDate() }
+    val byDay = answers.groupBy { it.day(zone) }
     val recentDays = (History.RECENT_DAYS - 1 downTo 0).map { daysAgo ->
         val day = today.minusDays(daysAgo.toLong())
         val dayAnswers = byDay[day].orEmpty()
@@ -51,23 +51,4 @@ internal fun history(answers: List<Answer>, words: List<WordSummary>, today: Loc
             .sortedWith(compareByDescending<WordSummary> { it.progress.lapseCount }.thenBy { it.headword })
             .take(History.MOST_MISSED),
     )
-}
-
-/** The days in a row with answers up to [today], or, while today has none yet, up to yesterday. */
-internal fun currentStreak(days: Set<LocalDate>, today: LocalDate): Int {
-    val last = if (today in days) today else today.minusDays(1)
-    return generateSequence(last) { it.minusDays(1) }.takeWhile { it in days }.count()
-}
-
-/** The most days in a row among [days]. */
-internal fun longestStreak(days: Set<LocalDate>): Int {
-    var longest = 0
-    var run = 0
-    var previous: LocalDate? = null
-    for (day in days.sorted()) {
-        run = if (previous != null && day == previous.plusDays(1)) run + 1 else 1
-        longest = maxOf(longest, run)
-        previous = day
-    }
-    return longest
 }

@@ -22,12 +22,10 @@ object QuizChoices {
      */
     fun of(word: Word, pool: List<WordSummary>, random: Random): List<QuizChoice> {
         val sense = word.primarySense
-        val synonyms = word.synonyms.map { it.lowercase() }.toSet()
+        // Its synonyms, and the word itself in another deck.
+        val excluded = word.synonyms.mapTo(HashSet()) { it.lowercase() } + word.headword.lowercase()
         val candidates = pool.filter {
-            it.id != word.id &&
-                it.headword.lowercase() !in synonyms &&
-                it.headword.lowercase() != word.headword.lowercase() &&
-                it.definition != sense.definition
+            it.id != word.id && it.headword.lowercase() !in excluded && it.definition != sense.definition
         }
         val (samePos, otherPos) = candidates.partition { it.partOfSpeech == sense.partOfSpeech }
         val (sameDeck, otherDecks) = samePos.partition { it.deckId == word.deckId }

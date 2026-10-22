@@ -42,13 +42,11 @@ class BuildStudyPlanUseCase @Inject constructor(
                     .sortedBy { it.progress.dueDay }
                     .take(MAX_DAILY_REVIEWS)
                     .shuffled(random)
-                val introducedToday = words.count { it.progress.introducedDay == today }
-                val newAllowed = (settings.newWordsPerDay - introducedToday).coerceAtLeast(0)
                 // New words come deck by deck. Shuffled, they're picked at random from the deck being
                 // learned, and mixed in with the reviews.
-                val new = ordered.filter { it.progress.isNew && !it.progress.alreadyKnown }
+                val new = ordered.filter { it.progress.isNewToStudy }
                     .let { if (settings.shuffleCards) it.shuffledWithinDecks(random) else it }
-                    .take(newAllowed)
+                    .take(newWordsAllowedToday(words, settings.newWordsPerDay, today))
                 (due + new).maybeShuffled(settings.shuffleCards, random)
             }
 
@@ -60,7 +58,7 @@ class BuildStudyPlanUseCase @Inject constructor(
                 .take(MAX_TROUBLE_WORDS)
                 .maybeShuffled(settings.shuffleCards, random)
         }
-        return StudyPlan(request = request, wordIds = ids.map { it.id }, isPractice = request.practice)
+        return StudyPlan(wordIds = ids.map { it.id })
     }
 
     private fun WordSummary.isStudyable(today: LocalDate) = progress.isNew || progress.isDue(today)

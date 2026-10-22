@@ -12,7 +12,6 @@ class MasteryCountsTest {
 
         assertEquals(MasteryCounts(new = 2, learning = 1, reviewing = 0, mastered = 1), counts)
         assertEquals(4, counts.total)
-        assertEquals(2, counts.started)
     }
 
     @Test

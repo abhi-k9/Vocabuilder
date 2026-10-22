@@ -55,7 +55,6 @@ class BuildStudyPlanUseCaseTest {
         val plan = buildPlan(StudyRequest(StudyMode.DECK, TestData.commonDeck.id, practice = true))
 
         assertEquals(listOf("gre:laud", "gre:wane", "gre:zeal"), plan.wordIds)
-        assertTrue(plan.isPractice)
     }
 
     @Test

@@ -4,6 +4,8 @@ import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepository
 import io.github.abhik9.vocabuilder.core.domain.repository.WordRepository
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
+import io.github.abhik9.vocabuilder.core.domain.study.isNewToStudy
+import io.github.abhik9.vocabuilder.core.domain.study.newWordsAllowedToday
 import io.github.abhik9.vocabuilder.core.model.MasteryCounts
 import io.github.abhik9.vocabuilder.core.model.TodayOverview
 import java.time.Clock
@@ -13,6 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 /** Where the learner stands today, for the home screen. */
 class ObserveTodayUseCase @Inject constructor(
@@ -25,29 +28,36 @@ class ObserveTodayUseCase @Inject constructor(
     operator fun invoke(): Flow<TodayOverview> = flow {
         val today = LocalDate.now(clock)
         val startOfDay = today.atStartOfDay(clock.zone).toInstant()
+        // Worked out as the answers change, not each time a deck, a word or a setting does.
+        val answerCounts = progressRepository.observeAnswers().map { answers ->
+            AnswerCounts(
+                today = answers.count { !it.at.isBefore(startOfDay) },
+                streak = currentStreak(answers.mapTo(HashSet()) { it.day(clock.zone) }, today),
+            )
+        }
         val todayOverviews = combine(
             wordRepository.observeDecks(),
             wordRepository.observeWordSummaries(),
             settingsRepository.settings,
-            progressRepository.observeReviewCountSince(startOfDay),
-            progressRepository.observeAnswers(),
-        ) { decks, words, settings, reviewedToday, answers ->
+            answerCounts,
+        ) { decks, words, settings, answers ->
             val overviews = deckOverviews(decks, words, today)
-            val introducedToday = words.count { it.progress.introducedDay == today }
-            val newLeft = words.count { it.progress.isNew && !it.progress.alreadyKnown }
+            val newLeft = words.count { it.progress.isNewToStudy }
             val due = words.count { it.progress.isDue(today) }
             TodayOverview(
                 dueCount = due.coerceAtMost(BuildStudyPlanUseCase.MAX_DAILY_REVIEWS),
-                newCount = (settings.newWordsPerDay - introducedToday).coerceIn(0, newLeft),
-                reviewedToday = reviewedToday,
+                newCount = newWordsAllowedToday(words, settings.newWordsPerDay, today).coerceAtMost(newLeft),
+                reviewedToday = answers.today,
                 counts = MasteryCounts.of(words.map { it.progress.masteryState }),
                 nextDeck = overviews.firstOrNull { !it.isCaughtUp },
                 starredCount = words.count { it.progress.starred },
                 troubleCount = words.count { it.progress.isTrouble }
                     .coerceAtMost(BuildStudyPlanUseCase.MAX_TROUBLE_WORDS),
-                streak = currentStreak(answers.map { it.at.atZone(clock.zone).toLocalDate() }.toSet(), today),
+                streak = answers.streak,
             )
         }
         emitAll(todayOverviews)
     }
+
+    private data class AnswerCounts(val today: Int, val streak: Int)
 }
