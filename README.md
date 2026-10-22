@@ -12,12 +12,20 @@ It runs on Android 8.0 and newer.
 ## Usage
 
 - **Today** has your daily review: the words due today, plus a few new ones (10 a day by default).
-  It also offers the deck to continue with, your starred words and your overall progress.
+  It also shows your streak (the days in a row you've studied) and offers the deck to continue
+  with, your starred words, your trouble words and your overall progress.
 - **Decks** lists the 20 decks, from common to advanced words, with how much of each you've
   learned. Open one to study it, see its words or reset it.
 - **Cards** come in random order. Tap a card to turn it over, then answer *Knew it* or *Didn't
-  know*, or swipe it right or left. A missed card comes back a few cards later, and the last answer
-  can be undone. A session ends with a summary.
+  know*, or swipe it right or left: a long drag or a quick flick. A card not yet turned over can't be
+  swiped. A missed card comes back a few cards later, and the last answer can be undone. A session
+  ends with a summary.
+- **Quiz**: the daily review and each deck can be studied as a quiz instead, picking the word's
+  meaning among four. A right pick counts as *Knew it*, a wrong one as *Didn't know*.
+- **Trouble words** are the words you've missed at least twice and not yet mastered. Today offers
+  them to study together, the most missed first (up to 30).
+- **History** (from *Your progress*): your current and longest streaks, the answers of each of the
+  last four weeks' days, known and missed, and the words you miss most.
 - **Synonyms and antonyms** on a card's back can be tapped to see their meanings and hear them:
   their own when they're words of the app, or else the dictionary's.
 - **I know this** takes a word you already know out of study (its page can bring it back); a
@@ -29,9 +37,12 @@ It runs on Android 8.0 and newer.
 - **Pronunciation**: the speaker button says a word aloud with your device's text-to-speech (when
   it has an English voice), or turn on *Pronounce automatically* to hear each word when its card
   is turned over.
+- **Daily reminder** (off by default): a notification at the time you pick, on days there are words
+  to review. It's set as an inexact alarm, so it can come a few minutes late while the phone
+  sleeps. On Android 13 and newer, turning it on asks for permission to send notifications.
 - **Settings**: the number of new words a day (0 to 50), whether cards show the word or its meaning
-  first, pronouncing automatically, random or alphabetical order, the theme, dynamic color (Android
-  12 and newer) and resetting all progress.
+  first, pronouncing automatically, random or alphabetical order, the daily reminder, the theme,
+  dynamic color (Android 12 and newer) and resetting all progress.
 
 Progress is included in Android's backup and device-to-device transfer.
 
