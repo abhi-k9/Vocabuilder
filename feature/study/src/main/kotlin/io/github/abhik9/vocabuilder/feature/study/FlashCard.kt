@@ -40,8 +40,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.util.VelocityTracker
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.Role
@@ -64,7 +66,8 @@ import kotlinx.coroutines.launch
 
 /**
  * A flashcard that turns over when tapped. Once turned, it can be swiped right for "knew it" or
- * left for "didn't know"; the same answers are offered as accessibility actions. Its back lists the
+ * left for "didn't know", far enough or with a flick; the same answers are offered as accessibility
+ * actions. Its back lists the
  * word's synonyms and antonyms, to look up.
  *
  * Its state belongs to one showing of a card: give each card its own `key`, so the next one starts
@@ -105,14 +108,32 @@ internal fun FlashCard(
         modifier = modifier
             .absoluteOffset { IntOffset(offsetX.value.roundToInt(), 0) }
             .pointerInput(isFlipped) {
-                if (!isFlipped) return@pointerInput
+                if (!isFlipped) {
+                    // Not answerable before it's turned over: its drags are taken, so they don't count as taps
+                    // that would turn it over.
+                    detectHorizontalDragGestures { change, _ -> change.consume() }
+                    return@pointerInput
+                }
                 val threshold = size.width * SWIPE_THRESHOLD
+                val flingMinDistance = size.width * FLING_MIN_DISTANCE
+                val flingVelocity = FLING_VELOCITY_DP_PER_SECOND.dp.toPx()
+                val velocityTracker = VelocityTracker()
+                // The drag as the finger moved, which the card's offset follows a little later.
+                var distance = 0f
                 detectHorizontalDragGestures(
+                    onDragStart = {
+                        velocityTracker.resetTracking()
+                        distance = 0f
+                    },
                     onDragEnd = {
+                        val velocity = velocityTracker.calculateVelocity().x
+                        // Far enough, or a quick flick the way it was dragged.
+                        val flung = abs(distance) > flingMinDistance && abs(velocity) > flingVelocity &&
+                            velocity * distance > 0f
+                        val knew = distance > 0
+                        val answered = abs(distance) > threshold || flung
                         scope.launch {
-                            val distance = offsetX.value
-                            if (abs(distance) > threshold) {
-                                val knew = distance > 0
+                            if (answered) {
                                 offsetX.animateTo(size.width * if (knew) 1.5f else -1.5f, tween(SWIPE_OUT_MILLIS))
                                 currentOnAnswer(knew)
                             } else {
@@ -123,6 +144,8 @@ internal fun FlashCard(
                     onDragCancel = { scope.launch { offsetX.animateTo(0f) } },
                 ) { change, dragAmount ->
                     change.consume()
+                    distance += dragAmount
+                    velocityTracker.addPosition(change.uptimeMillis, Offset(distance, 0f))
                     scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
                 }
             }
@@ -318,6 +341,8 @@ private fun SwipeLabel(offset: Float, knewLabel: String, didNotKnowLabel: String
 private const val FLIP_MILLIS = 350
 private const val SWIPE_OUT_MILLIS = 200
 private const val SWIPE_THRESHOLD = 0.3f
+private const val FLING_MIN_DISTANCE = 0.1f
+private const val FLING_VELOCITY_DP_PER_SECOND = 600
 private const val MAX_TILT_DEGREES = 8f
 private const val CAMERA_DISTANCE = 12f
 private const val SWIPE_LABEL_FULL_OPACITY_PX = 200f

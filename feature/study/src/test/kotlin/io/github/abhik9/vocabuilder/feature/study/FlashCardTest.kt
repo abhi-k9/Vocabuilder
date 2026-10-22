@@ -2,11 +2,13 @@ package io.github.abhik9.vocabuilder.feature.study
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipe
 import androidx.compose.ui.test.swipeLeft
 import androidx.compose.ui.test.swipeRight
 import androidx.compose.ui.unit.dp
@@ -72,6 +74,24 @@ class FlashCardTest {
         compose.waitForIdle()
 
         assertNull(answer)
+        assertEquals(0, flips)
+    }
+
+    @Test
+    fun aQuickFlickAnswersButAShortSlowDragDoesNot() {
+        showCard(isFlipped = true)
+
+        compose.onNodeWithTag(CARD).performTouchInput {
+            swipe(center, center + Offset(width * 0.25f, 0f), durationMillis = 1_500)
+        }
+        compose.waitForIdle()
+        assertNull(answer)
+
+        compose.onNodeWithTag(CARD).performTouchInput {
+            swipe(center, center - Offset(width * 0.25f, 0f), durationMillis = 60)
+        }
+        compose.waitForIdle()
+        assertEquals(false, answer)
     }
 
     @Test
