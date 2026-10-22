@@ -13,10 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.LocalFireDepartment
@@ -121,14 +118,7 @@ internal fun HistoryScreen(
 
 @Composable
 private fun HistoryContent(history: History, onOpenWord: (String) -> Unit, onStudyTrouble: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .widthIn(max = MAX_CONTENT_WIDTH)
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
+    CardColumn {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             StatTile(
                 label = stringResource(R.string.feature_home_current_streak),
@@ -144,7 +134,7 @@ private fun HistoryContent(history: History, onOpenWord: (String) -> Unit, onStu
             )
         }
         RecentDaysCard(history)
-        HistoryCard {
+        HomeCard {
             val answers = history.totalAnswers
             val words = history.studiedWords
             Text(
@@ -193,7 +183,7 @@ private fun StatTile(label: String, days: Int, highlighted: Boolean, modifier: M
 private fun RecentDaysCard(history: History) {
     var selected by remember { mutableStateOf<DayActivity?>(null) }
     val dateFormat = remember { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM) }
-    HistoryCard {
+    HomeCard {
         Text(stringResource(R.string.feature_home_recent_weeks), style = MaterialTheme.typography.titleLarge)
         val day = selected
         Text(
@@ -318,7 +308,7 @@ private fun ColumnScope.Segment(count: Int, most: Int, color: Color, rounded: Bo
 
 @Composable
 private fun MostMissedCard(words: List<WordSummary>, onOpenWord: (String) -> Unit, onStudyTrouble: () -> Unit) {
-    HistoryCard {
+    HomeCard {
         Text(stringResource(R.string.feature_home_most_missed), style = MaterialTheme.typography.titleLarge)
         Column {
             words.forEach { word ->
@@ -348,20 +338,5 @@ private fun MostMissedCard(words: List<WordSummary>, onOpenWord: (String) -> Uni
     }
 }
 
-@Composable
-private fun HistoryCard(content: @Composable ColumnScope.() -> Unit) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            content = content,
-        )
-    }
-}
-
-private val MAX_CONTENT_WIDTH = 640.dp
 private val CHART_HEIGHT = 120.dp
 private val MIN_SEGMENT_HEIGHT = 3.dp

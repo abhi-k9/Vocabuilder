@@ -2,22 +2,15 @@ package io.github.abhik9.vocabuilder.feature.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -92,14 +85,7 @@ internal fun HomeScreen(
             when (uiState) {
                 HomeUiState.Loading -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
 
-                is HomeUiState.Success -> Column(
-                    modifier = Modifier
-                        .widthIn(max = MAX_CONTENT_WIDTH)
-                        .fillMaxSize()
-                        .verticalScroll(rememberScrollState())
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                ) {
+                is HomeUiState.Success -> CardColumn {
                     DailyReviewCard(uiState.today, onStartDailyReview)
                     uiState.today.nextDeck?.let { ContinueCard(it, onStudyDeck) }
                     if (uiState.today.starredCount > 0) {
@@ -236,19 +222,3 @@ private fun ProgressCard(today: TodayOverview, onOpenDecks: () -> Unit, onOpenHi
         }
     }
 }
-
-@Composable
-private fun HomeCard(
-    colors: CardColors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    Card(modifier = Modifier.fillMaxWidth(), colors = colors) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            content = content,
-        )
-    }
-}
-
-private val MAX_CONTENT_WIDTH = 640.dp

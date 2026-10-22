@@ -43,6 +43,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.designsystem.component.Pill
+import io.github.abhik9.vocabuilder.core.designsystem.theme.MaxContentWidth
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Sense
@@ -170,7 +171,7 @@ private fun WordContent(
     val word = state.word.word
     Column(
         modifier = Modifier
-            .widthIn(max = 640.dp)
+            .widthIn(max = MaxContentWidth)
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp, vertical = 8.dp),
