@@ -24,6 +24,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -46,7 +47,7 @@ import io.github.abhik9.vocabuilder.core.ui.title
 
 @Composable
 internal fun HomeRoute(
-    onStartDailyReview: () -> Unit,
+    onStartDailyReview: (quiz: Boolean) -> Unit,
     onStudyDeck: (Deck) -> Unit,
     onOpenDecks: () -> Unit,
     onStudyStarred: () -> Unit,
@@ -70,7 +71,7 @@ internal fun HomeRoute(
 @Composable
 internal fun HomeScreen(
     uiState: HomeUiState,
-    onStartDailyReview: () -> Unit,
+    onStartDailyReview: (quiz: Boolean) -> Unit,
     onStudyDeck: (Deck) -> Unit,
     onOpenDecks: () -> Unit,
     onStudyStarred: () -> Unit,
@@ -131,7 +132,7 @@ internal fun HomeScreen(
 }
 
 @Composable
-private fun DailyReviewCard(today: TodayOverview, onStart: () -> Unit) {
+private fun DailyReviewCard(today: TodayOverview, onStart: (quiz: Boolean) -> Unit) {
     HomeCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -141,8 +142,13 @@ private fun DailyReviewCard(today: TodayOverview, onStart: () -> Unit) {
         Text(stringResource(R.string.feature_home_daily_review), style = MaterialTheme.typography.titleLarge)
         if (today.dailyReviewCount > 0) {
             Text(today.dailyReviewText(), style = MaterialTheme.typography.bodyLarge)
-            Button(onClick = onStart, modifier = Modifier.fillMaxWidth()) {
-                Text(stringResource(R.string.feature_home_start))
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Button(onClick = { onStart(false) }, modifier = Modifier.weight(1f)) {
+                    Text(stringResource(R.string.feature_home_start))
+                }
+                OutlinedButton(onClick = { onStart(true) }) {
+                    Text(stringResource(R.string.feature_home_quiz))
+                }
             }
         } else {
             Text(stringResource(R.string.feature_home_daily_done), style = MaterialTheme.typography.bodyLarge)

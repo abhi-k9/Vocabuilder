@@ -23,6 +23,7 @@ import io.github.abhik9.vocabuilder.core.testing.repository.FakeWordRepository
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
+import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlinx.coroutines.flow.first
@@ -254,5 +255,31 @@ class StudyViewModelTest {
         viewModel.flip()
 
         assertEquals(listOf("pique", "pique"), pronouncer.spoken)
+    }
+
+    @Test
+    fun aQuizCardOffersTheWordAmongOthersAndAnswersAsTheChoiceWasRight() = runTest {
+        val viewModel = viewModel(StudyRequest(StudyMode.DECK, TestData.advancedDeck.id, quiz = true))
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        val card = assertIs<StudyUiState.Studying>(viewModel.state())
+        val quiz = assertNotNull(card.quiz)
+        assertEquals("pique", card.word.headword)
+        assertEquals(4, quiz.choices.size)
+        assertEquals(1, quiz.choices.count { it.wordId == card.word.id })
+
+        val wrong = quiz.choices.indexOfFirst { it.wordId != card.word.id }
+        viewModel.choose(wrong)
+        // The first pick stands.
+        viewModel.choose(quiz.choices.indexOfFirst { it.wordId == card.word.id })
+        val answered = assertIs<StudyUiState.Studying>(viewModel.uiState.value)
+        assertEquals(wrong, answered.quiz?.chosen)
+        assertEquals(quiz.choices, answered.quiz?.choices)
+
+        viewModel.continueQuiz()
+
+        assertEquals(false, words.progressRepository.reviews.value.single().knew)
+        val next = assertIs<StudyUiState.Studying>(viewModel.uiState.value)
+        assertEquals("vex", next.word.headword)
+        assertNull(next.quiz?.chosen)
     }
 }

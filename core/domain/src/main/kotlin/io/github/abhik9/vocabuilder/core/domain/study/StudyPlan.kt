@@ -9,6 +9,8 @@ data class StudyRequest(
     val deckId: String? = null,
     /** Go through words even if they aren't due, when there's nothing left to study. */
     val practice: Boolean = false,
+    /** Answer by picking the meaning, or the word, among a few, rather than with flashcards. */
+    val quiz: Boolean = false,
 )
 
 /**

@@ -59,7 +59,7 @@ import io.github.abhik9.vocabuilder.core.ui.title
 @Composable
 internal fun DeckRoute(
     onBack: () -> Unit,
-    onStudy: (practice: Boolean) -> Unit,
+    onStudy: (practice: Boolean, quiz: Boolean) -> Unit,
     onWordClick: (WordSummary) -> Unit,
     viewModel: DeckViewModel,
 ) {
@@ -78,7 +78,7 @@ internal fun DeckRoute(
 internal fun DeckScreen(
     uiState: DeckUiState,
     onBack: () -> Unit,
-    onStudy: (practice: Boolean) -> Unit,
+    onStudy: (practice: Boolean, quiz: Boolean) -> Unit,
     onWordClick: (WordSummary) -> Unit,
     onResetProgress: () -> Unit,
     modifier: Modifier = Modifier,
@@ -179,7 +179,7 @@ internal fun DeckScreen(
 }
 
 @Composable
-private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean) -> Unit) {
+private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean, quiz: Boolean) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -199,13 +199,23 @@ private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean) -> U
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            OutlinedButton(onClick = { onStudy(true) }, modifier = Modifier.fillMaxWidth()) {
-                Text(stringResource(R.string.feature_decks_practice))
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                OutlinedButton(onClick = { onStudy(true, false) }, modifier = Modifier.weight(1f)) {
+                    Text(stringResource(R.string.feature_decks_practice))
+                }
+                OutlinedButton(onClick = { onStudy(true, true) }) {
+                    Text(stringResource(R.string.feature_decks_quiz))
+                }
             }
         } else {
             val cards = overview.counts.new + overview.dueCount
-            Button(onClick = { onStudy(false) }, modifier = Modifier.fillMaxWidth()) {
-                Text(pluralStringResource(R.plurals.feature_decks_study, cards, cards))
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Button(onClick = { onStudy(false, false) }, modifier = Modifier.weight(1f)) {
+                    Text(pluralStringResource(R.plurals.feature_decks_study, cards, cards))
+                }
+                OutlinedButton(onClick = { onStudy(false, true) }) {
+                    Text(stringResource(R.string.feature_decks_quiz))
+                }
             }
         }
     }

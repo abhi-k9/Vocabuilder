@@ -82,6 +82,8 @@ internal fun StudyRoute(
         onClose = onClose,
         onFlip = viewModel::flip,
         onAnswer = viewModel::answer,
+        onChoose = viewModel::choose,
+        onContinueQuiz = viewModel::continueQuiz,
         onUndo = viewModel::undo,
         onToggleStar = viewModel::toggleStar,
         onMarkKnown = viewModel::markKnown,
@@ -104,6 +106,8 @@ internal fun StudyScreen(
     onClose: () -> Unit,
     onFlip: () -> Unit,
     onAnswer: (knew: Boolean) -> Unit,
+    onChoose: (index: Int) -> Unit,
+    onContinueQuiz: () -> Unit,
     onUndo: () -> Unit,
     onToggleStar: () -> Unit,
     onMarkKnown: () -> Unit,
@@ -180,13 +184,29 @@ internal fun StudyScreen(
 
                 StudyUiState.Empty -> EmptySession(title, onPractice = onPractice, onDone = onClose)
 
-                is StudyUiState.Studying -> StudyingContent(
-                    state = uiState,
-                    onFlip = onFlip,
-                    onAnswer = onAnswer,
-                    onLookUp = onLookUp,
-                    onMarkKnown = onMarkKnown,
-                )
+                is StudyUiState.Studying -> {
+                    val quiz = uiState.quiz
+                    if (quiz != null) {
+                        // Keyed like the cards, so each quiz card starts scrolled to the top.
+                        key(uiState.cardIndex) {
+                            QuizContent(
+                                state = uiState,
+                                quiz = quiz,
+                                onChoose = onChoose,
+                                onContinue = onContinueQuiz,
+                                onMarkKnown = onMarkKnown,
+                            )
+                        }
+                    } else {
+                        StudyingContent(
+                            state = uiState,
+                            onFlip = onFlip,
+                            onAnswer = onAnswer,
+                            onLookUp = onLookUp,
+                            onMarkKnown = onMarkKnown,
+                        )
+                    }
+                }
 
                 is StudyUiState.Finished -> FinishedContent(
                     summary = uiState.summary,

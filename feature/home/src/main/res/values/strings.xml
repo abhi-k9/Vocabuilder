@@ -14,6 +14,8 @@
     <string name="feature_home_and">%1$s and %2$s</string>
     <string name="feature_home_daily_done">You\'re done for today. Words you\'ve studied will come back when they\'re due.</string>
     <string name="feature_home_start">Start</string>
+    <!-- Take the daily review by picking meanings among a few, rather than with flashcards. -->
+    <string name="feature_home_quiz">Quiz</string>
     <plurals name="feature_home_reviewed_today">
         <item quantity="one">%d card answered today</item>
         <item quantity="other">%d cards answered today</item>

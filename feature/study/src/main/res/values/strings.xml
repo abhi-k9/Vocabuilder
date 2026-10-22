@@ -18,6 +18,11 @@
     <string name="feature_study_show_meaning">Show meaning</string>
     <string name="feature_study_show_word">Show word</string>
     <string name="feature_study_flip_back">Show the front</string>
+    <string name="feature_study_quiz_which_meaning">Which is its meaning?</string>
+    <!-- Read out on a quiz choice once one is picked. -->
+    <string name="feature_study_quiz_right">Right answer</string>
+    <string name="feature_study_quiz_wrong">Your answer, wrong</string>
+    <string name="feature_study_continue">Continue</string>
     <string name="feature_study_knew">Knew it</string>
     <string name="feature_study_did_not_know">Didn\'t know</string>
     <string name="feature_study_swipe_hint">Swipe right if you knew it, left if you didn\'t</string>

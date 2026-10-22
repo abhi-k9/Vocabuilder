@@ -23,7 +23,9 @@ fun EntryProviderScope<NavKey>.decksEntries(navigator: Navigator) {
     entry<DeckNavKey> { key ->
         DeckRoute(
             onBack = { navigator.goBack() },
-            onStudy = { practice -> navigator.navigate(StudyNavKey(StudyMode.DECK, key.deckId, practice)) },
+            onStudy = { practice, quiz ->
+                navigator.navigate(StudyNavKey(StudyMode.DECK, key.deckId, practice = practice, quiz = quiz))
+            },
             onWordClick = { word -> navigator.navigate(WordNavKey(word.id)) },
             viewModel = hiltViewModel<DeckViewModel, DeckViewModel.Factory> { factory -> factory.create(key.deckId) },
         )

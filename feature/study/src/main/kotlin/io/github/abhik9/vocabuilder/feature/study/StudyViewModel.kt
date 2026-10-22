@@ -15,6 +15,8 @@ import io.github.abhik9.vocabuilder.core.domain.speech.Pronouncer
 import io.github.abhik9.vocabuilder.core.domain.study.AnswerCardUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
+import io.github.abhik9.vocabuilder.core.domain.study.QuizChoice
+import io.github.abhik9.vocabuilder.core.domain.study.QuizChoices
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.StudySession
@@ -27,6 +29,8 @@ import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.model.WordProgress
+import io.github.abhik9.vocabuilder.core.model.WordSummary
+import kotlin.random.Random
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -54,10 +58,12 @@ sealed interface StudyUiState {
      * @property isFlipped the card shows its back: the meaning, or the word for definition-first cards.
      * @property cardIndex how many cards were answered before this one. It tells cards apart even when
      *   a missed word comes straight back, as the last card left.
+     * @property quiz the card's choices, in a quiz.
      */
     data class Studying(
         val word: Word,
         val cardIndex: Int,
+        val quiz: QuizCard? = null,
         val isFlipped: Boolean,
         val cardFront: CardFront,
         val doneCount: Int,
@@ -81,6 +87,15 @@ data class RelatedWord(
     val headword: String,
     val word: Word? = null,
     val entry: DictionaryEntry? = null,
+)
+
+/**
+ * A quiz card's [choices], and the one the learner picked once they have; then the card shows which is right, and
+ * answering it counts it as known if they picked right.
+ */
+data class QuizCard(
+    val choices: List<QuizChoice>,
+    val chosen: Int? = null,
 )
 
 /** What the session goes through, for the title: a deck, or the daily review or starred words. */
@@ -119,6 +134,13 @@ class StudyViewModel @AssistedInject constructor(
     private var words: Map<String, Word> = emptyMap()
     private var wordIdsByHeadword: Map<String, String> = emptyMap()
 
+    // A quiz's other choices come from all of the app's words, picked anew for each card, but the same while it shows.
+    private var quizPool: List<WordSummary> = emptyList()
+    private val quizSeed = Random.nextLong()
+
+    /** The choice picked on a quiz card, and which card it was, so it never shows on another. */
+    private val chosen = MutableStateFlow<Pair<Int, Int>?>(null)
+
     private val _relatedWord = MutableStateFlow<RelatedWord?>(null)
 
     /** The synonym or antonym looked up from the card, while it's shown. */
@@ -145,7 +167,8 @@ class StudyViewModel @AssistedInject constructor(
         isFlipped,
         combine(settings, currentProgress, ::Pair),
         nextDeck,
-    ) { session, flipped, (settings, progress), nextDeck ->
+        chosen,
+    ) { session, flipped, (settings, progress), nextDeck, chosen ->
         when {
             session == null -> StudyUiState.Loading
 
@@ -155,9 +178,18 @@ class StudyViewModel @AssistedInject constructor(
 
             else -> {
                 val word = words.getValue(checkNotNull(session.currentWordId))
+                val cardIndex = session.answers.size
                 StudyUiState.Studying(
                     word = word,
-                    cardIndex = session.answers.size,
+                    cardIndex = cardIndex,
+                    quiz = if (request.quiz) {
+                        QuizCard(
+                            choices = QuizChoices.of(word, quizPool, Random(quizSeed + cardIndex)),
+                            chosen = chosen?.takeIf { it.first == cardIndex }?.second,
+                        )
+                    } else {
+                        null
+                    },
                     isFlipped = flipped,
                     cardFront = settings.cardFront,
                     doneCount = session.doneCount,
@@ -174,8 +206,9 @@ class StudyViewModel @AssistedInject constructor(
         viewModelScope.launch {
             val plan = buildPlan(request)
             val loaded = wordRepository.getWords(plan.wordIds).associateBy { it.id }
-            wordIdsByHeadword = wordRepository.observeWordSummaries().first()
-                .associate { it.headword.lowercase() to it.id }
+            val summaries = wordRepository.observeWordSummaries().first()
+            wordIdsByHeadword = summaries.associate { it.headword.lowercase() to it.id }
+            quizPool = summaries
             words = loaded
             val started = StudySession(plan.wordIds.filter { it in loaded })
             log.record { "study: started $request, ${started.queue.size} cards" }
@@ -244,6 +277,22 @@ class StudyViewModel @AssistedInject constructor(
         }
     }
 
+    /** Picks a choice of the current quiz card, which then shows which is right. */
+    fun choose(index: Int) {
+        val state = uiState.value as? StudyUiState.Studying ?: return
+        val quiz = state.quiz ?: return
+        if (quiz.chosen != null || index !in quiz.choices.indices) return
+        chosen.value = state.cardIndex to index
+        if (settings.value.autoPronounce) pronounce()
+    }
+
+    /** Answers the current quiz card as its choice was right or wrong, and moves on. */
+    fun continueQuiz() {
+        val state = uiState.value as? StudyUiState.Studying ?: return
+        val chosenIndex = state.quiz?.chosen ?: return
+        answer(knew = state.quiz.choices[chosenIndex].wordId == state.word.id)
+    }
+
     /** Takes the current card out of this session and future ones; undo brings it back. */
     fun markKnown() {
         val current = session.value ?: return
@@ -282,6 +331,7 @@ class StudyViewModel @AssistedInject constructor(
                 undoAnswer(last)
                 log.record { "study: undid the answer to ${last.wordId}" }
                 isFlipped.value = false
+                chosen.value = null
                 session.value = current.undo()
             } finally {
                 isAnswering = false

@@ -15,9 +15,11 @@ fun EntryProviderScope<NavKey>.studyEntry(navigator: Navigator) {
         StudyRoute(
             onClose = { navigator.goBack() },
             onPractice = { navigator.replace(key.copy(practice = true)) },
-            onNextDeck = { deck -> navigator.replace(StudyNavKey(StudyMode.DECK, deck.id)) },
+            onNextDeck = { deck -> navigator.replace(StudyNavKey(StudyMode.DECK, deck.id, quiz = key.quiz)) },
             viewModel = hiltViewModel<StudyViewModel, StudyViewModel.Factory> { factory ->
-                factory.create(StudyRequest(mode = key.mode, deckId = key.deckId, practice = key.practice))
+                factory.create(
+                    StudyRequest(mode = key.mode, deckId = key.deckId, practice = key.practice, quiz = key.quiz),
+                )
             },
         )
     }

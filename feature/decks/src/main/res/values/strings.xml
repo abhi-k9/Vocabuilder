@@ -30,6 +30,8 @@
         <item quantity="other">Study %d words</item>
     </plurals>
     <string name="feature_decks_practice">Practice anyway</string>
+    <!-- Study by picking meanings among a few, rather than with flashcards. -->
+    <string name="feature_decks_quiz">Quiz</string>
     <string name="feature_decks_reset">Reset progress</string>
     <string name="feature_decks_reset_title">Reset this deck?</string>
     <string name="feature_decks_reset_message">Your progress on its words, including stars and words marked as known, will be lost.</string>

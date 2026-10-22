@@ -16,7 +16,7 @@ import io.github.abhik9.vocabuilder.feature.home.HomeRoute
 fun EntryProviderScope<NavKey>.homeEntry(navigator: Navigator) {
     entry<HomeNavKey> {
         HomeRoute(
-            onStartDailyReview = { navigator.navigate(StudyNavKey(StudyMode.DAILY_REVIEW)) },
+            onStartDailyReview = { quiz -> navigator.navigate(StudyNavKey(StudyMode.DAILY_REVIEW, quiz = quiz)) },
             onStudyDeck = { deck -> navigator.navigate(StudyNavKey(StudyMode.DECK, deck.id)) },
             onOpenDecks = { navigator.navigate(DecksNavKey) },
             onStudyStarred = { navigator.navigate(StudyNavKey(StudyMode.STARRED)) },

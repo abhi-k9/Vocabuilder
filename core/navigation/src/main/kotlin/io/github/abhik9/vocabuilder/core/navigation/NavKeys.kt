@@ -31,12 +31,14 @@ data class DeckNavKey(val deckId: String) : NavKey
  *
  * @property deckId the deck, for [StudyMode.DECK].
  * @property practice go through words that aren't due.
+ * @property quiz answer by picking among a few meanings or words, rather than with flashcards.
  */
 @Serializable
 data class StudyNavKey(
     val mode: StudyMode,
     val deckId: String? = null,
     val practice: Boolean = false,
+    val quiz: Boolean = false,
 ) : NavKey
 
 /** The learner's streak, answers of the last weeks and most missed words. */
