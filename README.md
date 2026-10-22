@@ -78,8 +78,8 @@ To investigate an issue, turn on **Record diagnostics** in Settings, reproduce t
 **Export log** to a file and attach it to the report. Debug builds record by default.
 
 The log records what the app does: process starts and crashes, the screens opened, study sessions
-and answers (by word), settings changes, copying the word lists into the database and the
-text-to-speech engine. The export starts with the app's version, the device, recent process exits
+and answers (by word), settings changes, the daily reminder, copying the word lists into the
+database and the text-to-speech engine. The export starts with the app's version, the device, recent process exits
 and how many words are at each stage. It's capped at about 512 KB, isn't included in backups, and
 never leaves the device unless you export it.
 
@@ -108,4 +108,5 @@ Actions tab.
 
 The app is written in Kotlin with Jetpack Compose, Material 3, Hilt, Room and Navigation 3. The
 screens are in the `feature:*` modules, and the scheduler and study logic are plain Kotlin in
-`core:domain`, unit tested on the JVM.
+`core:domain`, unit tested on the JVM. The [plan](docs/PLAN.md) lists every module, what's been
+built and what's still to come.

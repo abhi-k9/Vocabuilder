@@ -2,7 +2,8 @@
 
 The word packs ship inside the app, in
 [`core/content/src/main/assets/content`](../core/content/src/main/assets/content). Every definition
-and example sentence is original, written for Vocabuilder.
+and example sentence in the packs is original, written for Vocabuilder; the [dictionary](#dictionary)
+of their synonyms and antonyms mostly comes from Open English WordNet.
 
 ## Files
 
@@ -13,6 +14,7 @@ content/
     pack.json         the pack's id, name and deck files, in study order
     common-01.json    one deck: its level, its number within the level and its words
     …
+  dictionary/         meanings of the synonyms and antonyms that aren't words of the packs
 ```
 
 A deck file looks like this:
@@ -60,7 +62,7 @@ A deck file looks like this:
 ## Dictionary
 
 Synonyms and antonyms that aren't words of the packs show meanings from the dictionary, in
-`content/dictionary`:
+`content/dictionary` (see the [README](../README.md#words) for its credit):
 
 ```
 dictionary/
