@@ -42,6 +42,7 @@ class ObserveTodayUseCaseTest {
         assertEquals(TestData.commonDeck, today.nextDeck?.deck)
         assertEquals(1, today.starredCount)
         assertEquals(1, today.troubleCount)
+        assertEquals(1, today.streak)
     }
 
     @Test

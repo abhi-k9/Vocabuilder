@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
+import io.github.abhik9.vocabuilder.core.database.model.AnswerRow
 import io.github.abhik9.vocabuilder.core.database.model.ProgressEntity
 import io.github.abhik9.vocabuilder.core.database.model.ReviewEntity
 import java.time.Instant
@@ -75,6 +76,9 @@ interface ProgressDao {
 
     @Query("DELETE FROM reviews")
     suspend fun deleteAllReviews()
+
+    @Query("SELECT reviewedAt, knew FROM reviews ORDER BY reviewedAt")
+    fun observeAnswers(): Flow<List<AnswerRow>>
 
     @Query("SELECT COUNT(*) FROM reviews WHERE reviewedAt >= :since")
     fun observeReviewCountSince(since: Instant): Flow<Int>

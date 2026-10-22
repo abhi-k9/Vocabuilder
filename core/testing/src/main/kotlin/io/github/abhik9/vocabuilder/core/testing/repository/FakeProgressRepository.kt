@@ -1,6 +1,7 @@
 package io.github.abhik9.vocabuilder.core.testing.repository
 
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
+import io.github.abhik9.vocabuilder.core.model.Answer
 import io.github.abhik9.vocabuilder.core.model.Review
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import java.time.Instant
@@ -56,6 +57,9 @@ class FakeProgressRepository(
         _progress.value = emptyMap()
         _reviews.value = emptyList()
     }
+
+    override fun observeAnswers(): Flow<List<Answer>> =
+        reviews.map { reviews -> reviews.sortedBy { it.reviewedAt }.map { Answer(it.reviewedAt, it.knew) } }
 
     override fun observeReviewCountSince(since: Instant): Flow<Int> =
         reviews.map { reviews -> reviews.count { !it.reviewedAt.isBefore(since) } }

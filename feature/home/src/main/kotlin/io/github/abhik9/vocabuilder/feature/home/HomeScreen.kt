@@ -12,8 +12,9 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FitnessCenter
+import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.Whatshot
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -50,6 +51,7 @@ internal fun HomeRoute(
     onOpenDecks: () -> Unit,
     onStudyStarred: () -> Unit,
     onStudyTrouble: () -> Unit,
+    onOpenHistory: () -> Unit,
     viewModel: HomeViewModel,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -60,6 +62,7 @@ internal fun HomeRoute(
         onOpenDecks = onOpenDecks,
         onStudyStarred = onStudyStarred,
         onStudyTrouble = onStudyTrouble,
+        onOpenHistory = onOpenHistory,
     )
 }
 
@@ -72,6 +75,7 @@ internal fun HomeScreen(
     onOpenDecks: () -> Unit,
     onStudyStarred: () -> Unit,
     onStudyTrouble: () -> Unit,
+    onOpenHistory: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -110,7 +114,7 @@ internal fun HomeScreen(
                     }
                     if (uiState.today.troubleCount > 0) {
                         StudySetCard(
-                            icon = Icons.Filled.Whatshot,
+                            icon = Icons.Filled.FitnessCenter,
                             text = pluralStringResource(
                                 R.plurals.feature_home_trouble,
                                 uiState.today.troubleCount,
@@ -119,7 +123,7 @@ internal fun HomeScreen(
                             onStudy = onStudyTrouble,
                         )
                     }
-                    ProgressCard(uiState.today, onOpenDecks)
+                    ProgressCard(uiState.today, onOpenDecks, onOpenHistory)
                 }
             }
         }
@@ -142,6 +146,15 @@ private fun DailyReviewCard(today: TodayOverview, onStart: () -> Unit) {
             }
         } else {
             Text(stringResource(R.string.feature_home_daily_done), style = MaterialTheme.typography.bodyLarge)
+        }
+        if (today.streak > 0) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Icon(Icons.Filled.LocalFireDepartment, contentDescription = null)
+                Text(
+                    text = pluralStringResource(R.plurals.feature_home_streak, today.streak, today.streak),
+                    style = MaterialTheme.typography.titleSmall,
+                )
+            }
         }
         if (today.reviewedToday > 0) {
             Text(
@@ -197,7 +210,7 @@ private fun StudySetCard(icon: ImageVector, text: String, onStudy: () -> Unit) {
 }
 
 @Composable
-private fun ProgressCard(today: TodayOverview, onOpenDecks: () -> Unit) {
+private fun ProgressCard(today: TodayOverview, onOpenDecks: () -> Unit, onOpenHistory: () -> Unit) {
     HomeCard {
         Text(stringResource(R.string.feature_home_progress_title), style = MaterialTheme.typography.titleLarge)
         Text(
@@ -211,8 +224,9 @@ private fun ProgressCard(today: TodayOverview, onOpenDecks: () -> Unit) {
         )
         MasteryProgressBar(today.counts, height = 10.dp)
         MasteryLegend(today.counts)
-        TextButton(onClick = onOpenDecks, modifier = Modifier.align(Alignment.End)) {
-            Text(stringResource(R.string.feature_home_all_decks))
+        Row(modifier = Modifier.align(Alignment.End)) {
+            TextButton(onClick = onOpenHistory) { Text(stringResource(R.string.feature_home_history)) }
+            TextButton(onClick = onOpenDecks) { Text(stringResource(R.string.feature_home_all_decks)) }
         }
     }
 }

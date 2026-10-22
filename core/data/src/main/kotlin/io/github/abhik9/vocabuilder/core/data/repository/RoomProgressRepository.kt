@@ -5,11 +5,13 @@ import io.github.abhik9.vocabuilder.core.database.dao.ProgressDao
 import io.github.abhik9.vocabuilder.core.database.model.asEntity
 import io.github.abhik9.vocabuilder.core.database.model.asExternalModel
 import io.github.abhik9.vocabuilder.core.domain.repository.ProgressRepository
+import io.github.abhik9.vocabuilder.core.model.Answer
 import io.github.abhik9.vocabuilder.core.model.Review
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import java.time.Instant
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 internal class RoomProgressRepository @Inject constructor(
     private val progressDao: ProgressDao,
@@ -37,6 +39,9 @@ internal class RoomProgressRepository @Inject constructor(
         progressDao.resetAll()
         log.record { "progress: reset everything" }
     }
+
+    override fun observeAnswers(): Flow<List<Answer>> =
+        progressDao.observeAnswers().map { rows -> rows.map { it.asExternalModel() } }
 
     override fun observeReviewCountSince(since: Instant): Flow<Int> = progressDao.observeReviewCountSince(since)
 }

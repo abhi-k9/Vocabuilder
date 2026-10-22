@@ -39,4 +39,50 @@
         <item quantity="other">%1$d of %2$d words mastered</item>
     </plurals>
     <string name="feature_home_all_decks">See all decks</string>
+
+    <!-- Days in a row with answers. -->
+    <plurals name="feature_home_streak">
+        <item quantity="one">%d-day streak</item>
+        <item quantity="other">%d-day streak</item>
+    </plurals>
+    <string name="feature_home_history">Your history</string>
+    <string name="feature_home_back">Back</string>
+    <string name="feature_home_history_empty_title">No answers yet</string>
+    <string name="feature_home_history_empty">Answer a few cards, and your streak and answers show up here.</string>
+    <string name="feature_home_current_streak">Current streak</string>
+    <string name="feature_home_longest_streak">Longest streak</string>
+    <!-- Under a number of days, as in "5" / "days". -->
+    <plurals name="feature_home_days">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <string name="feature_home_recent_weeks">Last 4 weeks</string>
+    <plurals name="feature_home_recent_answers">
+        <item quantity="one">%d answer in the last 4 weeks</item>
+        <item quantity="other">%d answers in the last 4 weeks</item>
+    </plurals>
+    <!-- "120 answers in the last 4 weeks · knew 85%". -->
+    <string name="feature_home_recent_accuracy">%1$s · knew %2$d%%</string>
+    <!-- A day's bar in the chart: "Oct 12, 2026: 14 answers, 11 known". -->
+    <plurals name="feature_home_day_answers">
+        <item quantity="one">%1$s: %2$d answer, %3$d known</item>
+        <item quantity="other">%1$s: %2$d answers, %3$d known</item>
+    </plurals>
+    <string name="feature_home_knew">Knew</string>
+    <string name="feature_home_missed">Missed</string>
+    <string name="feature_home_today">Today</string>
+    <plurals name="feature_home_total_answers">
+        <item quantity="one">%d answer in all</item>
+        <item quantity="other">%d answers in all</item>
+    </plurals>
+    <plurals name="feature_home_studied_words">
+        <item quantity="one">%d word studied</item>
+        <item quantity="other">%d words studied</item>
+    </plurals>
+    <string name="feature_home_most_missed">Most missed</string>
+    <plurals name="feature_home_missed_times">
+        <item quantity="one">missed once</item>
+        <item quantity="other">missed %d times</item>
+    </plurals>
+    <string name="feature_home_study_trouble">Study the words you often miss</string>
 </resources>

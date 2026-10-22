@@ -39,6 +39,7 @@ fun VocabuilderTheme(
     }
     CompositionLocalProvider(
         LocalMasteryColors provides if (darkTheme) DarkMasteryColors else LightMasteryColors,
+        LocalAnswerColors provides if (darkTheme) DarkAnswerColors else LightAnswerColors,
         LocalWordTypography provides DefaultWordTypography,
     ) {
         MaterialTheme(
@@ -55,6 +56,11 @@ object VocabuilderTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalMasteryColors.current
+
+    val answerColors: AnswerColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalAnswerColors.current
 
     val wordTypography: WordTypography
         @Composable

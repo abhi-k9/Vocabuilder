@@ -7,6 +7,7 @@ import io.github.abhik9.vocabuilder.core.database.DatabaseTestData.decks
 import io.github.abhik9.vocabuilder.core.database.DatabaseTestData.pack
 import io.github.abhik9.vocabuilder.core.database.DatabaseTestData.senses
 import io.github.abhik9.vocabuilder.core.database.DatabaseTestData.words
+import io.github.abhik9.vocabuilder.core.database.model.AnswerRow
 import io.github.abhik9.vocabuilder.core.database.model.ProgressEntity
 import io.github.abhik9.vocabuilder.core.database.model.ReviewEntity
 import java.time.Instant
@@ -116,5 +117,16 @@ class ProgressDaoTest {
 
         assertEquals(1, progressDao.observeReviewCountSince(now.minusSeconds(60)).first())
         assertEquals(2, progressDao.observeReviewCountSince(Instant.EPOCH).first())
+    }
+
+    @Test
+    fun listsAnswersOldestFirst() = runTest {
+        progressDao.insertReview(review("gre:abate").copy(knew = false))
+        progressDao.insertReview(review("gre:abate", now.minusSeconds(60)))
+
+        assertEquals(
+            listOf(AnswerRow(now.minusSeconds(60), knew = true), AnswerRow(now, knew = false)),
+            progressDao.observeAnswers().first(),
+        )
     }
 }

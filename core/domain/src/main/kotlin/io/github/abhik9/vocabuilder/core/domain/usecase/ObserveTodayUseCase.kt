@@ -30,7 +30,8 @@ class ObserveTodayUseCase @Inject constructor(
             wordRepository.observeWordSummaries(),
             settingsRepository.settings,
             progressRepository.observeReviewCountSince(startOfDay),
-        ) { decks, words, settings, reviewedToday ->
+            progressRepository.observeAnswers(),
+        ) { decks, words, settings, reviewedToday, answers ->
             val overviews = deckOverviews(decks, words, today)
             val introducedToday = words.count { it.progress.introducedDay == today }
             val newLeft = words.count { it.progress.isNew && !it.progress.alreadyKnown }
@@ -44,6 +45,7 @@ class ObserveTodayUseCase @Inject constructor(
                 starredCount = words.count { it.progress.starred },
                 troubleCount = words.count { it.progress.isTrouble }
                     .coerceAtMost(BuildStudyPlanUseCase.MAX_TROUBLE_WORDS),
+                streak = currentStreak(answers.map { it.at.atZone(clock.zone).toLocalDate() }.toSet(), today),
             )
         }
         emitAll(todayOverviews)

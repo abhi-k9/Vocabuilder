@@ -1,5 +1,6 @@
 package io.github.abhik9.vocabuilder.core.domain.repository
 
+import io.github.abhik9.vocabuilder.core.model.Answer
 import io.github.abhik9.vocabuilder.core.model.Review
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import java.time.Instant
@@ -28,6 +29,9 @@ interface ProgressRepository {
 
     /** Forgets all progress and answers. */
     suspend fun resetAll()
+
+    /** Every answer given, oldest first, updated as answers are recorded. */
+    fun observeAnswers(): Flow<List<Answer>>
 
     /** How many answers were given since [since], updated as answers are recorded. */
     fun observeReviewCountSince(since: Instant): Flow<Int>

@@ -38,3 +38,7 @@ data class StudyNavKey(
     val deckId: String? = null,
     val practice: Boolean = false,
 ) : NavKey
+
+/** The learner's streak, answers of the last weeks and most missed words. */
+@Serializable
+data object HistoryNavKey : NavKey

@@ -2,6 +2,8 @@ package io.github.abhik9.vocabuilder.core.database.model
 
 import androidx.room.Embedded
 import androidx.room.Relation
+import io.github.abhik9.vocabuilder.core.model.Answer
+import java.time.Instant
 
 /** A word with its first sense and its progress, if any, for lists. */
 data class WordSummaryRow(
@@ -13,6 +15,14 @@ data class WordSummaryRow(
     val definition: String,
     @Embedded(prefix = "progress_") val progress: ProgressEntity?,
 )
+
+/** An answer's time and outcome, for history. */
+data class AnswerRow(
+    val reviewedAt: Instant,
+    val knew: Boolean,
+) {
+    fun asExternalModel() = Answer(at = reviewedAt, knew = knew)
+}
 
 data class PopulatedWord(
     @Embedded val word: WordEntity,
