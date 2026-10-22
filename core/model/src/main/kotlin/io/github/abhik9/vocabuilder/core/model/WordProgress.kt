@@ -37,12 +37,18 @@ data class WordProgress(
             else -> MasteryState.REVIEWING
         }
 
+    /** Missed again and again, and not mastered since: a word to work on. */
+    val isTrouble: Boolean get() = lapseCount >= TROUBLE_LAPSE_COUNT && masteryState != MasteryState.MASTERED
+
     /** Whether the word should be reviewed on [today]: it was studied and its review day came. */
     fun isDue(today: LocalDate): Boolean = !alreadyKnown && !isNew && dueDay != null && !dueDay.isAfter(today)
 
     companion object {
         /** From this stage on, a word is reviewed weeks apart and counts as mastered. */
         const val MASTERED_STAGE = 4
+
+        /** Missing a word this many times makes it a trouble word. */
+        const val TROUBLE_LAPSE_COUNT = 2
     }
 }
 

@@ -8,6 +8,7 @@
     <string name="feature_study_already_know">I know this</string>
     <string name="feature_study_daily_review">Daily review</string>
     <string name="feature_study_starred">Starred words</string>
+    <string name="feature_study_trouble">Trouble words</string>
     <string name="feature_study_practice">%1$s · Practice</string>
     <string name="feature_study_count">%1$d of %2$d</string>
 
@@ -26,6 +27,7 @@
     <string name="feature_study_empty_title">All caught up</string>
     <string name="feature_study_empty_deck">No words in this deck are due right now. They\'ll come back when it\'s time to review them.</string>
     <string name="feature_study_empty_daily">Nothing is due today, and you\'ve met today\'s new words. Come back tomorrow, or study a deck.</string>
+    <string name="feature_study_empty_trouble">No words are giving you trouble: none was missed twice without being mastered since.</string>
     <string name="feature_study_empty_starred">You haven\'t starred any words yet. Star a word on its card to study it here.</string>
     <string name="feature_study_practice_anyway">Practice anyway</string>
     <string name="feature_study_done">Done</string>

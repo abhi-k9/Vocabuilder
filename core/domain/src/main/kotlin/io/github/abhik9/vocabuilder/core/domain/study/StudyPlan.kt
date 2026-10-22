@@ -2,7 +2,7 @@ package io.github.abhik9.vocabuilder.core.domain.study
 
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 
-/** What to study: a deck, the daily review or the starred words. */
+/** What to study: a deck, the daily review, or the starred or trouble words. */
 data class StudyRequest(
     val mode: StudyMode,
     /** The deck, for [StudyMode.DECK]. */

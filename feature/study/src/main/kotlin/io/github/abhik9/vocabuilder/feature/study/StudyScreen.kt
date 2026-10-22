@@ -319,13 +319,18 @@ private fun StudyingContent(
 private fun EmptySession(title: StudyTitle, onPractice: () -> Unit, onDone: () -> Unit) {
     val canPractice = title.mode == StudyMode.DECK && !title.isPractice
     EmptyState(
-        emoji = if (title.mode == StudyMode.STARRED) "⭐" else "✨",
+        emoji = when (title.mode) {
+            StudyMode.STARRED -> "⭐"
+            StudyMode.TROUBLE -> "💪"
+            else -> "✨"
+        },
         title = stringResource(R.string.feature_study_empty_title),
         message = stringResource(
             when (title.mode) {
                 StudyMode.DECK -> R.string.feature_study_empty_deck
                 StudyMode.DAILY_REVIEW -> R.string.feature_study_empty_daily
                 StudyMode.STARRED -> R.string.feature_study_empty_starred
+                StudyMode.TROUBLE -> R.string.feature_study_empty_trouble
             },
         ),
         action = {
@@ -418,13 +423,14 @@ private fun StatTile(value: Int, label: String, modifier: Modifier = Modifier) {
     }
 }
 
-/** "Common · Deck 3", "Daily review" or "Starred words", marked when practicing. */
+/** "Common · Deck 3", "Daily review", "Starred words" or "Trouble words", marked when practicing. */
 @Composable
 private fun StudyTitle.text(): String {
     val base = when (mode) {
         StudyMode.DECK -> deck?.title().orEmpty()
         StudyMode.DAILY_REVIEW -> stringResource(R.string.feature_study_daily_review)
         StudyMode.STARRED -> stringResource(R.string.feature_study_starred)
+        StudyMode.TROUBLE -> stringResource(R.string.feature_study_trouble)
     }
     return if (isPractice) stringResource(R.string.feature_study_practice, base) else base
 }

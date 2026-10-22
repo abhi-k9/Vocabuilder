@@ -117,4 +117,16 @@ class BuildStudyPlanUseCaseTest {
 
         assertEquals(listOf("gre:laud", "gre:vex"), plan(StudyRequest(StudyMode.STARRED)))
     }
+
+    @Test
+    fun troubleWordsAreThoseMissedTwiceAndNotMasteredMostMissedFirst() = runTest {
+        progress.setProgress(
+            WordProgress("gre:vex", stage = 0, dueDay = TODAY, reviewCount = 4, lapseCount = 2),
+            WordProgress("gre:laud", stage = 1, dueDay = TODAY, reviewCount = 6, lapseCount = 3),
+            WordProgress("gre:wane", stage = 0, dueDay = TODAY, reviewCount = 2, lapseCount = 1),
+            WordProgress("gre:zeal", stage = 4, dueDay = TODAY.plusDays(20), reviewCount = 9, lapseCount = 4),
+        )
+
+        assertEquals(listOf("gre:laud", "gre:vex"), plan(StudyRequest(StudyMode.TROUBLE)))
+    }
 }

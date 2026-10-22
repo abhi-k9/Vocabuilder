@@ -17,6 +17,7 @@ fun EntryProviderScope<NavKey>.homeEntry(navigator: Navigator) {
             onStudyDeck = { deck -> navigator.navigate(StudyNavKey(StudyMode.DECK, deck.id)) },
             onOpenDecks = { navigator.navigate(DecksNavKey) },
             onStudyStarred = { navigator.navigate(StudyNavKey(StudyMode.STARRED)) },
+            onStudyTrouble = { navigator.navigate(StudyNavKey(StudyMode.TROUBLE)) },
             viewModel = hiltViewModel(),
         )
     }

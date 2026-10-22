@@ -42,6 +42,8 @@ class ObserveTodayUseCase @Inject constructor(
                 counts = MasteryCounts.of(words.map { it.progress.masteryState }),
                 nextDeck = overviews.firstOrNull { !it.isCaughtUp },
                 starredCount = words.count { it.progress.starred },
+                troubleCount = words.count { it.progress.isTrouble }
+                    .coerceAtMost(BuildStudyPlanUseCase.MAX_TROUBLE_WORDS),
             )
         }
         emitAll(todayOverviews)

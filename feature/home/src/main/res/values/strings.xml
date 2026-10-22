@@ -26,6 +26,11 @@
         <item quantity="one">%d starred word</item>
         <item quantity="other">%d starred words</item>
     </plurals>
+    <!-- Words missed again and again, and not yet mastered. -->
+    <plurals name="feature_home_trouble">
+        <item quantity="one">%d word you often miss</item>
+        <item quantity="other">%d words you often miss</item>
+    </plurals>
     <string name="feature_home_study">Study</string>
 
     <string name="feature_home_progress_title">Your progress</string>

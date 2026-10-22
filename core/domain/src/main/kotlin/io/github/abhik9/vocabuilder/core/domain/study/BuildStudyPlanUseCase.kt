@@ -53,6 +53,12 @@ class BuildStudyPlanUseCase @Inject constructor(
             }
 
             StudyMode.STARRED -> ordered.filter { it.progress.starred }.maybeShuffled(settings.shuffleCards, random)
+
+            // The most missed first, so the worst ones make the cut.
+            StudyMode.TROUBLE -> ordered.filter { it.progress.isTrouble }
+                .sortedByDescending { it.progress.lapseCount }
+                .take(MAX_TROUBLE_WORDS)
+                .maybeShuffled(settings.shuffleCards, random)
         }
         return StudyPlan(request = request, wordIds = ids.map { it.id }, isPractice = request.practice)
     }
@@ -74,5 +80,8 @@ class BuildStudyPlanUseCase @Inject constructor(
     companion object {
         /** Reviews in one daily session, so a long break doesn't make for an endless one. */
         const val MAX_DAILY_REVIEWS = 100
+
+        /** Trouble words in one session, the most missed ones. */
+        const val MAX_TROUBLE_WORDS = 30
     }
 }

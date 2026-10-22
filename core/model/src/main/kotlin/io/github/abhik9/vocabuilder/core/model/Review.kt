@@ -27,4 +27,7 @@ enum class StudyMode {
 
     /** The words the learner starred. */
     STARRED,
+
+    /** The words the learner missed most, until they're mastered. */
+    TROUBLE,
 }
