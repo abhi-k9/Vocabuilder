@@ -15,7 +15,7 @@ class RecordingEventLog : EventLog {
     }
 }
 
-class FakeDiagnosticsRepository(var report: String = "diagnostics report") : DiagnosticsRepository {
+class FakeDiagnosticsRepository(private val report: String = "diagnostics report") : DiagnosticsRepository {
     override val isRecording = MutableStateFlow(false)
     override val logSize = MutableStateFlow(0L)
 

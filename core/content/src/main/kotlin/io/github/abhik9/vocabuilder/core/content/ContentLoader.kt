@@ -112,10 +112,13 @@ class ContentLoader(private val files: ContentFiles) {
         fun wordId(packId: String, headword: String): String = "$packId:${slug(headword)}"
 
         private fun slug(text: String): String = Normalizer.normalize(text, Normalizer.Form.NFD)
-            .replace(Regex("\\p{M}+"), "")
+            .replace(MARKS, "")
             .lowercase()
-            .replace(Regex("[^a-z0-9]+"), "-")
+            .replace(NOT_SLUG, "-")
             .trim('-')
+
+        private val MARKS = Regex("\\p{M}+")
+        private val NOT_SLUG = Regex("[^a-z0-9]+")
     }
 }
 

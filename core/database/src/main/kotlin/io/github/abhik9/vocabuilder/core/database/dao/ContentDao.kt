@@ -60,9 +60,6 @@ interface ContentDao {
     @Query("SELECT * FROM words WHERE id = :id")
     fun observeWord(id: String): Flow<PopulatedWordWithProgress?>
 
-    @Query("SELECT id FROM words WHERE deckId = :deckId")
-    suspend fun wordIdsInDeck(deckId: String): List<String>
-
     /**
      * Replaces a pack's decks and words with new ones. Progress is kept: words that remain keep
      * theirs, and the progress of removed words stays in case they come back.

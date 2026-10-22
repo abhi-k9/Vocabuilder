@@ -103,11 +103,4 @@ class ContentDaoTest {
         assertEquals(true, vex?.progress?.starred)
         assertNull(contentDao.observeWord("gre:missing").first())
     }
-
-    @Test
-    fun listsTheWordsOfADeck() = runTest {
-        contentDao.replacePack(pack, decks, words, senses)
-
-        assertEquals(setOf("gre:abate", "gre:laud"), contentDao.wordIdsInDeck("gre/common-01").toSet())
-    }
 }

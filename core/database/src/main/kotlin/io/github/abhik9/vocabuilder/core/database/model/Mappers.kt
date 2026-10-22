@@ -6,7 +6,6 @@ import io.github.abhik9.vocabuilder.core.model.Pack
 import io.github.abhik9.vocabuilder.core.model.PartOfSpeech
 import io.github.abhik9.vocabuilder.core.model.Review
 import io.github.abhik9.vocabuilder.core.model.Sense
-import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.model.WordProgress
 import io.github.abhik9.vocabuilder.core.model.WordSummary
@@ -107,14 +106,4 @@ fun Review.asEntity() = ReviewEntity(
     mode = mode.name,
     stageBefore = stageBefore,
     stageAfter = stageAfter,
-)
-
-fun ReviewEntity.asExternalModel() = Review(
-    wordId = wordId,
-    reviewedAt = reviewedAt,
-    knew = knew,
-    mode = StudyMode.valueOf(mode),
-    stageBefore = stageBefore,
-    stageAfter = stageAfter,
-    id = id,
 )
