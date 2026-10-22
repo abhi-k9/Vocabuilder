@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_reminders_channel">Daily reminder</string>
+    <string name="core_reminders_channel_description">A reminder to study, on days there are words waiting</string>
+    <string name="core_reminders_title">Time for today\'s words</string>
+    <plurals name="core_reminders_text">
+        <item quantity="one">%d word is waiting in today\'s review</item>
+        <item quantity="other">%d words are waiting in today\'s review</item>
+    </plurals>
+</resources>

@@ -3,6 +3,7 @@ package io.github.abhik9.vocabuilder.core.domain.repository
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
+import java.time.LocalTime
 import kotlinx.coroutines.flow.Flow
 
 interface UserSettingsRepository {
@@ -19,4 +20,8 @@ interface UserSettingsRepository {
     suspend fun setAutoPronounce(autoPronounce: Boolean)
 
     suspend fun setShuffleCards(shuffle: Boolean)
+
+    suspend fun setReminderEnabled(enabled: Boolean)
+
+    suspend fun setReminderTime(time: LocalTime)
 }

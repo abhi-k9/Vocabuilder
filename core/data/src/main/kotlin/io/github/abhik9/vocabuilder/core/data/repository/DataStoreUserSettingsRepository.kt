@@ -6,6 +6,7 @@ import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepositor
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
+import java.time.LocalTime
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
@@ -43,5 +44,15 @@ internal class DataStoreUserSettingsRepository @Inject constructor(
     override suspend fun setShuffleCards(shuffle: Boolean) {
         dataSource.setShuffleCards(shuffle)
         log.record { "settings: shuffle cards $shuffle" }
+    }
+
+    override suspend fun setReminderEnabled(enabled: Boolean) {
+        dataSource.setReminderEnabled(enabled)
+        log.record { "settings: daily reminder $enabled" }
+    }
+
+    override suspend fun setReminderTime(time: LocalTime) {
+        dataSource.setReminderTime(time)
+        log.record { "settings: reminder at $time" }
     }
 }

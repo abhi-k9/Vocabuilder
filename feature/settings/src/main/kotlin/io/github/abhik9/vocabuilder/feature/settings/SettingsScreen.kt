@@ -1,5 +1,11 @@
 package io.github.abhik9.vocabuilder.feature.settings
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import android.provider.Settings
+import android.text.format.DateFormat
 import android.text.format.Formatter
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,9 +27,11 @@ import androidx.compose.material.icons.outlined.DeleteSweep
 import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Lock
+import androidx.compose.material.icons.outlined.NotificationsActive
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material.icons.outlined.RecordVoiceOver
 import androidx.compose.material.icons.outlined.RestartAlt
+import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material.icons.outlined.Shuffle
 import androidx.compose.material.icons.outlined.Style
 import androidx.compose.material.icons.outlined.WbSunny
@@ -38,16 +46,20 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TimeInput
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -60,6 +72,7 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.common.AppInfo
 import io.github.abhik9.vocabuilder.core.designsystem.component.SectionHeader
@@ -67,7 +80,10 @@ import io.github.abhik9.vocabuilder.core.designsystem.theme.supportsDynamicThemi
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import kotlin.math.roundToInt
+import kotlinx.coroutines.launch
 
 @Composable
 internal fun SettingsRoute(viewModel: SettingsViewModel) {
@@ -95,6 +111,41 @@ internal fun SettingsRoute(viewModel: SettingsViewModel) {
         ActivityResultContracts.CreateDocument(DIAGNOSTICS_MIME_TYPE),
     ) { uri -> uri?.let { viewModel.exportDiagnosticsTo(it.toString()) } }
 
+    // The reminder needs Android's permission to notify, asked for as it's turned on. Once refused for good, Android
+    // no longer asks, so the snackbar offers its notification settings.
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        if (granted) {
+            viewModel.setReminderEnabled(true)
+        } else {
+            scope.launch {
+                val result = snackbarHostState.showSnackbar(
+                    message = resources.getString(R.string.feature_settings_reminder_not_allowed),
+                    actionLabel = resources.getString(R.string.feature_settings_reminder_open_settings),
+                )
+                if (result == SnackbarResult.ActionPerformed) {
+                    context.startActivity(
+                        Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                            .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName),
+                    )
+                }
+            }
+        }
+    }
+    val onReminderChange: (Boolean) -> Unit = { enabled ->
+        val mustAsk = enabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) !=
+            PackageManager.PERMISSION_GRANTED
+        if (mustAsk) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        } else {
+            viewModel.setReminderEnabled(enabled)
+        }
+    }
+
     SettingsScreen(
         settings = settings,
         appInfo = viewModel.appInfo,
@@ -105,6 +156,8 @@ internal fun SettingsRoute(viewModel: SettingsViewModel) {
         onCardFrontChange = viewModel::setCardFront,
         onAutoPronounceChange = viewModel::setAutoPronounce,
         onShuffleChange = viewModel::setShuffleCards,
+        onReminderChange = onReminderChange,
+        onReminderTimeChange = viewModel::setReminderTime,
         onResetAllProgress = viewModel::resetAllProgress,
         diagnostics = diagnostics,
         onDiagnosticsRecordingChange = viewModel::setDiagnosticsRecording,
@@ -125,6 +178,8 @@ internal fun SettingsScreen(
     onCardFrontChange: (CardFront) -> Unit,
     onAutoPronounceChange: (Boolean) -> Unit,
     onShuffleChange: (Boolean) -> Unit,
+    onReminderChange: (Boolean) -> Unit,
+    onReminderTimeChange: (LocalTime) -> Unit,
     onResetAllProgress: () -> Unit,
     diagnostics: DiagnosticsState,
     onDiagnosticsRecordingChange: (Boolean) -> Unit,
@@ -148,6 +203,7 @@ internal fun SettingsScreen(
         ) {
             AppearanceSection(settings, onThemeModeChange, onDynamicColorChange)
             StudySection(settings, onNewWordsPerDayChange, onCardFrontChange, onAutoPronounceChange, onShuffleChange)
+            ReminderSection(settings, onReminderChange, onReminderTimeChange)
 
             SectionHeader(stringResource(R.string.feature_settings_section_progress))
             SettingsRow(
@@ -182,6 +238,69 @@ internal fun SettingsScreen(
             },
         )
     }
+}
+
+@Composable
+private fun ReminderSection(
+    settings: UserSettings,
+    onReminderChange: (Boolean) -> Unit,
+    onReminderTimeChange: (LocalTime) -> Unit,
+) {
+    var showTimeDialog by rememberSaveable { mutableStateOf(false) }
+    val is24Hour = DateFormat.is24HourFormat(LocalContext.current)
+    val time = settings.reminderTime.format(DateTimeFormatter.ofPattern(if (is24Hour) "HH:mm" else "h:mm a"))
+    SectionHeader(stringResource(R.string.feature_settings_section_reminder))
+    SwitchRow(
+        icon = Icons.Outlined.NotificationsActive,
+        title = stringResource(R.string.feature_settings_reminder),
+        subtitle = stringResource(R.string.feature_settings_reminder_summary, time),
+        checked = settings.reminderEnabled,
+        onCheckedChange = onReminderChange,
+    )
+    if (settings.reminderEnabled) {
+        SettingsRow(
+            icon = Icons.Outlined.Schedule,
+            title = stringResource(R.string.feature_settings_reminder_time),
+            subtitle = time,
+            onClick = { showTimeDialog = true },
+        )
+    }
+    if (showTimeDialog) {
+        ReminderTimeDialog(
+            initial = settings.reminderTime,
+            is24Hour = is24Hour,
+            onDismiss = { showTimeDialog = false },
+            onConfirm = { chosen ->
+                showTimeDialog = false
+                onReminderTimeChange(chosen)
+            },
+        )
+    }
+}
+
+/** Picks the reminder's time, typed in: it fits a dialog on any screen, unlike the clock dial. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReminderTimeDialog(
+    initial: LocalTime,
+    is24Hour: Boolean,
+    onDismiss: () -> Unit,
+    onConfirm: (LocalTime) -> Unit,
+) {
+    val state = rememberTimePickerState(initialHour = initial.hour, initialMinute = initial.minute, is24Hour = is24Hour)
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.feature_settings_reminder_time)) },
+        text = { TimeInput(state = state) },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(LocalTime.of(state.hour, state.minute)) }) {
+                Text(stringResource(R.string.feature_settings_ok))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.feature_settings_cancel)) }
+        },
+    )
 }
 
 @Composable

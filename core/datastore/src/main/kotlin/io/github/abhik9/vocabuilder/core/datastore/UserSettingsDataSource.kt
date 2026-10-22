@@ -11,6 +11,7 @@ import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import java.io.IOException
+import java.time.LocalTime
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -39,6 +40,12 @@ class UserSettingsDataSource @Inject constructor(
 
     suspend fun setShuffleCards(shuffle: Boolean) = dataStore.edit { it[Keys.SHUFFLE_CARDS] = shuffle }
 
+    suspend fun setReminderEnabled(enabled: Boolean) = dataStore.edit { it[Keys.REMINDER_ENABLED] = enabled }
+
+    suspend fun setReminderTime(time: LocalTime) = dataStore.edit {
+        it[Keys.REMINDER_MINUTE_OF_DAY] = time.hour * MINUTES_PER_HOUR + time.minute
+    }
+
     private fun Preferences.toUserSettings(): UserSettings {
         val defaults = UserSettings()
         return UserSettings(
@@ -49,6 +56,11 @@ class UserSettingsDataSource @Inject constructor(
             cardFront = enumOrDefault(this[Keys.CARD_FRONT], defaults.cardFront),
             autoPronounce = this[Keys.AUTO_PRONOUNCE] ?: defaults.autoPronounce,
             shuffleCards = this[Keys.SHUFFLE_CARDS] ?: defaults.shuffleCards,
+            reminderEnabled = this[Keys.REMINDER_ENABLED] ?: defaults.reminderEnabled,
+            reminderTime = this[Keys.REMINDER_MINUTE_OF_DAY]
+                ?.takeIf { it in 0 until MINUTES_PER_DAY }
+                ?.let { LocalTime.of(it / MINUTES_PER_HOUR, it % MINUTES_PER_HOUR) }
+                ?: defaults.reminderTime,
         )
     }
 
@@ -62,5 +74,12 @@ class UserSettingsDataSource @Inject constructor(
         val CARD_FRONT = stringPreferencesKey("card_front")
         val AUTO_PRONOUNCE = booleanPreferencesKey("auto_pronounce")
         val SHUFFLE_CARDS = booleanPreferencesKey("shuffle_cards")
+        val REMINDER_ENABLED = booleanPreferencesKey("reminder_enabled")
+        val REMINDER_MINUTE_OF_DAY = intPreferencesKey("reminder_minute_of_day")
+    }
+
+    private companion object {
+        const val MINUTES_PER_HOUR = 60
+        const val MINUTES_PER_DAY = 24 * MINUTES_PER_HOUR
     }
 }

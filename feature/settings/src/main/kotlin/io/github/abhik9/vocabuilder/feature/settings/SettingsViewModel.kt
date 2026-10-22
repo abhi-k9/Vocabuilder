@@ -13,6 +13,7 @@ import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
 import java.time.Clock
 import java.time.LocalDate
+import java.time.LocalTime
 import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -71,6 +72,10 @@ class SettingsViewModel @Inject constructor(
     fun setAutoPronounce(autoPronounce: Boolean) = launch { settingsRepository.setAutoPronounce(autoPronounce) }
 
     fun setShuffleCards(shuffle: Boolean) = launch { settingsRepository.setShuffleCards(shuffle) }
+
+    fun setReminderEnabled(enabled: Boolean) = launch { settingsRepository.setReminderEnabled(enabled) }
+
+    fun setReminderTime(time: LocalTime) = launch { settingsRepository.setReminderTime(time) }
 
     fun resetAllProgress() = launch {
         progressRepository.resetAll()

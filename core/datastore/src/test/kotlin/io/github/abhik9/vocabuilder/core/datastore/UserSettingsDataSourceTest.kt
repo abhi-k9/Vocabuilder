@@ -4,6 +4,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
+import java.time.LocalTime
 import kotlin.test.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -40,6 +41,8 @@ class UserSettingsDataSourceTest {
         dataSource.setCardFront(CardFront.DEFINITION)
         dataSource.setAutoPronounce(true)
         dataSource.setShuffleCards(false)
+        dataSource.setReminderEnabled(true)
+        dataSource.setReminderTime(LocalTime.of(7, 45))
 
         assertEquals(
             UserSettings(
@@ -49,6 +52,8 @@ class UserSettingsDataSourceTest {
                 cardFront = CardFront.DEFINITION,
                 autoPronounce = true,
                 shuffleCards = false,
+                reminderEnabled = true,
+                reminderTime = LocalTime.of(7, 45),
             ),
             dataSource.settings.first(),
         )

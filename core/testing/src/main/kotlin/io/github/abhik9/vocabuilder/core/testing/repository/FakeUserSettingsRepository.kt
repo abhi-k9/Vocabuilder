@@ -4,6 +4,7 @@ import io.github.abhik9.vocabuilder.core.domain.repository.UserSettingsRepositor
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.ThemeMode
 import io.github.abhik9.vocabuilder.core.model.UserSettings
+import java.time.LocalTime
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -31,4 +32,8 @@ class FakeUserSettingsRepository(initial: UserSettings = UserSettings()) : UserS
         _settings.update { it.copy(autoPronounce = autoPronounce) }
 
     override suspend fun setShuffleCards(shuffle: Boolean) = _settings.update { it.copy(shuffleCards = shuffle) }
+
+    override suspend fun setReminderEnabled(enabled: Boolean) = _settings.update { it.copy(reminderEnabled = enabled) }
+
+    override suspend fun setReminderTime(time: LocalTime) = _settings.update { it.copy(reminderTime = time) }
 }

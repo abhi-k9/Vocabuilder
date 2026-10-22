@@ -13,6 +13,7 @@ import io.github.abhik9.vocabuilder.core.testing.diagnostics.FakeDocumentStore
 import io.github.abhik9.vocabuilder.core.testing.diagnostics.RecordingEventLog
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeProgressRepository
 import io.github.abhik9.vocabuilder.core.testing.repository.FakeUserSettingsRepository
+import java.time.LocalTime
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
@@ -55,6 +56,8 @@ class SettingsViewModelTest {
         viewModel.setCardFront(CardFront.DEFINITION)
         viewModel.setAutoPronounce(true)
         viewModel.setShuffleCards(false)
+        viewModel.setReminderEnabled(true)
+        viewModel.setReminderTime(LocalTime.of(7, 30))
 
         assertEquals(
             UserSettings(
@@ -64,6 +67,8 @@ class SettingsViewModelTest {
                 cardFront = CardFront.DEFINITION,
                 autoPronounce = true,
                 shuffleCards = false,
+                reminderEnabled = true,
+                reminderTime = LocalTime.of(7, 30),
             ),
             settings.settings.value,
         )

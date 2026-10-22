@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two flashcards, in white, as status bar icons must be. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M8,3h11a2,2 0,0 1,2 2v11a2,2 0,0 1,-2 2H8a2,2 0,0 1,-2 -2V5a2,2 0,0 1,2 -2zM3,7v12a2,2 0,0 0,2 2h12v-2H5V7z" />
+</vector>

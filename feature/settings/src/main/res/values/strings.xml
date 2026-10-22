@@ -11,6 +11,13 @@
     <string name="feature_settings_dynamic_color_summary">Match the colors of your wallpaper</string>
 
     <string name="feature_settings_section_study">Study</string>
+    <string name="feature_settings_section_reminder">Reminder</string>
+    <string name="feature_settings_reminder">Daily reminder</string>
+    <!-- "At 19:00, on days there are words to study". -->
+    <string name="feature_settings_reminder_summary">At %1$s, on days there are words to study</string>
+    <string name="feature_settings_reminder_time">Time</string>
+    <string name="feature_settings_reminder_not_allowed">Notifications are off for Vocabuilder</string>
+    <string name="feature_settings_reminder_open_settings">Settings</string>
     <string name="feature_settings_new_words">New words per day</string>
     <plurals name="feature_settings_new_words_summary">
         <item quantity="one">The daily review introduces %d new word a day</item>
@@ -33,6 +40,7 @@
     <string name="feature_settings_reset_all_message">Everything you\'ve studied, starred or marked as known will be lost. This can\'t be undone.</string>
     <string name="feature_settings_reset">Reset</string>
     <string name="feature_settings_cancel">Cancel</string>
+    <string name="feature_settings_ok">OK</string>
     <string name="feature_settings_reset_done">Your progress was reset</string>
 
     <string name="feature_settings_section_diagnostics">Diagnostics</string>

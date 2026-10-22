@@ -1,5 +1,7 @@
 package io.github.abhik9.vocabuilder.core.model
 
+import java.time.LocalTime
+
 data class UserSettings(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     val useDynamicColor: Boolean = true,
@@ -11,8 +13,12 @@ data class UserSettings(
     val autoPronounce: Boolean = false,
     /** Show cards in random order, rather than in their deck's order, which is alphabetical. */
     val shuffleCards: Boolean = true,
+    /** Notify the learner each day at [reminderTime], when there's something to study. */
+    val reminderEnabled: Boolean = false,
+    val reminderTime: LocalTime = DEFAULT_REMINDER_TIME,
 ) {
     companion object {
+        val DEFAULT_REMINDER_TIME: LocalTime = LocalTime.of(19, 0)
         const val DEFAULT_NEW_WORDS_PER_DAY = 10
         val NEW_WORDS_PER_DAY_RANGE = 0..50
     }
