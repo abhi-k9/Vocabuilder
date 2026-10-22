@@ -5,12 +5,10 @@ import io.github.abhik9.vocabuilder.buildlogic.configureKotlinAndroid
 import io.github.abhik9.vocabuilder.buildlogic.configureLint
 import io.github.abhik9.vocabuilder.buildlogic.configureSpotless
 import io.github.abhik9.vocabuilder.buildlogic.configureTests
-import io.github.abhik9.vocabuilder.buildlogic.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
 
 abstract class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -35,11 +33,6 @@ abstract class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
             configureSpotless()
             configureTests()
-
-            dependencies {
-                "testImplementation"(libs.findLibrary("kotlin.test").get())
-                "testImplementation"(libs.findLibrary("junit").get())
-            }
         }
     }
 }
