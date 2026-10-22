@@ -29,7 +29,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -48,15 +47,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.designsystem.component.EmptyState
-import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
+import io.github.abhik9.vocabuilder.core.designsystem.theme.MaxContentWidth
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
 import io.github.abhik9.vocabuilder.core.model.DictionarySource
-import io.github.abhik9.vocabuilder.core.model.MasteryState
 import io.github.abhik9.vocabuilder.core.model.StudyMode
 import io.github.abhik9.vocabuilder.core.ui.WordMeaningSheet
-import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.title
 
 @Composable
@@ -238,44 +235,34 @@ private fun StudyingContent(
     onLookUp: (headword: String) -> Unit,
     onMarkKnown: () -> Unit,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .widthIn(max = MAX_CONTENT_WIDTH),
-    ) {
-        LinearProgressIndicator(
-            progress = { if (state.wordCount == 0) 0f else state.doneCount.toFloat() / state.wordCount },
-            modifier = Modifier.fillMaxWidth(),
-        )
-        // Each card starts afresh: unturned, rather than turning back over with the next word's
-        // meaning showing, and centered, even when a word swiped away comes straight back.
-        key(state.cardIndex) {
-            FlashCard(
-                word = state.word,
-                cardFront = state.cardFront,
-                isFlipped = state.isFlipped,
-                onFlip = onFlip,
-                onAnswer = onAnswer,
-                onLookUp = onLookUp,
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .padding(16.dp),
-            )
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
+    SessionLayout(
+        state = state,
+        card = {
+            // Each card starts afresh: unturned, rather than turning back over with the next word's
+            // meaning showing, and centered, even when a word swiped away comes straight back.
+            key(state.cardIndex) {
+                FlashCard(
+                    word = state.word,
+                    cardFront = state.cardFront,
+                    isFlipped = state.isFlipped,
+                    onFlip = onFlip,
+                    onAnswer = onAnswer,
+                    onLookUp = onLookUp,
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                )
+            }
+        },
+        buttons = {
             if (state.isFlipped) {
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     OutlinedButton(
                         onClick = { onAnswer(false) },
                         modifier = Modifier
                             .weight(1f)
-                            .height(56.dp),
+                            .height(AnswerButtonHeight),
                     ) {
                         Icon(Icons.Filled.Close, contentDescription = null)
                         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
@@ -285,9 +272,9 @@ private fun StudyingContent(
                         onClick = { onAnswer(true) },
                         modifier = Modifier
                             .weight(1f)
-                            .height(56.dp),
+                            .height(AnswerButtonHeight),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = MasteryState.MASTERED.colors().accent,
+                            containerColor = feedbackColors(knew = true).accent,
                             contentColor = MaterialTheme.colorScheme.surface,
                         ),
                     ) {
@@ -308,7 +295,7 @@ private fun StudyingContent(
                         onClick = onMarkKnown,
                         modifier = Modifier
                             .weight(1f)
-                            .height(56.dp),
+                            .height(AnswerButtonHeight),
                     ) {
                         Text(stringResource(R.string.feature_study_already_know), textAlign = TextAlign.Center)
                     }
@@ -316,7 +303,7 @@ private fun StudyingContent(
                         onClick = onFlip,
                         modifier = Modifier
                             .weight(1f)
-                            .height(56.dp),
+                            .height(AnswerButtonHeight),
                     ) {
                         Text(
                             text = stringResource(
@@ -331,8 +318,8 @@ private fun StudyingContent(
                     }
                 }
             }
-        }
-    }
+        },
+    )
 }
 
 @Composable
@@ -376,8 +363,8 @@ private fun FinishedContent(
 ) {
     Column(
         modifier = Modifier
+            .widthIn(max = MaxContentWidth)
             .fillMaxSize()
-            .widthIn(max = MAX_CONTENT_WIDTH)
             .verticalScroll(rememberScrollState())
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -454,5 +441,3 @@ private fun StudyTitle.text(): String {
     }
     return if (isPractice) stringResource(R.string.feature_study_practice, base) else base
 }
-
-private val MAX_CONTENT_WIDTH = 640.dp

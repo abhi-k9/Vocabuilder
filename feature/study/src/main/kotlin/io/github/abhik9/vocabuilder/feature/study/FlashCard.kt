@@ -1,6 +1,7 @@
 package io.github.abhik9.vocabuilder.feature.study
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,20 +55,18 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.CardFront
-import io.github.abhik9.vocabuilder.core.model.MasteryState
 import io.github.abhik9.vocabuilder.core.model.Word
 import io.github.abhik9.vocabuilder.core.ui.Senses
-import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.label
 import kotlin.math.abs
 import kotlin.math.roundToInt
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 /**
  * A flashcard that turns over when tapped. Once turned, it can be swiped right for "knew it" or
  * left for "didn't know", far enough or with a flick; the same answers are offered as accessibility
- * actions. Its back lists the
- * word's synonyms and antonyms, to look up.
+ * actions. Its back lists the word's synonyms and antonyms, to look up.
  *
  * Its state belongs to one showing of a card: give each card its own `key`, so the next one starts
  * unturned and centered.
@@ -107,48 +105,7 @@ internal fun FlashCard(
     Box(
         modifier = modifier
             .absoluteOffset { IntOffset(offsetX.value.roundToInt(), 0) }
-            .pointerInput(isFlipped) {
-                if (!isFlipped) {
-                    // Not answerable before it's turned over: its drags are taken, so they don't count as taps
-                    // that would turn it over.
-                    detectHorizontalDragGestures { change, _ -> change.consume() }
-                    return@pointerInput
-                }
-                val threshold = size.width * SWIPE_THRESHOLD
-                val flingMinDistance = size.width * FLING_MIN_DISTANCE
-                val flingVelocity = FLING_VELOCITY_DP_PER_SECOND.dp.toPx()
-                val velocityTracker = VelocityTracker()
-                // The drag as the finger moved, which the card's offset follows a little later.
-                var distance = 0f
-                detectHorizontalDragGestures(
-                    onDragStart = {
-                        velocityTracker.resetTracking()
-                        distance = 0f
-                    },
-                    onDragEnd = {
-                        val velocity = velocityTracker.calculateVelocity().x
-                        // Far enough, or a quick flick the way it was dragged.
-                        val flung = abs(distance) > flingMinDistance && abs(velocity) > flingVelocity &&
-                            velocity * distance > 0f
-                        val knew = distance > 0
-                        val answered = abs(distance) > threshold || flung
-                        scope.launch {
-                            if (answered) {
-                                offsetX.animateTo(size.width * if (knew) 1.5f else -1.5f, tween(SWIPE_OUT_MILLIS))
-                                currentOnAnswer(knew)
-                            } else {
-                                offsetX.animateTo(0f)
-                            }
-                        }
-                    },
-                    onDragCancel = { scope.launch { offsetX.animateTo(0f) } },
-                ) { change, dragAmount ->
-                    change.consume()
-                    distance += dragAmount
-                    velocityTracker.addPosition(change.uptimeMillis, Offset(distance, 0f))
-                    scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
-                }
-            }
+            .swipeToAnswer(isFlipped, offsetX, scope) { knew -> currentOnAnswer(knew) }
             .graphicsLayer { rotationZ = offsetX.value / size.width.coerceAtLeast(1f) * MAX_TILT_DEGREES },
     ) {
         Card(
@@ -190,6 +147,63 @@ internal fun FlashCard(
         }
         SwipeLabel(offset = offsetX.value, knewLabel = knewLabel, didNotKnowLabel = didNotKnowLabel)
     }
+}
+
+/**
+ * Answers a turned card when it's swiped (see [swipeAnswer]), moving it by [offsetX] as it's dragged, then out of
+ * sight, or back if not swiped far or fast enough.
+ */
+private fun Modifier.swipeToAnswer(
+    isFlipped: Boolean,
+    offsetX: Animatable<Float, AnimationVector1D>,
+    scope: CoroutineScope,
+    onAnswer: (knew: Boolean) -> Unit,
+): Modifier = pointerInput(isFlipped) {
+    if (!isFlipped) {
+        // Not answerable before it's turned over: its drags are taken, so they don't count as taps that would turn it
+        // over.
+        detectHorizontalDragGestures { change, _ -> change.consume() }
+        return@pointerInput
+    }
+    val flingVelocity = FLING_VELOCITY_DP_PER_SECOND.dp.toPx()
+    val velocityTracker = VelocityTracker()
+    // The drag as the finger moved, which the card's offset follows a little later.
+    var distance = 0f
+    detectHorizontalDragGestures(
+        onDragStart = {
+            velocityTracker.resetTracking()
+            distance = 0f
+        },
+        onDragEnd = {
+            val velocity = velocityTracker.calculateVelocity().x
+            val knew = swipeAnswer(distance, velocity, size.width.toFloat(), flingVelocity)
+            scope.launch {
+                if (knew != null) {
+                    offsetX.animateTo(size.width * if (knew) 1.5f else -1.5f, tween(SWIPE_OUT_MILLIS))
+                    onAnswer(knew)
+                } else {
+                    offsetX.animateTo(0f)
+                }
+            }
+        },
+        onDragCancel = { scope.launch { offsetX.animateTo(0f) } },
+    ) { change, dragAmount ->
+        change.consume()
+        distance += dragAmount
+        velocityTracker.addPosition(change.uptimeMillis, Offset(distance, 0f))
+        scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
+    }
+}
+
+/**
+ * The answer a swipe of [distance] (right is positive) ending at [velocity], both in pixels, gives a card [width]
+ * pixels wide: knew it to the right, didn't know to the left, or null if it wasn't far enough, nor a quick flick
+ * the way it was dragged, so the card goes back.
+ */
+internal fun swipeAnswer(distance: Float, velocity: Float, width: Float, flingVelocity: Float): Boolean? {
+    val farEnough = abs(distance) > width * SWIPE_THRESHOLD
+    val flung = abs(distance) > width * FLING_MIN_DISTANCE && abs(velocity) > flingVelocity && velocity * distance > 0f
+    return if (farEnough || flung) distance > 0f else null
 }
 
 @Composable
@@ -315,7 +329,7 @@ private fun RelatedWords(
 private fun SwipeLabel(offset: Float, knewLabel: String, didNotKnowLabel: String) {
     if (offset == 0f) return
     val knew = offset > 0
-    val colors = (if (knew) MasteryState.MASTERED else MasteryState.LEARNING).colors()
+    val colors = feedbackColors(knew)
     Box(
         modifier = Modifier
             .fillMaxSize()

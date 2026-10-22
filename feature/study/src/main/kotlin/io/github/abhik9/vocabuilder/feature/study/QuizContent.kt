@@ -4,11 +4,9 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -18,7 +16,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
@@ -28,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontStyle
@@ -36,8 +32,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.CardFront
-import io.github.abhik9.vocabuilder.core.model.MasteryState
-import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.label
 
 /**
@@ -53,49 +47,40 @@ internal fun QuizContent(
     onMarkKnown: () -> Unit,
 ) {
     val byWord = state.cardFront == CardFront.WORD
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .widthIn(max = QUIZ_MAX_WIDTH),
-    ) {
-        LinearProgressIndicator(
-            progress = { if (state.wordCount == 0) 0f else state.doneCount.toFloat() / state.wordCount },
-            modifier = Modifier.fillMaxWidth(),
-        )
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            QuizPrompt(state, byWord)
-            quiz.choices.forEachIndexed { index, choice ->
-                val outcome = when {
-                    quiz.chosen == null -> ChoiceOutcome.OPEN
-                    choice.wordId == state.word.id -> ChoiceOutcome.RIGHT
-                    index == quiz.chosen -> ChoiceOutcome.WRONG
-                    else -> ChoiceOutcome.OTHER
+    SessionLayout(
+        state = state,
+        card = {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                QuizPrompt(state, byWord)
+                quiz.choices.forEachIndexed { index, choice ->
+                    val outcome = when {
+                        quiz.chosen == null -> ChoiceOutcome.OPEN
+                        choice.wordId == state.word.id -> ChoiceOutcome.RIGHT
+                        index == quiz.chosen -> ChoiceOutcome.WRONG
+                        else -> ChoiceOutcome.OTHER
+                    }
+                    QuizChoiceButton(
+                        text = if (byWord) choice.definition else choice.headword,
+                        outcome = outcome,
+                        onClick = { onChoose(index) },
+                    )
                 }
-                QuizChoiceButton(
-                    text = if (byWord) choice.definition else choice.headword,
-                    outcome = outcome,
-                    onClick = { onChoose(index) },
-                )
             }
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
-        ) {
+        },
+        buttons = {
             if (quiz.chosen == null) {
                 OutlinedButton(
                     onClick = onMarkKnown,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
+                        .height(AnswerButtonHeight),
                 ) {
                     Text(stringResource(R.string.feature_study_already_know))
                 }
@@ -104,13 +89,13 @@ internal fun QuizContent(
                     onClick = onContinue,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
+                        .height(AnswerButtonHeight),
                 ) {
                     Text(stringResource(R.string.feature_study_continue))
                 }
             }
-        }
-    }
+        },
+    )
 }
 
 @Composable
@@ -162,8 +147,8 @@ private enum class ChoiceOutcome { OPEN, RIGHT, WRONG, OTHER }
 /** A choice to pick; once picked, the right one in green with a check, a wrong pick in amber with a cross. */
 @Composable
 private fun QuizChoiceButton(text: String, outcome: ChoiceOutcome, onClick: () -> Unit) {
-    val right = MasteryState.MASTERED.colors()
-    val wrong = MasteryState.LEARNING.colors()
+    val right = feedbackColors(knew = true)
+    val wrong = feedbackColors(knew = false)
     val container = when (outcome) {
         ChoiceOutcome.RIGHT -> right.container
         ChoiceOutcome.WRONG -> wrong.container
@@ -211,5 +196,3 @@ private fun QuizChoiceButton(text: String, outcome: ChoiceOutcome, onClick: () -
         }
     }
 }
-
-private val QUIZ_MAX_WIDTH = 640.dp

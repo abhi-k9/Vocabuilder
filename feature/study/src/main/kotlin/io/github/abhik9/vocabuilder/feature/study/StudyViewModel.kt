@@ -17,6 +17,7 @@ import io.github.abhik9.vocabuilder.core.domain.study.BuildStudyPlanUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.MarkKnownUseCase
 import io.github.abhik9.vocabuilder.core.domain.study.QuizChoice
 import io.github.abhik9.vocabuilder.core.domain.study.QuizChoices
+import io.github.abhik9.vocabuilder.core.domain.study.SessionAnswer
 import io.github.abhik9.vocabuilder.core.domain.study.SessionSummary
 import io.github.abhik9.vocabuilder.core.domain.study.StudyRequest
 import io.github.abhik9.vocabuilder.core.domain.study.StudySession
@@ -70,7 +71,10 @@ sealed interface StudyUiState {
         val wordCount: Int,
         val canUndo: Boolean,
         val isStarred: Boolean,
-    ) : StudyUiState
+    ) : StudyUiState {
+        /** How far through the session, from 0 to 1. */
+        val progress: Float get() = if (wordCount == 0) 0f else doneCount.toFloat() / wordCount
+    }
 
     /** @property nextDeck the following deck with something to study, if this was a deck. */
     data class Finished(
@@ -98,7 +102,7 @@ data class QuizCard(
     val chosen: Int? = null,
 )
 
-/** What the session goes through, for the title: a deck, or the daily review or starred words. */
+/** What the session goes through, for the title: a deck, or the daily review, starred or trouble words. */
 data class StudyTitle(
     val mode: StudyMode,
     val deck: Deck?,
@@ -148,7 +152,7 @@ class StudyViewModel @AssistedInject constructor(
     private val isFlipped = MutableStateFlow(false)
     private val nextDeck = MutableStateFlow<Deck?>(null)
 
-    /** Set while an answer is being saved, so a double tap doesn't answer the next card too. */
+    /** Set while an answer is being saved; see [saveOnce]. */
     private var isAnswering = false
 
     val title: StateFlow<StudyTitle> = wordRepository.observeDecks()
@@ -253,26 +257,12 @@ class StudyViewModel @AssistedInject constructor(
     }
 
     fun answer(knew: Boolean) {
-        val current = session.value ?: return
-        val wordId = current.currentWordId ?: return
-        if (isAnswering) return
-        isAnswering = true
-        viewModelScope.launch {
-            try {
-                val answer = answerCard(wordId, knew, request.mode)
+        answerCurrent { wordId ->
+            answerCard(wordId, knew, request.mode).also { answer ->
                 log.record {
                     "study: $wordId ${if (knew) "known" else "missed"}, " +
                         "stage ${answer.before?.stage ?: "new"} to ${answer.after.stage}, due ${answer.after.dueDay}"
                 }
-                val next = current.answer(answer)
-                if (next.isFinished) {
-                    log.record { "study: finished, ${next.summary()}" }
-                    nextDeck.value = findNextDeck()
-                }
-                isFlipped.value = false
-                session.value = next
-            } finally {
-                isAnswering = false
             }
         }
     }
@@ -295,23 +285,8 @@ class StudyViewModel @AssistedInject constructor(
 
     /** Takes the current card out of this session and future ones; undo brings it back. */
     fun markKnown() {
-        val current = session.value ?: return
-        val wordId = current.currentWordId ?: return
-        if (isAnswering) return
-        isAnswering = true
-        viewModelScope.launch {
-            try {
-                val next = current.answer(markKnown(wordId))
-                log.record { "study: $wordId marked as known" }
-                if (next.isFinished) {
-                    log.record { "study: finished, ${next.summary()}" }
-                    nextDeck.value = findNextDeck()
-                }
-                isFlipped.value = false
-                session.value = next
-            } finally {
-                isAnswering = false
-            }
+        answerCurrent { wordId ->
+            markKnown(wordId).also { log.record { "study: $wordId marked as known" } }
         }
     }
 
@@ -324,15 +299,37 @@ class StudyViewModel @AssistedInject constructor(
     fun undo() {
         val current = session.value ?: return
         val last = current.lastAnswer ?: return
+        saveOnce {
+            undoAnswer(last)
+            log.record { "study: undid the answer to ${last.wordId}" }
+            isFlipped.value = false
+            chosen.value = null
+            session.value = current.undo()
+        }
+    }
+
+    /** Answers the current card as [save] saves it, then moves on to the next card. */
+    private fun answerCurrent(save: suspend (wordId: String) -> SessionAnswer) {
+        val current = session.value ?: return
+        val wordId = current.currentWordId ?: return
+        saveOnce {
+            val next = current.answer(save(wordId))
+            if (next.isFinished) {
+                log.record { "study: finished, ${next.summary()}" }
+                nextDeck.value = findNextDeck()
+            }
+            isFlipped.value = false
+            session.value = next
+        }
+    }
+
+    /** Runs [block] unless an answer is already being saved, so a double tap doesn't answer the next card too. */
+    private fun saveOnce(block: suspend () -> Unit) {
         if (isAnswering) return
         isAnswering = true
         viewModelScope.launch {
             try {
-                undoAnswer(last)
-                log.record { "study: undid the answer to ${last.wordId}" }
-                isFlipped.value = false
-                chosen.value = null
-                session.value = current.undo()
+                block()
             } finally {
                 isAnswering = false
             }
