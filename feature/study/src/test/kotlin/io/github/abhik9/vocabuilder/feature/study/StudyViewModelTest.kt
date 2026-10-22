@@ -99,7 +99,7 @@ class StudyViewModelTest {
         assertEquals(3, progress.getProgress("gre:vex")?.stage)
         assertEquals(
             listOf(
-                "study: started StudyRequest(mode=DECK, deckId=gre/advanced-01, practice=false), 2 cards",
+                "study: started StudyRequest(mode=DECK, deckId=gre/advanced-01, practice=false, quiz=false), 2 cards",
                 "study: gre:pique missed, stage new to 0, due 2026-10-10",
                 "study: gre:vex known, stage new to 3, due 2026-10-17",
                 "study: gre:pique known, stage 0 to 1, due 2026-10-11",
