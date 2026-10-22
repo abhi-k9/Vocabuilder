@@ -1,6 +1,5 @@
 package io.github.abhik9.vocabuilder.feature.decks
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,9 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.RestartAlt
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -25,7 +22,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -43,17 +39,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.DeckOverview
 import io.github.abhik9.vocabuilder.core.model.WordSummary
+import io.github.abhik9.vocabuilder.core.ui.BackButton
 import io.github.abhik9.vocabuilder.core.ui.MasteryLegend
-import io.github.abhik9.vocabuilder.core.ui.MasteryPill
 import io.github.abhik9.vocabuilder.core.ui.MasteryProgressBar
-import io.github.abhik9.vocabuilder.core.ui.label
+import io.github.abhik9.vocabuilder.core.ui.WordSummaryRow
 import io.github.abhik9.vocabuilder.core.ui.title
 
 @Composable
@@ -92,14 +85,7 @@ internal fun DeckScreen(
         topBar = {
             TopAppBar(
                 title = { if (uiState is DeckUiState.Success) Text(uiState.overview.deck.title()) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.feature_decks_back),
-                        )
-                    }
-                },
+                navigationIcon = { BackButton(onBack) },
                 actions = {
                     if (uiState is DeckUiState.Success) {
                         Box {
@@ -151,7 +137,7 @@ internal fun DeckScreen(
             ) {
                 item(key = "header") { DeckHeader(uiState.overview, onStudy) }
                 item(key = "divider") { HorizontalDivider(modifier = Modifier.padding(top = 8.dp)) }
-                items(uiState.words, key = { it.id }) { word -> WordRow(word, onClick = { onWordClick(word) }) }
+                items(uiState.words, key = { it.id }) { word -> WordSummaryRow(word, onClick = { onWordClick(word) }) }
             }
         }
     }
@@ -193,57 +179,29 @@ private fun DeckHeader(overview: DeckOverview, onStudy: (practice: Boolean, quiz
         )
         MasteryProgressBar(overview.counts, height = 10.dp)
         MasteryLegend(overview.counts)
-        if (overview.isCaughtUp) {
+        // Once caught up, the deck can still be practiced.
+        val practice = overview.isCaughtUp
+        if (practice) {
             Text(
                 text = stringResource(R.string.feature_decks_caught_up_message),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            if (practice) {
                 OutlinedButton(onClick = { onStudy(true, false) }, modifier = Modifier.weight(1f)) {
                     Text(stringResource(R.string.feature_decks_practice))
                 }
-                OutlinedButton(onClick = { onStudy(true, true) }) {
-                    Text(stringResource(R.string.feature_decks_quiz))
-                }
-            }
-        } else {
-            val cards = overview.counts.new + overview.dueCount
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            } else {
+                val cards = overview.counts.new + overview.dueCount
                 Button(onClick = { onStudy(false, false) }, modifier = Modifier.weight(1f)) {
                     Text(pluralStringResource(R.plurals.feature_decks_study, cards, cards))
                 }
-                OutlinedButton(onClick = { onStudy(false, true) }) {
-                    Text(stringResource(R.string.feature_decks_quiz))
-                }
+            }
+            OutlinedButton(onClick = { onStudy(practice, true) }) {
+                Text(stringResource(R.string.feature_decks_quiz))
             }
         }
     }
-}
-
-@Composable
-private fun WordRow(word: WordSummary, onClick: () -> Unit) {
-    ListItem(
-        headlineContent = { Text(word.headword, style = VocabuilderTheme.wordTypography.title) },
-        supportingContent = {
-            Text(
-                text = "${word.partOfSpeech.label(short = true)} ${word.definition}",
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-        },
-        trailingContent = {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (word.progress.starred) {
-                    Icon(
-                        imageVector = Icons.Filled.Star,
-                        contentDescription = stringResource(R.string.feature_decks_starred),
-                        tint = MaterialTheme.colorScheme.tertiary,
-                    )
-                }
-                MasteryPill(word.progress)
-            }
-        },
-        modifier = Modifier.clickable(role = Role.Button, onClick = onClick),
-    )
 }

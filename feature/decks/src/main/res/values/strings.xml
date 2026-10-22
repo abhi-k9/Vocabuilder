@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="feature_decks_title">Decks</string>
-    <string name="feature_decks_back">Back</string>
     <string name="feature_decks_more">More options</string>
-    <plurals name="feature_decks_pack_progress">
-        <item quantity="one">%1$d of %2$d word mastered</item>
-        <item quantity="other">%1$d of %2$d words mastered</item>
-    </plurals>
     <plurals name="feature_decks_due">
         <item quantity="one">%d to review</item>
         <item quantity="other">%d to review</item>
@@ -37,6 +32,5 @@
     <string name="feature_decks_reset_message">Your progress on its words, including stars and words marked as known, will be lost.</string>
     <string name="feature_decks_reset_confirm">Reset</string>
     <string name="feature_decks_cancel">Cancel</string>
-    <string name="feature_decks_starred">Starred</string>
     <string name="feature_decks_not_found">This deck no longer exists.</string>
 </resources>

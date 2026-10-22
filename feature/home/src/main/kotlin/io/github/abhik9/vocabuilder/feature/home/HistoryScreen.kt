@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -24,7 +23,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -52,6 +50,7 @@ import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.DayActivity
 import io.github.abhik9.vocabuilder.core.model.History
 import io.github.abhik9.vocabuilder.core.model.WordSummary
+import io.github.abhik9.vocabuilder.core.ui.BackButton
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.roundToInt
@@ -82,14 +81,7 @@ internal fun HistoryScreen(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.feature_home_history)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.feature_home_back),
-                        )
-                    }
-                },
+                navigationIcon = { BackButton(onBack) },
             )
         },
     ) { innerPadding ->

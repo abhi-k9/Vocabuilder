@@ -14,11 +14,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
@@ -26,7 +22,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -48,7 +43,10 @@ import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.Sense
 import io.github.abhik9.vocabuilder.core.model.WordProgress
+import io.github.abhik9.vocabuilder.core.ui.BackButton
 import io.github.abhik9.vocabuilder.core.ui.MasteryPill
+import io.github.abhik9.vocabuilder.core.ui.PronounceButton
+import io.github.abhik9.vocabuilder.core.ui.StarButton
 import io.github.abhik9.vocabuilder.core.ui.WordMeaningSheet
 import io.github.abhik9.vocabuilder.core.ui.label
 import io.github.abhik9.vocabuilder.core.ui.title
@@ -105,25 +103,10 @@ internal fun WordScreen(
         topBar = {
             TopAppBar(
                 title = {},
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.feature_words_back),
-                        )
-                    }
-                },
+                navigationIcon = { BackButton(onBack) },
                 actions = {
                     if (uiState is WordUiState.Success) {
-                        val starred = uiState.word.progress.starred
-                        IconButton(onClick = onToggleStar) {
-                            Icon(
-                                imageVector = if (starred) Icons.Filled.Star else Icons.Outlined.StarBorder,
-                                contentDescription = stringResource(
-                                    if (starred) R.string.feature_words_unstar else R.string.feature_words_star,
-                                ),
-                            )
-                        }
+                        StarButton(starred = uiState.word.progress.starred, onToggle = onToggleStar)
                     }
                 },
             )
@@ -184,14 +167,7 @@ private fun WordContent(
                     style = VocabuilderTheme.wordTypography.display,
                     modifier = Modifier.weight(1f, fill = false),
                 )
-                if (canPronounce) {
-                    IconButton(onClick = onPronounce) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.VolumeUp,
-                            contentDescription = stringResource(R.string.feature_words_pronounce),
-                        )
-                    }
-                }
+                if (canPronounce) PronounceButton(onPronounce)
             }
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),

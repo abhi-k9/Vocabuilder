@@ -11,12 +11,7 @@
     </plurals>
     <string name="feature_words_no_results_title">No words found</string>
     <string name="feature_words_no_results_message">Try another spelling, or search for a word in its meaning.</string>
-    <string name="feature_words_starred">Starred</string>
 
-    <string name="feature_words_back">Back</string>
-    <string name="feature_words_pronounce">Say the word</string>
-    <string name="feature_words_star">Star this word</string>
-    <string name="feature_words_unstar">Remove the star</string>
     <string name="feature_words_synonyms">Synonyms</string>
     <string name="feature_words_antonyms">Antonyms</string>
     <string name="feature_words_progress">Your progress</string>

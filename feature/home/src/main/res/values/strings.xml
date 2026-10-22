@@ -36,10 +36,6 @@
     <string name="feature_home_study">Study</string>
 
     <string name="feature_home_progress_title">Your progress</string>
-    <plurals name="feature_home_progress">
-        <item quantity="one">%1$d of %2$d word mastered</item>
-        <item quantity="other">%1$d of %2$d words mastered</item>
-    </plurals>
     <string name="feature_home_all_decks">See all decks</string>
 
     <!-- Days in a row with answers. -->
@@ -48,7 +44,6 @@
         <item quantity="other">%d-day streak</item>
     </plurals>
     <string name="feature_home_history">Your history</string>
-    <string name="feature_home_back">Back</string>
     <string name="feature_home_history_empty_title">No answers yet</string>
     <string name="feature_home_history_empty">Answer a few cards, and your streak and answers show up here.</string>
     <string name="feature_home_current_streak">Current streak</string>

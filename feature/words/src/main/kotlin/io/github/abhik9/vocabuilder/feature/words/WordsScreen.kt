@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,13 +14,11 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -34,14 +31,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.abhik9.vocabuilder.core.designsystem.component.EmptyState
-import io.github.abhik9.vocabuilder.core.designsystem.theme.VocabuilderTheme
 import io.github.abhik9.vocabuilder.core.model.MasteryState
 import io.github.abhik9.vocabuilder.core.model.WordSummary
-import io.github.abhik9.vocabuilder.core.ui.MasteryPill
+import io.github.abhik9.vocabuilder.core.ui.WordSummaryRow
 import io.github.abhik9.vocabuilder.core.ui.label
 
 @Composable
@@ -142,40 +137,13 @@ internal fun WordsScreen(
                             )
                         }
                         items(uiState.words, key = { it.id }) { word ->
-                            WordRow(word = word, onClick = { onWordClick(word) })
+                            WordSummaryRow(word = word, onClick = { onWordClick(word) })
                         }
                     }
                 }
             }
         }
     }
-}
-
-@Composable
-private fun WordRow(word: WordSummary, onClick: () -> Unit) {
-    ListItem(
-        headlineContent = { Text(word.headword, style = VocabuilderTheme.wordTypography.title) },
-        supportingContent = {
-            Text(
-                text = "${word.partOfSpeech.label(short = true)} ${word.definition}",
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-        },
-        trailingContent = {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (word.progress.starred) {
-                    Icon(
-                        imageVector = Icons.Filled.Star,
-                        contentDescription = stringResource(R.string.feature_words_starred),
-                        tint = MaterialTheme.colorScheme.tertiary,
-                    )
-                }
-                MasteryPill(word.progress)
-            }
-        },
-        modifier = Modifier.clickableRow(onClick),
-    )
 }
 
 @Composable

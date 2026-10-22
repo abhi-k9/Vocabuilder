@@ -28,6 +28,10 @@
 
     <string name="core_ui_sense_number">%1$d.</string>
     <string name="core_ui_pronounce">Say the word</string>
+    <string name="core_ui_back">Back</string>
+    <string name="core_ui_star">Star this word</string>
+    <string name="core_ui_unstar">Remove the star</string>
+    <string name="core_ui_starred">Starred</string>
     <string name="core_ui_no_meaning">There\'s no meaning to show for this word.</string>
     <!-- Required by the license of Open English WordNet, the dictionary of synonyms and antonyms. -->
     <string name="core_ui_wordnet_credit">From Open English WordNet, under CC BY 4.0</string>

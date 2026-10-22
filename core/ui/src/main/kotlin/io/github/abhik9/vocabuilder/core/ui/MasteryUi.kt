@@ -65,15 +65,16 @@ fun MasteryPill(progress: WordProgress, modifier: Modifier = Modifier) {
     )
 }
 
+/** "12 of 50 words mastered". */
+@Composable
+@ReadOnlyComposable
+fun MasteryCounts.masteredText(): String =
+    pluralStringResource(R.plurals.core_ui_progress_description, total, mastered, total)
+
 /** Mastered, reviewing and learning words as segments of a bar, on a track for new words. */
 @Composable
 fun MasteryProgressBar(counts: MasteryCounts, modifier: Modifier = Modifier, height: Dp = 8.dp) {
-    val description = pluralStringResource(
-        R.plurals.core_ui_progress_description,
-        counts.total,
-        counts.mastered,
-        counts.total,
-    )
+    val description = counts.masteredText()
     SegmentedProgressBar(
         segments = listOf(
             ProgressSegment(counts.mastered, MasteryState.MASTERED.colors().accent),

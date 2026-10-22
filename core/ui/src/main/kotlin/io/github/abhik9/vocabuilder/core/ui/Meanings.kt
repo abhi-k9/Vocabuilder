@@ -7,11 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -86,14 +82,7 @@ fun WordMeaningSheet(
                     style = VocabuilderTheme.wordTypography.title,
                     modifier = Modifier.weight(1f, fill = false),
                 )
-                if (canPronounce) {
-                    IconButton(onClick = onPronounce) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.VolumeUp,
-                            contentDescription = stringResource(R.string.core_ui_pronounce),
-                        )
-                    }
-                }
+                if (canPronounce) PronounceButton(onPronounce)
             }
             if (meanings.isEmpty()) {
                 Text(

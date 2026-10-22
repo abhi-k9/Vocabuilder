@@ -36,6 +36,7 @@ import io.github.abhik9.vocabuilder.core.model.DeckOverview
 import io.github.abhik9.vocabuilder.core.model.TodayOverview
 import io.github.abhik9.vocabuilder.core.ui.MasteryLegend
 import io.github.abhik9.vocabuilder.core.ui.MasteryProgressBar
+import io.github.abhik9.vocabuilder.core.ui.masteredText
 import io.github.abhik9.vocabuilder.core.ui.title
 
 @Composable
@@ -205,15 +206,7 @@ private fun StudySetCard(icon: ImageVector, text: String, onStudy: () -> Unit) {
 private fun ProgressCard(today: TodayOverview, onOpenDecks: () -> Unit, onOpenHistory: () -> Unit) {
     HomeCard {
         Text(stringResource(R.string.feature_home_progress_title), style = MaterialTheme.typography.titleLarge)
-        Text(
-            text = pluralStringResource(
-                R.plurals.feature_home_progress,
-                today.counts.total,
-                today.counts.mastered,
-                today.counts.total,
-            ),
-            style = MaterialTheme.typography.bodyLarge,
-        )
+        Text(today.counts.masteredText(), style = MaterialTheme.typography.bodyLarge)
         MasteryProgressBar(today.counts, height = 10.dp)
         MasteryLegend(today.counts)
         Row(modifier = Modifier.align(Alignment.End)) {

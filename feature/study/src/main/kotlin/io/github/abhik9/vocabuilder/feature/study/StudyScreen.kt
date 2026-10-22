@@ -15,11 +15,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
-import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -53,6 +50,8 @@ import io.github.abhik9.vocabuilder.core.model.CardFront
 import io.github.abhik9.vocabuilder.core.model.Deck
 import io.github.abhik9.vocabuilder.core.model.DictionarySource
 import io.github.abhik9.vocabuilder.core.model.StudyMode
+import io.github.abhik9.vocabuilder.core.ui.PronounceButton
+import io.github.abhik9.vocabuilder.core.ui.StarButton
 import io.github.abhik9.vocabuilder.core.ui.WordMeaningSheet
 import io.github.abhik9.vocabuilder.core.ui.title
 
@@ -139,26 +138,8 @@ internal fun StudyScreen(
                 },
                 actions = {
                     if (uiState is StudyUiState.Studying) {
-                        if (canPronounce) {
-                            IconButton(onClick = onPronounce) {
-                                Icon(
-                                    Icons.AutoMirrored.Filled.VolumeUp,
-                                    contentDescription = stringResource(R.string.feature_study_pronounce),
-                                )
-                            }
-                        }
-                        IconButton(onClick = onToggleStar) {
-                            Icon(
-                                imageVector = if (uiState.isStarred) Icons.Filled.Star else Icons.Outlined.StarBorder,
-                                contentDescription = stringResource(
-                                    if (uiState.isStarred) {
-                                        R.string.feature_study_unstar
-                                    } else {
-                                        R.string.feature_study_star
-                                    },
-                                ),
-                            )
-                        }
+                        if (canPronounce) PronounceButton(onPronounce)
+                        StarButton(starred = uiState.isStarred, onToggle = onToggleStar)
                         IconButton(onClick = onUndo, enabled = uiState.canUndo) {
                             Icon(
                                 Icons.AutoMirrored.Filled.Undo,

@@ -40,6 +40,7 @@ import io.github.abhik9.vocabuilder.core.ui.MasteryLegend
 import io.github.abhik9.vocabuilder.core.ui.MasteryProgressBar
 import io.github.abhik9.vocabuilder.core.ui.colors
 import io.github.abhik9.vocabuilder.core.ui.heading
+import io.github.abhik9.vocabuilder.core.ui.masteredText
 import io.github.abhik9.vocabuilder.core.ui.shortTitle
 
 @Composable
@@ -106,15 +107,7 @@ private fun PackHeader(section: PackSection) {
     ) {
         Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(section.pack.name, style = MaterialTheme.typography.headlineSmall)
-            Text(
-                text = pluralStringResource(
-                    R.plurals.feature_decks_pack_progress,
-                    section.counts.total,
-                    section.counts.mastered,
-                    section.counts.total,
-                ),
-                style = MaterialTheme.typography.bodyMedium,
-            )
+            Text(section.counts.masteredText(), style = MaterialTheme.typography.bodyMedium)
             MasteryProgressBar(section.counts, height = 10.dp)
             MasteryLegend(section.counts)
         }
