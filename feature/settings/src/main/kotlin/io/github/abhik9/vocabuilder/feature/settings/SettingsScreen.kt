@@ -111,15 +111,42 @@ internal fun SettingsRoute(viewModel: SettingsViewModel) {
         ActivityResultContracts.CreateDocument(DIAGNOSTICS_MIME_TYPE),
     ) { uri -> uri?.let { viewModel.exportDiagnosticsTo(it.toString()) } }
 
-    // The reminder needs Android's permission to notify, asked for as it's turned on. Once refused for good, Android
-    // no longer asks, so the snackbar offers its notification settings.
+    SettingsScreen(
+        settings = settings,
+        diagnostics = diagnostics,
+        appInfo = viewModel.appInfo,
+        snackbarHostState = snackbarHostState,
+        onThemeModeChange = viewModel::setThemeMode,
+        onDynamicColorChange = viewModel::setUseDynamicColor,
+        onNewWordsPerDayChange = viewModel::setNewWordsPerDay,
+        onCardFrontChange = viewModel::setCardFront,
+        onAutoPronounceChange = viewModel::setAutoPronounce,
+        onShuffleChange = viewModel::setShuffleCards,
+        onReminderChange = rememberReminderToggle(snackbarHostState, viewModel::setReminderEnabled),
+        onReminderTimeChange = viewModel::setReminderTime,
+        onResetAllProgress = viewModel::resetAllProgress,
+        onDiagnosticsRecordingChange = viewModel::setDiagnosticsRecording,
+        onExportDiagnostics = { diagnosticsExportLauncher.launch(viewModel.suggestedDiagnosticsFileName) },
+        onClearDiagnostics = viewModel::clearDiagnostics,
+    )
+}
+
+/**
+ * Turns the reminder on or off with [setEnabled]. Turning it on first asks for Android's permission to notify, if it
+ * isn't granted yet; once it's refused for good, Android no longer asks, so a snackbar offers the app's notification
+ * settings instead.
+ */
+@Composable
+private fun rememberReminderToggle(
+    snackbarHostState: SnackbarHostState,
+    setEnabled: (Boolean) -> Unit,
+): (Boolean) -> Unit {
     val context = LocalContext.current
+    val resources by rememberUpdatedState(LocalResources.current)
     val scope = rememberCoroutineScope()
-    val notificationPermissionLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission(),
-    ) { granted ->
+    val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         if (granted) {
-            viewModel.setReminderEnabled(true)
+            setEnabled(true)
         } else {
             scope.launch {
                 val result = snackbarHostState.showSnackbar(
@@ -135,41 +162,19 @@ internal fun SettingsRoute(viewModel: SettingsViewModel) {
             }
         }
     }
-    val onReminderChange: (Boolean) -> Unit = { enabled ->
+    return { enabled ->
         val mustAsk = enabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
             ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) !=
             PackageManager.PERMISSION_GRANTED
-        if (mustAsk) {
-            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-        } else {
-            viewModel.setReminderEnabled(enabled)
-        }
+        if (mustAsk) permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS) else setEnabled(enabled)
     }
-
-    SettingsScreen(
-        settings = settings,
-        appInfo = viewModel.appInfo,
-        snackbarHostState = snackbarHostState,
-        onThemeModeChange = viewModel::setThemeMode,
-        onDynamicColorChange = viewModel::setUseDynamicColor,
-        onNewWordsPerDayChange = viewModel::setNewWordsPerDay,
-        onCardFrontChange = viewModel::setCardFront,
-        onAutoPronounceChange = viewModel::setAutoPronounce,
-        onShuffleChange = viewModel::setShuffleCards,
-        onReminderChange = onReminderChange,
-        onReminderTimeChange = viewModel::setReminderTime,
-        onResetAllProgress = viewModel::resetAllProgress,
-        diagnostics = diagnostics,
-        onDiagnosticsRecordingChange = viewModel::setDiagnosticsRecording,
-        onExportDiagnostics = { diagnosticsExportLauncher.launch(viewModel.suggestedDiagnosticsFileName) },
-        onClearDiagnostics = viewModel::clearDiagnostics,
-    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SettingsScreen(
     settings: UserSettings?,
+    diagnostics: DiagnosticsState,
     appInfo: AppInfo,
     snackbarHostState: SnackbarHostState,
     onThemeModeChange: (ThemeMode) -> Unit,
@@ -181,7 +186,6 @@ internal fun SettingsScreen(
     onReminderChange: (Boolean) -> Unit,
     onReminderTimeChange: (LocalTime) -> Unit,
     onResetAllProgress: () -> Unit,
-    diagnostics: DiagnosticsState,
     onDiagnosticsRecordingChange: (Boolean) -> Unit,
     onExportDiagnostics: () -> Unit,
     onClearDiagnostics: () -> Unit,
@@ -303,6 +307,30 @@ private fun ReminderTimeDialog(
     )
 }
 
+/** One of [options] to pick, as a row of segmented buttons. */
+@Composable
+private fun <T> SegmentedChoices(
+    options: List<T>,
+    selected: T,
+    onSelect: (T) -> Unit,
+    label: @Composable (T) -> String,
+) {
+    SingleChoiceSegmentedButtonRow(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp),
+    ) {
+        options.forEachIndexed { index, option ->
+            SegmentedButton(
+                selected = option == selected,
+                onClick = { onSelect(option) },
+                shape = SegmentedButtonDefaults.itemShape(index, options.size),
+                label = { Text(label(option)) },
+            )
+        }
+    }
+}
+
 @Composable
 private fun AppearanceSection(
     settings: UserSettings,
@@ -314,20 +342,7 @@ private fun AppearanceSection(
         headlineContent = { Text(stringResource(R.string.feature_settings_theme)) },
         leadingContent = { Icon(Icons.Outlined.DarkMode, contentDescription = null) },
         supportingContent = {
-            SingleChoiceSegmentedButtonRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 8.dp),
-            ) {
-                ThemeMode.entries.forEachIndexed { index, mode ->
-                    SegmentedButton(
-                        selected = settings.themeMode == mode,
-                        onClick = { onThemeModeChange(mode) },
-                        shape = SegmentedButtonDefaults.itemShape(index, ThemeMode.entries.size),
-                        label = { Text(mode.label()) },
-                    )
-                }
-            }
+            SegmentedChoices(ThemeMode.entries, settings.themeMode, onThemeModeChange) { it.label() }
         },
     )
     if (supportsDynamicTheming()) {
@@ -357,20 +372,7 @@ private fun StudySection(
         supportingContent = {
             Column {
                 Text(stringResource(R.string.feature_settings_card_front_summary))
-                SingleChoiceSegmentedButtonRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 8.dp),
-                ) {
-                    CardFront.entries.forEachIndexed { index, front ->
-                        SegmentedButton(
-                            selected = settings.cardFront == front,
-                            onClick = { onCardFrontChange(front) },
-                            shape = SegmentedButtonDefaults.itemShape(index, CardFront.entries.size),
-                            label = { Text(front.label()) },
-                        )
-                    }
-                }
+                SegmentedChoices(CardFront.entries, settings.cardFront, onCardFrontChange) { it.label() }
             }
         },
     )
